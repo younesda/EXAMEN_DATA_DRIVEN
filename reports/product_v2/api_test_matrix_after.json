@@ -1,0 +1,1203 @@
+{
+  "phase": "apres correction (local) ; Render non redeploye",
+  "generated_at": "2026-08-21T15:15:14",
+  "note_render": "Render sert toujours le commit anterieur a l'interface et exige une cle API : ses resultats sont inchanges par conception, aucun deploiement n'ayant ete autorise.",
+  "targets": {
+    "local": {
+      "target": "http://127.0.0.1:8013",
+      "label": "local_after",
+      "generated_at": "2026-08-21T15:15:14",
+      "n_scenarios": 38,
+      "n_as_expected": 38,
+      "n_unexpected": 0,
+      "n_http_500": 0,
+      "results": [
+        {
+          "id": "health",
+          "path": "/health",
+          "method": "GET",
+          "note": "processus vivant",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.095,
+          "response_excerpt": "{\"status\":\"ok\"}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "ready",
+          "path": "/ready",
+          "method": "GET",
+          "note": "modeles charges",
+          "expected_status": [
+            200,
+            503
+          ],
+          "status": 200,
+          "elapsed_s": 0.003,
+          "response_excerpt": "{\"status\":\"ready\",\"checks\":{\"models_loaded\":true,\"metadata_present\":true,\"sha256_valid\":true,\"versions_consistent\":true,\"forecast_available\":true}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "version",
+          "path": "/version",
+          "method": "GET",
+          "note": "version API et commit",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.003,
+          "response_excerpt": "{\"api_version\":\"1.0.0\",\"bundle_version\":\"1.0.0\",\"model_version\":\"1.0.0\",\"commit\":\"c77a04f\",\"environment\":\"demo\",\"ready\":true}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "metrics",
+          "path": "/metrics",
+          "method": "GET",
+          "note": "metriques officielles centralisees",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.021,
+          "response_excerpt": "{\"source\":\"models/FINAL_STATUS.json + models/api_bundle/metadata.json\",\"corrected_after_audit\":true,\"data_nature\":\"Données synthétiques — projet académique\",\"perimeter_warning\":\"Les métriques de recommandation générale et de complément panier portent sur des tâches, des populations et des cibles différentes. Elles ne doivent jamais être comparées ni présentées l'une pour l'autre.\",\"domains\":[{\"key",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "models",
+          "path": "/models",
+          "method": "GET",
+          "note": "modeles exposes et statuts",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"active_models\":[\"popularite_globale\",\"lgbm_tweedie_moyenne\"],\"models\":[{\"key\":\"forecasting_30d\",\"name\":\"LightGBM_direct_per_horizon\",\"domain\":\"forecasting\",\"status\":\"validated\",\"exposed\":true,\"usage\":\"planification cumulée 30 jours\"},{\"key\":\"forecasting_daily\",\"name\":\"CrostonOptimized\",\"domain\":\"forecasting\",\"status\":\"validated\",\"exposed\":false,\"usage\":\"opération quotidienne, non exposée par l'A",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "models_status_v1",
+          "path": "/api/v1/models/status",
+          "method": "GET",
+          "note": "endpoint modeles existant",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.026,
+          "response_excerpt": "{\"bundle_version\":\"1.0.0\",\"model_version\":\"1.0.0\",\"generated_at\":\"2026-08-18T19:34:49.878026+00:00\",\"source_sha256\":{\"FINAL_STATUS.json\":\"a33747a4d483528f9c0d900e39f21e17f09f463656c5fe21acfc1099525eea1b\",\"pricing_metadata.json\":\"3f395cc48c260c9ad58ae83a3138707b59c2395d5f3d4652d559a07fb483fc30\",\"general_recommender.joblib\":\"efced5a4a01530c449f963d7b7a6232a5a119830e85351ccfccd442f13a7dcd5\"},\"active_",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "docs",
+          "path": "/docs",
+          "method": "GET",
+          "note": "documentation Swagger",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.013,
+          "response_excerpt": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css\">\n    <link rel=\"shortcut icon\" href=\"https://fastapi.tiangolo.com/img/favicon.png\">\n    <title>E-commerce Recommendation & Pricing API - Swagger UI</title>\n    </head>\n  ",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "openapi",
+          "path": "/openapi.json",
+          "method": "GET",
+          "note": "schema OpenAPI",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"E-commerce Recommendation & Pricing API\",\"description\":\"Baselines de recommandation et simulations pricing exploratoires non causales.\",\"version\":\"1.0.0\"},\"paths\":{\"/health\":{\"get\":{\"tags\":[\"health\"],\"summary\":\"Health\",\"operationId\":\"health_health_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}}}}},\"/read",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "ui_root",
+          "path": "/",
+          "method": "GET",
+          "note": "interface web",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.03,
+          "response_excerpt": "<!doctype html>\n<html lang=\"fr\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Prévision, remise et recommandation — Console V2</title>\n<meta name=\"description\" content=\"Console de démonstration des modèles V2 corrigés : prévision de la demande, simulation de remise et recommandation de produits.\">\n<link rel=\"stylesheet\" href=\"/static/sty",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "route_absente",
+          "path": "/api/v1/inexistant",
+          "method": "GET",
+          "note": "routage inconnu",
+          "expected_status": [
+            404
+          ],
+          "status": 404,
+          "elapsed_s": 0.03,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"La ressource demandée n'existe pas.\",\"details\":{},\"request_id\":\"39935fbe-e790-486b-94f3-64605e215709\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "catalogue",
+          "path": "/api/v1/catalog/products",
+          "method": "GET",
+          "note": "catalogue produit",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.019,
+          "response_excerpt": "{\"request_id\":\"27badf47-4154-46c4-bddc-9fcc6640dd28\",\"total\":300,\"returned\":300,\"products\":[{\"product_key\":\"PRD000127\",\"catalog_price_xof\":4840.0,\"cost_xof\":4239.0,\"supported_discounts_pct\":[0.0,10.0,15.0,25.0],\"popularity_rank\":1,\"has_forecast\":true},{\"product_key\":\"PRD000180\",\"catalog_price_xof\":11390.0,\"cost_xof\":9347.0,\"supported_discounts_pct\":[0.0,10.0,15.0,25.0],\"popularity_rank\":2,\"has_for",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "recherche_produit",
+          "path": "/api/v1/catalog/search?q=PRD0000",
+          "method": "GET",
+          "note": "autocompletion produit",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"request_id\":\"1cfbaf96-7852-409f-abbf-03700b5b39fe\",\"total\":100,\"returned\":20,\"products\":[{\"product_key\":\"PRD000070\",\"catalog_price_xof\":10910.0,\"cost_xof\":8781.0,\"supported_discounts_pct\":[0.0,10.0,15.0,25.0],\"popularity_rank\":5,\"has_forecast\":true},{\"product_key\":\"PRD000095\",\"catalog_price_xof\":211490.0,\"cost_xof\":169119.0,\"supported_discounts_pct\":[0.0,5.0,10.0,15.0,20.0,25.0],\"popularity_rank",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_valide",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "requete valide",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"request_id\":\"27cfaefb-4cdf-422e-8571-baee55c4daf6\",\"recommendations\":[{\"rank\":1,\"product_key\":\"PRD000127\",\"score\":1.0,\"reason\":\"popularite_globale\"},{\"rank\":2,\"product_key\":\"PRD000180\",\"score\":0.99450549,\"reason\":\"popularite_globale\"},{\"rank\":3,\"product_key\":\"PRD000252\",\"score\":0.98979592,\"reason\":\"popularite_globale\"},{\"rank\":4,\"product_key\":\"PRD000243\",\"score\":0.93799058,\"reason\":\"popularite_g",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_corps_vide",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "corps vide, defauts appliques",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"request_id\":\"bdb5e849-e90d-4e17-9ecf-cd08ee6b6605\",\"recommendations\":[{\"rank\":1,\"product_key\":\"PRD000127\",\"score\":1.0,\"reason\":\"popularite_globale\"},{\"rank\":2,\"product_key\":\"PRD000180\",\"score\":0.99450549,\"reason\":\"popularite_globale\"},{\"rank\":3,\"product_key\":\"PRD000252\",\"score\":0.98979592,\"reason\":\"popularite_globale\"},{\"rank\":4,\"product_key\":\"PRD000243\",\"score\":0.93799058,\"reason\":\"popularite_g",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_k_invalide",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "borne k invalide",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"k\"],\"type\":\"greater_than_equal\",\"msg\":\"Input should be greater than or equal to 1\"}],\"request_id\":\"d6a5dd9e-988d-40a0-b9c0-ee7247f5013a\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_k_trop_grand",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "borne k invalide",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"k\"],\"type\":\"less_than_equal\",\"msg\":\"Input should be less than or equal to 50\"}],\"request_id\":\"c930456c-0d06-4037-a54f-51666a0176e9\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_mauvais_type",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "mauvais type",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"k\"],\"type\":\"int_type\",\"msg\":\"Input should be a valid integer\"}],\"request_id\":\"25e0310f-f3fa-4df3-8892-f8411115eb42\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_champ_inconnu",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "extra interdit",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"champ_inexistant\"],\"type\":\"extra_forbidden\",\"msg\":\"Extra inputs are not permitted\"}],\"request_id\":\"c8e74784-af44-4f81-9a70-97356b0ae078\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_produit_inexistant",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "identifiant produit inexistant",
+          "expected_status": [
+            400,
+            404
+          ],
+          "status": 400,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"PRODUCT_NOT_FOUND\",\"message\":\"La liste éligible contient des produits inconnus\",\"details\":{},\"request_id\":\"2236f0ec-973e-46e8-8e91-a90fdceb13b7\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_client_inexistant",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "identifiant client inexistant",
+          "expected_status": [
+            200,
+            404
+          ],
+          "status": 200,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"request_id\":\"e39d1796-4c34-489a-bfc6-7daef935a843\",\"recommendations\":[{\"rank\":1,\"product_key\":\"PRD000127\",\"score\":1.0,\"reason\":\"popularite_globale\"},{\"rank\":2,\"product_key\":\"PRD000180\",\"score\":0.99450549,\"reason\":\"popularite_globale\"},{\"rank\":3,\"product_key\":\"PRD000252\",\"score\":0.98979592,\"reason\":\"popularite_globale\"},{\"rank\":4,\"product_key\":\"PRD000243\",\"score\":0.93799058,\"reason\":\"popularite_g",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "reco_json_malforme",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "JSON malforme",
+          "expected_status": [
+            400,
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.014,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",1],\"type\":\"json_invalid\",\"msg\":\"JSON decode error\"}],\"request_id\":\"8f26df68-84ef-4350-b5fa-e29218410043\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "panier_valide",
+          "path": "/api/v1/recommendations/basket",
+          "method": "POST",
+          "note": "requete valide",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"request_id\":\"450c4a1c-b017-47b0-8424-aab560fd859f\",\"recommendations\":[{\"rank\":1,\"product_key\":\"PRD000127\",\"score\":1.0,\"reason\":\"popularite_globale\"},{\"rank\":2,\"product_key\":\"PRD000180\",\"score\":0.99450549,\"reason\":\"popularite_globale\"},{\"rank\":3,\"product_key\":\"PRD000252\",\"score\":0.98979592,\"reason\":\"popularite_globale\"},{\"rank\":4,\"product_key\":\"PRD000243\",\"score\":0.93799058,\"reason\":\"popularite_g",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "panier_vide",
+          "path": "/api/v1/recommendations/basket",
+          "method": "POST",
+          "note": "liste vide",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.028,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"product_keys\"],\"type\":\"too_short\",\"msg\":\"List should have at least 1 item after validation, not 0\"}],\"request_id\":\"23a415c7-4f41-4e8c-9836-7dca61bd3626\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "panier_produit_inexistant",
+          "path": "/api/v1/recommendations/basket",
+          "method": "POST",
+          "note": "produit inexistant",
+          "expected_status": [
+            404
+          ],
+          "status": 404,
+          "elapsed_s": 0.017,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"PRODUCT_NOT_FOUND\",\"message\":\"Produit du panier inconnu\",\"details\":{\"product_keys\":[\"PRD999999\"]},\"request_id\":\"1f96e113-14de-48da-bf0f-35e6d099a8d9\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "session_non_utilisable",
+          "path": "/api/v1/recommendations/session",
+          "method": "POST",
+          "note": "modele non utilisable",
+          "expected_status": [
+            501
+          ],
+          "status": 501,
+          "elapsed_s": 0.014,
+          "response_excerpt": "{\"request_id\":\"d7e2b82f-9346-4fa7-8c4f-037a005dc733\",\"error\":{\"code\":\"session_model_unavailable\",\"message\":\"Le modèle sessionnel n'est pas utilisable.\"},\"session_model_status\":\"non_utilisable\"}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_valide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "requete valide",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"request_id\":\"2e6abbcd-adac-4098-b915-ea389e577936\",\"product_key\":\"PRD000000\",\"decision_date\":\"2026-07-15\",\"simulations\":[{\"discount_pct\":0.0,\"catalog_price_xof\":211520.0,\"simulated_price_xof\":211520.0,\"cost_xof\":152550.0,\"predicted_quantity\":2.2694,\"expected_revenue_xof\":480016.86,\"expected_margin_xof\":133824.67,\"margin_rate\":0.2788,\"support_status\":\"supported\",\"simulation_status\":\"exploratory\",",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_corps_vide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "corps vide",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"product_key\"],\"type\":\"missing\",\"msg\":\"Field required\"},{\"loc\":[\"body\",\"decision_date\"],\"type\":\"missing\",\"msg\":\"Field required\"},{\"loc\":[\"body\",\"candidate_discounts_pct\"],\"type\":\"missing\",\"msg\":\"Field required\"}],\"request_id\":\"62e22055-6e0f-4094-bcd7-a47966d7671b\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_champs_manquants",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "champs manquants",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"decision_date\"],\"type\":\"missing\",\"msg\":\"Field required\"},{\"loc\":[\"body\",\"candidate_discounts_pct\"],\"type\":\"missing\",\"msg\":\"Field required\"}],\"request_id\":\"617145d6-be4d-4b91-86af-7a0fcb7ccdd7\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_produit_inexistant",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "produit inexistant",
+          "expected_status": [
+            404
+          ],
+          "status": 404,
+          "elapsed_s": 0.006,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"PRODUCT_NOT_FOUND\",\"message\":\"Produit inconnu\",\"details\":{},\"request_id\":\"88082c00-9453-4789-b86b-a9545a358cfa\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_remise_invalide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "remise hors bornes",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.007,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"candidate_discounts_pct\",0],\"type\":\"less_than_equal\",\"msg\":\"Input should be less than or equal to 100\"}],\"request_id\":\"68a6bf82-1745-44f0-bf92-7bc6d7c21596\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_remise_negative",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "remise negative",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.019,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"candidate_discounts_pct\",0],\"type\":\"greater_than_equal\",\"msg\":\"Input should be greater than or equal to 0\"}],\"request_id\":\"5237fb5b-b878-4092-8f1f-2527b5ed4032\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_remise_non_supportee",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "remise hors support historique",
+          "expected_status": [
+            409
+          ],
+          "status": 409,
+          "elapsed_s": 0.005,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"DISCOUNT_NOT_SUPPORTED\",\"message\":\"Remise non supportée historiquement\",\"details\":{\"discounts_pct\":[7.0]},\"request_id\":\"7dc18350-b79b-4048-80d1-ad7494d806f8\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_feature_interdite",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "feature contemporaine interdite",
+          "expected_status": [
+            400
+          ],
+          "status": 400,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"FORBIDDEN_FEATURE\",\"message\":\"Une feature contemporaine ou cible est interdite\",\"details\":{\"features\":[\"n_lignes\"]},\"request_id\":\"00dfa46c-5383-4961-9450-36213fa4fd3b\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_sans_features",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "contexte optionnel : repli sur le snapshot catalogue",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"request_id\":\"90f5c9d4-3e32-4d70-b43e-43bb64459c19\",\"product_key\":\"PRD000000\",\"decision_date\":\"2026-07-15\",\"simulations\":[{\"discount_pct\":0.0,\"catalog_price_xof\":211520.0,\"simulated_price_xof\":211520.0,\"cost_xof\":152550.0,\"predicted_quantity\":2.2645,\"expected_revenue_xof\":478988.33,\"expected_margin_xof\":133537.92,\"margin_rate\":0.2788,\"support_status\":\"supported\",\"simulation_status\":\"exploratory\",",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_date_invalide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "date invalide",
+          "expected_status": [
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"decision_date\"],\"type\":\"date_from_datetime_parsing\",\"msg\":\"Input should be a valid date or datetime, invalid character in year\"}],\"request_id\":\"ff21353c-f6e5-4e37-9f89-1baa900f56f7\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "pricing_nan",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "NaN dans les features",
+          "expected_status": [
+            400,
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"NON_FINITE_VALUE\",\"message\":\"Une valeur de contexte n'est pas un nombre fini\",\"details\":{\"features\":[\"stock_at_cutoff\"]},\"request_id\":\"5318498f-07fc-47e4-bf2a-dc105448cdf5\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "forecast_valide",
+          "path": "/api/v1/forecast",
+          "method": "POST",
+          "note": "forecasting expose ou non",
+          "expected_status": [
+            200,
+            404,
+            501
+          ],
+          "status": 200,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"request_id\":\"9bdadf07-0b4f-45d1-9b1d-7ba8a301b1ce\",\"product_key\":\"PRD000000\",\"horizon_days\":30,\"cutoff\":\"2026-07-01\",\"total_predicted_quantity\":22.2477,\"total_actual_quantity\":18.0,\"points\":[{\"date\":\"2026-07-02\",\"predicted_quantity\":0.6962,\"actual_quantity\":0.0},{\"date\":\"2026-07-03\",\"predicted_quantity\":0.7063,\"actual_quantity\":0.0},{\"date\":\"2026-07-04\",\"predicted_quantity\":0.8264,\"actual_quanti",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "forecast_horizon_invalide",
+          "path": "/api/v1/forecast",
+          "method": "POST",
+          "note": "horizon invalide",
+          "expected_status": [
+            422,
+            404,
+            501
+          ],
+          "status": 422,
+          "elapsed_s": 0.004,
+          "response_excerpt": "{\"success\":false,\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",\"horizon_days\"],\"type\":\"less_than_equal\",\"msg\":\"Input should be less than or equal to 30\"}],\"request_id\":\"0466cb90-ecbc-409f-806c-610d553c2ba2\"}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        }
+      ]
+    },
+    "render": {
+      "target": "https://examen-data-driven.onrender.com",
+      "label": "render_after",
+      "generated_at": "2026-08-21T15:15:45",
+      "n_scenarios": 38,
+      "n_as_expected": 8,
+      "n_unexpected": 30,
+      "n_http_500": 0,
+      "results": [
+        {
+          "id": "health",
+          "path": "/health",
+          "method": "GET",
+          "note": "processus vivant",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 22.559,
+          "response_excerpt": "{\"status\":\"ok\"}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "ready",
+          "path": "/ready",
+          "method": "GET",
+          "note": "modeles charges",
+          "expected_status": [
+            200,
+            503
+          ],
+          "status": 200,
+          "elapsed_s": 0.134,
+          "response_excerpt": "{\"status\":\"ready\",\"checks\":{\"models_loaded\":true,\"metadata_present\":true,\"sha256_valid\":true,\"versions_consistent\":true}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "version",
+          "path": "/version",
+          "method": "GET",
+          "note": "version API et commit",
+          "expected_status": [
+            200
+          ],
+          "status": 404,
+          "elapsed_s": 0.283,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "metrics",
+          "path": "/metrics",
+          "method": "GET",
+          "note": "metriques officielles centralisees",
+          "expected_status": [
+            200
+          ],
+          "status": 404,
+          "elapsed_s": 0.2,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "models",
+          "path": "/models",
+          "method": "GET",
+          "note": "modeles exposes et statuts",
+          "expected_status": [
+            200
+          ],
+          "status": 404,
+          "elapsed_s": 0.508,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "models_status_v1",
+          "path": "/api/v1/models/status",
+          "method": "GET",
+          "note": "endpoint modeles existant",
+          "expected_status": [
+            200
+          ],
+          "status": 401,
+          "elapsed_s": 0.208,
+          "response_excerpt": "{\"request_id\":\"a5b7bdd0-af29-4a24-96a6-088c8671d36b\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "docs",
+          "path": "/docs",
+          "method": "GET",
+          "note": "documentation Swagger",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.132,
+          "response_excerpt": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css\">\n    <link rel=\"shortcut icon\" href=\"https://fastapi.tiangolo.com/img/favicon.png\">\n    <title>E-commerce Recommendation & Pricing API - Swagger UI</title>\n    </head>\n  ",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "openapi",
+          "path": "/openapi.json",
+          "method": "GET",
+          "note": "schema OpenAPI",
+          "expected_status": [
+            200
+          ],
+          "status": 200,
+          "elapsed_s": 0.463,
+          "response_excerpt": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"E-commerce Recommendation & Pricing API\",\"description\":\"Baselines de recommandation et simulations pricing exploratoires non causales.\",\"version\":\"1.0.0\"},\"paths\":{\"/health\":{\"get\":{\"tags\":[\"health\"],\"summary\":\"Health\",\"operationId\":\"health_health_get\",\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}}}}},\"/read",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "ui_root",
+          "path": "/",
+          "method": "GET",
+          "note": "interface web",
+          "expected_status": [
+            200
+          ],
+          "status": 404,
+          "elapsed_s": 0.126,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "route_absente",
+          "path": "/api/v1/inexistant",
+          "method": "GET",
+          "note": "routage inconnu",
+          "expected_status": [
+            404
+          ],
+          "status": 404,
+          "elapsed_s": 0.125,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "catalogue",
+          "path": "/api/v1/catalog/products",
+          "method": "GET",
+          "note": "catalogue produit",
+          "expected_status": [
+            200
+          ],
+          "status": 404,
+          "elapsed_s": 0.34,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "recherche_produit",
+          "path": "/api/v1/catalog/search?q=PRD0000",
+          "method": "GET",
+          "note": "autocompletion produit",
+          "expected_status": [
+            200
+          ],
+          "status": 404,
+          "elapsed_s": 0.105,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_valide",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "requete valide",
+          "expected_status": [
+            200
+          ],
+          "status": 401,
+          "elapsed_s": 0.153,
+          "response_excerpt": "{\"request_id\":\"95013e6c-a271-4400-acd6-3db3f3f48ef1\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_corps_vide",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "corps vide, defauts appliques",
+          "expected_status": [
+            200
+          ],
+          "status": 401,
+          "elapsed_s": 0.114,
+          "response_excerpt": "{\"request_id\":\"f9a45861-d3ba-4680-98d1-875a79481f41\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_k_invalide",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "borne k invalide",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.138,
+          "response_excerpt": "{\"request_id\":\"0247add6-bb9f-4dac-966f-814cae4fb685\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_k_trop_grand",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "borne k invalide",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.113,
+          "response_excerpt": "{\"request_id\":\"eb525f48-4b4e-4f50-92fe-0449f232da46\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_mauvais_type",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "mauvais type",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.122,
+          "response_excerpt": "{\"request_id\":\"9d8b1856-85f6-4776-a246-c0f9b537300e\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_champ_inconnu",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "extra interdit",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.829,
+          "response_excerpt": "{\"request_id\":\"418995bd-3d40-4af3-acb1-270fb6054084\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_produit_inexistant",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "identifiant produit inexistant",
+          "expected_status": [
+            400,
+            404
+          ],
+          "status": 401,
+          "elapsed_s": 0.127,
+          "response_excerpt": "{\"request_id\":\"5bc85519-bb6a-470d-bd47-356c518a8e31\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_client_inexistant",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "identifiant client inexistant",
+          "expected_status": [
+            200,
+            404
+          ],
+          "status": 401,
+          "elapsed_s": 0.137,
+          "response_excerpt": "{\"request_id\":\"54224cbb-a282-4f28-9224-44b6d95d52b4\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "reco_json_malforme",
+          "path": "/api/v1/recommendations/general",
+          "method": "POST",
+          "note": "JSON malforme",
+          "expected_status": [
+            400,
+            422
+          ],
+          "status": 422,
+          "elapsed_s": 0.113,
+          "response_excerpt": "{\"request_id\":\"041a866b-7cd3-4bff-84a2-4a70a4909ead\",\"error\":{\"code\":\"validation_error\",\"message\":\"Requête invalide\",\"details\":[{\"loc\":[\"body\",1],\"type\":\"json_invalid\",\"msg\":\"JSON decode error\"}]}}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "panier_valide",
+          "path": "/api/v1/recommendations/basket",
+          "method": "POST",
+          "note": "requete valide",
+          "expected_status": [
+            200
+          ],
+          "status": 401,
+          "elapsed_s": 0.248,
+          "response_excerpt": "{\"request_id\":\"ecb5233e-5dda-424f-8908-080c3baa3ff7\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "panier_vide",
+          "path": "/api/v1/recommendations/basket",
+          "method": "POST",
+          "note": "liste vide",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.193,
+          "response_excerpt": "{\"request_id\":\"b4352974-3861-4494-96bf-b43b53f12cca\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "panier_produit_inexistant",
+          "path": "/api/v1/recommendations/basket",
+          "method": "POST",
+          "note": "produit inexistant",
+          "expected_status": [
+            404
+          ],
+          "status": 401,
+          "elapsed_s": 0.209,
+          "response_excerpt": "{\"request_id\":\"f3d50647-2efa-4fdd-bd4b-9c3e441d06a6\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "session_non_utilisable",
+          "path": "/api/v1/recommendations/session",
+          "method": "POST",
+          "note": "modele non utilisable",
+          "expected_status": [
+            501
+          ],
+          "status": 401,
+          "elapsed_s": 0.205,
+          "response_excerpt": "{\"request_id\":\"42b08465-b137-4e6c-adce-91f244ab172f\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_valide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "requete valide",
+          "expected_status": [
+            200
+          ],
+          "status": 401,
+          "elapsed_s": 0.205,
+          "response_excerpt": "{\"request_id\":\"1e2c6c4e-d089-4654-a50f-5070fd8f978a\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_corps_vide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "corps vide",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.204,
+          "response_excerpt": "{\"request_id\":\"924e1d31-239a-4cdc-b78d-3ccbb6775b95\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_champs_manquants",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "champs manquants",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.159,
+          "response_excerpt": "{\"request_id\":\"b3ae451c-2d7d-4990-9409-89fd986efb78\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_produit_inexistant",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "produit inexistant",
+          "expected_status": [
+            404
+          ],
+          "status": 401,
+          "elapsed_s": 0.148,
+          "response_excerpt": "{\"request_id\":\"2687a484-ac9f-4ea2-a1f1-e41d81fd1c4c\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_remise_invalide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "remise hors bornes",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.114,
+          "response_excerpt": "{\"request_id\":\"a189fefd-3d72-4bae-abd5-f136afda38b8\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_remise_negative",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "remise negative",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.193,
+          "response_excerpt": "{\"request_id\":\"f6be8974-8a7d-4565-a9ff-25a6931e92f7\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_remise_non_supportee",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "remise hors support historique",
+          "expected_status": [
+            409
+          ],
+          "status": 401,
+          "elapsed_s": 0.116,
+          "response_excerpt": "{\"request_id\":\"cacdd009-51a3-4957-ad56-39c5304d1511\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_feature_interdite",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "feature contemporaine interdite",
+          "expected_status": [
+            400
+          ],
+          "status": 401,
+          "elapsed_s": 0.217,
+          "response_excerpt": "{\"request_id\":\"0e558db0-e032-4a20-9317-04d03f4ff09d\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_sans_features",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "contexte optionnel : repli sur le snapshot catalogue",
+          "expected_status": [
+            200
+          ],
+          "status": 401,
+          "elapsed_s": 0.391,
+          "response_excerpt": "{\"request_id\":\"ffcb09cc-9761-4f37-a72d-2c11401074a6\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_date_invalide",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "date invalide",
+          "expected_status": [
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.12,
+          "response_excerpt": "{\"request_id\":\"646b5414-93ec-408b-bc15-4e375751b15a\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "pricing_nan",
+          "path": "/api/v1/pricing/simulate",
+          "method": "POST",
+          "note": "NaN dans les features",
+          "expected_status": [
+            400,
+            422
+          ],
+          "status": 401,
+          "elapsed_s": 0.172,
+          "response_excerpt": "{\"request_id\":\"54a58207-ada6-411f-9062-d19ac1dee907\",\"error\":{\"code\":\"invalid_api_key\",\"message\":\"Clé API absente ou invalide\"}}",
+          "exception": null,
+          "as_expected": false,
+          "is_500": false
+        },
+        {
+          "id": "forecast_valide",
+          "path": "/api/v1/forecast",
+          "method": "POST",
+          "note": "forecasting expose ou non",
+          "expected_status": [
+            200,
+            404,
+            501
+          ],
+          "status": 404,
+          "elapsed_s": 0.119,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        },
+        {
+          "id": "forecast_horizon_invalide",
+          "path": "/api/v1/forecast",
+          "method": "POST",
+          "note": "horizon invalide",
+          "expected_status": [
+            422,
+            404,
+            501
+          ],
+          "status": 404,
+          "elapsed_s": 0.197,
+          "response_excerpt": "{\"detail\":\"Not Found\"}",
+          "exception": null,
+          "as_expected": true,
+          "is_500": false
+        }
+      ]
+    }
+  },
+  "synthese": {
+    "local": {
+      "target": "http://127.0.0.1:8013",
+      "n_scenarios": 38,
+      "n_as_expected": 38,
+      "n_unexpected": 0,
+      "n_http_500": 0
+    },
+    "render": {
+      "target": "https://examen-data-driven.onrender.com",
+      "n_scenarios": 38,
+      "n_as_expected": 8,
+      "n_unexpected": 30,
+      "n_http_500": 0
+    }
+  }
+}

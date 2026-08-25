@@ -1,0 +1,21 @@
+{
+  "next_purchase": {
+    "windows": [
+      {"window": 1, "n_clients": 2321, "candidate_recall_at50_lower_bound": 0.6130978027, "cold_start_separately_required": true},
+      {"window": 2, "n_clients": 2434, "candidate_recall_at50_lower_bound": 0.5834018077, "cold_start_separately_required": true},
+      {"window": 3, "n_clients": 2486, "candidate_recall_at50_lower_bound": 0.5933226066, "cold_start_separately_required": true},
+      {"window": 4, "n_clients": 2490, "candidate_recall_at50_lower_bound": 0.5963855422, "cold_start_separately_required": true}
+    ],
+    "gate": "pass_lower_bound_50pct"
+  },
+  "complement_panier": {
+    "multi_product_orders": 22460,
+    "end_to_end_recall_at10": 0.1006,
+    "candidate_recall_at50": "not_reestimated_in_this_bounded_stage",
+    "gate": "not_claimed"
+  },
+  "session": {
+    "candidate_recall_at50": "not_usable",
+    "reason": "historical session diagnostic has already_seen_target_rate=1 and exclude_seen was false"
+  }
+}

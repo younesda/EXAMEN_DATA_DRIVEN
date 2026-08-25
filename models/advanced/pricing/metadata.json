@@ -1,0 +1,1571 @@
+{
+  "status": "experimental_observational",
+  "decision": {
+    "validated_reference": "LightGBM_calibre",
+    "gate_wape": 0.3956,
+    "pilot_windows": [
+      1,
+      2
+    ],
+    "pilot_gate_passed": false,
+    "optuna_launched": false,
+    "causal_claim_allowed": false,
+    "pricing_optimization_status": "stopped_after_pilot"
+  },
+  "populations": [
+    "estimation_individuelle_supportee",
+    "pooling_categorie",
+    "insufficient_evidence"
+  ],
+  "simulation_flags": {
+    "automatic_application_allowed": false,
+    "human_validation_required": true,
+    "causal_effect_estimated": false,
+    "off_policy_evaluation_validated": false,
+    "simulation_status": "observational_supported_scenarios",
+    "support_status": "product_observed_support_only"
+  },
+  "selected_experimental_predictor": "CatBoost_enriched",
+  "validated_reference": {
+    "path": "models/pricing/metadata.json",
+    "sha256": "3dc2ad6ed184f7e1035d06dfd327d991f3322a408ce639d9771f217182b28e8f",
+    "selected": "LightGBM_calibre",
+    "summary": [
+      {
+        "model": "LightGBM_calibre",
+        "wape": 0.41637444717942285,
+        "std": 0.0051077941383411065,
+        "bias": -0.0035244363692260466
+      },
+      {
+        "model": "GLM_Tweedie",
+        "wape": 0.4206899708463419,
+        "std": 0.00261459942135064,
+        "bias": -0.00399472754009863
+      },
+      {
+        "model": "GLM_Poisson",
+        "wape": 0.4221121895564839,
+        "std": 0.0037769232446096686,
+        "bias": -0.0011718589205036462
+      },
+      {
+        "model": "panel_effets_fixes",
+        "wape": 0.4229867715583973,
+        "std": 0.0033084509514012266,
+        "bias": -0.0018562339229171044
+      },
+      {
+        "model": "hierarchique_categorie",
+        "wape": 0.562723225919172,
+        "std": 0.005543438125860371,
+        "bias": 0.033283153924571075
+      },
+      {
+        "model": "baseline_moyenne_produit",
+        "wape": 0.5643003364227547,
+        "std": 0.008669660812812037,
+        "bias": 0.041609713149969134
+      },
+      {
+        "model": "descriptif_intra_produit",
+        "wape": 0.5660611200973441,
+        "std": 0.008059615753403165,
+        "bias": 0.03721652356318601
+      }
+    ],
+    "status": "invalidated_due_to_target_leakage",
+    "invalidated_on": "2026-08-18"
+  },
+  "target": {
+    "column": "quantite",
+    "grain": "produit_key × ds × remise_pct",
+    "population": "all observed confirmed-order aggregate rows in each test window",
+    "wape": "sum(abs(prediction-quantite))/sum(quantite), pooled over test rows"
+  },
+  "excluded_contemporaneous_target_proxies": [
+    "n_lignes",
+    "prix_unitaire_paye_xof",
+    "ca_xof",
+    "marge_xof",
+    "purchase web"
+  ],
+  "features": [
+    "remise_pct",
+    "prix_base_xof",
+    "cout_xof",
+    "planned_paid_price_xof",
+    "unit_margin_before_xof",
+    "unit_margin_after_xof",
+    "margin_rate_after",
+    "discount_x_category",
+    "discount_x_product",
+    "product_code",
+    "category_code",
+    "brand_code",
+    "dow",
+    "week",
+    "month",
+    "weekend",
+    "historical_view_to_cart_28",
+    "stock_at_cutoff",
+    "restock_frequency_84",
+    "sales_zero_rate_28",
+    "product_mean_before",
+    "product_n_before",
+    "product_discount_mean_before",
+    "product_discount_n_before",
+    "category_discount_mean_before",
+    "category_discount_n_before",
+    "product_campaign_active",
+    "category_campaign_active",
+    "category_concurrent_promotions",
+    "past_campaign_exposure_90",
+    "segment_share_nouveau_90",
+    "segment_share_occasionnel_90",
+    "segment_share_regulier_90",
+    "segment_share_vip_90",
+    "sales_lag_1",
+    "sales_lag_7",
+    "sales_lag_28",
+    "sales_mean_7",
+    "sales_mean_28",
+    "sales_mean_84",
+    "views_lag_1",
+    "views_lag_7",
+    "views_lag_28",
+    "views_mean_7",
+    "views_mean_28",
+    "views_mean_84",
+    "carts_lag_1",
+    "carts_lag_7",
+    "carts_lag_28",
+    "carts_mean_7",
+    "carts_mean_28",
+    "carts_mean_84",
+    "orders_lag_1",
+    "orders_lag_7",
+    "orders_lag_28",
+    "orders_mean_7",
+    "orders_mean_28",
+    "orders_mean_84",
+    "clients_lag_1",
+    "clients_lag_7",
+    "clients_lag_28",
+    "clients_mean_7",
+    "clients_mean_28",
+    "clients_mean_84",
+    "basket_lag_1",
+    "basket_lag_7",
+    "basket_lag_28",
+    "basket_mean_7",
+    "basket_mean_28",
+    "basket_mean_84"
+  ],
+  "window_metrics": [
+    {
+      "window": 1,
+      "model": "baseline_produit",
+      "test_start": "2026-02-02",
+      "wape": 0.5705864390963244,
+      "bias": 0.07795845408081506,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "politique_historique",
+      "test_start": "2026-02-02",
+      "wape": 0.5721602983153781,
+      "bias": 0.07527687513119277,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "aucune_remise_historique",
+      "test_start": "2026-02-02",
+      "wape": 0.5683790888881671,
+      "bias": 0.07024408027019652,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "GLM_Poisson",
+      "test_start": "2026-02-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5743532151842037,
+      "bias": 0.10052624184416246,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "GLM_Tweedie",
+      "test_start": "2026-02-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5721836596411799,
+      "bias": 0.0937613599596198,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "FixedEffects_Poisson",
+      "test_start": "2026-02-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5885031756185775,
+      "bias": 0.14186026205957852,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "LightGBM_enriched",
+      "test_start": "2026-02-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5848963315758006,
+      "bias": 0.12360480606747622,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "LightGBM_IPW",
+      "test_start": "2026-02-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5856707779445156,
+      "bias": 0.12640559281565555,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "model": "CatBoost_enriched",
+      "test_start": "2026-02-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5689165642882422,
+      "bias": 0.07994558017907522,
+      "n": 7151
+    },
+    {
+      "window": 2,
+      "model": "baseline_produit",
+      "test_start": "2026-04-03",
+      "wape": 0.567904632971785,
+      "bias": 0.03691409501356564,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "politique_historique",
+      "test_start": "2026-04-03",
+      "wape": 0.569099011985505,
+      "bias": 0.03519462044651176,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "aucune_remise_historique",
+      "test_start": "2026-04-03",
+      "wape": 0.5665907796937985,
+      "bias": 0.02893073129333627,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "GLM_Poisson",
+      "test_start": "2026-04-03",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_prior": true,
+      "wape": 0.5556744847480506,
+      "bias": 0.0007572232232422,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "GLM_Tweedie",
+      "test_start": "2026-04-03",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_prior": true,
+      "wape": 0.5554581414146209,
+      "bias": -0.00018959674589045028,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "FixedEffects_Poisson",
+      "test_start": "2026-04-03",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_prior": true,
+      "wape": 0.5569344816329984,
+      "bias": 0.0055004341861804515,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "LightGBM_enriched",
+      "test_start": "2026-04-03",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_prior": true,
+      "wape": 0.5567527998151292,
+      "bias": -0.0008807298773724065,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "LightGBM_IPW",
+      "test_start": "2026-04-03",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_prior": true,
+      "wape": 0.5574017156665549,
+      "bias": 0.0024881788054501616,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "model": "CatBoost_enriched",
+      "test_start": "2026-04-03",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_prior": true,
+      "wape": 0.5550830869893745,
+      "bias": -0.0011849311898318826,
+      "n": 7757
+    },
+    {
+      "window": 3,
+      "model": "baseline_produit",
+      "test_start": "2026-06-02",
+      "wape": 0.5544099372001547,
+      "bias": 0.009956590355526712,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "politique_historique",
+      "test_start": "2026-06-02",
+      "wape": 0.5569240499911494,
+      "bias": 0.0011780751118535089,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "aucune_remise_historique",
+      "test_start": "2026-06-02",
+      "wape": 0.552862955187874,
+      "bias": -0.0019280188832652234,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "GLM_Poisson",
+      "test_start": "2026-06-02",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5493247225597435,
+      "bias": -0.0042682166007549935,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "GLM_Tweedie",
+      "test_start": "2026-06-02",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5492503949154552,
+      "bias": -0.0046831240008397374,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "FixedEffects_Poisson",
+      "test_start": "2026-06-02",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5495794556695909,
+      "bias": -0.004002589053373016,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "LightGBM_enriched",
+      "test_start": "2026-06-02",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5470296482095853,
+      "bias": -0.014690561989619733,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "LightGBM_IPW",
+      "test_start": "2026-06-02",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5502367915609729,
+      "bias": -0.00034143390919799216,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "model": "CatBoost_enriched",
+      "test_start": "2026-06-02",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_prior": true,
+      "wape": 0.5465687095396108,
+      "bias": -0.01706142397491837,
+      "n": 8179
+    }
+  ],
+  "summary": [
+    {
+      "model": "CatBoost_enriched",
+      "wape": 0.5568561202724092,
+      "bias": 0.02056640833810832,
+      "std": 0.011278935598430542,
+      "n_windows": 3
+    },
+    {
+      "model": "GLM_Tweedie",
+      "wape": 0.5589640653237521,
+      "bias": 0.029629546404296537,
+      "std": 0.011861799382366313,
+      "n_windows": 3
+    },
+    {
+      "model": "GLM_Poisson",
+      "wape": 0.559784140830666,
+      "bias": 0.032338416155549894,
+      "std": 0.01301050789174648,
+      "n_windows": 3
+    },
+    {
+      "model": "aucune_remise_historique",
+      "wape": 0.5626109412566133,
+      "bias": 0.03241559756008919,
+      "std": 0.008489224743221009,
+      "n_windows": 3
+    },
+    {
+      "model": "LightGBM_enriched",
+      "wape": 0.5628929265335051,
+      "bias": 0.03601117140016136,
+      "std": 0.019665891649696114,
+      "n_windows": 3
+    },
+    {
+      "model": "baseline_produit",
+      "wape": 0.5643003364227547,
+      "bias": 0.041609713149969134,
+      "std": 0.008669660812812037,
+      "n_windows": 3
+    },
+    {
+      "model": "LightGBM_IPW",
+      "wape": 0.5644364283906812,
+      "bias": 0.04285077923730257,
+      "std": 0.018735187084481162,
+      "n_windows": 3
+    },
+    {
+      "model": "FixedEffects_Poisson",
+      "wape": 0.5650057043070555,
+      "bias": 0.04778603573079532,
+      "std": 0.02067903455815683,
+      "n_windows": 3
+    },
+    {
+      "model": "politique_historique",
+      "wape": 0.5660611200973441,
+      "bias": 0.03721652356318601,
+      "std": 0.008059615753403165,
+      "n_windows": 3
+    }
+  ],
+  "segment_metrics": [
+    {
+      "window": 1,
+      "model": "baseline_produit",
+      "no_discount": {
+        "wape": 0.5710358516317695,
+        "bias": 0.08919814892214026,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5669503241269066,
+        "bias": -0.012979869710639446,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.6089331297371345,
+        "bias": -0.019636230509244408,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5658504846947919,
+        "bias": -0.012140115565557852,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "politique_historique",
+      "no_discount": {
+        "wape": 0.5689635097539871,
+        "bias": 0.08245497706490887,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5980249323105752,
+        "bias": 0.017200159786901658,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.6312709030100334,
+        "bias": -0.008021067958956211,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5971130541209562,
+        "bias": 0.018559506414010968,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "aucune_remise_historique",
+      "no_discount": {
+        "wape": 0.5689635097539871,
+        "bias": 0.08245497706490887,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5636506461077624,
+        "bias": -0.028552061633835994,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.5955063603147293,
+        "bias": -0.006918660199597436,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5629116225632383,
+        "bias": -0.02863963207417698,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "GLM_Poisson",
+      "no_discount": {
+        "wape": 0.5757297868174616,
+        "bias": 0.11176496404067776,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5632156248248039,
+        "bias": 0.009595787544709787,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.6184757133987605,
+        "bias": 0.10399129065086841,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5618552159787816,
+        "bias": 0.007203661691267483,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "GLM_Tweedie",
+      "no_discount": {
+        "wape": 0.5734077874317954,
+        "bias": 0.10477972326670969,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5622794646468623,
+        "bias": 0.004613789298895187,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.6168567991929783,
+        "bias": 0.09796751470036266,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5609507804677921,
+        "bias": 0.0022675832275234147,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "FixedEffects_Poisson",
+      "no_discount": {
+        "wape": 0.5909943876572386,
+        "bias": 0.15522642913293105,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5683472327568574,
+        "bias": 0.033717038749087054,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.6346389587154548,
+        "bias": 0.15733193109561647,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5665843367313106,
+        "bias": 0.030299723013220013,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "LightGBM_enriched",
+      "no_discount": {
+        "wape": 0.5882880165605502,
+        "bias": 0.13969647201513974,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5574548261171512,
+        "bias": -0.006589932219565847,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.6140147657571965,
+        "bias": 0.11151831669808919,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5559993330221142,
+        "bias": -0.009826967743170921,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "LightGBM_IPW",
+      "no_discount": {
+        "wape": 0.5887330974351596,
+        "bias": 0.14215600058411074,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5608941087088737,
+        "bias": -0.0010280876993167707,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.5973132660108186,
+        "bias": 0.028689838115495903,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.560144340358,
+        "bias": -0.0012607475778878404,
+        "n": 719
+      }
+    },
+    {
+      "window": 1,
+      "model": "CatBoost_enriched",
+      "no_discount": {
+        "wape": 0.5699577250909214,
+        "bias": 0.0913734951520508,
+        "n": 6409
+      },
+      "observed_discount": {
+        "wape": 0.5604927218681721,
+        "bias": -0.012515598415621816,
+        "n": 742
+      },
+      "product_campaign": {
+        "wape": 0.5697721175826309,
+        "bias": -0.00014629023972419968,
+        "n": 24
+      },
+      "category_campaign": {
+        "wape": 0.5605825961785945,
+        "bias": -0.012232793047506173,
+        "n": 719
+      }
+    },
+    {
+      "window": 2,
+      "model": "baseline_produit",
+      "no_discount": {
+        "wape": 0.5707969706062053,
+        "bias": 0.054368904890143115,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5591140573279701,
+        "bias": -0.01613566817537663,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.6927805014485532,
+        "bias": 0.043041082237758134,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5575554956178552,
+        "bias": -0.01629465803984265,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "politique_historique",
+      "no_discount": {
+        "wape": 0.5690595509187467,
+        "bias": 0.04689404204666936,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.56921894455776,
+        "bias": -0.00036300233623802404,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.6920484080571799,
+        "bias": 0.07066276803118905,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5678254538878649,
+        "bias": -0.0007135004908631802,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "aucune_remise_historique",
+      "no_discount": {
+        "wape": 0.5690595509187467,
+        "bias": 0.04689404204666936,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5590875338963792,
+        "bias": -0.02566449995191835,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.6914336670770576,
+        "bias": 0.01931501072258561,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5575738792056045,
+        "bias": -0.025573600013934925,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "GLM_Poisson",
+      "no_discount": {
+        "wape": 0.5548293351601783,
+        "bias": 0.0020698214279613776,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5582431168794166,
+        "bias": -0.00323210833722489,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.7466595057276334,
+        "bias": 0.22608950027282287,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5558997954548079,
+        "bias": -0.005983452414692831,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "GLM_Tweedie",
+      "no_discount": {
+        "wape": 0.5548009396705946,
+        "bias": 0.0018020019471210618,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5574555505605513,
+        "bias": -0.006242589575875046,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.7439371762968382,
+        "bias": 0.21959711845223828,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5551394302717123,
+        "bias": -0.008941659931265602,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "FixedEffects_Poisson",
+      "no_discount": {
+        "wape": 0.5560661624311231,
+        "bias": 0.006849278370498556,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5595735323220418,
+        "bias": 0.001400941549891244,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.7532917776336471,
+        "bias": 0.24484184775020557,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.557184305915669,
+        "bias": -0.0015353522585767648,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "LightGBM_enriched",
+      "no_discount": {
+        "wape": 0.5546043606319357,
+        "bias": -0.0035571310631481484,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.563282472191979,
+        "bias": 0.007253558041428307,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.7069092375752108,
+        "bias": 0.1253248493806516,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5615380658096024,
+        "bias": 0.00613669919462707,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "LightGBM_IPW",
+      "no_discount": {
+        "wape": 0.5578030334238007,
+        "bias": 0.008860203944357586,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5561820053325012,
+        "bias": -0.016878083390658473,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.6951433449413728,
+        "bias": 0.06219817581752409,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5544680036463543,
+        "bias": -0.017421469443376456,
+        "n": 1786
+      }
+    },
+    {
+      "window": 2,
+      "model": "CatBoost_enriched",
+      "no_discount": {
+        "wape": 0.5544572215085757,
+        "bias": 0.0014802008736698553,
+        "n": 5943
+      },
+      "observed_discount": {
+        "wape": 0.5569852569802984,
+        "bias": -0.009284969278802865,
+        "n": 1814
+      },
+      "product_campaign": {
+        "wape": 0.702983179022453,
+        "bias": 0.11166295676716378,
+        "n": 30
+      },
+      "category_campaign": {
+        "wape": 0.5551807978236275,
+        "bias": -0.010465565655891278,
+        "n": 1786
+      }
+    },
+    {
+      "window": 3,
+      "model": "baseline_produit",
+      "no_discount": {
+        "wape": 0.5553712762541044,
+        "bias": 0.017714295790175846,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.545353824353254,
+        "bias": -0.06312340734201594,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5859250128477599,
+        "bias": -0.21652317689602424,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5432719727399691,
+        "bias": -0.04988267755560112,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "politique_historique",
+      "no_discount": {
+        "wape": 0.5539243384443738,
+        "bias": 0.005083498359187462,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.585182265616679,
+        "bias": -0.03561222639255048,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5906765873364161,
+        "bias": -0.1928224440637827,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5865919917190662,
+        "bias": -0.021234486088748682,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "aucune_remise_historique",
+      "no_discount": {
+        "wape": 0.5539243384443738,
+        "bias": 0.005083498359187462,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5428643948410504,
+        "bias": -0.06797869175956761,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5818764928144766,
+        "bias": -0.21868456915128948,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5408457861177144,
+        "bias": -0.05499427562590747,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "GLM_Poisson",
+      "no_discount": {
+        "wape": 0.5486101018233199,
+        "bias": -0.003490897279567849,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5560566721307074,
+        "bias": -0.011590806338293975,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5992525951403193,
+        "bias": -0.07462782525746814,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5541606662708493,
+        "bias": -0.004850221317414827,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "GLM_Tweedie",
+      "no_discount": {
+        "wape": 0.5485672172518327,
+        "bias": -0.003855186625029785,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5556861409624201,
+        "bias": -0.012482551554205905,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5984888127458278,
+        "bias": -0.07643624033405338,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5538152798509669,
+        "bias": -0.005676645215682393,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "FixedEffects_Poisson",
+      "no_discount": {
+        "wape": 0.5488476478918692,
+        "bias": -0.003052847736205477,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5564733125144343,
+        "bias": -0.012949447613104343,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.6036310688010764,
+        "bias": -0.07213930884446619,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5543022101082195,
+        "bias": -0.006473422050459906,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "LightGBM_enriched",
+      "no_discount": {
+        "wape": 0.5472479220027405,
+        "bias": -0.0114986069779303,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5449734411989438,
+        "bias": -0.04475977083880487,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.579659127845874,
+        "bias": -0.1673308174570753,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5431905037792607,
+        "bias": -0.034019631105731016,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "LightGBM_IPW",
+      "no_discount": {
+        "wape": 0.5501861359716397,
+        "bias": 0.003281423833924394,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5507139829654446,
+        "bias": -0.034469880491274626,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5941627000591713,
+        "bias": -0.18866305222587204,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5484411059478672,
+        "bias": -0.021166547792392285,
+        "n": 728
+      }
+    },
+    {
+      "window": 3,
+      "model": "CatBoost_enriched",
+      "no_discount": {
+        "wape": 0.5463792482324573,
+        "bias": -0.015321353905091607,
+        "n": 7413
+      },
+      "observed_discount": {
+        "wape": 0.5483534939719658,
+        "bias": -0.033453425162348616,
+        "n": 766
+      },
+      "product_campaign": {
+        "wape": 0.5782069136651227,
+        "bias": -0.17318467633257323,
+        "n": 40
+      },
+      "category_campaign": {
+        "wape": 0.5470732062029865,
+        "bias": -0.021285466919077782,
+        "n": 728
+      }
+    }
+  ],
+  "propensity_common_support": [
+    {
+      "window": 1,
+      "mean_observed_propensity": 0.8997988787826562,
+      "min_observed_propensity": 3.043955544594209e-06,
+      "common_support_rate_p002": 0.9187526220109076,
+      "n_test": 7151,
+      "primary_population_filtered": false
+    },
+    {
+      "window": 2,
+      "mean_observed_propensity": 0.8346965373670392,
+      "min_observed_propensity": 5.013393937613412e-07,
+      "common_support_rate_p002": 0.8772721412917365,
+      "n_test": 7757,
+      "primary_population_filtered": false
+    },
+    {
+      "window": 3,
+      "mean_observed_propensity": 0.937083319965822,
+      "min_observed_propensity": 1.26434429784551e-06,
+      "common_support_rate_p002": 0.9558625748869055,
+      "n_test": 8179,
+      "primary_population_filtered": false
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "month",
+      "importance": 5.890665660634513,
+      "share": 0.05890665660634514
+    },
+    {
+      "feature": "product_mean_before",
+      "importance": 3.628740128701218,
+      "share": 0.036287401287012196
+    },
+    {
+      "feature": "week",
+      "importance": 3.068479558256295,
+      "share": 0.030684795582562957
+    },
+    {
+      "feature": "views_mean_84",
+      "importance": 2.842338758479645,
+      "share": 0.02842338758479646
+    },
+    {
+      "feature": "margin_rate_after",
+      "importance": 2.7890567069160435,
+      "share": 0.027890567069160443
+    },
+    {
+      "feature": "weekend",
+      "importance": 2.7027939525316738,
+      "share": 0.027027939525316746
+    },
+    {
+      "feature": "sales_mean_28",
+      "importance": 2.529198160836081,
+      "share": 0.025291981608360818
+    },
+    {
+      "feature": "carts_mean_28",
+      "importance": 2.4858610830076135,
+      "share": 0.024858610830076143
+    },
+    {
+      "feature": "dow",
+      "importance": 2.4580206815147005,
+      "share": 0.024580206815147013
+    },
+    {
+      "feature": "clients_mean_28",
+      "importance": 2.2911652943475738,
+      "share": 0.022911652943475743
+    },
+    {
+      "feature": "sales_mean_7",
+      "importance": 2.123484045196682,
+      "share": 0.021234840451966826
+    },
+    {
+      "feature": "basket_mean_84",
+      "importance": 2.0552407418885874,
+      "share": 0.02055240741888588
+    },
+    {
+      "feature": "views_mean_7",
+      "importance": 2.0128331815755565,
+      "share": 0.02012833181575557
+    },
+    {
+      "feature": "category_discount_mean_before",
+      "importance": 2.0081028516194395,
+      "share": 0.0200810285161944
+    },
+    {
+      "feature": "views_lag_1",
+      "importance": 1.9427681170813051,
+      "share": 0.019427681170813057
+    },
+    {
+      "feature": "sales_zero_rate_28",
+      "importance": 1.8165941837497637,
+      "share": 0.018165941837497642
+    },
+    {
+      "feature": "basket_mean_28",
+      "importance": 1.787327481933342,
+      "share": 0.017873274819333426
+    },
+    {
+      "feature": "discount_x_category",
+      "importance": 1.6998216828130264,
+      "share": 0.01699821682813027
+    },
+    {
+      "feature": "carts_mean_84",
+      "importance": 1.684391769137107,
+      "share": 0.016843917691371075
+    },
+    {
+      "feature": "basket_mean_7",
+      "importance": 1.64699150959226,
+      "share": 0.016469915095922605
+    },
+    {
+      "feature": "sales_mean_84",
+      "importance": 1.568797971574225,
+      "share": 0.015687979715742255
+    },
+    {
+      "feature": "orders_mean_28",
+      "importance": 1.5338707832002196,
+      "share": 0.015338707832002202
+    },
+    {
+      "feature": "stock_at_cutoff",
+      "importance": 1.5247633290431037,
+      "share": 0.015247633290431042
+    },
+    {
+      "feature": "clients_mean_84",
+      "importance": 1.4677614000798491,
+      "share": 0.014677614000798495
+    },
+    {
+      "feature": "historical_view_to_cart_28",
+      "importance": 1.4674909982135982,
+      "share": 0.014674909982135985
+    },
+    {
+      "feature": "category_discount_n_before",
+      "importance": 1.4254235008165537,
+      "share": 0.01425423500816554
+    },
+    {
+      "feature": "basket_lag_1",
+      "importance": 1.3927469565060964,
+      "share": 0.013927469565060968
+    },
+    {
+      "feature": "segment_share_regulier_90",
+      "importance": 1.3917208219535795,
+      "share": 0.0139172082195358
+    },
+    {
+      "feature": "views_mean_28",
+      "importance": 1.3880277922293163,
+      "share": 0.013880277922293167
+    },
+    {
+      "feature": "product_discount_mean_before",
+      "importance": 1.3815314602215072,
+      "share": 0.013815314602215075
+    },
+    {
+      "feature": "product_n_before",
+      "importance": 1.3765150050333295,
+      "share": 0.013765150050333299
+    },
+    {
+      "feature": "segment_share_nouveau_90",
+      "importance": 1.353215571084664,
+      "share": 0.013532155710846644
+    },
+    {
+      "feature": "views_lag_7",
+      "importance": 1.2953758043874948,
+      "share": 0.012953758043874952
+    },
+    {
+      "feature": "segment_share_vip_90",
+      "importance": 1.2774788586343575,
+      "share": 0.012774788586343578
+    },
+    {
+      "feature": "basket_lag_7",
+      "importance": 1.233211371213487,
+      "share": 0.012332113712134872
+    },
+    {
+      "feature": "discount_x_product",
+      "importance": 1.1836897021805304,
+      "share": 0.011836897021805307
+    },
+    {
+      "feature": "orders_mean_7",
+      "importance": 1.1350298463658568,
+      "share": 0.011350298463658572
+    },
+    {
+      "feature": "category_code",
+      "importance": 1.1333913186805689,
+      "share": 0.011333913186805692
+    },
+    {
+      "feature": "sales_lag_7",
+      "importance": 1.13292275363214,
+      "share": 0.011329227536321403
+    },
+    {
+      "feature": "orders_mean_84",
+      "importance": 1.1196980185131833,
+      "share": 0.011196980185131836
+    },
+    {
+      "feature": "basket_lag_28",
+      "importance": 1.1048179829766205,
+      "share": 0.011048179829766207
+    },
+    {
+      "feature": "cout_xof",
+      "importance": 1.0967146694021457,
+      "share": 0.01096714669402146
+    },
+    {
+      "feature": "clients_mean_7",
+      "importance": 1.0709724988285763,
+      "share": 0.010709724988285766
+    },
+    {
+      "feature": "planned_paid_price_xof",
+      "importance": 1.0475962801606595,
+      "share": 0.010475962801606599
+    },
+    {
+      "feature": "product_code",
+      "importance": 1.0275968493885521,
+      "share": 0.010275968493885524
+    },
+    {
+      "feature": "segment_share_occasionnel_90",
+      "importance": 1.0165587073316635,
+      "share": 0.010165587073316638
+    },
+    {
+      "feature": "sales_lag_1",
+      "importance": 1.0136565697254516,
+      "share": 0.010136565697254518
+    },
+    {
+      "feature": "remise_pct",
+      "importance": 0.9888273903772605,
+      "share": 0.009888273903772608
+    },
+    {
+      "feature": "prix_base_xof",
+      "importance": 0.9259029469661845,
+      "share": 0.009259029469661848
+    },
+    {
+      "feature": "orders_lag_28",
+      "importance": 0.9258779195646801,
+      "share": 0.009258779195646804
+    },
+    {
+      "feature": "views_lag_28",
+      "importance": 0.9145494799315436,
+      "share": 0.009145494799315439
+    },
+    {
+      "feature": "past_campaign_exposure_90",
+      "importance": 0.9113346814243596,
+      "share": 0.0091133468142436
+    },
+    {
+      "feature": "brand_code",
+      "importance": 0.9017296107034646,
+      "share": 0.009017296107034648
+    },
+    {
+      "feature": "unit_margin_after_xof",
+      "importance": 0.8969861184936284,
+      "share": 0.008969861184936286
+    },
+    {
+      "feature": "product_discount_n_before",
+      "importance": 0.8331935254251797,
+      "share": 0.008331935254251799
+    },
+    {
+      "feature": "clients_lag_1",
+      "importance": 0.8058397722618982,
+      "share": 0.008058397722618984
+    },
+    {
+      "feature": "carts_lag_7",
+      "importance": 0.790564829166048,
+      "share": 0.007905648291660482
+    },
+    {
+      "feature": "carts_mean_7",
+      "importance": 0.7733240728572883,
+      "share": 0.007733240728572886
+    },
+    {
+      "feature": "orders_lag_1",
+      "importance": 0.7593151053132288,
+      "share": 0.00759315105313229
+    },
+    {
+      "feature": "sales_lag_28",
+      "importance": 0.7477730488159624,
+      "share": 0.007477730488159627
+    },
+    {
+      "feature": "clients_lag_7",
+      "importance": 0.7214281486650381,
+      "share": 0.0072142814866503835
+    },
+    {
+      "feature": "unit_margin_before_xof",
+      "importance": 0.6673456422048095,
+      "share": 0.006673456422048097
+    },
+    {
+      "feature": "carts_lag_28",
+      "importance": 0.6256102420877647,
+      "share": 0.006256102420877649
+    },
+    {
+      "feature": "category_campaign_active",
+      "importance": 0.6174560299076727,
+      "share": 0.006174560299076729
+    },
+    {
+      "feature": "orders_lag_7",
+      "importance": 0.5652980854522421,
+      "share": 0.005652980854522423
+    },
+    {
+      "feature": "restock_frequency_84",
+      "importance": 0.5290404280418931,
+      "share": 0.005290404280418932
+    },
+    {
+      "feature": "clients_lag_28",
+      "importance": 0.4922434727725116,
+      "share": 0.004922434727725118
+    },
+    {
+      "feature": "carts_lag_1",
+      "importance": 0.45367765061164356,
+      "share": 0.004536776506116437
+    },
+    {
+      "feature": "category_concurrent_promotions",
+      "importance": 0.39312167501895956,
+      "share": 0.003931216750189597
+    },
+    {
+      "feature": "product_campaign_active",
+      "importance": 0.13510775274694506,
+      "share": 0.001351077527469451
+    }
+  ],
+  "simulator": {
+    "n_products": 300,
+    "nan_rows": 0,
+    "negative_quantity": 0,
+    "below_cost": 0,
+    "margin_floor_violations": 0,
+    "minimum_margin_rate": 0.10242792109256449,
+    "discount_distribution": {
+      "0.0": 300
+    },
+    "automatic_application_allowed": false,
+    "causal_effect_estimated": false,
+    "interpretation": "observational scenario on each product's latest observed feature row; not off-policy validation"
+  },
+  "methodology": {
+    "temporal_windows": 3,
+    "test_days": 60,
+    "calibration_days": 60,
+    "tuning_strictly_before_test": true,
+    "test_used_for_tuning": false,
+    "primary_population_filtered_by_common_support": false,
+    "causal_claim_allowed": false,
+    "automatic_application_allowed": false,
+    "margin_floor": 0.05,
+    "discounts_limited_to_product_support_n_ge_10": true,
+    "max_seconds_per_model": 300,
+    "sequential": true
+  },
+  "invalidated_reference_note": {
+    "status": "invalidated_due_to_target_leakage",
+    "invalidated_on": "2026-08-18",
+    "metric": 0.41637444717942285,
+    "reason": "la reference LightGBM_calibre citee ici utilisait n_lignes, nombre de lignes de commande confirmees du jour cible, dont la cible quantite est la somme ; elle n'est pas un predicteur decisionnel",
+    "honest_level": {
+      "model": "lgbm_tweedie_moyenne",
+      "wape": 0.5526,
+      "bias": 0.0013
+    },
+    "replaced_by": "reports/43_corrected_pricing_results.md",
+    "preserved_history": "models/pricing/metadata.invalidated.json"
+  }
+}

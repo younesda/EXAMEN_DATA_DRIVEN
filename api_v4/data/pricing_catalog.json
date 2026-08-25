@@ -1,0 +1,1802 @@
+{
+  "PRD000000": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 211520.0,
+    "cout_xof": 152550.0
+  },
+  "PRD000001": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 46030.0,
+    "cout_xof": 29095.0
+  },
+  "PRD000002": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 226420.0,
+    "cout_xof": 153995.0
+  },
+  "PRD000003": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 9530.0,
+    "cout_xof": 6047.0
+  },
+  "PRD000004": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 404580.0,
+    "cout_xof": 296655.0
+  },
+  "PRD000005": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "B",
+    "prix_base_xof": 90570.0,
+    "cout_xof": 67705.0
+  },
+  "PRD000006": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 28970.0,
+    "cout_xof": 20904.0
+  },
+  "PRD000007": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 235430.0,
+    "cout_xof": 175556.0
+  },
+  "PRD000008": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "A",
+    "prix_base_xof": 73010.0,
+    "cout_xof": 50514.0
+  },
+  "PRD000009": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 72370.0,
+    "cout_xof": 59253.0
+  },
+  "PRD000010": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 22000.0,
+    "cout_xof": 11798.0
+  },
+  "PRD000011": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 7330.0,
+    "cout_xof": 6183.0
+  },
+  "PRD000012": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 154180.0,
+    "cout_xof": 130340.0
+  },
+  "PRD000013": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 30090.0,
+    "cout_xof": 19655.0
+  },
+  "PRD000014": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 20160.0,
+    "cout_xof": 10951.0
+  },
+  "PRD000015": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 17530.0,
+    "cout_xof": 13088.0
+  },
+  "PRD000016": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 7770.0,
+    "cout_xof": 6875.0
+  },
+  "PRD000017": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 11600.0,
+    "cout_xof": 6658.0
+  },
+  "PRD000018": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 41110.0,
+    "cout_xof": 20969.0
+  },
+  "PRD000019": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "A",
+    "prix_base_xof": 65370.0,
+    "cout_xof": 44621.0
+  },
+  "PRD000020": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 73220.0,
+    "cout_xof": 56232.0
+  },
+  "PRD000021": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 68990.0,
+    "cout_xof": 44297.0
+  },
+  "PRD000022": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "B",
+    "prix_base_xof": 60890.0,
+    "cout_xof": 47959.0
+  },
+  "PRD000023": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 8640.0,
+    "cout_xof": 5437.0
+  },
+  "PRD000024": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 21790.0,
+    "cout_xof": 14411.0
+  },
+  "PRD000025": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 27720.0,
+    "cout_xof": 18945.0
+  },
+  "PRD000026": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 167300.0,
+    "cout_xof": 129593.0
+  },
+  "PRD000027": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 2220.0,
+    "cout_xof": 1187.0
+  },
+  "PRD000028": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 31070.0,
+    "cout_xof": 18448.0
+  },
+  "PRD000029": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 12370.0,
+    "cout_xof": 7578.0
+  },
+  "PRD000030": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "A",
+    "prix_base_xof": 99920.0,
+    "cout_xof": 63784.0
+  },
+  "PRD000031": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 24390.0,
+    "cout_xof": 14605.0
+  },
+  "PRD000032": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 44680.0,
+    "cout_xof": 21074.0
+  },
+  "PRD000033": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 31850.0,
+    "cout_xof": 22378.0
+  },
+  "PRD000034": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 45190.0,
+    "cout_xof": 32113.0
+  },
+  "PRD000035": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 378220.0,
+    "cout_xof": 312791.0
+  },
+  "PRD000036": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 156890.0,
+    "cout_xof": 115061.0
+  },
+  "PRD000037": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 7840.0,
+    "cout_xof": 6123.0
+  },
+  "PRD000038": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 32010.0,
+    "cout_xof": 17086.0
+  },
+  "PRD000039": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 11220.0,
+    "cout_xof": 9951.0
+  },
+  "PRD000040": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 30080.0,
+    "cout_xof": 19569.0
+  },
+  "PRD000041": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 2950.0,
+    "cout_xof": 1967.0
+  },
+  "PRD000042": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 14510.0,
+    "cout_xof": 12194.0
+  },
+  "PRD000043": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "B",
+    "prix_base_xof": 27790.0,
+    "cout_xof": 19354.0
+  },
+  "PRD000044": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 19280.0,
+    "cout_xof": 11159.0
+  },
+  "PRD000045": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 14040.0,
+    "cout_xof": 8632.0
+  },
+  "PRD000046": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 29930.0,
+    "cout_xof": 19478.0
+  },
+  "PRD000047": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 277630.0,
+    "cout_xof": 229898.0
+  },
+  "PRD000048": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 11180.0,
+    "cout_xof": 7908.0
+  },
+  "PRD000049": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "B",
+    "prix_base_xof": 48540.0,
+    "cout_xof": 39987.0
+  },
+  "PRD000050": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 30670.0,
+    "cout_xof": 20681.0
+  },
+  "PRD000051": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 102140.0,
+    "cout_xof": 83192.0
+  },
+  "PRD000052": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 18380.0,
+    "cout_xof": 10022.0
+  },
+  "PRD000053": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 418060.0,
+    "cout_xof": 349136.0
+  },
+  "PRD000054": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 35630.0,
+    "cout_xof": 18581.0
+  },
+  "PRD000055": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 62680.0,
+    "cout_xof": 39393.0
+  },
+  "PRD000056": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "B",
+    "prix_base_xof": 51500.0,
+    "cout_xof": 38046.0
+  },
+  "PRD000057": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 18070.0,
+    "cout_xof": 10562.0
+  },
+  "PRD000058": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 82720.0,
+    "cout_xof": 56073.0
+  },
+  "PRD000059": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 59780.0,
+    "cout_xof": 37622.0
+  },
+  "PRD000060": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 73230.0,
+    "cout_xof": 51399.0
+  },
+  "PRD000061": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 13220.0,
+    "cout_xof": 8657.0
+  },
+  "PRD000062": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 48350.0,
+    "cout_xof": 31957.0
+  },
+  "PRD000063": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 16320.0,
+    "cout_xof": 10795.0
+  },
+  "PRD000064": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "B",
+    "prix_base_xof": 201630.0,
+    "cout_xof": 149364.0
+  },
+  "PRD000065": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 45820.0,
+    "cout_xof": 30244.0
+  },
+  "PRD000066": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 10040.0,
+    "cout_xof": 8616.0
+  },
+  "PRD000067": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 40680.0,
+    "cout_xof": 20238.0
+  },
+  "PRD000068": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 8780.0,
+    "cout_xof": 4063.0
+  },
+  "PRD000069": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 8520.0,
+    "cout_xof": 6870.0
+  },
+  "PRD000070": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "B",
+    "prix_base_xof": 10910.0,
+    "cout_xof": 8781.0
+  },
+  "PRD000071": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 2270.0,
+    "cout_xof": 1909.0
+  },
+  "PRD000072": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 4780.0,
+    "cout_xof": 4083.0
+  },
+  "PRD000073": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 47210.0,
+    "cout_xof": 34624.0
+  },
+  "PRD000074": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 12260.0,
+    "cout_xof": 7358.0
+  },
+  "PRD000075": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 406240.0,
+    "cout_xof": 343537.0
+  },
+  "PRD000076": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 82230.0,
+    "cout_xof": 53578.0
+  },
+  "PRD000077": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 282520.0,
+    "cout_xof": 206177.0
+  },
+  "PRD000078": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 13950.0,
+    "cout_xof": 11478.0
+  },
+  "PRD000079": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 110760.0,
+    "cout_xof": 92071.0
+  },
+  "PRD000080": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "B",
+    "prix_base_xof": 90970.0,
+    "cout_xof": 67300.0
+  },
+  "PRD000081": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 14710.0,
+    "cout_xof": 12339.0
+  },
+  "PRD000082": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 249220.0,
+    "cout_xof": 197025.0
+  },
+  "PRD000083": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 28330.0,
+    "cout_xof": 17916.0
+  },
+  "PRD000084": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 107570.0,
+    "cout_xof": 77637.0
+  },
+  "PRD000085": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 10180.0,
+    "cout_xof": 6859.0
+  },
+  "PRD000086": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 17770.0,
+    "cout_xof": 12515.0
+  },
+  "PRD000087": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 6470.0,
+    "cout_xof": 5559.0
+  },
+  "PRD000088": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 25980.0,
+    "cout_xof": 17637.0
+  },
+  "PRD000089": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 84840.0,
+    "cout_xof": 56878.0
+  },
+  "PRD000090": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 20840.0,
+    "cout_xof": 10937.0
+  },
+  "PRD000091": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 13350.0,
+    "cout_xof": 10785.0
+  },
+  "PRD000092": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 293570.0,
+    "cout_xof": 216066.0
+  },
+  "PRD000093": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 7830.0,
+    "cout_xof": 5543.0
+  },
+  "PRD000094": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 31240.0,
+    "cout_xof": 22678.0
+  },
+  "PRD000095": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 211490.0,
+    "cout_xof": 169119.0
+  },
+  "PRD000096": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 11920.0,
+    "cout_xof": 6705.0
+  },
+  "PRD000097": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 660.0,
+    "cout_xof": 580.0
+  },
+  "PRD000098": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 34640.0,
+    "cout_xof": 20396.0
+  },
+  "PRD000099": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 158540.0,
+    "cout_xof": 119422.0
+  },
+  "PRD000100": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 6550.0,
+    "cout_xof": 4348.0
+  },
+  "PRD000101": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 104340.0,
+    "cout_xof": 76864.0
+  },
+  "PRD000102": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 38350.0,
+    "cout_xof": 20037.0
+  },
+  "PRD000103": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 8060.0,
+    "cout_xof": 5602.0
+  },
+  "PRD000104": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 35170.0,
+    "cout_xof": 16867.0
+  },
+  "PRD000105": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 102330.0,
+    "cout_xof": 74893.0
+  },
+  "PRD000106": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 414870.0,
+    "cout_xof": 313382.0
+  },
+  "PRD000107": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 11610.0,
+    "cout_xof": 7690.0
+  },
+  "PRD000108": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 34810.0,
+    "cout_xof": 22953.0
+  },
+  "PRD000109": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "B",
+    "prix_base_xof": 58350.0,
+    "cout_xof": 37794.0
+  },
+  "PRD000110": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 104280.0,
+    "cout_xof": 81044.0
+  },
+  "PRD000111": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "A",
+    "prix_base_xof": 79180.0,
+    "cout_xof": 47986.0
+  },
+  "PRD000112": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 21770.0,
+    "cout_xof": 15923.0
+  },
+  "PRD000113": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "B",
+    "prix_base_xof": 34520.0,
+    "cout_xof": 20954.0
+  },
+  "PRD000114": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 8550.0,
+    "cout_xof": 7009.0
+  },
+  "PRD000115": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 183400.0,
+    "cout_xof": 154550.0
+  },
+  "PRD000116": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 13050.0,
+    "cout_xof": 10780.0
+  },
+  "PRD000117": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 218800.0,
+    "cout_xof": 147497.0
+  },
+  "PRD000118": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 49360.0,
+    "cout_xof": 30646.0
+  },
+  "PRD000119": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 33280.0,
+    "cout_xof": 20700.0
+  },
+  "PRD000120": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 401790.0,
+    "cout_xof": 330216.0
+  },
+  "PRD000121": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 12210.0,
+    "cout_xof": 9770.0
+  },
+  "PRD000122": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 448970.0,
+    "cout_xof": 334423.0
+  },
+  "PRD000123": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 30570.0,
+    "cout_xof": 22311.0
+  },
+  "PRD000124": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "B",
+    "prix_base_xof": 55490.0,
+    "cout_xof": 37350.0
+  },
+  "PRD000125": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 45490.0,
+    "cout_xof": 30427.0
+  },
+  "PRD000126": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 109270.0,
+    "cout_xof": 75843.0
+  },
+  "PRD000127": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 4840.0,
+    "cout_xof": 4239.0
+  },
+  "PRD000128": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 263630.0,
+    "cout_xof": 192767.0
+  },
+  "PRD000129": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 34820.0,
+    "cout_xof": 19676.0
+  },
+  "PRD000130": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 20330.0,
+    "cout_xof": 13817.0
+  },
+  "PRD000131": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 53090.0,
+    "cout_xof": 42091.0
+  },
+  "PRD000132": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 52850.0,
+    "cout_xof": 41315.0
+  },
+  "PRD000133": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 72430.0,
+    "cout_xof": 57388.0
+  },
+  "PRD000134": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 24560.0,
+    "cout_xof": 16885.0
+  },
+  "PRD000135": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 3110.0,
+    "cout_xof": 2095.0
+  },
+  "PRD000136": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "B",
+    "prix_base_xof": 101260.0,
+    "cout_xof": 75735.0
+  },
+  "PRD000137": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 24390.0,
+    "cout_xof": 15960.0
+  },
+  "PRD000138": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "B",
+    "prix_base_xof": 25340.0,
+    "cout_xof": 16975.0
+  },
+  "PRD000139": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 2040.0,
+    "cout_xof": 1472.0
+  },
+  "PRD000140": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 20570.0,
+    "cout_xof": 11971.0
+  },
+  "PRD000141": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 56860.0,
+    "cout_xof": 41257.0
+  },
+  "PRD000142": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 160700.0,
+    "cout_xof": 115289.0
+  },
+  "PRD000143": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 30700.0,
+    "cout_xof": 19345.0
+  },
+  "PRD000144": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 1630.0,
+    "cout_xof": 1462.0
+  },
+  "PRD000145": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 254640.0,
+    "cout_xof": 178152.0
+  },
+  "PRD000146": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 46730.0,
+    "cout_xof": 37177.0
+  },
+  "PRD000147": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 119030.0,
+    "cout_xof": 95129.0
+  },
+  "PRD000148": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 31560.0,
+    "cout_xof": 16535.0
+  },
+  "PRD000149": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 4650.0,
+    "cout_xof": 2470.0
+  },
+  "PRD000150": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 209710.0,
+    "cout_xof": 163717.0
+  },
+  "PRD000151": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 67320.0,
+    "cout_xof": 48522.0
+  },
+  "PRD000152": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 44300.0,
+    "cout_xof": 25080.0
+  },
+  "PRD000153": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 48260.0,
+    "cout_xof": 33242.0
+  },
+  "PRD000154": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "B",
+    "prix_base_xof": 54830.0,
+    "cout_xof": 35998.0
+  },
+  "PRD000155": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 82390.0,
+    "cout_xof": 59171.0
+  },
+  "PRD000156": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 8000.0,
+    "cout_xof": 6607.0
+  },
+  "PRD000157": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 14340.0,
+    "cout_xof": 8879.0
+  },
+  "PRD000158": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 341030.0,
+    "cout_xof": 288692.0
+  },
+  "PRD000159": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 13370.0,
+    "cout_xof": 11505.0
+  },
+  "PRD000160": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 21660.0,
+    "cout_xof": 11110.0
+  },
+  "PRD000161": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 14700.0,
+    "cout_xof": 9905.0
+  },
+  "PRD000162": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 128530.0,
+    "cout_xof": 107343.0
+  },
+  "PRD000163": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 11090.0,
+    "cout_xof": 6796.0
+  },
+  "PRD000164": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 170080.0,
+    "cout_xof": 111728.0
+  },
+  "PRD000165": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 132290.0,
+    "cout_xof": 106597.0
+  },
+  "PRD000166": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 442510.0,
+    "cout_xof": 312877.0
+  },
+  "PRD000167": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 26000.0,
+    "cout_xof": 16396.0
+  },
+  "PRD000168": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 31880.0,
+    "cout_xof": 24482.0
+  },
+  "PRD000169": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 4790.0,
+    "cout_xof": 4133.0
+  },
+  "PRD000170": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 425150.0,
+    "cout_xof": 353683.0
+  },
+  "PRD000171": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 38480.0,
+    "cout_xof": 23631.0
+  },
+  "PRD000172": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 51300.0,
+    "cout_xof": 31745.0
+  },
+  "PRD000173": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 87940.0,
+    "cout_xof": 69700.0
+  },
+  "PRD000174": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 23350.0,
+    "cout_xof": 12704.0
+  },
+  "PRD000175": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 46610.0,
+    "cout_xof": 30675.0
+  },
+  "PRD000176": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 11330.0,
+    "cout_xof": 6791.0
+  },
+  "PRD000177": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 20310.0,
+    "cout_xof": 13380.0
+  },
+  "PRD000178": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 14830.0,
+    "cout_xof": 12133.0
+  },
+  "PRD000179": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 322470.0,
+    "cout_xof": 245711.0
+  },
+  "PRD000180": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "B",
+    "prix_base_xof": 11390.0,
+    "cout_xof": 9347.0
+  },
+  "PRD000181": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 22910.0,
+    "cout_xof": 16026.0
+  },
+  "PRD000182": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 5820.0,
+    "cout_xof": 3897.0
+  },
+  "PRD000183": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 20170.0,
+    "cout_xof": 12930.0
+  },
+  "PRD000184": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 428780.0,
+    "cout_xof": 342421.0
+  },
+  "PRD000185": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 6500.0,
+    "cout_xof": 4437.0
+  },
+  "PRD000186": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 23610.0,
+    "cout_xof": 15099.0
+  },
+  "PRD000187": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 6350.0,
+    "cout_xof": 5358.0
+  },
+  "PRD000188": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 30000.0,
+    "cout_xof": 17446.0
+  },
+  "PRD000189": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 34830.0,
+    "cout_xof": 24608.0
+  },
+  "PRD000190": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 13070.0,
+    "cout_xof": 8277.0
+  },
+  "PRD000191": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 2380.0,
+    "cout_xof": 2077.0
+  },
+  "PRD000192": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 13350.0,
+    "cout_xof": 8927.0
+  },
+  "PRD000193": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 32100.0,
+    "cout_xof": 21664.0
+  },
+  "PRD000194": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 2280.0,
+    "cout_xof": 1414.0
+  },
+  "PRD000195": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 32850.0,
+    "cout_xof": 17384.0
+  },
+  "PRD000196": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 12690.0,
+    "cout_xof": 8263.0
+  },
+  "PRD000197": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 88100.0,
+    "cout_xof": 56230.0
+  },
+  "PRD000198": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 3980.0,
+    "cout_xof": 3325.0
+  },
+  "PRD000199": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "B",
+    "prix_base_xof": 50380.0,
+    "cout_xof": 38099.0
+  },
+  "PRD000200": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 16790.0,
+    "cout_xof": 8235.0
+  },
+  "PRD000201": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 13070.0,
+    "cout_xof": 9038.0
+  },
+  "PRD000202": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 288360.0,
+    "cout_xof": 204754.0
+  },
+  "PRD000203": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 277390.0,
+    "cout_xof": 214698.0
+  },
+  "PRD000204": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 3060.0,
+    "cout_xof": 2624.0
+  },
+  "PRD000205": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 9960.0,
+    "cout_xof": 7976.0
+  },
+  "PRD000206": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 14660.0,
+    "cout_xof": 12727.0
+  },
+  "PRD000207": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 310710.0,
+    "cout_xof": 247636.0
+  },
+  "PRD000208": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 20310.0,
+    "cout_xof": 12951.0
+  },
+  "PRD000209": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 9920.0,
+    "cout_xof": 6132.0
+  },
+  "PRD000210": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 4740.0,
+    "cout_xof": 3081.0
+  },
+  "PRD000211": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 302210.0,
+    "cout_xof": 219565.0
+  },
+  "PRD000212": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 25410.0,
+    "cout_xof": 12353.0
+  },
+  "PRD000213": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 4230.0,
+    "cout_xof": 3489.0
+  },
+  "PRD000214": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 11820.0,
+    "cout_xof": 7190.0
+  },
+  "PRD000215": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 99920.0,
+    "cout_xof": 82304.0
+  },
+  "PRD000216": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 59860.0,
+    "cout_xof": 40866.0
+  },
+  "PRD000217": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 52560.0,
+    "cout_xof": 37904.0
+  },
+  "PRD000218": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 26570.0,
+    "cout_xof": 14343.0
+  },
+  "PRD000219": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 46020.0,
+    "cout_xof": 34964.0
+  },
+  "PRD000220": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 37630.0,
+    "cout_xof": 20236.0
+  },
+  "PRD000221": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 39140.0,
+    "cout_xof": 26896.0
+  },
+  "PRD000222": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 405170.0,
+    "cout_xof": 305116.0
+  },
+  "PRD000223": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "B",
+    "prix_base_xof": 17450.0,
+    "cout_xof": 8950.0
+  },
+  "PRD000224": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 24260.0,
+    "cout_xof": 15943.0
+  },
+  "PRD000225": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 7400.0,
+    "cout_xof": 4981.0
+  },
+  "PRD000226": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 127010.0,
+    "cout_xof": 98431.0
+  },
+  "PRD000227": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 55890.0,
+    "cout_xof": 41081.0
+  },
+  "PRD000228": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 30050.0,
+    "cout_xof": 16502.0
+  },
+  "PRD000229": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 4080.0,
+    "cout_xof": 2814.0
+  },
+  "PRD000230": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 11460.0,
+    "cout_xof": 6913.0
+  },
+  "PRD000231": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 23770.0,
+    "cout_xof": 16410.0
+  },
+  "PRD000232": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 38840.0,
+    "cout_xof": 26130.0
+  },
+  "PRD000233": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 15960.0,
+    "cout_xof": 9151.0
+  },
+  "PRD000234": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "B",
+    "prix_base_xof": 42240.0,
+    "cout_xof": 28082.0
+  },
+  "PRD000235": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 39840.0,
+    "cout_xof": 29117.0
+  },
+  "PRD000236": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 47910.0,
+    "cout_xof": 36272.0
+  },
+  "PRD000237": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "B",
+    "prix_base_xof": 37640.0,
+    "cout_xof": 17484.0
+  },
+  "PRD000238": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 6190.0,
+    "cout_xof": 4999.0
+  },
+  "PRD000239": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 314180.0,
+    "cout_xof": 240536.0
+  },
+  "PRD000240": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 164620.0,
+    "cout_xof": 134835.0
+  },
+  "PRD000241": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 23320.0,
+    "cout_xof": 15513.0
+  },
+  "PRD000242": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 189160.0,
+    "cout_xof": 124066.0
+  },
+  "PRD000243": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 209210.0,
+    "cout_xof": 140320.0
+  },
+  "PRD000244": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 68600.0,
+    "cout_xof": 41405.0
+  },
+  "PRD000245": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 20250.0,
+    "cout_xof": 12683.0
+  },
+  "PRD000246": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 13180.0,
+    "cout_xof": 11830.0
+  },
+  "PRD000247": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 2870.0,
+    "cout_xof": 2391.0
+  },
+  "PRD000248": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "B",
+    "prix_base_xof": 63630.0,
+    "cout_xof": 48176.0
+  },
+  "PRD000249": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 6610.0,
+    "cout_xof": 3044.0
+  },
+  "PRD000250": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 229130.0,
+    "cout_xof": 153943.0
+  },
+  "PRD000251": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 2700.0,
+    "cout_xof": 1601.0
+  },
+  "PRD000252": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 107710.0,
+    "cout_xof": 71788.0
+  },
+  "PRD000253": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 13220.0,
+    "cout_xof": 9796.0
+  },
+  "PRD000254": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 266170.0,
+    "cout_xof": 210385.0
+  },
+  "PRD000255": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 19670.0,
+    "cout_xof": 14194.0
+  },
+  "PRD000256": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 10760.0,
+    "cout_xof": 8791.0
+  },
+  "PRD000257": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 8930.0,
+    "cout_xof": 5632.0
+  },
+  "PRD000258": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 247580.0,
+    "cout_xof": 182689.0
+  },
+  "PRD000259": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 19140.0,
+    "cout_xof": 12097.0
+  },
+  "PRD000260": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 215440.0,
+    "cout_xof": 175372.0
+  },
+  "PRD000261": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 14290.0,
+    "cout_xof": 9612.0
+  },
+  "PRD000262": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 20130.0,
+    "cout_xof": 15849.0
+  },
+  "PRD000263": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 32930.0,
+    "cout_xof": 21605.0
+  },
+  "PRD000264": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 14260.0,
+    "cout_xof": 12338.0
+  },
+  "PRD000265": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "B",
+    "prix_base_xof": 33180.0,
+    "cout_xof": 20716.0
+  },
+  "PRD000266": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "B",
+    "prix_base_xof": 79080.0,
+    "cout_xof": 52622.0
+  },
+  "PRD000267": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 2950.0,
+    "cout_xof": 2379.0
+  },
+  "PRD000268": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 61970.0,
+    "cout_xof": 44164.0
+  },
+  "PRD000269": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 15630.0,
+    "cout_xof": 10732.0
+  },
+  "PRD000270": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "C",
+    "prix_base_xof": 117800.0,
+    "cout_xof": 83190.0
+  },
+  "PRD000271": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 374440.0,
+    "cout_xof": 281868.0
+  },
+  "PRD000272": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 221980.0,
+    "cout_xof": 168904.0
+  },
+  "PRD000273": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 23200.0,
+    "cout_xof": 15921.0
+  },
+  "PRD000274": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 8720.0,
+    "cout_xof": 4804.0
+  },
+  "PRD000275": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 11340.0,
+    "cout_xof": 9191.0
+  },
+  "PRD000276": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 20200.0,
+    "cout_xof": 14267.0
+  },
+  "PRD000277": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 64610.0,
+    "cout_xof": 46760.0
+  },
+  "PRD000278": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 11830.0,
+    "cout_xof": 7980.0
+  },
+  "PRD000279": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 229480.0,
+    "cout_xof": 168133.0
+  },
+  "PRD000280": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 9570.0,
+    "cout_xof": 6008.0
+  },
+  "PRD000281": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 9570.0,
+    "cout_xof": 5260.0
+  },
+  "PRD000282": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 153760.0,
+    "cout_xof": 122179.0
+  },
+  "PRD000283": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 30630.0,
+    "cout_xof": 20018.0
+  },
+  "PRD000284": {
+    "categorie": "Beaute & Soins",
+    "classe_abc": "C",
+    "prix_base_xof": 31940.0,
+    "cout_xof": 17302.0
+  },
+  "PRD000285": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "A",
+    "prix_base_xof": 227810.0,
+    "cout_xof": 176747.0
+  },
+  "PRD000286": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "C",
+    "prix_base_xof": 2080.0,
+    "cout_xof": 1825.0
+  },
+  "PRD000287": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 52570.0,
+    "cout_xof": 32410.0
+  },
+  "PRD000288": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 84680.0,
+    "cout_xof": 59132.0
+  },
+  "PRD000289": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 70730.0,
+    "cout_xof": 57302.0
+  },
+  "PRD000290": {
+    "categorie": "Electronique & High-Tech",
+    "classe_abc": "C",
+    "prix_base_xof": 106570.0,
+    "cout_xof": 87780.0
+  },
+  "PRD000291": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "C",
+    "prix_base_xof": 9690.0,
+    "cout_xof": 6282.0
+  },
+  "PRD000292": {
+    "categorie": "Mode & Vetements",
+    "classe_abc": "C",
+    "prix_base_xof": 13750.0,
+    "cout_xof": 7755.0
+  },
+  "PRD000293": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 70150.0,
+    "cout_xof": 48632.0
+  },
+  "PRD000294": {
+    "categorie": "Maison & Cuisine",
+    "classe_abc": "A",
+    "prix_base_xof": 119300.0,
+    "cout_xof": 94518.0
+  },
+  "PRD000295": {
+    "categorie": "Sport & Loisirs",
+    "classe_abc": "C",
+    "prix_base_xof": 10750.0,
+    "cout_xof": 7425.0
+  },
+  "PRD000296": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "C",
+    "prix_base_xof": 145290.0,
+    "cout_xof": 107297.0
+  },
+  "PRD000297": {
+    "categorie": "Alimentation & Epicerie",
+    "classe_abc": "B",
+    "prix_base_xof": 14750.0,
+    "cout_xof": 12668.0
+  },
+  "PRD000298": {
+    "categorie": "Bebe & Enfant",
+    "classe_abc": "B",
+    "prix_base_xof": 45640.0,
+    "cout_xof": 33561.0
+  },
+  "PRD000299": {
+    "categorie": "Telephonie & Accessoires",
+    "classe_abc": "A",
+    "prix_base_xof": 163950.0,
+    "cout_xof": 126372.0
+  }
+}

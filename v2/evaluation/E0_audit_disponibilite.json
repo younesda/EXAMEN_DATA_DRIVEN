@@ -1,0 +1,115 @@
+{
+  "etape": "E0_audit_disponibilite",
+  "genere_le": "2026-08-15T11:56:58.711042+00:00",
+  "variables": [
+    {
+      "variable": "jour_semaine / est_weekend",
+      "statut": "connue_sur_tout_horizon",
+      "justification": "Déterministe : dérivée du calendrier civil, calculable pour n'importe quelle date future.",
+      "utilisable_en_E": true,
+      "groupe": "E1_calendrier"
+    },
+    {
+      "variable": "mois / trimestre / semaine",
+      "statut": "connue_sur_tout_horizon",
+      "justification": "Déterministe, même raison.",
+      "utilisable_en_E": true,
+      "groupe": "E1_calendrier"
+    },
+    {
+      "variable": "fin d'année (est_noel, avant_noel, apres_noel, est_nouvel_an…)",
+      "statut": "connue_sur_tout_horizon",
+      "justification": "Dates fixes du calendrier, connues des années à l'avance.",
+      "utilisable_en_E": true,
+      "groupe": "E1_calendrier",
+      "reserve": "Aucune fenêtre de backtest ne couvre décembre — l'effet fin d'année ne peut donc pas être validé empiriquement ici (limite déjà documentée en V1)."
+    },
+    {
+      "variable": "fêtes religieuses (Korité, Tabaski, Magal, Maouloud, Tamxarit, Ramadan)",
+      "statut": "connue_sur_tout_horizon",
+      "justification": "Reconstruites par `src/features/calendar.py` ; dates connues à l'avance.",
+      "utilisable_en_E": true,
+      "groupe": "E1_calendrier"
+    },
+    {
+      "variable": "en_promotion / remise_pct / n_promotions / portee_promo",
+      "statut": "connue_sur_tout_horizon",
+      "justification": "`dim_promotion` fournit `date_debut` et `date_fin` pour 120 campagnes : la période de validité couvre bien l'horizon futur.",
+      "utilisable_en_E": true,
+      "groupe": "E2_promotions",
+      "hypothese_explicite": "⚠️ AUCUNE colonne de date de création/décision n'existe dans `dim_promotion` (colonnes réelles : ['promo_key', 'promotion_id', 'portee', 'cible', 'remise_pct', 'date_debut', 'date_fin']). On ne peut donc PAS prouver qu'une promotion active en J+15 était déjà décidée au cutoff. HYPOTHÈSE ASSUMÉE : le calendrier promotionnel est un plan arrêté à l'avance, donc connu au moment de la prévision. Si cette hypothèse est fausse en production, `en_promotion` et `remise_pct` devront être neutralisés sur l'horizon."
+    },
+    {
+      "variable": "age_version_produit_jours",
+      "statut": "connue_sur_tout_horizon",
+      "justification": "Calculée comme (date cible − `date_debut_validite`) : la date de début de validité est connue au cutoff et la date cible est déterministe.",
+      "utilisable_en_E": true,
+      "groupe": "E3_age_version",
+      "reserve": "Nommée `age_version_produit_jours` et NON « ancienneté commerciale » : `date_debut_validite` est la date de début de validité de la ligne SCD, dont la sémantique métier exacte n'a jamais pu être prouvée (cf. audit V1)."
+    },
+    {
+      "variable": "stock_disponible_lag1 (état initial au cutoff)",
+      "statut": "connue_a_j_moins_1_seulement",
+      "justification": "Le stock de la veille du cutoff est connu. Mais il n'est PAS projetable sur J+1..J+30 : mesuré sur les données, le rapport stock(J+30)/stock(J-1) a une médiane de 0.823, un p10 de 0.529 et un p90 de 3.360 ; 59.3% des cas varient de plus de 20 %. Le tenir constant sur 30 jours serait une hypothèse fausse et non documentée.",
+      "utilisable_en_E": true,
+      "groupe": "E4_stock_initial",
+      "restriction": "Utilisable UNIQUEMENT pour caractériser l'état initial (une valeur par produit×fenêtre, constante sur l'horizon en tant que *caractéristique du cutoff*, jamais présentée comme le stock réel du jour J+k)."
+    },
+    {
+      "variable": "stock du jour (stock_fin_jour)",
+      "statut": "interdite_pour_fuite",
+      "justification": "Contemporaine de la cible : inconnue au moment de la prévision.",
+      "utilisable_en_E": false,
+      "groupe": "—"
+    },
+    {
+      "variable": "ventes du jour (y) et dérivés contemporains",
+      "statut": "interdite_pour_fuite",
+      "justification": "C'est la cible elle-même.",
+      "utilisable_en_E": false,
+      "groupe": "—"
+    },
+    {
+      "variable": "web_purchase contemporain",
+      "statut": "interdite_pour_fuite",
+      "justification": "Un événement web `purchase` du jour J peut être le miroir direct de la vente du jour J (déjà écarté en V1 pour cette raison).",
+      "utilisable_en_E": false,
+      "groupe": "—"
+    },
+    {
+      "variable": "prix payé réel / remise appliquée réelle",
+      "statut": "indisponible_dans_le_futur",
+      "justification": "Observés a posteriori seulement (calculés depuis le montant net encaissé). Le prix catalogue, lui, est connu — et fixe pour 300/300 produits.",
+      "utilisable_en_E": false,
+      "groupe": "—"
+    }
+  ],
+  "audit_stock_projection": {
+    "n_paires_comparees": 108463,
+    "ratio_median_j30_sur_j1": 0.8229166666666666,
+    "ratio_p10": 0.5294117647058824,
+    "ratio_p90": 3.36,
+    "part_variation_superieure_20pct": 0.5925707384084895
+  },
+  "audit_promotions": {
+    "colonnes_disponibles": [
+      "promo_key",
+      "promotion_id",
+      "portee",
+      "cible",
+      "remise_pct",
+      "date_debut",
+      "date_fin"
+    ],
+    "colonne_date_creation_presente": false,
+    "colonnes_creation_candidates": [],
+    "n_campagnes": 120
+  },
+  "n_features_calendaires_disponibles": 49,
+  "groupes_ablation": {
+    "E1_calendrier": "features calendaires déterministes",
+    "E2_promotions": "E1 + promotions planifiées (sous hypothèse explicite)",
+    "E3_age_version": "E2 + age_version_produit_jours",
+    "E4_stock_initial": "E3 + état de stock au cutoff (jamais projeté)"
+  }
+}

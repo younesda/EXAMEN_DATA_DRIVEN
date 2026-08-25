@@ -1,0 +1,77 @@
+{
+  "recommendation_primary_model": "v1_popularite_globale",
+  "recommendation_v2_validated": false,
+  "R1_status": "experiment_not_retained",
+  "R1_reason": "no_improvement_over_v1",
+  "R2_status": "exploratory_diversity_challenger",
+  "R2_primary_model_eligible": false,
+  "R2_reason": "coverage_and_diversity_improved_but_relevance_loss_exceeds_threshold",
+  "genere_le": "2026-08-15T13:36:39.751060+00:00",
+  "reference_v1": {
+    "recall_at_10": 0.07586820930337992,
+    "ndcg_at_10": 0.04411357123583948,
+    "couverture_catalogue": 0.05416666666666663,
+    "personalisation_validee": false
+  },
+  "R1_details": {
+    "recall_at_10": 0.07498418653644348,
+    "ndcg_at_10": 0.043710704042308667,
+    "couverture_catalogue": 0.050833333333333335,
+    "cause_echec": "Le α choisi sur les fenêtres antérieures retient la popularité récente pure (α=0,00 sur F1 et F2), moins bonne que la popularité globale sur la fenêtre évaluée. Même non-généralisation que les candidats A et B du forecasting."
+  },
+  "R2_details": {
+    "recall_at_10": 0.07195060248039258,
+    "ndcg_at_10": 0.04193451159110474,
+    "couverture_catalogue": 0.08916666666666666,
+    "diversite_at_10": 0.4226440079452659,
+    "concentration_top10": 0.5352973201746766,
+    "concentration_r1_pour_comparaison": 0.9250031268233685,
+    "apport_demontre": "Réduit la concentration des recommandations de 92,5 % à 53,5 % sur les 10 produits les plus recommandés, et augmente la couverture catalogue de +64,6 %.",
+    "usage_metier_envisage": "Bloc « Découvrir d'autres produits » — complément de la liste principale, jamais en remplacement du moteur principal.",
+    "penalite_non_reglee_retrospectivement": true,
+    "note_penalite": "La pénalité d'omniprésence n'a PAS été réajustée après observation des résultats pour faire passer R2. Un réglage moins agressif devra être fixé a priori dans une itération future s'il est jugé pertinent."
+  },
+  "R3": {
+    "status": "experiment_not_retained",
+    "reason": "relevance_not_improved",
+    "porte_franchie": false,
+    "signal_sous_groupe_personnalisable": false,
+    "seuils_eligibilite": {
+      "min_achats": 3,
+      "min_categories": 2,
+      "part_min_dominantes": 0.6
+    },
+    "part_clients_personnalises": [
+      {
+        "fenetre": 1,
+        "part": 0.9981801637852593
+      },
+      {
+        "fenetre": 2,
+        "part": 0.9995585963363496
+      }
+    ],
+    "moyennes": {
+      "recall_at_10": 0.06563255036619524,
+      "ndcg_at_10": 0.03943105981229436,
+      "catalog_coverage": 0.14833333333333332,
+      "recall_at_5": 0.036055764587081124,
+      "ndcg_at_5": 0.027205705259942883
+    }
+  },
+  "R4": {
+    "status": "not_launched",
+    "reason": "no_personalization_signal_in_R3",
+    "note": "R4 était un routage historique-suffisant → personnalisé / autres → popularité globale. R3 teste déjà ce routage avec une personnalisation légère ; sans signal sur le sous-groupe ciblé, un collaboratif plus lourd sur la même population n'a pas de fondement."
+  },
+  "signal_web": {
+    "actif_dans_modele_principal": false,
+    "raison": "dégradait le recall cold-start en V1 (0,0846 avec contre 0,1110 sans)"
+  },
+  "perimetre": {
+    "n_fenetres": 4,
+    "artefacts_v1_modifies": false
+  },
+  "aucune_publication_supabase": true,
+  "aucun_deploiement": true
+}

@@ -1,0 +1,36 @@
+{"ts": "2026-08-15T03:37:35.512187+00:00", "type": "debut", "candidat": "candidat_A_blend_autoets_wa28", "memoire_rss_mb": 79.7}
+{"ts": "2026-08-15T03:37:45.407934+00:00", "type": "fin", "candidat": "candidat_A_blend_autoets_wa28", "statut": "experiment_not_retained", "duree_totale_s": 9.93, "memoire_rss_mb": 286.0, "wape_30j": 0.27530829333277274}
+{"ts": "2026-08-15T03:39:12.547843+00:00", "type": "debut", "candidat": "candidat_A_blend_autoets_wa28", "memoire_rss_mb": 79.8}
+{"ts": "2026-08-15T03:39:21.001785+00:00", "type": "fin", "candidat": "candidat_A_blend_autoets_wa28", "statut": "experiment_not_retained", "duree_totale_s": 8.47, "memoire_rss_mb": 281.8, "wape_30j": 0.27530829333277274}
+{"ts": "2026-08-15T03:41:55.615518+00:00", "type": "debut", "candidat": "candidat_B", "memoire_rss_mb": 79.8}
+{"ts": "2026-08-15T03:42:12.086529+00:00", "type": "fin", "candidat": "candidat_B", "statut": "experiment_not_retained", "duree_totale_s": 16.51, "memoire_rss_mb": 270.6}
+{"ts": "2026-08-15T03:43:33.561647+00:00", "type": "debut", "candidat": "candidat_C", "memoire_rss_mb": 79.7}
+{"ts": "2026-08-15T03:43:44.533685+00:00", "type": "fin", "candidat": "candidat_C", "statut": "experiment_retained", "duree_totale_s": 11.01}
+{"ts": "2026-08-15T03:45:15.738517+00:00", "type": "debut", "candidat": "candidat_C", "memoire_rss_mb": 79.6}
+{"ts": "2026-08-15T03:45:27.220971+00:00", "type": "fin", "candidat": "candidat_C", "statut": "experiment_retained", "duree_totale_s": 11.51}
+{"ts": "2026-08-15T12:01:41.699817+00:00", "type": "debut", "candidat": "candidat_E_pilote", "memoire_rss_mb": 79.9}
+{"ts": "2026-08-15T12:02:29.304187+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E1", "label": "calendrier seul", "fenetre": 1, "n_features": 86, "n_train": 53759, "n_produits": 265, "duree_fit_s": 8.49, "duree_predict_s": 34.81, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 253.7}
+{"ts": "2026-08-15T12:03:11.816338+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E1", "label": "calendrier seul", "fenetre": 2, "n_features": 86, "n_train": 60722, "n_produits": 275, "duree_fit_s": 3.89, "duree_predict_s": 37.19, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 256.4}
+{"ts": "2026-08-15T12:03:51.694994+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E2", "label": "+ promotions planifiées", "fenetre": 1, "n_features": 92, "n_train": 53759, "n_produits": 265, "duree_fit_s": 4.1, "duree_predict_s": 34.02, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 259.2}
+{"ts": "2026-08-15T12:04:33.478515+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E2", "label": "+ promotions planifiées", "fenetre": 2, "n_features": 92, "n_train": 60722, "n_produits": 275, "duree_fit_s": 4.05, "duree_predict_s": 36.35, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 259.7}
+{"ts": "2026-08-15T12:05:13.205656+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E3", "label": "+ âge de version", "fenetre": 1, "n_features": 93, "n_train": 53759, "n_produits": 265, "duree_fit_s": 4.02, "duree_predict_s": 34.02, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 264.9}
+{"ts": "2026-08-15T12:05:55.362198+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E3", "label": "+ âge de version", "fenetre": 2, "n_features": 93, "n_train": 60722, "n_produits": 275, "duree_fit_s": 4.1, "duree_predict_s": 36.66, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 258.9}
+{"ts": "2026-08-15T12:06:35.013634+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E4", "label": "+ stock initial", "fenetre": 1, "n_features": 96, "n_train": 53759, "n_produits": 265, "duree_fit_s": 4.01, "duree_predict_s": 33.92, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 257.5}
+{"ts": "2026-08-15T12:07:18.476085+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E4", "label": "+ stock initial", "fenetre": 2, "n_features": 96, "n_train": 60722, "n_produits": 275, "duree_fit_s": 4.55, "duree_predict_s": 37.46, "n_nan": 0, "n_negatifs": 0, "repris_depuis_checkpoint": false, "memoire_rss_mb": 262.8}
+{"ts": "2026-08-15T12:07:18.908302+00:00", "type": "fin", "candidat": "candidat_E_pilote", "statut": "experiment_not_promising", "duree_totale_s": 337.23, "meilleur_gain": 0.012753995550001368}
+{"ts": "2026-08-15T12:12:41.093358+00:00", "type": "debut", "candidat": "candidat_E_pilote", "memoire_rss_mb": 79.7}
+{"ts": "2026-08-15T12:12:44.993061+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E1", "fenetre": 1, "repris_depuis_checkpoint": true, "memoire_rss_mb": 222.9}
+{"ts": "2026-08-15T12:12:45.013204+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E1", "fenetre": 2, "repris_depuis_checkpoint": true, "memoire_rss_mb": 223.0}
+{"ts": "2026-08-15T12:12:45.460443+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E2", "fenetre": 1, "repris_depuis_checkpoint": true, "memoire_rss_mb": 242.7}
+{"ts": "2026-08-15T12:12:45.479602+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E2", "fenetre": 2, "repris_depuis_checkpoint": true, "memoire_rss_mb": 242.8}
+{"ts": "2026-08-15T12:12:45.928204+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E3", "fenetre": 1, "repris_depuis_checkpoint": true, "memoire_rss_mb": 250.8}
+{"ts": "2026-08-15T12:12:45.951651+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E3", "fenetre": 2, "repris_depuis_checkpoint": true, "memoire_rss_mb": 250.8}
+{"ts": "2026-08-15T12:12:46.399008+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E4", "fenetre": 1, "repris_depuis_checkpoint": true, "memoire_rss_mb": 251.6}
+{"ts": "2026-08-15T12:12:46.423687+00:00", "type": "ablation_fenetre", "candidat": "candidat_E_pilote", "niveau": "E4", "fenetre": 2, "repris_depuis_checkpoint": true, "memoire_rss_mb": 251.8}
+{"ts": "2026-08-15T12:12:46.826821+00:00", "type": "fin", "candidat": "candidat_E_pilote", "statut": "experiment_not_promising", "duree_totale_s": 5.8, "meilleur_gain": 0.012753995550001368}
+{"ts": "2026-08-15T12:35:19.180024+00:00", "type": "debut", "candidat": "recsys_R1_R2", "memoire_rss_mb": 82.1}
+{"ts": "2026-08-15T12:36:32.789387+00:00", "type": "fin", "candidat": "recsys_R1_R2", "duree_totale_s": 73.63}
+{"ts": "2026-08-15T13:13:20.691518+00:00", "type": "debut", "candidat": "recsys_R1_R2", "memoire_rss_mb": 81.8}
+{"ts": "2026-08-15T13:14:39.063690+00:00", "type": "fin", "candidat": "recsys_R1_R2", "duree_totale_s": 78.44}
+{"ts": "2026-08-15T13:34:43.893028+00:00", "type": "debut", "candidat": "R3_pilote", "memoire_rss_mb": 82.0}
+{"ts": "2026-08-15T13:35:05.136153+00:00", "type": "fin", "candidat": "R3_pilote", "statut": "experiment_not_retained", "duree_totale_s": 21.28}

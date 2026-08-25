@@ -1,0 +1,93 @@
+{
+  "artefacts": {
+    "models/forecast_final/metadata.json": {
+      "sha256": "3b7ba903a524fd496258b69b8e8918ef63573226295e5331ccf6fa6c5f7eae54",
+      "taille_octets": 1885
+    },
+    "reports/forecast_final/v1_metrics_snapshot.json": {
+      "sha256": "ce382df5da9124394c17138f4532862e711945b3d29fe7fd10b6bbb8bb9d3356",
+      "taille_octets": 9376
+    },
+    "reports/forecast_final/v1_manifest.json": {
+      "sha256": "9b20bd5b90c31068411282c627de12a92fd83be352ed9ad9c2df64e3b0bc7e7e",
+      "taille_octets": 2640
+    },
+    "reports/forecast_final/v1_final_checks.json": {
+      "sha256": "65613dd0bb3ab97bc5fce8d16ce60124553a43c8c117bc1dbf8d462f7a6391c4",
+      "taille_octets": 1250
+    },
+    "reports/forecast_final/previsions_finales.parquet": {
+      "sha256": "b6564d0d5af50abc0f9bf419f043603228dc7a591738eaebdbe7978276818804",
+      "taille_octets": 107051
+    },
+    "reports/forecast_final/previsions_finales.csv": {
+      "sha256": "1b9bc848d5afd22fd884eb7f69afc209f3ca2fffc7eebd58b160a4d4f454755c",
+      "taille_octets": 5367983
+    },
+    "reports/forecast_final/forecasting_v2_objectives.md": {
+      "sha256": "ae6b680678b3033ae2dffbef2e6f9dedb3d39e843d6762517501acd345a2bc29",
+      "taille_octets": 16208
+    },
+    "reports/23_rapport_final_forecasting.md": {
+      "sha256": "ac115e6b4982d6e197ad6acf72cd3302cdd0afb4fe1a62720bfdf59f245df1a4",
+      "taille_octets": 21901
+    },
+    "reports/24_entrainement_final.md": {
+      "sha256": "f1a99560a67a279612d46f4a15056ab6997d0cad014599c89c58f9a74a4b0fe3",
+      "taille_octets": 1226
+    },
+    "reports/25_forecasting_v1_cloture.md": {
+      "sha256": "bb414401cf5e58f10e20b634a04fda1f13c37e0bc5a1118ae0ab7761c4711721",
+      "taille_octets": 3695
+    },
+    "reports/pricing_final/metadata.json": {
+      "sha256": "de3528c13deac1f09b5b53468f8069292a537f2cf3ba5d7d5a3da4ebe6d7c80e",
+      "taille_octets": 1611
+    },
+    "reports/pricing_final/manifest.json": {
+      "sha256": "e3786e5d1a3a82ec2b2a1cea163b6dae5ca2c63cff9f0e245981f10cf53ea56d",
+      "taille_octets": 3690
+    },
+    "reports/pricing_final/final_checks.json": {
+      "sha256": "cf5800a9daa2a50231bef9bc4e5bb958c891a21dece3d1d6d3f7166139da6b2e",
+      "taille_octets": 687
+    },
+    "reports/pricing_final/pricing_v2_objectives.md": {
+      "sha256": "f46719065988a625cf180de302d64e914decd649c7be863518a5cfa2b26e0f8e",
+      "taille_octets": 10502
+    },
+    "reports/33_pricing_comparaison_rapport_final.md": {
+      "sha256": "3e2b7312e41c724236c01bb6aa5558d1e4feeb092a16ffce58405b6b3ec7ae20",
+      "taille_octets": 8291
+    },
+    "reports/recsys_final/metadata.json": {
+      "sha256": "57e5fc397722aee316254f73d07e127e63db47ef1a520d8009925ff1fec125ec",
+      "taille_octets": 4404
+    },
+    "reports/recsys_final/manifest.json": {
+      "sha256": "896d62fd8ac9ed307c2ec023ce8c8712c4d522eeff873bb4381047dc038ef493",
+      "taille_octets": 3335
+    },
+    "reports/recsys_final/final_checks.json": {
+      "sha256": "aeecea07ae2ee45f72abfe54a7b44e0d9a29bbbd4c54ce7d5a99b3488a9ad20a",
+      "taille_octets": 1108
+    },
+    "reports/recsys_final/recommendation_v2_objectives.md": {
+      "sha256": "1b4a1ce549d98c297d6adee6268e5b1527e2ee742cc7f330f5e36f0fda62c4a2",
+      "taille_octets": 9454
+    },
+    "reports/41_recsys_consolidation_finale.md": {
+      "sha256": "d19c2177186a3195e8990db7143890830d54b541d069e9363f43add8ac3da350",
+      "taille_octets": 15362
+    },
+    "reports/SYNTHESE_EQUIPE_V1.md": {
+      "sha256": "46eb8ce29f03f688b9ad3a08c6194171ee82b8b8f9797487a9b3412d676e06ee",
+      "taille_octets": 8549
+    },
+    "reports/MESSAGE_SLACK_V1.md": {
+      "sha256": "c24c338178aadf015d2559139656da7975b10010bf620b6e46662f0ffe9eecb4",
+      "taille_octets": 1793
+    }
+  },
+  "n_artefacts": 22
+}

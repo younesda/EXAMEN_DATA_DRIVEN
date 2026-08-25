@@ -1,0 +1,535 @@
+{
+  "candidat": "candidat_E_variables_metier",
+  "etape": "pilote_fenetres_1_et_2",
+  "genere_le": "2026-08-15T12:12:46.824094+00:00",
+  "status": "experiment_not_promising",
+  "reason": "gain_below_pilot_gate_2pct",
+  "porte_decision": {
+    "gain_minimal_exige": 0.02,
+    "meilleur_niveau": "E1",
+    "meilleur_gain_relatif": 0.012753995550001368,
+    "porte_franchie": false,
+    "fixee_avant_execution": true
+  },
+  "fenetres_pilote": [
+    1,
+    2
+  ],
+  "reference_v1_pilote": {
+    "wape_30j": 0.3147821238206876,
+    "wape_7j": 0.5109019190472126,
+    "wape_quotidien": 1.136794935225243
+  },
+  "resultats_par_niveau": {
+    "E1": {
+      "label": "calendrier seul",
+      "gain_relatif_wape30j_vs_v1": 0.012753995550001368,
+      "wape_30j": 0.31076739401425857,
+      "wape_7j": 0.4786933675316957,
+      "wape_quotidien": 1.1425654652753865
+    },
+    "E2": {
+      "label": "+ promotions planifiées",
+      "gain_relatif_wape30j_vs_v1": -0.052584763047086897,
+      "wape_30j": 0.3313348672132572,
+      "wape_7j": 0.4721093212679908,
+      "wape_quotidien": 1.1669138123854543
+    },
+    "E3": {
+      "label": "+ âge de version",
+      "gain_relatif_wape30j_vs_v1": 0.010608962699257195,
+      "wape_30j": 0.31144261201068096,
+      "wape_7j": 0.4683080804835843,
+      "wape_quotidien": 1.1475227185950527
+    },
+    "E4": {
+      "label": "+ stock initial",
+      "gain_relatif_wape30j_vs_v1": 0.006210676450109823,
+      "wape_30j": 0.3128271138973589,
+      "wape_7j": 0.4669069136787098,
+      "wape_quotidien": 1.1499025319116216
+    }
+  },
+  "metriques_completes": {
+    "E1": {
+      "label": "E_E1",
+      "n_lignes": 15850,
+      "n_produits_fenetres": 540,
+      "qualite": {
+        "n_non_finis": 0,
+        "n_negatifs": 0
+      },
+      "quotidien": {
+        "WAPE": 1.1425654652753865,
+        "MAE": 1.3802334992825125,
+        "biais_normalise": 0.11525531813806449
+      },
+      "cumule": {
+        "7": {
+          "WAPE": 0.4786933675316957,
+          "MAE": 3.8983247229449014,
+          "biais_normalise": -0.0016285428179176607,
+          "n_produits_fenetres": 522
+        },
+        "14": {
+          "WAPE": 0.36497476467259576,
+          "MAE": 5.948120928044861,
+          "biais_normalise": 0.041693009180391594,
+          "n_produits_fenetres": 528
+        },
+        "30": {
+          "WAPE": 0.31076739401425857,
+          "MAE": 11.019006098501869,
+          "biais_normalise": 0.11525531813806449,
+          "n_produits_fenetres": 540
+        }
+      },
+      "par_fenetre": [
+        {
+          "fenetre": 1,
+          "WAPE_cumule_30j": 0.30929498912542247,
+          "biais_normalise": 0.12192133237786788,
+          "n_produits": 265
+        },
+        {
+          "fenetre": 2,
+          "WAPE_cumule_30j": 0.3121972061736565,
+          "biais_normalise": 0.10878213383457826,
+          "n_produits": 275
+        }
+      ],
+      "par_segment": {
+        "abc": {
+          "A": {
+            "WAPE_cumule_30j": 0.3097268224241991,
+            "biais_normalise": 0.16974237328411762,
+            "n_produits_fenetres": 115
+          },
+          "B": {
+            "WAPE_cumule_30j": 0.2661185412638788,
+            "biais_normalise": 0.10447911943891483,
+            "n_produits_fenetres": 159
+          },
+          "C": {
+            "WAPE_cumule_30j": 0.3243798229647227,
+            "biais_normalise": 0.09130781189127961,
+            "n_produits_fenetres": 238
+          }
+        },
+        "profil": {
+          "erratique": {
+            "WAPE_cumule_30j": 0.31442265232835415,
+            "biais_normalise": 0.18949489594856075,
+            "n_produits_fenetres": 6
+          },
+          "grumeleux": {
+            "WAPE_cumule_30j": 0.28421364946621547,
+            "biais_normalise": 0.12351536821827722,
+            "n_produits_fenetres": 258
+          },
+          "indetermine": {
+            "WAPE_cumule_30j": 0.4019870908436613,
+            "biais_normalise": 0.22810006792036677,
+            "n_produits_fenetres": 4
+          },
+          "intermittent": {
+            "WAPE_cumule_30j": 0.3343331033349976,
+            "biais_normalise": 0.11498009710777375,
+            "n_produits_fenetres": 230
+          },
+          "regulier": {
+            "WAPE_cumule_30j": 0.21137177842371832,
+            "biais_normalise": -0.02755149216479151,
+            "n_produits_fenetres": 14
+          }
+        },
+        "produits_recents": {
+          "WAPE_cumule_30j": 0.31790591845879984,
+          "biais_normalise": 0.10144583668567603,
+          "n_produits_fenetres": 81,
+          "definition": "historique < 90 jours au cutoff"
+        }
+      },
+      "stabilite": {
+        "WAPE_30j_moyenne": 0.3107460976495395,
+        "WAPE_30j_ecart_type": 0.0020521773552814758,
+        "WAPE_30j_min": 0.30929498912542247,
+        "WAPE_30j_max": 0.3121972061736565
+      }
+    },
+    "E2": {
+      "label": "E_E2",
+      "n_lignes": 15850,
+      "n_produits_fenetres": 540,
+      "qualite": {
+        "n_non_finis": 0,
+        "n_negatifs": 0
+      },
+      "quotidien": {
+        "WAPE": 1.1669138123854543,
+        "MAE": 1.4096466098261382,
+        "biais_normalise": 0.17854234405138472
+      },
+      "cumule": {
+        "7": {
+          "WAPE": 0.4721093212679908,
+          "MAE": 3.8447063691766843,
+          "biais_normalise": -4.430290288287761e-05,
+          "n_produits_fenetres": 522
+        },
+        "14": {
+          "WAPE": 0.3706121210440981,
+          "MAE": 6.039994889364515,
+          "biais_normalise": 0.0680153750963872,
+          "n_produits_fenetres": 528
+        },
+        "30": {
+          "WAPE": 0.3313348672132572,
+          "MAE": 11.748275375059697,
+          "biais_normalise": 0.17854234405138475,
+          "n_produits_fenetres": 540
+        }
+      },
+      "par_fenetre": [
+        {
+          "fenetre": 1,
+          "WAPE_cumule_30j": 0.32242127276818305,
+          "biais_normalise": 0.18868979506578504,
+          "n_produits": 265
+        },
+        {
+          "fenetre": 2,
+          "WAPE_cumule_30j": 0.3399906152470625,
+          "biais_normalise": 0.16868843161378558,
+          "n_produits": 275
+        }
+      ],
+      "par_segment": {
+        "abc": {
+          "A": {
+            "WAPE_cumule_30j": 0.30647869740045264,
+            "biais_normalise": 0.16544951820811937,
+            "n_produits_fenetres": 115
+          },
+          "B": {
+            "WAPE_cumule_30j": 0.30366812735457266,
+            "biais_normalise": 0.16465940594963052,
+            "n_produits_fenetres": 159
+          },
+          "C": {
+            "WAPE_cumule_30j": 0.3375812215918213,
+            "biais_normalise": 0.17650386596607168,
+            "n_produits_fenetres": 238
+          }
+        },
+        "profil": {
+          "erratique": {
+            "WAPE_cumule_30j": 0.24838994921797053,
+            "biais_normalise": 0.0856582003357051,
+            "n_produits_fenetres": 6
+          },
+          "grumeleux": {
+            "WAPE_cumule_30j": 0.3121661487092504,
+            "biais_normalise": 0.1811317654091707,
+            "n_produits_fenetres": 258
+          },
+          "indetermine": {
+            "WAPE_cumule_30j": 0.2884955812727802,
+            "biais_normalise": 0.2816181920830053,
+            "n_produits_fenetres": 4
+          },
+          "intermittent": {
+            "WAPE_cumule_30j": 0.3446665422781374,
+            "biais_normalise": 0.18312075141880302,
+            "n_produits_fenetres": 230
+          },
+          "regulier": {
+            "WAPE_cumule_30j": 0.20865006668988131,
+            "biais_normalise": -0.04487568376515926,
+            "n_produits_fenetres": 14
+          }
+        },
+        "produits_recents": {
+          "WAPE_cumule_30j": 0.339818369593185,
+          "biais_normalise": 0.15637442706178648,
+          "n_produits_fenetres": 81,
+          "definition": "historique < 90 jours au cutoff"
+        }
+      },
+      "stabilite": {
+        "WAPE_30j_moyenne": 0.33120594400762277,
+        "WAPE_30j_ecart_type": 0.012423401207804507,
+        "WAPE_30j_min": 0.32242127276818305,
+        "WAPE_30j_max": 0.3399906152470625
+      }
+    },
+    "E3": {
+      "label": "E_E3",
+      "n_lignes": 15850,
+      "n_produits_fenetres": 540,
+      "qualite": {
+        "n_non_finis": 0,
+        "n_negatifs": 0
+      },
+      "quotidien": {
+        "WAPE": 1.1475227185950527,
+        "MAE": 1.3862219238447617,
+        "biais_normalise": 0.13469008654072684
+      },
+      "cumule": {
+        "7": {
+          "WAPE": 0.4683080804835843,
+          "MAE": 3.813750287616316,
+          "biais_normalise": 0.005103642957074226,
+          "n_produits_fenetres": 522
+        },
+        "14": {
+          "WAPE": 0.36615328860337387,
+          "MAE": 5.9673277432424845,
+          "biais_normalise": 0.08267088398512841,
+          "n_produits_fenetres": 528
+        },
+        "30": {
+          "WAPE": 0.31144261201068096,
+          "MAE": 11.042947578089832,
+          "biais_normalise": 0.13469008654072687,
+          "n_produits_fenetres": 540
+        }
+      },
+      "par_fenetre": [
+        {
+          "fenetre": 1,
+          "WAPE_cumule_30j": 0.2954176508595026,
+          "biais_normalise": 0.14768996547441365,
+          "n_produits": 265
+        },
+        {
+          "fenetre": 2,
+          "WAPE_cumule_30j": 0.3270040139603481,
+          "biais_normalise": 0.12206625928300938,
+          "n_produits": 275
+        }
+      ],
+      "par_segment": {
+        "abc": {
+          "A": {
+            "WAPE_cumule_30j": 0.2927821497316798,
+            "biais_normalise": 0.12172387000720805,
+            "n_produits_fenetres": 115
+          },
+          "B": {
+            "WAPE_cumule_30j": 0.28854702696510937,
+            "biais_normalise": 0.11569968795136147,
+            "n_produits_fenetres": 159
+          },
+          "C": {
+            "WAPE_cumule_30j": 0.31511184484073423,
+            "biais_normalise": 0.13453173306245592,
+            "n_produits_fenetres": 238
+          }
+        },
+        "profil": {
+          "erratique": {
+            "WAPE_cumule_30j": 0.22260668272341114,
+            "biais_normalise": 0.030889300842427154,
+            "n_produits_fenetres": 6
+          },
+          "grumeleux": {
+            "WAPE_cumule_30j": 0.2865600024172764,
+            "biais_normalise": 0.12501232487750288,
+            "n_produits_fenetres": 258
+          },
+          "indetermine": {
+            "WAPE_cumule_30j": 0.4557154983551123,
+            "biais_normalise": 0.4557154983551123,
+            "n_produits_fenetres": 4
+          },
+          "intermittent": {
+            "WAPE_cumule_30j": 0.33226060494027465,
+            "biais_normalise": 0.14773998035883287,
+            "n_produits_fenetres": 230
+          },
+          "regulier": {
+            "WAPE_cumule_30j": 0.20130151037153138,
+            "biais_normalise": -0.06913785835530288,
+            "n_produits_fenetres": 14
+          }
+        },
+        "produits_recents": {
+          "WAPE_cumule_30j": 0.37042179365984734,
+          "biais_normalise": 0.20878872786832975,
+          "n_produits_fenetres": 81,
+          "definition": "historique < 90 jours au cutoff"
+        }
+      },
+      "stabilite": {
+        "WAPE_30j_moyenne": 0.31121083240992536,
+        "WAPE_30j_ecart_type": 0.0223349315416284,
+        "WAPE_30j_min": 0.2954176508595026,
+        "WAPE_30j_max": 0.3270040139603481
+      }
+    },
+    "E4": {
+      "label": "E_E4",
+      "n_lignes": 15850,
+      "n_produits_fenetres": 540,
+      "qualite": {
+        "n_non_finis": 0,
+        "n_negatifs": 0
+      },
+      "quotidien": {
+        "WAPE": 1.1499025319116216,
+        "MAE": 1.3890967683603672,
+        "biais_normalise": 0.12988091201726534
+      },
+      "cumule": {
+        "7": {
+          "WAPE": 0.4669069136787098,
+          "MAE": 3.802339636107654,
+          "biais_normalise": -0.011167028640603274,
+          "n_produits_fenetres": 522
+        },
+        "14": {
+          "WAPE": 0.3634595505961047,
+          "MAE": 5.923426956211138,
+          "biais_normalise": 0.047955122631872155,
+          "n_produits_fenetres": 528
+        },
+        "30": {
+          "WAPE": 0.3128271138973589,
+          "MAE": 11.092038425542095,
+          "biais_normalise": 0.12988091201726534,
+          "n_produits_fenetres": 540
+        }
+      },
+      "par_fenetre": [
+        {
+          "fenetre": 1,
+          "WAPE_cumule_30j": 0.300750333999019,
+          "biais_normalise": 0.12139768722314308,
+          "n_produits": 265
+        },
+        {
+          "fenetre": 2,
+          "WAPE_cumule_30j": 0.3245545449022013,
+          "biais_normalise": 0.13811873984132908,
+          "n_produits": 275
+        }
+      ],
+      "par_segment": {
+        "abc": {
+          "A": {
+            "WAPE_cumule_30j": 0.2781553769418159,
+            "biais_normalise": 0.08743163713263775,
+            "n_produits_fenetres": 115
+          },
+          "B": {
+            "WAPE_cumule_30j": 0.2806060228824549,
+            "biais_normalise": 0.11175842480085417,
+            "n_produits_fenetres": 159
+          },
+          "C": {
+            "WAPE_cumule_30j": 0.32803402174394564,
+            "biais_normalise": 0.14306081298541728,
+            "n_produits_fenetres": 238
+          }
+        },
+        "profil": {
+          "erratique": {
+            "WAPE_cumule_30j": 0.23191448448727198,
+            "biais_normalise": 0.11104846055137456,
+            "n_produits_fenetres": 6
+          },
+          "grumeleux": {
+            "WAPE_cumule_30j": 0.2871203976969849,
+            "biais_normalise": 0.12127150257615255,
+            "n_produits_fenetres": 258
+          },
+          "indetermine": {
+            "WAPE_cumule_30j": 0.3429853704048928,
+            "biais_normalise": 0.3429853704048928,
+            "n_produits_fenetres": 4
+          },
+          "intermittent": {
+            "WAPE_cumule_30j": 0.33269754474135216,
+            "biais_normalise": 0.13600347609651625,
+            "n_produits_fenetres": 230
+          },
+          "regulier": {
+            "WAPE_cumule_30j": 0.19725271060717106,
+            "biais_normalise": -0.06507914593430508,
+            "n_produits_fenetres": 14
+          }
+        },
+        "produits_recents": {
+          "WAPE_cumule_30j": 0.35901074391441357,
+          "biais_normalise": 0.18166129408678838,
+          "n_produits_fenetres": 81,
+          "definition": "historique < 90 jours au cutoff"
+        }
+      },
+      "stabilite": {
+        "WAPE_30j_moyenne": 0.31265243945061016,
+        "WAPE_30j_ecart_type": 0.016832118950434953,
+        "WAPE_30j_min": 0.300750333999019,
+        "WAPE_30j_max": 0.3245545449022013
+      }
+    }
+  },
+  "controles_techniques": [
+    {
+      "niveau": "E1",
+      "fenetre": 1,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 222.9
+    },
+    {
+      "niveau": "E1",
+      "fenetre": 2,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 223.0
+    },
+    {
+      "niveau": "E2",
+      "fenetre": 1,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 242.7
+    },
+    {
+      "niveau": "E2",
+      "fenetre": 2,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 242.8
+    },
+    {
+      "niveau": "E3",
+      "fenetre": 1,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 250.8
+    },
+    {
+      "niveau": "E3",
+      "fenetre": 2,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 250.8
+    },
+    {
+      "niveau": "E4",
+      "fenetre": 1,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 251.6
+    },
+    {
+      "niveau": "E4",
+      "fenetre": 2,
+      "repris_depuis_checkpoint": true,
+      "memoire_rss_mb": 251.8
+    }
+  ],
+  "cout_calcul": {
+    "duree_totale_s": 5.8,
+    "memoire_rss_mb_finale": 269.7,
+    "reentrainement": true,
+    "n_entrainements": 8
+  }
+}

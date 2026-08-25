@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Console V4 — prevision, remise et recommandation</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="bandeau-titre">
+    <h1>Console V4</h1>
+    <p>Prevision, simulation de remise et recommandation</p>
+  </div>
+  <div class="bandeau-statut" id="bandeau-statut">
+    <span class="pastille" id="pastille-etat"></span>
+    <span id="texte-etat">Verification du service...</span>
+  </div>
+</header>
+
+<nav class="onglets" role="tablist">
+  <button class="onglet actif" data-page="recommandation" role="tab">Recommandation</button>
+  <button class="onglet" data-page="pricing" role="tab">Simulation de remise</button>
+  <button class="onglet" data-page="prevision" role="tab">Prevision 30 jours</button>
+  <button class="onglet" data-page="modeles" role="tab">Scores et validation</button>
+</nav>
+
+<main>
+
+  <!-- ---------------------------------------------------- Recommandation -->
+  <section class="page active" id="page-recommandation">
+    <h2>Recommandation</h2>
+    <p class="intro">
+      Le service reclasse une liste de produits candidats. Il ne choisit pas les
+      candidats : il ordonne ceux que vous lui soumettez.
+    </p>
+
+    <form class="formulaire" id="form-reco">
+      <div class="champ">
+        <label for="reco-objectif">Objectif</label>
+        <select id="reco-objectif">
+          <option value="/recommendations">Achat (modele CatBoostRanker)</option>
+          <option value="/recommendations/cart">Ajout au panier (modele pointwise_conversion)</option>
+        </select>
+      </div>
+
+      <div class="champ">
+        <label for="reco-client">Identifiant client (facultatif)</label>
+        <input type="text" id="reco-client" placeholder="laisser vide pour un visiteur anonyme">
+      </div>
+
+      <div class="champ champ-large">
+        <label for="reco-produits">Produits candidats</label>
+        <div class="selection" id="reco-selection"></div>
+        <select id="reco-produits"><option>Chargement du catalogue...</option></select>
+        <button type="button" class="secondaire" id="reco-ajouter">Ajouter ce produit</button>
+        <p class="aide">Au moins un produit. Les doublons sont refuses par le service.</p>
+      </div>
+
+      <div class="champ">
+        <label for="reco-achats">Achats anterieurs du client</label>
+        <input type="number" id="reco-achats" value="0" min="0">
+      </div>
+
+      <button type="submit" class="principal">Classer les produits</button>
+    </form>
+
+    <div class="resultat" id="reco-resultat"></div>
+  </section>
+
+  <!-- ----------------------------------------------------------- Pricing -->
+  <section class="page" id="page-pricing">
+    <h2>Simulation de remise</h2>
+    <p class="intro">
+      Simulation uniquement. Aucun prix n'est applique, et aucun prix optimal
+      n'est calcule : vous proposez une remise, le service en calcule les
+      consequences comptables et verifie les garde-fous.
+    </p>
+
+    <form class="formulaire" id="form-pricing">
+      <div class="champ">
+        <label for="pricing-produit">Produit</label>
+        <select id="pricing-produit"><option>Chargement du catalogue...</option></select>
+      </div>
+      <div class="champ">
+        <label for="pricing-remise">Remise proposee : <strong id="pricing-remise-valeur">0</strong> %</label>
+        <input type="range" id="pricing-remise" min="0" max="100" value="0" step="1">
+      </div>
+      <button type="submit" class="principal">Simuler</button>
+    </form>
+
+    <div class="resultat" id="pricing-resultat"></div>
+  </section>
+
+  <!-- ---------------------------------------------------------- Prevision -->
+  <section class="page" id="page-prevision">
+    <h2>Prevision 30 jours</h2>
+    <p class="intro">
+      Resultat de backtest hors echantillon du modele de prevision deja valide,
+      repris en lecture seule. Il ne s'agit pas d'une prevision du futur, et ce
+      modele n'a pas ete reentraine.
+    </p>
+
+    <div class="cartes" id="prevision-synthese"></div>
+
+    <form class="formulaire" id="form-prevision">
+      <div class="champ">
+        <label for="prevision-produit">Produit</label>
+        <select id="prevision-produit"><option>Chargement...</option></select>
+      </div>
+      <button type="submit" class="principal">Afficher la courbe</button>
+    </form>
+
+    <div class="resultat" id="prevision-resultat"></div>
+  </section>
+
+  <!-- ----------------------------------------------------------- Modeles -->
+  <section class="page" id="page-modeles">
+    <h2>Scores et validation</h2>
+    <p class="intro">
+      Source unique de verite du service, pour les trois domaines. Toutes les
+      valeurs sont lues depuis les metadonnees finales : aucune n'est ecrite
+      dans cette page. Un modele au statut <strong>exploratoire</strong> n'est
+      jamais servi par defaut.
+    </p>
+    <p class="liens">
+      <a class="lien-bouton" href="/metrics" target="_blank" rel="noopener">Voir /metrics (JSON)</a>
+      <a class="lien-bouton" href="/metadata" target="_blank" rel="noopener">Voir /metadata (JSON)</a>
+      <a class="lien-bouton" href="/docs" target="_blank" rel="noopener">Documentation /docs</a>
+    </p>
+    <div class="resultat" id="modeles-resultat">Chargement...</div>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    Donnees synthetiques, usage academique et benchmark de pipeline.
+    Documentation technique : <a href="/docs">interface OpenAPI</a>.
+  </p>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

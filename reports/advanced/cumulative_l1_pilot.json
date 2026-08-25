@@ -1,0 +1,254 @@
+{
+  "protocole": "cible = somme(y[J+1..J+30]) ; perte L1 alignee sur WAPE30",
+  "fenetres_pilote": [
+    1,
+    2
+  ],
+  "reference_mean_wape30": 0.2783462540993656,
+  "gate_5pct": 0.2644289413943973,
+  "per_window": [
+    {
+      "model": "blend_50_50_l1_reference",
+      "window": 1,
+      "wape30": 0.2704305293112752,
+      "bias": 0.02484955426701962,
+      "n_products": 300.0
+    },
+    {
+      "model": "blend_50_50_l1_reference",
+      "window": 2,
+      "wape30": 0.2895752831194107,
+      "bias": -0.02284965026534557,
+      "n_products": 300.0
+    },
+    {
+      "model": "cumulative_l1",
+      "window": 1,
+      "wape30": 0.2786064322105288,
+      "bias": 0.033024668030110005,
+      "n_products": 300.0
+    },
+    {
+      "model": "cumulative_l1",
+      "window": 2,
+      "wape30": 0.2944722986172073,
+      "bias": 0.00464759372656266,
+      "n_products": 300.0
+    },
+    {
+      "model": "cumulative_tweedie",
+      "window": 1,
+      "wape30": 0.2847930514870488,
+      "bias": 0.06427878654633389,
+      "n_products": 300.0
+    },
+    {
+      "model": "cumulative_tweedie",
+      "window": 2,
+      "wape30": 0.2983615959744978,
+      "bias": 0.03422376255559971,
+      "n_products": 300.0
+    },
+    {
+      "model": "reference_direct_per_horizon",
+      "window": 1,
+      "wape30": 0.2679366073238623,
+      "bias": 0.016674440503929244,
+      "n_products": 300.0
+    },
+    {
+      "model": "reference_direct_per_horizon",
+      "window": 2,
+      "wape30": 0.28875590087486885,
+      "bias": -0.050346894257253826,
+      "n_products": 300.0
+    }
+  ],
+  "mean_wape30": {
+    "blend_50_50_l1_reference": 0.28000290621534296,
+    "cumulative_l1": 0.28653936541386804,
+    "cumulative_tweedie": 0.2915773237307733,
+    "reference_direct_per_horizon": 0.2783462540993656
+  },
+  "gate_pass": {
+    "blend_50_50_l1_reference": false,
+    "cumulative_l1": false,
+    "cumulative_tweedie": false,
+    "reference_direct_per_horizon": false
+  },
+  "n_features": 80,
+  "horizon_features": [
+    "h_weekend_days",
+    "h_month_start_days",
+    "h_month_end_days",
+    "h_start_month",
+    "h_planned_discount_mean",
+    "h_planned_discount_max",
+    "h_planned_discount_days"
+  ],
+  "tuning": [
+    {
+      "window": 1,
+      "objective": "l1",
+      "tuning": [
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_child_samples": 60,
+            "learning_rate": 0.05,
+            "n_estimators": 300
+          },
+          "wape": 0.608263504134096,
+          "elapsed_seconds": 3.3467857999930857,
+          "n_train": 83100
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_child_samples": 80,
+            "learning_rate": 0.035,
+            "n_estimators": 400
+          },
+          "wape": 0.6264737286531895,
+          "elapsed_seconds": 4.980402500004857,
+          "n_train": 83100
+        },
+        {
+          "params": {
+            "num_leaves": 47,
+            "min_child_samples": 120,
+            "learning_rate": 0.03,
+            "n_estimators": 500
+          },
+          "wape": 0.6269205433657923,
+          "elapsed_seconds": 6.906269900006009,
+          "n_train": 83100
+        }
+      ]
+    },
+    {
+      "window": 1,
+      "objective": "tweedie",
+      "tuning": [
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_child_samples": 60,
+            "learning_rate": 0.05,
+            "n_estimators": 300
+          },
+          "wape": 0.6164521958475111,
+          "elapsed_seconds": 3.1352681999997003,
+          "n_train": 83100
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_child_samples": 80,
+            "learning_rate": 0.035,
+            "n_estimators": 400
+          },
+          "wape": 0.6045854692014697,
+          "elapsed_seconds": 5.528700300012133,
+          "n_train": 83100
+        },
+        {
+          "params": {
+            "num_leaves": 47,
+            "min_child_samples": 120,
+            "learning_rate": 0.03,
+            "n_estimators": 500
+          },
+          "wape": 0.6246714385807122,
+          "elapsed_seconds": 7.654745799998636,
+          "n_train": 83100
+        }
+      ]
+    },
+    {
+      "window": 2,
+      "objective": "l1",
+      "tuning": [
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_child_samples": 60,
+            "learning_rate": 0.05,
+            "n_estimators": 300
+          },
+          "wape": 0.2786064322105288,
+          "elapsed_seconds": 3.640366500010714,
+          "n_train": 92100
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_child_samples": 80,
+            "learning_rate": 0.035,
+            "n_estimators": 400
+          },
+          "wape": 0.2789547526464726,
+          "elapsed_seconds": 5.160906000004616,
+          "n_train": 92100
+        },
+        {
+          "params": {
+            "num_leaves": 47,
+            "min_child_samples": 120,
+            "learning_rate": 0.03,
+            "n_estimators": 500
+          },
+          "wape": 0.2909192860372353,
+          "elapsed_seconds": 7.289175700003398,
+          "n_train": 92100
+        }
+      ]
+    },
+    {
+      "window": 2,
+      "objective": "tweedie",
+      "tuning": [
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_child_samples": 60,
+            "learning_rate": 0.05,
+            "n_estimators": 300
+          },
+          "wape": 0.27707107139133186,
+          "elapsed_seconds": 3.329573499999242,
+          "n_train": 92100
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_child_samples": 80,
+            "learning_rate": 0.035,
+            "n_estimators": 400
+          },
+          "wape": 0.2847930514870488,
+          "elapsed_seconds": 5.395227299988619,
+          "n_train": 92100
+        },
+        {
+          "params": {
+            "num_leaves": 47,
+            "min_child_samples": 120,
+            "learning_rate": 0.03,
+            "n_estimators": 500
+          },
+          "wape": 0.2881393792964234,
+          "elapsed_seconds": 7.501490299997386,
+          "n_train": 92100
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "population_identique": true,
+    "grain_identique": "produit x fenetre",
+    "tuning_sur_test": false,
+    "negatifs": 0,
+    "nan": 0
+  }
+}

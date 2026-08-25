@@ -1,0 +1,30 @@
+# Normalisation des fins de ligne.
+#
+# Objectif : rendre les manifestes SHA-256 portables. Les empreintes sont
+# calculees sur les octets du fichier tel qu'il existe dans l'arbre de travail ;
+# sans `eol=lf`, un checkout Windows produirait des CRLF et donc des empreintes
+# differentes de celles calculees sous Linux, pour un contenu identique.
+#
+# Tout fichier couvert par un manifeste doit donc etre soit `text eol=lf`, soit
+# `binary`. Voir `scripts/validate_manifests.py` pour la convention complete.
+
+* text=auto
+
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.sh text eol=lf
+*.sql text eol=lf
+
+*.parquet binary
+*.joblib binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.docx binary

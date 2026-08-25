@@ -1,0 +1,186 @@
+{
+  "bundle_version": "1.0.0",
+  "model_version": "1.0.0",
+  "generated_at": "2026-08-18T19:34:49.878026+00:00",
+  "source_sha256": {
+    "FINAL_STATUS.json": "a33747a4d483528f9c0d900e39f21e17f09f463656c5fe21acfc1099525eea1b",
+    "pricing_metadata.json": "3f395cc48c260c9ad58ae83a3138707b59c2395d5f3d4652d559a07fb483fc30",
+    "general_recommender.joblib": "efced5a4a01530c449f963d7b7a6232a5a119830e85351ccfccd442f13a7dcd5"
+  },
+  "active_models": [
+    "popularite_globale",
+    "lgbm_tweedie_moyenne"
+  ],
+  "recommendation": {
+    "model_name": "popularite_globale",
+    "status": "validated_baseline",
+    "personalization_validated": false,
+    "catalog_coverage_warning": true,
+    "metrics": {
+      "recall": 0.06685765,
+      "ndcg": 0.03771184,
+      "coverage": 0.06083333
+    },
+    "limits": [
+      "baseline globale",
+      "aucune forte personnalisation",
+      "couverture catalogue limitée"
+    ],
+    "perimeter": "prochain_achat_4_fenetres_30j",
+    "perimeter_label": "Recommandation générale — prochain achat"
+  },
+  "basket": {
+    "model_name": "popularite_globale",
+    "status": "baseline_only",
+    "personalization_validated": false,
+    "limits": [
+      "aucun modèle de complément personnalisé validé",
+      "fallback popularité globale"
+    ],
+    "perimeter": "complement_panier_leave_one_item_out_F2_F4",
+    "perimeter_label": "Complément panier — leave-one-item-out",
+    "metrics": {
+      "recall": 0.05557637,
+      "ndcg": 0.02399695,
+      "coverage": 0.04222222
+    },
+    "validated_model": "none_validated",
+    "reason": "no_complementarity_signal"
+  },
+  "pricing": {
+    "model_name": "lgbm_tweedie_moyenne",
+    "status": "exploratory_non_causal",
+    "metrics": {
+      "wape": 0.5526,
+      "forecast_bias": 0.0013
+    },
+    "features": [
+      "prix_base_xof",
+      "cout_xof",
+      "product_code",
+      "category_code",
+      "brand_code",
+      "remise_pct",
+      "planned_paid_price_xof",
+      "unit_margin_before_xof",
+      "unit_margin_after_xof",
+      "margin_rate_after",
+      "discount_x_category",
+      "discount_x_product",
+      "product_campaign_active",
+      "category_campaign_active",
+      "category_concurrent_promotions",
+      "dow",
+      "week",
+      "month",
+      "weekend",
+      "stock_at_cutoff",
+      "restock_frequency_84",
+      "sales_zero_rate_28",
+      "historical_view_to_cart_28",
+      "past_campaign_exposure_90",
+      "product_mean_before",
+      "product_n_before",
+      "product_discount_mean_before",
+      "product_discount_n_before",
+      "category_discount_mean_before",
+      "category_discount_n_before",
+      "segment_share_nouveau_90",
+      "segment_share_occasionnel_90",
+      "segment_share_regulier_90",
+      "segment_share_vip_90",
+      "sales_lag_1",
+      "sales_lag_7",
+      "sales_lag_28",
+      "sales_mean_7",
+      "sales_mean_28",
+      "sales_mean_84",
+      "views_lag_1",
+      "views_lag_7",
+      "views_lag_28",
+      "views_mean_7",
+      "views_mean_28",
+      "views_mean_84",
+      "carts_lag_1",
+      "carts_lag_7",
+      "carts_lag_28",
+      "carts_mean_7",
+      "carts_mean_28",
+      "carts_mean_84",
+      "orders_lag_1",
+      "orders_lag_7",
+      "orders_lag_28",
+      "orders_mean_7",
+      "orders_mean_28",
+      "orders_mean_84",
+      "clients_lag_1",
+      "clients_lag_7",
+      "clients_lag_28",
+      "clients_mean_7",
+      "clients_mean_28",
+      "clients_mean_84",
+      "basket_lag_1",
+      "basket_lag_7",
+      "basket_lag_28",
+      "basket_mean_7",
+      "basket_mean_28",
+      "basket_mean_84"
+    ],
+    "feature_count": 70,
+    "forbidden_features": [
+      "n_lignes",
+      "quantite",
+      "ca_xof",
+      "marge_xof",
+      "prix_unitaire_paye_xof",
+      "niveau_stock"
+    ],
+    "limits": [
+      "effet non causal",
+      "remises historiquement supportées uniquement",
+      "aucune application automatique",
+      "validation humaine obligatoire"
+    ],
+    "training_period": {
+      "from": "2025-02-01",
+      "to": "2026-07-31"
+    }
+  },
+  "session": {
+    "status": "non_utilisable",
+    "exposed": false
+  },
+  "forecasting": {
+    "exposed": true,
+    "kind": "backtest_valide",
+    "model_name": "LightGBM_direct_per_horizon",
+    "daily_model_name": "CrostonOptimized",
+    "status": "validated",
+    "window_index": 6,
+    "cutoff": "2026-07-01",
+    "first_date": "2026-07-02",
+    "last_date": "2026-07-31",
+    "horizon_max_days": 30,
+    "n_products": 300,
+    "metrics": {
+      "wape30_macro": 0.25831,
+      "wape30_micro": 0.25743,
+      "forecast_bias_macro": -0.02589,
+      "wape30_this_window": 0.23274
+    },
+    "limits": [
+      "prévisions issues du backtest validé, non recalculées en direct",
+      "demande intermittente : environ 66 % de jours sans vente",
+      "usage de planification supervisée uniquement"
+    ]
+  },
+  "automatic_decision_allowed": false,
+  "perimeter_warning": "Les métriques de recommandation générale et de complément panier portent sur des tâches, des populations et des cibles différentes. Elles ne doivent jamais être comparées ni présentées l'une pour l'autre.",
+  "extended_at": "2026-08-21T14:46:17.431212+00:00",
+  "extension": {
+    "script": "api/scripts/extend_bundle_readonly.py",
+    "retrained": false,
+    "pricing_model_untouched": true,
+    "catalog_untouched": true
+  }
+}

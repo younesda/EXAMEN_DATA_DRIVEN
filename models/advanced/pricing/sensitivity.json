@@ -1,0 +1,243 @@
+{
+  "ablation_model": "LightGBM_enriched fixed configuration",
+  "no_test_retuning": true,
+  "reference_full": {
+    "model": "LightGBM_enriched",
+    "wape": 0.5628929265335051,
+    "bias": 0.03601117140016136,
+    "std": 0.019665891649696114,
+    "n_windows": 3
+  },
+  "removed_features": {
+    "no_web": [
+      "views_lag_1",
+      "views_lag_7",
+      "views_lag_28",
+      "views_mean_7",
+      "views_mean_28",
+      "views_mean_84",
+      "carts_lag_1",
+      "carts_lag_7",
+      "carts_lag_28",
+      "carts_mean_7",
+      "carts_mean_28",
+      "carts_mean_84",
+      "historical_view_to_cart_28"
+    ],
+    "no_stock": [
+      "stock_at_cutoff",
+      "restock_frequency_84"
+    ],
+    "no_promotion": [
+      "remise_pct",
+      "planned_paid_price_xof",
+      "unit_margin_after_xof",
+      "margin_rate_after",
+      "discount_x_category",
+      "discount_x_product",
+      "product_discount_mean_before",
+      "product_discount_n_before",
+      "category_discount_mean_before",
+      "category_discount_n_before",
+      "product_campaign_active",
+      "category_campaign_active",
+      "category_concurrent_promotions",
+      "past_campaign_exposure_90"
+    ],
+    "no_orders": [
+      "segment_share_nouveau_90",
+      "segment_share_occasionnel_90",
+      "segment_share_regulier_90",
+      "segment_share_vip_90",
+      "orders_lag_1",
+      "orders_lag_7",
+      "orders_lag_28",
+      "orders_mean_7",
+      "orders_mean_28",
+      "orders_mean_84",
+      "clients_lag_1",
+      "clients_lag_7",
+      "clients_lag_28",
+      "clients_mean_7",
+      "clients_mean_28",
+      "clients_mean_84",
+      "basket_lag_1",
+      "basket_lag_7",
+      "basket_lag_28",
+      "basket_mean_7",
+      "basket_mean_28",
+      "basket_mean_84"
+    ]
+  },
+  "window_metrics": [
+    {
+      "window": 1,
+      "variant": "no_web",
+      "wape": 0.5855000818368531,
+      "bias": 0.12493425376901957,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "variant": "no_stock",
+      "wape": 0.5828431614684713,
+      "bias": 0.11845436779318463,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "variant": "no_promotion",
+      "wape": 0.5733005133835561,
+      "bias": 0.08666580785716627,
+      "n": 7151
+    },
+    {
+      "window": 1,
+      "variant": "no_orders",
+      "wape": 0.5857810569641467,
+      "bias": 0.12858280578615458,
+      "n": 7151
+    },
+    {
+      "window": 2,
+      "variant": "no_web",
+      "wape": 0.5588536019636297,
+      "bias": 0.007982355593113123,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "variant": "no_stock",
+      "wape": 0.5569975870822272,
+      "bias": 0.0011785832915109972,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "variant": "no_promotion",
+      "wape": 0.5572584581272071,
+      "bias": 0.0026071700693288,
+      "n": 7757
+    },
+    {
+      "window": 2,
+      "variant": "no_orders",
+      "wape": 0.5566488335248788,
+      "bias": 0.002516416732751814,
+      "n": 7757
+    },
+    {
+      "window": 3,
+      "variant": "no_web",
+      "wape": 0.5472341226362738,
+      "bias": -0.014478258439584073,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "variant": "no_stock",
+      "wape": 0.5475869850744558,
+      "bias": -0.012111329074285805,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "variant": "no_promotion",
+      "wape": 0.5487395134744402,
+      "bias": -0.0027870889927329072,
+      "n": 8179
+    },
+    {
+      "window": 3,
+      "variant": "no_orders",
+      "wape": 0.5481620117208638,
+      "bias": -0.013064022841463668,
+      "n": 8179
+    }
+  ],
+  "summary": [
+    {
+      "variant": "no_orders",
+      "wape": 0.5635306340699632,
+      "bias": 0.03934506655914757,
+      "std": 0.019731130867509446,
+      "n_windows": 3
+    },
+    {
+      "variant": "no_promotion",
+      "wape": 0.5597661616617344,
+      "bias": 0.02882862964458739,
+      "std": 0.012471050953977717,
+      "n_windows": 3
+    },
+    {
+      "variant": "no_stock",
+      "wape": 0.5624759112083848,
+      "bias": 0.03584054067013661,
+      "std": 0.01825536961841401,
+      "n_windows": 3
+    },
+    {
+      "variant": "no_web",
+      "wape": 0.5638626021455856,
+      "bias": 0.039479450307516206,
+      "std": 0.019618574629728415,
+      "n_windows": 3
+    }
+  ],
+  "aipw_observational_sensitivity": [
+    {
+      "window": 1,
+      "treatment": "any observed positive discount versus zero discount",
+      "propensity_clipped_to": [
+        0.02,
+        0.98
+      ],
+      "treated_rate": 0.10376171164872046,
+      "claim": "observational sensitivity only; no causal interpretation",
+      "checkpoint_reused": true,
+      "mean_quantity_uplift": 0.29137956691236405,
+      "ci95_low": 0.15374928642175892,
+      "ci95_high": 0.4314446967661452,
+      "draws": 2000,
+      "unit": "produit",
+      "n_products": 275
+    },
+    {
+      "window": 2,
+      "treatment": "any observed positive discount versus zero discount",
+      "propensity_clipped_to": [
+        0.02,
+        0.98
+      ],
+      "treated_rate": 0.23385329379914915,
+      "claim": "observational sensitivity only; no causal interpretation",
+      "checkpoint_reused": true,
+      "mean_quantity_uplift": 0.39756269956282814,
+      "ci95_low": 0.34638481910368873,
+      "ci95_high": 0.4458392060386863,
+      "draws": 2000,
+      "unit": "produit",
+      "n_products": 291
+    },
+    {
+      "window": 3,
+      "treatment": "any observed positive discount versus zero discount",
+      "propensity_clipped_to": [
+        0.02,
+        0.98
+      ],
+      "treated_rate": 0.09365448098789583,
+      "claim": "observational sensitivity only; no causal interpretation",
+      "checkpoint_reused": true,
+      "mean_quantity_uplift": 0.18415181875316963,
+      "ci95_low": 0.13971545681677847,
+      "ci95_high": 0.23286279641161733,
+      "draws": 2000,
+      "unit": "produit",
+      "n_products": 300
+    }
+  ],
+  "causal_claim_allowed": false,
+  "primary_population_filtered": false
+}

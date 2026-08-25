@@ -1,0 +1,132 @@
+{
+  "_avertissement": "Seuils fixés AVANT toute évaluation d'un candidat Pricing V2. Ils ne seront jamais réajustés après observation des résultats. Un critère non évaluable compte comme ÉCHOUÉ, jamais comme neutre — même règle qu'en Forecasting V2 et Recommandation V2.",
+  "version": "pricing_v2_thresholds_v1",
+  "fige_le": "2026-08-15",
+  "perimetre": {
+    "n_fenetres": 3,
+    "duree_test_jours": 60,
+    "fenetres_identiques_a_v1": true,
+    "produits_eligibles_identiques_a_v1": true,
+    "niveaux_de_remise_identiques_a_v1": [5.0, 10.0, 15.0, 20.0, 25.0, 30.0],
+    "grain": "produit x jour",
+    "note_perimetre": "Tout changement de fenêtre, de population ou de grille rendrait la comparaison V1/V2 invalide. Le périmètre est donc gelé."
+  },
+
+  "reference_v1": {
+    "source": "reports/pricing_final/metadata.json et reports/pricing_final/validation_temporelle_precision.csv",
+    "methode": "challenger_ml_lightgbm",
+    "wape_quantite_global": 1.0713207916807077,
+    "definition_agregation": "moyenne simple des WAPE de fenêtre (chaque fenêtre pèse 1/3) — définition du chiffre figé, conservée telle quelle",
+    "biais_quantite_global_unitaire": 0.0100050902964778,
+    "biais_quantite_global_normalise": 0.008577296909212745,
+    "par_fenetre": {
+      "1": { "wape_quantite": 1.094946, "biais_unitaire": 0.036089, "biais_normalise": 0.029875, "n_test": 15850, "somme_y": 19147 },
+      "2": { "wape_quantite": 1.046194, "biais_unitaire": -0.019574, "biais_normalise": -0.015204, "n_test": 16986, "somme_y": 21869 },
+      "3": { "wape_quantite": 1.072822, "biais_unitaire": 0.013501, "biais_normalise": 0.011061, "n_test": 17899, "somme_y": 21847 }
+    },
+    "part_simulations_hors_support_individuel": 0.314,
+    "note_hors_support": "216 des 688 simulations à remise non nulle (plancher principal 5 %) reposent sur le pooling catégorie et non sur le support individuel du produit."
+  },
+
+  "criteres_de_validation": {
+    "C1_precision": {
+      "metrique": "WAPE quantité, moyenne simple des 3 fenêtres",
+      "seuil": 1.0,
+      "operateur": "<",
+      "justification": "Un WAPE ≥ 1 signifie qu'une prédiction constante à zéro ferait aussi bien. En dessous de 1, le modèle apporte enfin une information exploitable. La V1 est à 1,0713 : elle échoue ce critère.",
+      "non_evaluable_vaut_echec": true
+    },
+    "C2_biais": {
+      "_attention_deux_definitions": "Le `biais_quantite` publié en V1 est `(yhat - y).mean()`, une MOYENNE DE RÉSIDUS EN UNITÉS PAR LIGNE produit-jour — ce n'est PAS le biais normalisé. Cette métrique dépend du grain : la même prévision agrégée autrement donnerait une autre valeur. Le biais normalisé, lui, est invariant au grain. Les deux sont donc évalués, et la V1 est mesurée sous les deux.",
+      "definition_v1_biais_unitaire": "(yhat - y).mean(), en unités par ligne produit-jour",
+      "definition_v2_biais_normalise": "SUM(yhat - y) / SUM(y), sans dimension, invariant au grain",
+      "seuil_biais_unitaire": 0.10,
+      "seuil_biais_normalise": 0.10,
+      "operateur": "<= en valeur absolue, sur les DEUX",
+      "reference_v1_biais_unitaire": 0.010005090296477835,
+      "reference_v1_biais_normalise": 0.008577296909212745,
+      "reference_v1_par_fenetre_normalise": { "1": 0.029875, "2": -0.015204, "3": 0.011061 },
+      "justification": "Un biais systématique fausse directement les marges et les CA simulés. La V1 est conforme sous les deux définitions. Un candidat qui améliorerait le WAPE en dégradant le biais au-delà de 0,10 est rejeté : c'est exactement le piège de `panel_effets_fixes` (WAPE 0,97-1,00 mais biais unitaire -0,39 à -0,45).",
+      "non_evaluable_vaut_echec": true
+    },
+    "C3_robustesse": {
+      "metrique": "nombre de fenêtres où le WAPE quantité s'améliore strictement face à la V1 sur la même fenêtre",
+      "seuil": 2,
+      "sur": 3,
+      "operateur": ">=",
+      "justification": "Une amélioration portée par une seule fenêtre n'est pas une amélioration : c'est ce qui a fait rejeter le candidat A du forecasting, dont tout le gain venait de la fenêtre 1.",
+      "non_evaluable_vaut_echec": true
+    },
+    "C4_garde_fou_marge": {
+      "metrique": "nombre de prix ou remises simulés violant le coût ou le plancher de marge",
+      "seuil": 0,
+      "operateur": "==",
+      "double_definition_obligatoire": {
+        "plancher_sur_cout": "prix_simule >= cout_unitaire * (1 + plancher) — définition utilisée par le simulateur V1",
+        "plancher_sur_prix": "(prix_simule - cout_unitaire) / prix_simule >= plancher — définition du `taux_marge` employé partout ailleurs dans le projet"
+      },
+      "exigence_v2": "zéro violation sous LES DEUX définitions",
+      "constat_v1_documente_avant_evaluation": "Sous la définition sur coût, la V1 a 0 violation. Sous la définition sur prix, elle en a 5 (produits PRD000238, PRD000241, PRD000266, PRD000268, PRD000272, à 4,89-4,99 % contre 5,00 % exigés). Ce durcissement est déclaré ici, avant toute évaluation, et n'est pas une correction rétroactive de la V1.",
+      "non_evaluable_vaut_echec": true
+    },
+    "C5_aucune_extrapolation": {
+      "metrique": "nombre de remises recommandées hors de la grille observée",
+      "grille_autorisee": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0],
+      "seuil": 0,
+      "operateur": "==",
+      "justification": "Le niveau 40 % n'a que 11 lignes de support et reste exclu. Aucune interpolation ni extrapolation continue n'est autorisée : le modèle n'a jamais observé ces prix.",
+      "non_evaluable_vaut_echec": true
+    },
+    "C6_reduction_hors_support": {
+      "metrique": "part des simulations à remise non nulle reposant sur le pooling catégorie plutôt que sur le support individuel du produit",
+      "reference_v1": 0.314,
+      "seuil": 0.283,
+      "operateur": "<=",
+      "justification": "Seuil fixé à une réduction relative de 10 % face à la V1. Une simulation hors support n'est pas fausse, mais elle est nettement moins défendable devant le métier.",
+      "non_evaluable_vaut_echec": true
+    },
+    "C7_stabilite_des_remises": {
+      "metrique": "part des produits dont la remise recommandée (objectif marge, plancher 5 %) varie de plus d'un cran de la grille entre deux fenêtres consécutives",
+      "seuil": "non dégradé face à la V1 mesurée exactement de la même manière",
+      "reference_v1": "à mesurer dans P1 — la V1 n'a produit qu'une sortie unique sur l'historique complet, jamais recalculée par fenêtre",
+      "regle_fixee_a_priori": "La règle et la mesure sont figées ici ; seule la valeur de référence est calculée, avec le code V1 inchangé, au moment de l'évaluation. Cette valeur de référence ne pourra pas être ajustée après avoir vu le résultat du candidat.",
+      "non_evaluable_vaut_echec": true
+    },
+    "C8_aucune_revendication_causale": {
+      "exigence": "Aucun livrable V2 ne peut affirmer qu'une remise *cause* une variation de quantité.",
+      "justification": "Le plan d'expérience est déséquilibré (les niveaux de remise ne sont ni équirépartis ni uniformément distribués dans le temps : la part de lignes en promotion varie de 4,2 % à 28,8 % selon le mois) et l'uplift descriptif est non monotone et instable (à 5 % il passe de 1,065 à 0,827 entre les deux semestres ; à 10 % de 1,146 à 1,553). Les écarts observés confondent effet prix et effet calendrier.",
+      "seuil": "booléen, aucune tolérance",
+      "non_evaluable_vaut_echec": true
+    },
+    "C9_application_automatique_interdite": {
+      "exigence": "`automatic_application_allowed` reste `false` quel que soit le résultat du candidat.",
+      "justification": "Aucune évaluation off-policy n'est possible : les remises simulées n'ont jamais été appliquées, on ne peut donc pas savoir ce qu'elles auraient produit. Ce point ne dépend pas de la qualité du modèle et ne peut pas être levé par une amélioration de WAPE.",
+      "seuil": "booléen, aucune tolérance",
+      "non_evaluable_vaut_echec": true
+    }
+  },
+
+  "regle_de_decision": {
+    "validation_complete": "C1 à C7 tous satisfaits, C8 et C9 respectés — le candidat devient le moteur de simulation principal.",
+    "challenger_documente": "C2 à C7 satisfaits mais C1 échoué (WAPE toujours ≥ 1) — le candidat est conservé comme amélioration documentée sans changer le statut exploratoire du pricing.",
+    "rejet": "tout autre cas.",
+    "interdiction": "Aucun seuil ne sera modifié après observation des résultats. Aucun candidat ne sera remplacé par un autre au motif qu'il s'avère meilleur après coup."
+  },
+
+  "hypotheses_non_verifiables_declarees": [
+    {
+      "hypothese": "Le calendrier promotionnel est connu à la date de cutoff de chaque fenêtre.",
+      "verifiable": false,
+      "raison": "`dim_promotion` ne contient aucune date de création, d'annonce ou de validation — uniquement date_debut et date_fin.",
+      "consequence": "Si l'hypothèse est fausse, toutes les performances mesurées sont optimistes. Aucune conclusion V2 ne doit reposer sur cette seule hypothèse.",
+      "donnee_a_demander": "date de création / d'annonce des promotions"
+    }
+  ],
+
+  "interdictions_permanentes": {
+    "ecriture_supabase_autorisee": false,
+    "deploiement_autorise": false,
+    "modification_artefacts_v1_autorisee": false,
+    "fusion_dans_main_autorisee": false
+  }
+}

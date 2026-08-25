@@ -1,0 +1,56 @@
+{
+  "status": "invalidated_due_to_target_category_leakage",
+  "invalidated_on": "2026-08-18",
+  "invalidated_by": "audit independant 2026-08-18",
+  "code_extract": "cat = g.loc[g.produit_key.eq(target),'categorie'].iloc[0]",
+  "reason": "la categorie servant au scoring etait celle de l'article masque ; popularite_categorie, reference et rrf recevaient la categorie de la cible, information indisponible au moment de la recommandation. La categorie fuitee alimentait aussi l'union de candidats, donc le Recall@50 candidat.",
+  "measured_inflation_ndcg10": 0.1597733394166365,
+  "measured_inflation_ci95": [
+    0.1555513114736953,
+    0.16393044732949436
+  ],
+  "invalidated_headline_metrics": {
+    "recall@10": 0.43743,
+    "ndcg@10": 0.21264
+  },
+  "second_invalidation": {
+    "metrics": {
+      "recall@10": 0.1005526414387411,
+      "ndcg@10": 0.04846047949272213,
+      "coverage": 0.8933333333333333
+    },
+    "status": "invalidated_due_to_in_sample_evaluation_without_temporal_split",
+    "source": "src/pipelines/final_recommendation.py",
+    "reason": "similarite item-item issue de la derniere fenetre d'entrainement, evaluation sur la TOTALITE des commandes sans separation temporelle ; cible masquee ps[-1], perimetre different du leave-one-item-out"
+  },
+  "archived_files": [
+    "complement_candidate_metadata.json",
+    "complement_candidate_metrics.csv",
+    "complement_decision_bootstrap.csv",
+    "complement_decision_metadata.json",
+    "complement_end_to_end_metadata.json",
+    "complement_end_to_end_metrics.csv",
+    "complement_lambdarank_metrics.json",
+    "complement_lambdarank_predictions_f4.parquet",
+    "complement_ranker_metadata.json",
+    "complement_ranker_report.md",
+    "complement_topk_predictions.parquet"
+  ],
+  "replaced_by": "reports/advanced/complement_honest_baseline.json",
+  "removed_from_live_directory": [
+    "complement_lambdarank_metrics.json",
+    "complement_lambdarank_predictions_f4.parquet",
+    "complement_decision_metadata.json",
+    "complement_decision_bootstrap.csv",
+    "complement_ranker_metadata.json",
+    "complement_ranker_report.md"
+  ],
+  "regenerated_honestly": [
+    "complement_end_to_end_metrics.csv",
+    "complement_end_to_end_metadata.json",
+    "complement_candidate_metrics.csv",
+    "complement_candidate_metadata.json",
+    "complement_topk_predictions.parquet",
+    "complement_contexts.parquet"
+  ]
+}

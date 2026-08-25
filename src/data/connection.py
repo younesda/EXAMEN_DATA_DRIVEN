@@ -263,7 +263,21 @@ class PostgresSource(DataSource):
     ) -> pd.DataFrame:
         ident = f"{quote_ident(self.schema)}.{quote_ident(table)}"
         cols = "*" if not columns else ", ".join(quote_ident(c) for c in columns)
-        order = f"ORDER BY {quote_ident(order_by)}" if order_by else ""
+        if order_by:
+            order_columns = [order_by]
+        else:
+            # LIMIT/OFFSET sans ORDER BY n'est pas déterministe : PostgreSQL
+            # peut renvoyer les pages dans des ordres différents et créer des
+            # doublons/omissions dans l'extrait. La PK déclarée fournit l'ordre
+            # stable, y compris pour les clés composites (stock produit-jour).
+            pk = self.primary_keys()
+            order_columns = pk.loc[pk["table_name"] == table, "column_name"].tolist()
+            if not order_columns:
+                raise RuntimeError(
+                    f"Extraction paginée refusée pour {table!r} : aucune clé primaire "
+                    "déclarée ne permet de garantir un ordre stable."
+                )
+        order = "ORDER BY " + ", ".join(quote_ident(c) for c in order_columns)
         frames: list[pd.DataFrame] = []
         offset = 0
         started = time.time()

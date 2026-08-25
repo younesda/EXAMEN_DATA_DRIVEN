@@ -1,0 +1,26 @@
+{
+  "train_windows": [
+    2,
+    3
+  ],
+  "test_window": 4,
+  "model": "LightGBM_LambdaRank",
+  "features": [
+    "rank",
+    "score"
+  ],
+  "baseline_union_rrf_f4": {
+    "recall@10": 0.3289621581116523,
+    "ndcg@10": 0.16048433980466711,
+    "mrr": 0.110447034440103,
+    "n_targets": 5338
+  },
+  "lambdarank_f4": {
+    "recall@10": 0.30254777070063693,
+    "ndcg@10": 0.1516388487114486,
+    "mrr": 0.10664901841840771,
+    "n_targets": 5338
+  },
+  "promotion": false,
+  "reason": "Gate de promotion non satisfait; aucun retuning sur F4"
+}

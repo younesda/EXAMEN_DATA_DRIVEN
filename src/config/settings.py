@@ -88,11 +88,11 @@ class DbCredentials:
         # Le nom de la variable est publié, jamais sa valeur ; l'hôte est
         # réduit à sa forme masquée pour ne pas identifier l'instance.
         def _mask_host(url: str | None) -> str | None:
-            host = _host(url)
-            if not host:
-                return None
-            head, _, tail = host.partition(".")
-            return f"{head[:2]}***.{tail}" if tail else "***"
+            # L'identifiant de projet Supabase fait partie du nom d'hôte. Même
+            # s'il ne s'agit pas d'un secret d'authentification, il n'a aucune
+            # utilité opérationnelle dans les journaux : on masque donc l'hôte
+            # entier au lieu d'en conserver le suffixe.
+            return "***" if _host(url) else None
 
         return {
             "postgres_source": self.database_url_source or "—",

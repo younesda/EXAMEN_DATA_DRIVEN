@@ -1,0 +1,49 @@
+{
+  "status": "campaign_level_audit_and_bounded_baselines",
+  "n_campaigns": 120,
+  "n_product_campaign_episodes": 2406,
+  "n_primary_episodes": 2003,
+  "overlap_episodes": 403,
+  "n_product_week_rows": 23700,
+  "effective_independent_campaigns": 120,
+  "historical_product_day_reference_wape": 0.4164,
+  "campaign_wape_macro_windows": 1.0,
+  "campaign_wape_micro_pooled": 1.0,
+  "heavy_models_status": "bounded_regularised_pilot_run_no_optuna",
+  "decision": {
+    "campaign_predictive_model_promoted": false,
+    "official_product_day_model": "LightGBM_calibre",
+    "campaign_dataset_use": "descriptive_policy_evaluation_only",
+    "best_bounded_pilot": "lightgbm_poisson_regularise",
+    "best_bounded_pilot_wape_micro": 0.6476,
+    "best_bounded_pilot_bias": -0.3103
+  },
+  "discount_support": {
+    "5": 26,
+    "10": 30,
+    "15": 27,
+    "20": 12,
+    "25": 15,
+    "30": 9,
+    "40": 1
+  },
+  "metrics_path": "models/campaign_level_pricing/campaign_metrics.csv",
+  "features_strictly_pre_campaign": true,
+  "post_campaign_features_used": false,
+  "causal_claim_allowed": false,
+  "automatic_application_allowed": false,
+  "invalidated_reference_note": {
+    "status": "invalidated_due_to_target_leakage",
+    "invalidated_on": "2026-08-18",
+    "metric": 0.41637444717942285,
+    "reason": "la reference LightGBM_calibre citee ici utilisait n_lignes, nombre de lignes de commande confirmees du jour cible, dont la cible quantite est la somme ; elle n'est pas un predicteur decisionnel",
+    "honest_level": {
+      "model": "lgbm_tweedie_moyenne",
+      "wape": 0.5526,
+      "bias": 0.0013
+    },
+    "replaced_by": "reports/43_corrected_pricing_results.md",
+    "preserved_history": "models/pricing/metadata.invalidated.json"
+  },
+  "metrics_path_note": "chemin rendu relatif au depot le 2026-08-18 : la valeur d'origine etait un chemin local absolu contenant le nom d'utilisateur de la machine de developpement"
+}

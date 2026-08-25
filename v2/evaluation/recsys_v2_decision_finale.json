@@ -1,0 +1,54 @@
+{
+  "genere_le": "2026-08-15T13:46:01.610462+00:00",
+  "recommendation_primary_model": "v1_popularite_globale",
+  "recommendation_v2_validated": false,
+  "personalisation_validee": false,
+  "tableau_decision": [
+    {
+      "modele": "V1 popularité globale",
+      "recall": 0.07586820930337992,
+      "ndcg": 0.04411357123583948,
+      "couverture": 0.05416666666666663,
+      "diversite": 0.33332778778593986,
+      "clients_perso": "0",
+      "statut": "**Référence — modèle principal**"
+    },
+    {
+      "modele": "R1 popularité régularisée",
+      "recall": 0.07498418653644348,
+      "ndcg": 0.043710704042308667,
+      "couverture": 0.050833333333333335,
+      "diversite": 0.31161753624616034,
+      "clients_perso": "0",
+      "statut": "`experiment_not_retained`"
+    },
+    {
+      "modele": "R2 reranking de diversité",
+      "recall": 0.07195060248039258,
+      "ndcg": 0.04193451159110474,
+      "couverture": 0.08916666666666666,
+      "diversite": 0.4226440079452659,
+      "clients_perso": "0",
+      "statut": "`exploratory_diversity_challenger`"
+    },
+    {
+      "modele": "R3 personnalisation catégorie (pilote F1-F2)",
+      "recall": 0.06563255036619524,
+      "ndcg": 0.03943105981229436,
+      "couverture": 0.14833333333333332,
+      "diversite": null,
+      "clients_perso": "99.9%",
+      "statut": "`experiment_not_retained`"
+    }
+  ],
+  "R4": {
+    "status": "not_launched",
+    "reason": "no_personalization_signal_in_R3"
+  },
+  "donnees_supplementaires_necessaires": [
+    "order_id",
+    "session_id",
+    "event_timestamp",
+    "davantage d'interactions par client"
+  ]
+}

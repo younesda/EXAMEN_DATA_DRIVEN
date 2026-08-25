@@ -1,0 +1,1666 @@
+{
+  "PRD000005": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 12,
+    "prix_base_xof": 90570.0,
+    "product_popularity_before": 0.0,
+    "product_recent_popularity_28d": 0.0
+  },
+  "PRD000082": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 7,
+    "prix_base_xof": 249220.0,
+    "product_popularity_before": 12.0,
+    "product_recent_popularity_28d": 12.0
+  },
+  "PRD000123": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 7,
+    "prix_base_xof": 30570.0,
+    "product_popularity_before": 6.0,
+    "product_recent_popularity_28d": 6.0
+  },
+  "PRD000012": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 7,
+    "prix_base_xof": 154180.0,
+    "product_popularity_before": 9.0,
+    "product_recent_popularity_28d": 9.0
+  },
+  "PRD000176": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 10,
+    "prix_base_xof": 11330.0,
+    "product_popularity_before": 11.0,
+    "product_recent_popularity_28d": 11.0
+  },
+  "PRD000106": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 6,
+    "prix_base_xof": 414870.0,
+    "product_popularity_before": 26.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000010": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 13,
+    "prix_base_xof": 22000.0,
+    "product_popularity_before": 17.0,
+    "product_recent_popularity_28d": 17.0
+  },
+  "PRD000092": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 13,
+    "prix_base_xof": 293570.0,
+    "product_popularity_before": 27.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000206": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 3,
+    "prix_base_xof": 14660.0,
+    "product_popularity_before": 47.0,
+    "product_recent_popularity_28d": 32.0
+  },
+  "PRD000281": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 7,
+    "prix_base_xof": 9570.0,
+    "product_popularity_before": 55.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000258": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 8,
+    "prix_base_xof": 247580.0,
+    "product_popularity_before": 76.0,
+    "product_recent_popularity_28d": 45.0
+  },
+  "PRD000037": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 1,
+    "prix_base_xof": 7840.0,
+    "product_popularity_before": 111.0,
+    "product_recent_popularity_28d": 50.0
+  },
+  "PRD000297": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 6,
+    "prix_base_xof": 14750.0,
+    "product_popularity_before": 111.0,
+    "product_recent_popularity_28d": 41.0
+  },
+  "PRD000220": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 1,
+    "prix_base_xof": 37630.0,
+    "product_popularity_before": 76.0,
+    "product_recent_popularity_28d": 28.0
+  },
+  "PRD000248": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 8,
+    "prix_base_xof": 63630.0,
+    "product_popularity_before": 73.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000136": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 11,
+    "prix_base_xof": 101260.0,
+    "product_popularity_before": 42.0,
+    "product_recent_popularity_28d": 17.0
+  },
+  "PRD000160": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 2,
+    "prix_base_xof": 21660.0,
+    "product_popularity_before": 51.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000284": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 7,
+    "prix_base_xof": 31940.0,
+    "product_popularity_before": 55.0,
+    "product_recent_popularity_28d": 32.0
+  },
+  "PRD000002": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 2,
+    "prix_base_xof": 226420.0,
+    "product_popularity_before": 170.0,
+    "product_recent_popularity_28d": 51.0
+  },
+  "PRD000163": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 2,
+    "prix_base_xof": 11090.0,
+    "product_popularity_before": 154.0,
+    "product_recent_popularity_28d": 34.0
+  },
+  "PRD000061": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 14,
+    "prix_base_xof": 13220.0,
+    "product_popularity_before": 43.0,
+    "product_recent_popularity_28d": 29.0
+  },
+  "PRD000068": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 2,
+    "prix_base_xof": 8780.0,
+    "product_popularity_before": 169.0,
+    "product_recent_popularity_28d": 39.0
+  },
+  "PRD000203": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 15,
+    "prix_base_xof": 277390.0,
+    "product_popularity_before": 199.0,
+    "product_recent_popularity_28d": 49.0
+  },
+  "PRD000212": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 13,
+    "prix_base_xof": 25410.0,
+    "product_popularity_before": 211.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000039": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 14,
+    "prix_base_xof": 11220.0,
+    "product_popularity_before": 90.0,
+    "product_recent_popularity_28d": 55.0
+  },
+  "PRD000265": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 9,
+    "prix_base_xof": 33180.0,
+    "product_popularity_before": 185.0,
+    "product_recent_popularity_28d": 24.0
+  },
+  "PRD000232": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 13,
+    "prix_base_xof": 38840.0,
+    "product_popularity_before": 98.0,
+    "product_recent_popularity_28d": 65.0
+  },
+  "PRD000188": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 12,
+    "prix_base_xof": 30000.0,
+    "product_popularity_before": 250.0,
+    "product_recent_popularity_28d": 29.0
+  },
+  "PRD000181": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 5,
+    "prix_base_xof": 22910.0,
+    "product_popularity_before": 126.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000138": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 4,
+    "prix_base_xof": 25340.0,
+    "product_popularity_before": 177.0,
+    "product_recent_popularity_28d": 29.0
+  },
+  "PRD000274": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 7,
+    "prix_base_xof": 8720.0,
+    "product_popularity_before": 188.0,
+    "product_recent_popularity_28d": 32.0
+  },
+  "PRD000287": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 7,
+    "prix_base_xof": 52570.0,
+    "product_popularity_before": 198.0,
+    "product_recent_popularity_28d": 32.0
+  },
+  "PRD000225": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 10,
+    "prix_base_xof": 7400.0,
+    "product_popularity_before": 213.0,
+    "product_recent_popularity_28d": 34.0
+  },
+  "PRD000224": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 15,
+    "prix_base_xof": 24260.0,
+    "product_popularity_before": 178.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000204": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 2,
+    "prix_base_xof": 3060.0,
+    "product_popularity_before": 189.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000266": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 1,
+    "prix_base_xof": 79080.0,
+    "product_popularity_before": 158.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000260": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 7,
+    "prix_base_xof": 215440.0,
+    "product_popularity_before": 327.0,
+    "product_recent_popularity_28d": 50.0
+  },
+  "PRD000295": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 12,
+    "prix_base_xof": 10750.0,
+    "product_popularity_before": 148.0,
+    "product_recent_popularity_28d": 35.0
+  },
+  "PRD000201": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 5,
+    "prix_base_xof": 13070.0,
+    "product_popularity_before": 159.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000022": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 9,
+    "prix_base_xof": 60890.0,
+    "product_popularity_before": 385.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000118": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 4,
+    "prix_base_xof": 49360.0,
+    "product_popularity_before": 80.0,
+    "product_recent_popularity_28d": 39.0
+  },
+  "PRD000282": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 15,
+    "prix_base_xof": 153760.0,
+    "product_popularity_before": 584.0,
+    "product_recent_popularity_28d": 89.0
+  },
+  "PRD000096": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 1,
+    "prix_base_xof": 11920.0,
+    "product_popularity_before": 136.0,
+    "product_recent_popularity_28d": 41.0
+  },
+  "PRD000178": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 10,
+    "prix_base_xof": 14830.0,
+    "product_popularity_before": 198.0,
+    "product_recent_popularity_28d": 65.0
+  },
+  "PRD000246": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 5,
+    "prix_base_xof": 13180.0,
+    "product_popularity_before": 612.0,
+    "product_recent_popularity_28d": 71.0
+  },
+  "PRD000183": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 8,
+    "prix_base_xof": 20170.0,
+    "product_popularity_before": 450.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000213": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 2,
+    "prix_base_xof": 4230.0,
+    "product_popularity_before": 533.0,
+    "product_recent_popularity_28d": 61.0
+  },
+  "PRD000227": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 14,
+    "prix_base_xof": 55890.0,
+    "product_popularity_before": 420.0,
+    "product_recent_popularity_28d": 24.0
+  },
+  "PRD000167": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 10,
+    "prix_base_xof": 26000.0,
+    "product_popularity_before": 154.0,
+    "product_recent_popularity_28d": 52.0
+  },
+  "PRD000283": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 10,
+    "prix_base_xof": 30630.0,
+    "product_popularity_before": 237.0,
+    "product_recent_popularity_28d": 37.0
+  },
+  "PRD000093": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 7,
+    "prix_base_xof": 7830.0,
+    "product_popularity_before": 207.0,
+    "product_recent_popularity_28d": 24.0
+  },
+  "PRD000016": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 8,
+    "prix_base_xof": 7770.0,
+    "product_popularity_before": 261.0,
+    "product_recent_popularity_28d": 59.0
+  },
+  "PRD000279": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 12,
+    "prix_base_xof": 229480.0,
+    "product_popularity_before": 575.0,
+    "product_recent_popularity_28d": 38.0
+  },
+  "PRD000059": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 2,
+    "prix_base_xof": 59780.0,
+    "product_popularity_before": 111.0,
+    "product_recent_popularity_28d": 30.0
+  },
+  "PRD000161": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 1,
+    "prix_base_xof": 14700.0,
+    "product_popularity_before": 424.0,
+    "product_recent_popularity_28d": 36.0
+  },
+  "PRD000135": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 8,
+    "prix_base_xof": 3110.0,
+    "product_popularity_before": 378.0,
+    "product_recent_popularity_28d": 35.0
+  },
+  "PRD000231": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 4,
+    "prix_base_xof": 23770.0,
+    "product_popularity_before": 332.0,
+    "product_recent_popularity_28d": 38.0
+  },
+  "PRD000080": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 13,
+    "prix_base_xof": 90970.0,
+    "product_popularity_before": 456.0,
+    "product_recent_popularity_28d": 41.0
+  },
+  "PRD000228": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 14,
+    "prix_base_xof": 30050.0,
+    "product_popularity_before": 75.0,
+    "product_recent_popularity_28d": 42.0
+  },
+  "PRD000262": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 1,
+    "prix_base_xof": 20130.0,
+    "product_popularity_before": 423.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000102": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 2,
+    "prix_base_xof": 38350.0,
+    "product_popularity_before": 413.0,
+    "product_recent_popularity_28d": 51.0
+  },
+  "PRD000038": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 6,
+    "prix_base_xof": 32010.0,
+    "product_popularity_before": 717.0,
+    "product_recent_popularity_28d": 48.0
+  },
+  "PRD000027": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 15,
+    "prix_base_xof": 2220.0,
+    "product_popularity_before": 424.0,
+    "product_recent_popularity_28d": 41.0
+  },
+  "PRD000298": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 6,
+    "prix_base_xof": 45640.0,
+    "product_popularity_before": 305.0,
+    "product_recent_popularity_28d": 30.0
+  },
+  "PRD000143": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 4,
+    "prix_base_xof": 30700.0,
+    "product_popularity_before": 325.0,
+    "product_recent_popularity_28d": 23.0
+  },
+  "PRD000217": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 11,
+    "prix_base_xof": 52560.0,
+    "product_popularity_before": 284.0,
+    "product_recent_popularity_28d": 28.0
+  },
+  "PRD000033": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 9,
+    "prix_base_xof": 31850.0,
+    "product_popularity_before": 358.0,
+    "product_recent_popularity_28d": 34.0
+  },
+  "PRD000151": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 0,
+    "prix_base_xof": 67320.0,
+    "product_popularity_before": 361.0,
+    "product_recent_popularity_28d": 33.0
+  },
+  "PRD000075": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 11,
+    "prix_base_xof": 406240.0,
+    "product_popularity_before": 711.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000240": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 4,
+    "prix_base_xof": 164620.0,
+    "product_popularity_before": 166.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000007": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 10,
+    "prix_base_xof": 235430.0,
+    "product_popularity_before": 398.0,
+    "product_recent_popularity_28d": 49.0
+  },
+  "PRD000208": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 12,
+    "prix_base_xof": 20310.0,
+    "product_popularity_before": 112.0,
+    "product_recent_popularity_28d": 36.0
+  },
+  "PRD000223": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 13,
+    "prix_base_xof": 17450.0,
+    "product_popularity_before": 530.0,
+    "product_recent_popularity_28d": 33.0
+  },
+  "PRD000128": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 4,
+    "prix_base_xof": 263630.0,
+    "product_popularity_before": 183.0,
+    "product_recent_popularity_28d": 42.0
+  },
+  "PRD000015": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 14,
+    "prix_base_xof": 17530.0,
+    "product_popularity_before": 143.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000182": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 9,
+    "prix_base_xof": 5820.0,
+    "product_popularity_before": 297.0,
+    "product_recent_popularity_28d": 41.0
+  },
+  "PRD000197": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 9,
+    "prix_base_xof": 88100.0,
+    "product_popularity_before": 357.0,
+    "product_recent_popularity_28d": 20.0
+  },
+  "PRD000026": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 5,
+    "prix_base_xof": 167300.0,
+    "product_popularity_before": 769.0,
+    "product_recent_popularity_28d": 54.0
+  },
+  "PRD000292": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 5,
+    "prix_base_xof": 13750.0,
+    "product_popularity_before": 471.0,
+    "product_recent_popularity_28d": 43.0
+  },
+  "PRD000088": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 1,
+    "prix_base_xof": 25980.0,
+    "product_popularity_before": 568.0,
+    "product_recent_popularity_28d": 42.0
+  },
+  "PRD000049": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 13,
+    "prix_base_xof": 48540.0,
+    "product_popularity_before": 772.0,
+    "product_recent_popularity_28d": 48.0
+  },
+  "PRD000099": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 14,
+    "prix_base_xof": 158540.0,
+    "product_popularity_before": 123.0,
+    "product_recent_popularity_28d": 47.0
+  },
+  "PRD000119": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 3,
+    "prix_base_xof": 33280.0,
+    "product_popularity_before": 166.0,
+    "product_recent_popularity_28d": 24.0
+  },
+  "PRD000078": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 10,
+    "prix_base_xof": 13950.0,
+    "product_popularity_before": 539.0,
+    "product_recent_popularity_28d": 56.0
+  },
+  "PRD000193": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 7,
+    "prix_base_xof": 32100.0,
+    "product_popularity_before": 197.0,
+    "product_recent_popularity_28d": 37.0
+  },
+  "PRD000250": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 15,
+    "prix_base_xof": 229130.0,
+    "product_popularity_before": 444.0,
+    "product_recent_popularity_28d": 62.0
+  },
+  "PRD000127": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 7,
+    "prix_base_xof": 4840.0,
+    "product_popularity_before": 1149.0,
+    "product_recent_popularity_28d": 50.0
+  },
+  "PRD000190": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 5,
+    "prix_base_xof": 13070.0,
+    "product_popularity_before": 72.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000125": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 3,
+    "prix_base_xof": 45490.0,
+    "product_popularity_before": 355.0,
+    "product_recent_popularity_28d": 25.0
+  },
+  "PRD000072": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 7,
+    "prix_base_xof": 4780.0,
+    "product_popularity_before": 601.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000288": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 5,
+    "prix_base_xof": 84680.0,
+    "product_popularity_before": 264.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000055": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 8,
+    "prix_base_xof": 62680.0,
+    "product_popularity_before": 152.0,
+    "product_recent_popularity_28d": 35.0
+  },
+  "PRD000164": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 11,
+    "prix_base_xof": 170080.0,
+    "product_popularity_before": 459.0,
+    "product_recent_popularity_28d": 46.0
+  },
+  "PRD000153": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 14,
+    "prix_base_xof": 48260.0,
+    "product_popularity_before": 124.0,
+    "product_recent_popularity_28d": 21.0
+  },
+  "PRD000168": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 14,
+    "prix_base_xof": 31880.0,
+    "product_popularity_before": 96.0,
+    "product_recent_popularity_28d": 28.0
+  },
+  "PRD000051": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 11,
+    "prix_base_xof": 102140.0,
+    "product_popularity_before": 479.0,
+    "product_recent_popularity_28d": 46.0
+  },
+  "PRD000112": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 3,
+    "prix_base_xof": 21770.0,
+    "product_popularity_before": 600.0,
+    "product_recent_popularity_28d": 30.0
+  },
+  "PRD000169": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 6,
+    "prix_base_xof": 4790.0,
+    "product_popularity_before": 1079.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000104": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 7,
+    "prix_base_xof": 35170.0,
+    "product_popularity_before": 775.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000278": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 12,
+    "prix_base_xof": 11830.0,
+    "product_popularity_before": 517.0,
+    "product_recent_popularity_28d": 44.0
+  },
+  "PRD000066": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 15,
+    "prix_base_xof": 10040.0,
+    "product_popularity_before": 364.0,
+    "product_recent_popularity_28d": 61.0
+  },
+  "PRD000097": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 2,
+    "prix_base_xof": 660.0,
+    "product_popularity_before": 614.0,
+    "product_recent_popularity_28d": 64.0
+  },
+  "PRD000148": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 6,
+    "prix_base_xof": 31560.0,
+    "product_popularity_before": 533.0,
+    "product_recent_popularity_28d": 46.0
+  },
+  "PRD000076": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 15,
+    "prix_base_xof": 82230.0,
+    "product_popularity_before": 228.0,
+    "product_recent_popularity_28d": 28.0
+  },
+  "PRD000272": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 6,
+    "prix_base_xof": 221980.0,
+    "product_popularity_before": 612.0,
+    "product_recent_popularity_28d": 62.0
+  },
+  "PRD000090": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 2,
+    "prix_base_xof": 20840.0,
+    "product_popularity_before": 648.0,
+    "product_recent_popularity_28d": 52.0
+  },
+  "PRD000191": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 1,
+    "prix_base_xof": 2380.0,
+    "product_popularity_before": 1112.0,
+    "product_recent_popularity_28d": 60.0
+  },
+  "PRD000207": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 9,
+    "prix_base_xof": 310710.0,
+    "product_popularity_before": 489.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000271": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 9,
+    "prix_base_xof": 374440.0,
+    "product_popularity_before": 105.0,
+    "product_recent_popularity_28d": 55.0
+  },
+  "PRD000006": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 8,
+    "prix_base_xof": 28970.0,
+    "product_popularity_before": 462.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000114": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 3,
+    "prix_base_xof": 8550.0,
+    "product_popularity_before": 115.0,
+    "product_recent_popularity_28d": 60.0
+  },
+  "PRD000218": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 6,
+    "prix_base_xof": 26570.0,
+    "product_popularity_before": 262.0,
+    "product_recent_popularity_28d": 50.0
+  },
+  "PRD000179": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 13,
+    "prix_base_xof": 322470.0,
+    "product_popularity_before": 106.0,
+    "product_recent_popularity_28d": 68.0
+  },
+  "PRD000071": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 0,
+    "prix_base_xof": 2270.0,
+    "product_popularity_before": 673.0,
+    "product_recent_popularity_28d": 69.0
+  },
+  "PRD000043": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 14,
+    "prix_base_xof": 27790.0,
+    "product_popularity_before": 814.0,
+    "product_recent_popularity_28d": 39.0
+  },
+  "PRD000185": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 15,
+    "prix_base_xof": 6500.0,
+    "product_popularity_before": 276.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000052": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 15,
+    "prix_base_xof": 18380.0,
+    "product_popularity_before": 904.0,
+    "product_recent_popularity_28d": 48.0
+  },
+  "PRD000107": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 8,
+    "prix_base_xof": 11610.0,
+    "product_popularity_before": 956.0,
+    "product_recent_popularity_28d": 56.0
+  },
+  "PRD000021": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 6,
+    "prix_base_xof": 68990.0,
+    "product_popularity_before": 451.0,
+    "product_recent_popularity_28d": 38.0
+  },
+  "PRD000263": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 11,
+    "prix_base_xof": 32930.0,
+    "product_popularity_before": 500.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000172": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 12,
+    "prix_base_xof": 51300.0,
+    "product_popularity_before": 547.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000110": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 2,
+    "prix_base_xof": 104280.0,
+    "product_popularity_before": 256.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000111": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 5,
+    "prix_base_xof": 79180.0,
+    "product_popularity_before": 627.0,
+    "product_recent_popularity_28d": 33.0
+  },
+  "PRD000130": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 6,
+    "prix_base_xof": 20330.0,
+    "product_popularity_before": 563.0,
+    "product_recent_popularity_28d": 48.0
+  },
+  "PRD000285": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 6,
+    "prix_base_xof": 227810.0,
+    "product_popularity_before": 745.0,
+    "product_recent_popularity_28d": 56.0
+  },
+  "PRD000159": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 7,
+    "prix_base_xof": 13370.0,
+    "product_popularity_before": 940.0,
+    "product_recent_popularity_28d": 58.0
+  },
+  "PRD000257": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 2,
+    "prix_base_xof": 8930.0,
+    "product_popularity_before": 755.0,
+    "product_recent_popularity_28d": 33.0
+  },
+  "PRD000229": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 7,
+    "prix_base_xof": 4080.0,
+    "product_popularity_before": 561.0,
+    "product_recent_popularity_28d": 30.0
+  },
+  "PRD000103": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 2,
+    "prix_base_xof": 8060.0,
+    "product_popularity_before": 127.0,
+    "product_recent_popularity_28d": 22.0
+  },
+  "PRD000187": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 12,
+    "prix_base_xof": 6350.0,
+    "product_popularity_before": 985.0,
+    "product_recent_popularity_28d": 58.0
+  },
+  "PRD000296": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 12,
+    "prix_base_xof": 145290.0,
+    "product_popularity_before": 238.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000184": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 2,
+    "prix_base_xof": 428780.0,
+    "product_popularity_before": 887.0,
+    "product_recent_popularity_28d": 45.0
+  },
+  "PRD000209": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 14,
+    "prix_base_xof": 9920.0,
+    "product_popularity_before": 503.0,
+    "product_recent_popularity_28d": 39.0
+  },
+  "PRD000249": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 6,
+    "prix_base_xof": 6610.0,
+    "product_popularity_before": 1063.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000147": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 13,
+    "prix_base_xof": 119030.0,
+    "product_popularity_before": 514.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000108": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 2,
+    "prix_base_xof": 34810.0,
+    "product_popularity_before": 555.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000126": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 5,
+    "prix_base_xof": 109270.0,
+    "product_popularity_before": 261.0,
+    "product_recent_popularity_28d": 31.0
+  },
+  "PRD000079": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 2,
+    "prix_base_xof": 110760.0,
+    "product_popularity_before": 670.0,
+    "product_recent_popularity_28d": 51.0
+  },
+  "PRD000035": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 1,
+    "prix_base_xof": 378220.0,
+    "product_popularity_before": 991.0,
+    "product_recent_popularity_28d": 50.0
+  },
+  "PRD000053": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 10,
+    "prix_base_xof": 418060.0,
+    "product_popularity_before": 330.0,
+    "product_recent_popularity_28d": 50.0
+  },
+  "PRD000070": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 6,
+    "prix_base_xof": 10910.0,
+    "product_popularity_before": 1206.0,
+    "product_recent_popularity_28d": 60.0
+  },
+  "PRD000256": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 1,
+    "prix_base_xof": 10760.0,
+    "product_popularity_before": 84.0,
+    "product_recent_popularity_28d": 70.0
+  },
+  "PRD000029": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 11,
+    "prix_base_xof": 12370.0,
+    "product_popularity_before": 467.0,
+    "product_recent_popularity_28d": 19.0
+  },
+  "PRD000019": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 3,
+    "prix_base_xof": 65370.0,
+    "product_popularity_before": 597.0,
+    "product_recent_popularity_28d": 25.0
+  },
+  "PRD000195": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 7,
+    "prix_base_xof": 32850.0,
+    "product_popularity_before": 196.0,
+    "product_recent_popularity_28d": 42.0
+  },
+  "PRD000098": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 11,
+    "prix_base_xof": 34640.0,
+    "product_popularity_before": 283.0,
+    "product_recent_popularity_28d": 53.0
+  },
+  "PRD000243": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 7,
+    "prix_base_xof": 209210.0,
+    "product_popularity_before": 1219.0,
+    "product_recent_popularity_28d": 61.0
+  },
+  "PRD000242": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 14,
+    "prix_base_xof": 189160.0,
+    "product_popularity_before": 96.0,
+    "product_recent_popularity_28d": 54.0
+  },
+  "PRD000299": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 9,
+    "prix_base_xof": 163950.0,
+    "product_popularity_before": 1199.0,
+    "product_recent_popularity_28d": 52.0
+  },
+  "PRD000155": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 8,
+    "prix_base_xof": 82390.0,
+    "product_popularity_before": 149.0,
+    "product_recent_popularity_28d": 20.0
+  },
+  "PRD000050": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 12,
+    "prix_base_xof": 30670.0,
+    "product_popularity_before": 140.0,
+    "product_recent_popularity_28d": 22.0
+  },
+  "PRD000089": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 0,
+    "prix_base_xof": 84840.0,
+    "product_popularity_before": 484.0,
+    "product_recent_popularity_28d": 37.0
+  },
+  "PRD000156": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 0,
+    "prix_base_xof": 8000.0,
+    "product_popularity_before": 561.0,
+    "product_recent_popularity_28d": 52.0
+  },
+  "PRD000241": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 3,
+    "prix_base_xof": 23320.0,
+    "product_popularity_before": 438.0,
+    "product_recent_popularity_28d": 39.0
+  },
+  "PRD000215": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 10,
+    "prix_base_xof": 99920.0,
+    "product_popularity_before": 1028.0,
+    "product_recent_popularity_28d": 47.0
+  },
+  "PRD000165": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 9,
+    "prix_base_xof": 132290.0,
+    "product_popularity_before": 1100.0,
+    "product_recent_popularity_28d": 54.0
+  },
+  "PRD000129": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 10,
+    "prix_base_xof": 34820.0,
+    "product_popularity_before": 557.0,
+    "product_recent_popularity_28d": 43.0
+  },
+  "PRD000124": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 15,
+    "prix_base_xof": 55490.0,
+    "product_popularity_before": 500.0,
+    "product_recent_popularity_28d": 37.0
+  },
+  "PRD000040": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 7,
+    "prix_base_xof": 30080.0,
+    "product_popularity_before": 69.0,
+    "product_recent_popularity_28d": 36.0
+  },
+  "PRD000025": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 8,
+    "prix_base_xof": 27720.0,
+    "product_popularity_before": 581.0,
+    "product_recent_popularity_28d": 39.0
+  },
+  "PRD000074": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 13,
+    "prix_base_xof": 12260.0,
+    "product_popularity_before": 299.0,
+    "product_recent_popularity_28d": 25.0
+  },
+  "PRD000192": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 2,
+    "prix_base_xof": 13350.0,
+    "product_popularity_before": 459.0,
+    "product_recent_popularity_28d": 35.0
+  },
+  "PRD000211": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 1,
+    "prix_base_xof": 302210.0,
+    "product_popularity_before": 1027.0,
+    "product_recent_popularity_28d": 47.0
+  },
+  "PRD000023": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 4,
+    "prix_base_xof": 8640.0,
+    "product_popularity_before": 420.0,
+    "product_recent_popularity_28d": 52.0
+  },
+  "PRD000009": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 9,
+    "prix_base_xof": 72370.0,
+    "product_popularity_before": 416.0,
+    "product_recent_popularity_28d": 58.0
+  },
+  "PRD000064": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 0,
+    "prix_base_xof": 201630.0,
+    "product_popularity_before": 986.0,
+    "product_recent_popularity_28d": 60.0
+  },
+  "PRD000091": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 2,
+    "prix_base_xof": 13350.0,
+    "product_popularity_before": 689.0,
+    "product_recent_popularity_28d": 67.0
+  },
+  "PRD000084": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 2,
+    "prix_base_xof": 107570.0,
+    "product_popularity_before": 592.0,
+    "product_recent_popularity_28d": 59.0
+  },
+  "PRD000058": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 9,
+    "prix_base_xof": 82720.0,
+    "product_popularity_before": 495.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000008": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 15,
+    "prix_base_xof": 73010.0,
+    "product_popularity_before": 576.0,
+    "product_recent_popularity_28d": 32.0
+  },
+  "PRD000216": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 15,
+    "prix_base_xof": 59860.0,
+    "product_popularity_before": 618.0,
+    "product_recent_popularity_28d": 37.0
+  },
+  "PRD000234": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 6,
+    "prix_base_xof": 42240.0,
+    "product_popularity_before": 472.0,
+    "product_recent_popularity_28d": 36.0
+  },
+  "PRD000004": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 9,
+    "prix_base_xof": 404580.0,
+    "product_popularity_before": 775.0,
+    "product_recent_popularity_28d": 64.0
+  },
+  "PRD000239": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 13,
+    "prix_base_xof": 314180.0,
+    "product_popularity_before": 1101.0,
+    "product_recent_popularity_28d": 61.0
+  },
+  "PRD000115": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 14,
+    "prix_base_xof": 183400.0,
+    "product_popularity_before": 161.0,
+    "product_recent_popularity_28d": 59.0
+  },
+  "PRD000294": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 11,
+    "prix_base_xof": 119300.0,
+    "product_popularity_before": 522.0,
+    "product_recent_popularity_28d": 38.0
+  },
+  "PRD000003": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 0,
+    "prix_base_xof": 9530.0,
+    "product_popularity_before": 476.0,
+    "product_recent_popularity_28d": 26.0
+  },
+  "PRD000030": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 5,
+    "prix_base_xof": 99920.0,
+    "product_popularity_before": 690.0,
+    "product_recent_popularity_28d": 27.0
+  },
+  "PRD000236": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 9,
+    "prix_base_xof": 47910.0,
+    "product_popularity_before": 573.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000042": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 1,
+    "prix_base_xof": 14510.0,
+    "product_popularity_before": 216.0,
+    "product_recent_popularity_28d": 67.0
+  },
+  "PRD000028": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 11,
+    "prix_base_xof": 31070.0,
+    "product_popularity_before": 599.0,
+    "product_recent_popularity_28d": 59.0
+  },
+  "PRD000210": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 14,
+    "prix_base_xof": 4740.0,
+    "product_popularity_before": 971.0,
+    "product_recent_popularity_28d": 54.0
+  },
+  "PRD000280": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 1,
+    "prix_base_xof": 9570.0,
+    "product_popularity_before": 625.0,
+    "product_recent_popularity_28d": 38.0
+  },
+  "PRD000113": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 5,
+    "prix_base_xof": 34520.0,
+    "product_popularity_before": 879.0,
+    "product_recent_popularity_28d": 42.0
+  },
+  "PRD000086": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 4,
+    "prix_base_xof": 17770.0,
+    "product_popularity_before": 654.0,
+    "product_recent_popularity_28d": 29.0
+  },
+  "PRD000024": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 3,
+    "prix_base_xof": 21790.0,
+    "product_popularity_before": 825.0,
+    "product_recent_popularity_28d": 43.0
+  },
+  "PRD000062": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 8,
+    "prix_base_xof": 48350.0,
+    "product_popularity_before": 242.0,
+    "product_recent_popularity_28d": 42.0
+  },
+  "PRD000230": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 7,
+    "prix_base_xof": 11460.0,
+    "product_popularity_before": 465.0,
+    "product_recent_popularity_28d": 40.0
+  },
+  "PRD000273": {
+    "categorie": "Bebe & Enfant",
+    "category_code": 2,
+    "brand_code": 9,
+    "prix_base_xof": 23200.0,
+    "product_popularity_before": 603.0,
+    "product_recent_popularity_28d": 41.0
+  },
+  "PRD000194": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 12,
+    "prix_base_xof": 2280.0,
+    "product_popularity_before": 180.0,
+    "product_recent_popularity_28d": 56.0
+  },
+  "PRD000276": {
+    "categorie": "Sport & Loisirs",
+    "category_code": 6,
+    "brand_code": 7,
+    "prix_base_xof": 20200.0,
+    "product_popularity_before": 524.0,
+    "product_recent_popularity_28d": 38.0
+  },
+  "PRD000109": {
+    "categorie": "Maison & Cuisine",
+    "category_code": 4,
+    "brand_code": 15,
+    "prix_base_xof": 58350.0,
+    "product_popularity_before": 747.0,
+    "product_recent_popularity_28d": 45.0
+  },
+  "PRD000196": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 6,
+    "prix_base_xof": 12690.0,
+    "product_popularity_before": 199.0,
+    "product_recent_popularity_28d": 54.0
+  },
+  "PRD000269": {
+    "categorie": "Beaute & Soins",
+    "category_code": 1,
+    "brand_code": 4,
+    "prix_base_xof": 15630.0,
+    "product_popularity_before": 783.0,
+    "product_recent_popularity_28d": 43.0
+  },
+  "PRD000173": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 5,
+    "prix_base_xof": 87940.0,
+    "product_popularity_before": 1238.0,
+    "product_recent_popularity_28d": 64.0
+  },
+  "PRD000145": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 12,
+    "prix_base_xof": 254640.0,
+    "product_popularity_before": 399.0,
+    "product_recent_popularity_28d": 68.0
+  },
+  "PRD000252": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 6,
+    "prix_base_xof": 107710.0,
+    "product_popularity_before": 1345.0,
+    "product_recent_popularity_28d": 79.0
+  },
+  "PRD000095": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 7,
+    "prix_base_xof": 211490.0,
+    "product_popularity_before": 1246.0,
+    "product_recent_popularity_28d": 62.0
+  },
+  "PRD000011": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 9,
+    "prix_base_xof": 7330.0,
+    "product_popularity_before": 886.0,
+    "product_recent_popularity_28d": 68.0
+  },
+  "PRD000032": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 14,
+    "prix_base_xof": 44680.0,
+    "product_popularity_before": 555.0,
+    "product_recent_popularity_28d": 60.0
+  },
+  "PRD000162": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 8,
+    "prix_base_xof": 128530.0,
+    "product_popularity_before": 591.0,
+    "product_recent_popularity_28d": 64.0
+  },
+  "PRD000222": {
+    "categorie": "Electronique & High-Tech",
+    "category_code": 3,
+    "brand_code": 9,
+    "prix_base_xof": 405170.0,
+    "product_popularity_before": 1080.0,
+    "product_recent_popularity_28d": 71.0
+  },
+  "PRD000018": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 8,
+    "prix_base_xof": 41110.0,
+    "product_popularity_before": 1077.0,
+    "product_recent_popularity_28d": 65.0
+  },
+  "PRD000275": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 3,
+    "prix_base_xof": 11340.0,
+    "product_popularity_before": 1227.0,
+    "product_recent_popularity_28d": 79.0
+  },
+  "PRD000286": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 11,
+    "prix_base_xof": 2080.0,
+    "product_popularity_before": 516.0,
+    "product_recent_popularity_28d": 72.0
+  },
+  "PRD000180": {
+    "categorie": "Alimentation & Epicerie",
+    "category_code": 0,
+    "brand_code": 10,
+    "prix_base_xof": 11390.0,
+    "product_popularity_before": 1352.0,
+    "product_recent_popularity_28d": 79.0
+  },
+  "PRD000149": {
+    "categorie": "Mode & Vetements",
+    "category_code": 5,
+    "brand_code": 3,
+    "prix_base_xof": 4650.0,
+    "product_popularity_before": 1030.0,
+    "product_recent_popularity_28d": 61.0
+  },
+  "PRD000289": {
+    "categorie": "Telephonie & Accessoires",
+    "category_code": 7,
+    "brand_code": 5,
+    "prix_base_xof": 70730.0,
+    "product_popularity_before": 601.0,
+    "product_recent_popularity_28d": 65.0
+  }
+}

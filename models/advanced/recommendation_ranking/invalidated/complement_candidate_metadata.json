@@ -1,0 +1,390 @@
+{
+  "metrics": [
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": 0.0,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "association_support_confidence_lift",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": 0.0,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": 0.0,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "popularite_categorie",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": 0.0,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "union_top10",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": 0.0,
+      "mean_candidates": 0.0,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "union_top20",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 0.0,
+      "candidate_recall_at20": 0.0
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "union_top50",
+      "n_orders": 5338,
+      "n_targets": 13519,
+      "candidate_recall_at50": 0.0,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 0.0,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": 0.2501661374880012,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "association_support_confidence_lift",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": 0.209702429299269,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": 0.23813039946836004,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "popularite_categorie",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": 0.8797902975707007,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "union_top10",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": 0.44214723473381085,
+      "mean_candidates": 47.99401905043196,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "union_top20",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 47.99401905043196,
+      "candidate_recall_at20": 0.7452558517315219
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "union_top50",
+      "n_orders": 5338,
+      "n_targets": 13543,
+      "candidate_recall_at50": 0.8676068817839474,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 47.99401905043196,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": 0.2191437624346032,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "association_support_confidence_lift",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": 0.1784687937513816,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": 0.21310146636209565,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "popularite_categorie",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": 0.9043548743644536,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "union_top10",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": 0.3770540122319652,
+      "mean_candidates": 48.77120330115688,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "union_top20",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 48.77120330115688,
+      "candidate_recall_at20": 0.6468941124456562
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "union_top50",
+      "n_orders": 5338,
+      "n_targets": 13571,
+      "candidate_recall_at50": 0.8895438803330632,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 48.77120330115688,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": 0.20569690675765892,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "association_support_confidence_lift",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": 0.15688747125584154,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": 0.19813070247014317,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "popularite_categorie",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": 0.943995252577702,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": NaN,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "union_top10",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": 0.34537497218307245,
+      "mean_candidates": 49.51123803872116,
+      "candidate_recall_at20": NaN
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "union_top20",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": NaN,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 49.51123803872116,
+      "candidate_recall_at20": 0.5840071211334471
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "union_top50",
+      "n_orders": 5338,
+      "n_targets": 13481,
+      "candidate_recall_at50": 0.9332393739336844,
+      "candidate_recall_at10": NaN,
+      "mean_candidates": 49.51123803872116,
+      "candidate_recall_at20": NaN
+    }
+  ],
+  "summary": [
+    {
+      "model": "association_support_confidence_lift",
+      "candidate_recall_at50": 0.13626467357662303
+    },
+    {
+      "model": "bm25_panier",
+      "candidate_recall_at50": 0.1623406420751497
+    },
+    {
+      "model": "cooccurrence_item_item",
+      "candidate_recall_at50": 0.16875170167006584
+    },
+    {
+      "model": "popularite_categorie",
+      "candidate_recall_at50": 0.682035106128214
+    },
+    {
+      "model": "union_top10",
+      "candidate_recall_at50": NaN
+    },
+    {
+      "model": "union_top20",
+      "candidate_recall_at50": NaN
+    },
+    {
+      "model": "union_top50",
+      "candidate_recall_at50": 0.6725975340126737
+    }
+  ],
+  "candidate_gate_ge_050": true,
+  "candidate_gate_rule": "all three evaluable windows F2-F4 meet Recall@50 >= 0.50 and none may be zero",
+  "evaluated_windows": [2, 3, 4],
+  "f1_status": "non_evaluable_no_history",
+  "f1_model_evaluation_allowed": false,
+  "f1_fallback_required": true,
+  "f1_fallback_options": ["popularite_catalogue_non_comportementale", "selection_metier"],
+  "candidate_gate_rule": "all three evaluable windows F2-F4 meet Recall@50 >= 0.50 and none may be zero",
+  "evaluated_windows": [
+    2,
+    3,
+    4
+  ],
+  "f1_status": "non_evaluable_no_history",
+  "f1_model_evaluation_allowed": false,
+  "f1_fallback_required": true,
+  "f1_fallback_options": [
+    "popularite_catalogue_non_comportementale",
+    "selection_metier"
+  ],
+  "union_recall_at50": [
+    0.0,
+    0.8676068818,
+    0.8895438803,
+    0.9332393739
+  ],
+  "union_recall_at20": [
+    0.0,
+    0.7447389795,
+    0.6468941124,
+    0.5840812996
+  ],
+  "union_recall_at10": [
+    0.0,
+    0.4423687514,
+    0.3770540122,
+    0.3453749722
+  ],
+  "f1_diagnostic": {
+    "train_orders": 0,
+    "train_distinct_products": 0,
+    "test_orders": 5338,
+    "test_distinct_products": 188,
+    "target_catalog_presence": 0.0,
+    "mean_candidates": 0.0,
+    "cold_start_rate": 1.0
+  },
+  "lambda_rank_started": false
+}

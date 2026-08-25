@@ -1,0 +1,39 @@
+# Dependances du service API V4 uniquement (pricing et recommandation).
+#
+# Perimetre volontairement reduit : ce fichier ne contient QUE ce que
+# `api_v4.main` importe reellement au demarrage, determine par inspection des
+# modules charges et non par supposition. Il exclut notamment les dependances
+# d'entrainement et de restitution (statsforecast, mlforecast, optuna, dash,
+# plotly, XlsxWriter) ainsi que les pilotes de base de donnees (supabase,
+# psycopg2, SQLAlchemy) : le service n'ouvre aucune connexion base de donnees.
+#
+# Cette reduction est deliberee : le plan gratuit de la plateforme de
+# deploiement est limite en memoire, et installer la totalite de
+# `requirements.txt` y ferait peser des paquets inutiles au service.
+#
+# Versions figees sur celles ayant servi a entrainer et serialiser les modeles,
+# pour garantir que les artefacts joblib se rechargent a l'identique.
+
+# --- Service web ---
+fastapi==0.135.1
+uvicorn==0.38.0
+pydantic==2.12.5
+
+# --- Calcul et serialisation ---
+pandas==2.3.3
+numpy==2.2.6
+pyarrow==22.0.0
+joblib==1.5.2
+scipy==1.16.3
+
+# --- Modeles rechargés depuis models/v4/ ---
+# scikit-learn : transformations et modele pointwise ; lightgbm : pointwise_conversion ;
+# catboost : CatBoostRanker ; xgboost : importe par src.recsys_v4.models au chargement.
+scikit-learn==1.7.2
+lightgbm==4.6.0
+catboost==1.2.10
+xgboost==3.2.0
+
+# --- Configuration ---
+python-dotenv==1.2.1
+PyYAML==6.0.3

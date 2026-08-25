@@ -1,0 +1,152 @@
+{
+  "n_checks": 20,
+  "n_pass": 17,
+  "n_warning": 2,
+  "n_fail": 1,
+  "checks": [
+    {
+      "check": "PK-01 unicite decision_id",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "11799/11799 identifiants distincts",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-02 une decision par produit et semaine",
+      "domain": "pricing",
+      "status": "WARNING",
+      "evidence": "maximum de decisions par couple produit-semaine = 2",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-03 integrite produit",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "0 decisions orphelines de dim_produit",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-04 coherence eligibilite/remise",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "0 remises appliquees incoherentes avec la proposition, 0 remises appliquees malgre une ineligibilite",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-07 propensity_score dans le domaine",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "valeurs distinctes: [Decimal('0.25')]",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-12 product_impressions varie-t-il avec la decision",
+      "domain": "pricing",
+      "status": "FAIL",
+      "evidence": "0/300 produits ont une valeur qui varie selon la decision ; une valeur constante par produit sur toute la periode signale un total de periode, pas un cumul pre-decision",
+      "blocks_scope": "product_impressions_as_feature"
+    },
+    {
+      "check": "P-11 stock_at_decision egale le dernier stock strictement anterieur",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "11799/11799 decisions concordent avec le dernier stock avant le jour de decision",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-16 remise appliquee refletee dans le revenu",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "0/7953 decisions avec un prix implicite different de prix_applique_xof",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-18 chevauchement avec une promotion",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "0/11799 decisions chevauchent une promotion active",
+      "blocks_scope": null
+    },
+    {
+      "check": "P-status experience",
+      "domain": "pricing",
+      "status": "PASS",
+      "evidence": "valeurs distinctes: ['synthetic_academic_experiment']",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-01 unicite recommendation_id",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "221080/221080 identifiants distincts",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-14 taille des slates",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "tailles distinctes observees: [5]",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-15 unicite des rangs par slate",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "0/44216 slates avec des rangs autres que 1..5",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-03 exclusivite identite client/anonyme",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "0 lignes avec les deux identites, 0 sans aucune",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-08 absence d'exposition sur session bot",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "0/221080 expositions rattachees a une session bot",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-07 impression_timestamp dans les bornes de session",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "0/221080 impressions hors des bornes reelles de la session",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-22 coherence purchased/added_to_cart",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "0/221080 lignes achetees sans passage par le panier",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-19 semantique de product_exposure_probability",
+      "domain": "recommendation",
+      "status": "WARNING",
+      "evidence": "somme par slate proche de 1 dans 100.0000% des cas (softmax theorique) ; score moyen strictement decroissant avec le rang = True (selection deterministe du Top-5, pas un tirage selon le softmax) ; propension NON utilisable pour une evaluation IPS, voir decision exposure_probability_status=deterministic_top_k",
+      "blocks_scope": "product_exposure_probability_as_ips_weight"
+    },
+    {
+      "check": "R-status experiment_group / model_version",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "correspondance 1:1 verifiee : {'challenger_affinite_categorie_v1': 1, 'popularite_globale_v1': 1}",
+      "blocks_scope": null
+    },
+    {
+      "check": "R-selection sessions exposees",
+      "domain": "recommendation",
+      "status": "PASS",
+      "evidence": "44216/178155 sessions web exposees a une slate (24.82%) ; pas de sur-representation flagrante des sessions acheteuses",
+      "blocks_scope": null
+    }
+  ],
+  "decisions": {
+    "product_impressions": "exclu des features ; reconstruit depuis fact_evenements_web (vues pre-decision) car constant par produit dans la table livree",
+    "product_exposure_probability": "exposure_probability_status = deterministic_top_k ; jamais utilisee comme poids IPS"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "primary_model": "v1_popularite_globale",
+  "recommendation_v2_validated": false,
+  "personalization_validated": false,
+  "diversity_challenger": "R2",
+  "diversity_challenger_automatic_use": false,
+  "R4_status": "not_launched",
+  "R4_reason": "no_personalization_gain_under_predefined_routing_protocol",
+  "genere_le": "2026-08-15T17:23:35.779398+00:00",
+  "usage_autorise_r2": "Scénario métier expérimental « Découvrir d'autres produits » uniquement, avec test A/B OBLIGATOIRE avant toute utilisation réelle. Jamais en usage automatique, jamais en remplacement du moteur principal.",
+  "r4_conclusion_nuancee": "Les critères d'éligibilité prédéfinis classent presque tous les clients comme personnalisables (99,9 %) et R3 ne démontre aucun gain sur cette population. R4 n'est donc pas justifié dans ce protocole. **Cela ne prouve pas qu'aucun sous-groupe pertinent ne puisse exister** avec d'autres données ou d'autres critères validés ultérieurement.",
+  "references_v1": {
+    "recall_at_10": 0.07586820930337992,
+    "ndcg_at_10": 0.04411357123583948,
+    "couverture_catalogue": 0.05416666666666663,
+    "personalisation_validee": false
+  },
+  "candidats": {
+    "R1": {
+      "status": "experiment_not_retained",
+      "reason": "no_improvement_over_v1",
+      "recall_at_10": 0.07498418653644348,
+      "ndcg_at_10": 0.043710704042308667,
+      "couverture": 0.050833333333333335
+    },
+    "R2": {
+      "status": "exploratory_diversity_challenger",
+      "primary_model_eligible": false,
+      "reason": "coverage_and_diversity_improved_but_relevance_loss_exceeds_threshold",
+      "recall_at_10": 0.07195060248039258,
+      "ndcg_at_10": 0.04193451159110474,
+      "couverture": 0.08916666666666666,
+      "concentration_top10": 0.5352973201746766,
+      "concentration_r1_comparaison": 0.9250031268233685,
+      "penalite_non_reglee_retrospectivement": true,
+      "test_ab_obligatoire_avant_usage": true
+    },
+    "R3": {
+      "status": "experiment_not_retained",
+      "reason": "relevance_not_improved",
+      "part_clients_personnalises": 0.9988693800608044,
+      "seuils_eligibilite": {
+        "min_achats": 3,
+        "min_categories": 2,
+        "part_min_dominantes": 0.6
+      },
+      "signal_sous_groupe": false
+    },
+    "R4": {
+      "status": "not_launched",
+      "reason": "no_personalization_gain_under_predefined_routing_protocol",
+      "conclusion": "Les critères d'éligibilité prédéfinis classent presque tous les clients comme personnalisables (99,9 %) et R3 ne démontre aucun gain sur cette population. R4 n'est donc pas justifié dans ce protocole. **Cela ne prouve pas qu'aucun sous-groupe pertinent ne puisse exister** avec d'autres données ou d'autres critères validés ultérieurement."
+    }
+  },
+  "donnees_supplementaires_necessaires": [
+    "order_id",
+    "session_id",
+    "event_timestamp",
+    "davantage d'interactions par client"
+  ],
+  "perimetre": {
+    "n_fenetres": 4,
+    "artefacts_v1_modifies": false
+  },
+  "aucune_publication_supabase": true,
+  "aucun_deploiement": true
+}

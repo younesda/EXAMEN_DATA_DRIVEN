@@ -1,0 +1,20 @@
+{
+  "evaluated_windows": [
+    2,
+    3,
+    4
+  ],
+  "prediction_file": "complement_topk_predictions.parquet",
+  "metrics_file": "complement_end_to_end_metrics.csv",
+  "bootstrap_replicates": 2000,
+  "bootstrap_unit": "commande_x_fenetre",
+  "bootstrap_ndcg10_ci95": [
+    -0.002680799637340038,
+    -0.0003329395167814051
+  ],
+  "rrf_promotion": false,
+  "decision": "ancienne_reference_conservee",
+  "lambdarank_evaluated": true,
+  "lambdarank_metrics_file": "complement_lambdarank_metrics.json",
+  "f1_status": "non_evaluable_no_history"
+}

@@ -1,0 +1,58 @@
+{
+  "genere_le": "2026-08-15T17:23:35.780387+00:00",
+  "artefacts": {
+    "v2/config/recsys_v2_thresholds.json": {
+      "sha256": "7dc24b824a30feb155408188a24ee4d471fe94db4de586f342d33e8de23917b9",
+      "taille_octets": 2473
+    },
+    "v2/recommendation/v1_recsys_reference.py": {
+      "sha256": "6595697bd007b2404f7a2b4f52bddc2ee7d48d6b03768d03dc2b3b49b43ec8a7",
+      "taille_octets": 6548
+    },
+    "v2/recommendation/candidates_r1_r2.py": {
+      "sha256": "842e7de9bf5c0933cbfc70fa92fbecb13116abb5faf67b2a623010b773d690a7",
+      "taille_octets": 7243
+    },
+    "v2/recommendation/candidate_r3.py": {
+      "sha256": "4fde5ca4cdfc73073b16ce3a5b3efc2af7613682d0484c7625363002b22d6bb6",
+      "taille_octets": 5562
+    },
+    "v2/evaluation/recsys_R1_R2_metrics.json": {
+      "sha256": "53486d9f7740e9231158058bd7473a416e08a380b1b550be820935572774b34a",
+      "taille_octets": 57174
+    },
+    "v2/evaluation/R3_pilote_metrics.json": {
+      "sha256": "9872745e0ec7764215160619156b89356e60ab3e0d3f78482de4f5972f2a98ef",
+      "taille_octets": 13896
+    },
+    "v2/evaluation/recsys_v2_decision_finale.json": {
+      "sha256": "95046223b95149c26e894985d48fe13ec0f069a88a8a5ed6b69989e8921e57ce",
+      "taille_octets": 1673
+    },
+    "v2/models/recsys_v2_status.json": {
+      "sha256": "b810623958e9041f307dd2610285e663b7181a6bb515bbd053f07e1122ccd7cb",
+      "taille_octets": 3422
+    },
+    "v2/reports/08_recsys_v2_protocole.md": {
+      "sha256": "4e1ef44d01fd8212d4a17f14b3d5e4d5f497d14e2ee37e1edd5ad3df2f920e22",
+      "taille_octets": 5775
+    },
+    "v2/reports/09_recsys_R1_R2.md": {
+      "sha256": "9805787c7ae79b0a94d3173258f6a4c223caedbd6b72cf479e34e9777f3a9d35",
+      "taille_octets": 7533
+    },
+    "v2/reports/10_recsys_R3_pilote.md": {
+      "sha256": "c56fe18950865598522eb6460d463d0d98cf60d2843c9e0dc95c7b023ff2902a",
+      "taille_octets": 3536
+    },
+    "v2/reports/11_recsys_v2_cloture.md": {
+      "sha256": "aee654233ed74aabd52a48154cb0c5d6a7c3cd45a65563e2c368218157a7c31b",
+      "taille_octets": 5358
+    },
+    "v2/tests/test_recsys_r1_r2.py": {
+      "sha256": "3a17df283a28030a25fd1d0324a7001420b549583ffdefcc9539954847a3ba0c",
+      "taille_octets": 14011
+    }
+  },
+  "n_artefacts": 13
+}

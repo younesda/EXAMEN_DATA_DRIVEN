@@ -1,0 +1,1543 @@
+{
+  "etape": "R1_R2",
+  "genere_le": "2026-08-15T13:14:39.059256+00:00",
+  "reference_v1": {
+    "recall_at_5": 0.0402728189550731,
+    "recall_at_10": 0.07586820930337992,
+    "ndcg_at_5": 0.029961662666247123,
+    "ndcg_at_10": 0.04411357123583948,
+    "precision_at_10": 0.017354778467313627,
+    "couverture_catalogue": 0.05416666666666663,
+    "couverture_utilisateurs": 1.0,
+    "diversite_at_10": 0.33332778778593986,
+    "par_fenetre": {
+      "0": {
+        "recall_at_5": 0.0579501517613128,
+        "recall_at_10": 0.1098103298447122,
+        "ndcg_at_5": 0.0406846656204867,
+        "ndcg_at_10": 0.0599484370914648,
+        "catalog_coverage": 0.0433333333333333,
+        "n_evaluable": 3781
+      },
+      "1": {
+        "recall_at_5": 0.0358291989832026,
+        "recall_at_10": 0.0658082925314499,
+        "ndcg_at_5": 0.0269397483746125,
+        "ndcg_at_10": 0.0392440870460069,
+        "catalog_coverage": 0.0566666666666666,
+        "n_evaluable": 4396
+      },
+      "2": {
+        "recall_at_5": 0.0362823301909596,
+        "recall_at_10": 0.0682605367608678,
+        "ndcg_at_5": 0.0274716621452731,
+        "ndcg_at_10": 0.0406488305230274,
+        "catalog_coverage": 0.0566666666666666,
+        "n_evaluable": 4531
+      },
+      "3": {
+        "recall_at_5": 0.0310295948848174,
+        "recall_at_10": 0.0595936780764898,
+        "ndcg_at_5": 0.0247505745246162,
+        "ndcg_at_10": 0.0366129302828588,
+        "catalog_coverage": 0.06,
+        "n_evaluable": 4538
+      }
+    },
+    "personalisation_validee": false,
+    "baseline": "popularite_globale"
+  },
+  "seuils_v2": {
+    "recall_at_10_min": 0.08,
+    "ndcg_at_10_min": 0.047,
+    "couverture_catalogue_min": 0.1,
+    "n_fenetres_battues_min": 3,
+    "n_fenetres_total": 4,
+    "perte_ndcg_max_si_couverture_doublee": 0.02,
+    "recul_max_clients_peu_actifs": 0.05
+  },
+  "variantes": {
+    "R1_decouverte": {
+      "label": "R1 — découverte (rachats exclus)",
+      "use_r2": false,
+      "exclude_purchased": true,
+      "par_fenetre": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.043333333333333335,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.020100502512562814,
+            "recall_at_5": 0.05482487626100427,
+            "ndcg_at_5": 0.03927864153358043,
+            "precision_at_10": 0.020100502512562814,
+            "recall_at_10": 0.10953073638871046,
+            "ndcg_at_10": 0.05983782130890901,
+            "map_at_10": 0.03417108691606179,
+            "diversity_at_10": 0.30023803226659607
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.043333333333333335,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.020100502512562814,
+            "recall_at_5": 0.06204748566093103,
+            "ndcg_at_5": 0.04385971730179287,
+            "precision_at_10": 0.020100502512562814,
+            "recall_at_10": 0.12408096571962118,
+            "ndcg_at_10": 0.06668648080625533,
+            "map_at_10": 0.03910497902864849,
+            "diversity_at_10": 0.30023803226659607
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.043333333333333335,
+              "n_evaluable": 1870,
+              "precision_at_5": 0.020213903743315508,
+              "recall_at_5": 0.054607843137254905,
+              "ndcg_at_5": 0.037832762351088366,
+              "precision_at_10": 0.02085561497326203,
+              "recall_at_10": 0.11174688057040999,
+              "ndcg_at_10": 0.05952223028323949,
+              "map_at_10": 0.03292737600090541,
+              "diversity_at_10": 0.3009625668449197
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03666666666666667,
+              "n_evaluable": 1194,
+              "precision_at_5": 0.019765494137353436,
+              "recall_at_5": 0.05616375528435829,
+              "ndcg_at_5": 0.04143143392928984,
+              "precision_at_10": 0.018844221105527637,
+              "recall_at_10": 0.1051527478663157,
+              "ndcg_at_10": 0.05980628207743271,
+              "map_at_10": 0.035820842528338344,
+              "diversity_at_10": 0.29924623115577886
+            },
+            "cold_start": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 717,
+              "precision_at_5": 0.020362622036262205,
+              "recall_at_5": 0.05316132031613202,
+              "ndcg_at_5": 0.039464638675537365,
+              "precision_at_10": 0.020223152022315203,
+              "recall_at_10": 0.11104137610413763,
+              "ndcg_at_10": 0.060713432271788624,
+              "map_at_10": 0.03466750422468693,
+              "diversity_at_10": 0.29999999999999993
+            }
+          },
+          "concentration_top10_produits": 0.9774662787622322,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.05333333333333334,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.017015468607825296,
+            "recall_at_5": 0.035890401808281694,
+            "ndcg_at_5": 0.02714713402329554,
+            "precision_at_10": 0.015878070973612376,
+            "recall_at_10": 0.06701294105752703,
+            "ndcg_at_10": 0.03952617803240865,
+            "map_at_10": 0.02094539816482654,
+            "diversity_at_10": 0.2915605095541401
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.05333333333333334,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.017015468607825296,
+            "recall_at_5": 0.040091118722994604,
+            "ndcg_at_5": 0.02938199224360485,
+            "precision_at_10": 0.015878070973612376,
+            "recall_at_10": 0.07448451877224796,
+            "ndcg_at_10": 0.04282030586360878,
+            "map_at_10": 0.023147357908842894,
+            "diversity_at_10": 0.2915605095541401
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.05333333333333334,
+              "n_evaluable": 2425,
+              "precision_at_5": 0.01731958762886598,
+              "recall_at_5": 0.036380134184257895,
+              "ndcg_at_5": 0.027014460518107603,
+              "precision_at_10": 0.015340206185567012,
+              "recall_at_10": 0.06403060055637375,
+              "ndcg_at_10": 0.03801546589060179,
+              "map_at_10": 0.019905320226601523,
+              "diversity_at_10": 0.28952577319587625
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.04666666666666667,
+              "n_evaluable": 1971,
+              "precision_at_5": 0.016641298833079653,
+              "recall_at_5": 0.035287864511608806,
+              "ndcg_at_5": 0.027310367534244685,
+              "precision_at_10": 0.016539827498731608,
+              "recall_at_10": 0.07068223365788052,
+              "ndcg_at_10": 0.041384867501653516,
+              "map_at_10": 0.02222504758146564,
+              "diversity_at_10": 0.2940639269406392
+            }
+          },
+          "concentration_top10_produits": 0.9253412192902639,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.05,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.016376075921430144,
+            "recall_at_5": 0.030290187876813344,
+            "ndcg_at_5": 0.024966061774913714,
+            "precision_at_10": 0.01646435665416023,
+            "recall_at_10": 0.06250109475114993,
+            "ndcg_at_10": 0.03816483801327331,
+            "map_at_10": 0.01932301089346207,
+            "diversity_at_10": 0.38567645111454424
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.05,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.016376075921430144,
+            "recall_at_5": 0.032404460020935374,
+            "ndcg_at_5": 0.02616290181527401,
+            "precision_at_10": 0.01646435665416023,
+            "recall_at_10": 0.06708153364129055,
+            "ndcg_at_10": 0.040203807420060696,
+            "map_at_10": 0.0206147414576404,
+            "diversity_at_10": 0.38567645111454424
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.05,
+              "n_evaluable": 2570,
+              "precision_at_5": 0.015642023346303505,
+              "recall_at_5": 0.028043511827558522,
+              "ndcg_at_5": 0.022847509017972646,
+              "precision_at_10": 0.016498054474708174,
+              "recall_at_10": 0.06251636711753444,
+              "ndcg_at_10": 0.03690907549431943,
+              "map_at_10": 0.018012281771766205,
+              "diversity_at_10": 0.3838132295719844
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.04666666666666667,
+              "n_evaluable": 1961,
+              "precision_at_5": 0.017338092809790925,
+              "recall_at_5": 0.03323458229118607,
+              "ndcg_at_5": 0.02774254346045096,
+              "precision_at_10": 0.016420193778684346,
+              "recall_at_10": 0.062481079462211535,
+              "ndcg_at_10": 0.03981058491470699,
+              "map_at_10": 0.021040794597061444,
+              "diversity_at_10": 0.38811830698623156
+            }
+          },
+          "concentration_top10_produits": 0.9166188479364379,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.25,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.056666666666666664,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.017364477743499338,
+            "recall_at_5": 0.03171350220711172,
+            "ndcg_at_5": 0.025518773340210618,
+            "precision_at_10": 0.015932128691053326,
+            "recall_at_10": 0.06089197394838647,
+            "ndcg_at_10": 0.03731397881464371,
+            "map_at_10": 0.019156860543051754,
+            "diversity_at_10": 0.2689951520493609
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.056666666666666664,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.017364477743499338,
+            "recall_at_5": 0.034746569814366426,
+            "ndcg_at_5": 0.027211138612230703,
+            "precision_at_10": 0.015932128691053326,
+            "recall_at_10": 0.06701183750336291,
+            "ndcg_at_10": 0.03998460076828855,
+            "map_at_10": 0.02091545558587528,
+            "diversity_at_10": 0.2689951520493609
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.056666666666666664,
+              "n_evaluable": 2309,
+              "precision_at_5": 0.017669987007362494,
+              "recall_at_5": 0.030822970158180203,
+              "ndcg_at_5": 0.025401261522751382,
+              "precision_at_10": 0.01645734084019056,
+              "recall_at_10": 0.0619681783497288,
+              "ndcg_at_10": 0.03791838105316446,
+              "map_at_10": 0.019352688647760727,
+              "diversity_at_10": 0.27553053269813776
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.05,
+              "n_evaluable": 2229,
+              "precision_at_5": 0.01704800358905339,
+              "recall_at_5": 0.032635995926709245,
+              "ndcg_at_5": 0.0256405027195347,
+              "precision_at_10": 0.015388066397487665,
+              "recall_at_10": 0.05977714399652488,
+              "ndcg_at_10": 0.03668788425710922,
+              "map_at_10": 0.01895400406311769,
+              "diversity_at_10": 0.2622252131000449
+            }
+          },
+          "concentration_top10_produits": 0.8805861613045395,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        }
+      ],
+      "decisions_alpha": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "source": "defaut_aucune_fenetre_anterieure",
+          "fenetres_utilisees": []
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.11315,
+            "0.25": 0.110456,
+            "0.50": 0.109531,
+            "0.75": 0.10981,
+            "1.00": 0.10981
+          }
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.090081,
+            "0.25": 0.089247,
+            "0.50": 0.086441,
+            "0.75": 0.087152,
+            "1.00": 0.087809
+          }
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.25,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1,
+            2
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.080888,
+            "0.25": 0.081516,
+            "0.50": 0.079931,
+            "0.75": 0.081259,
+            "1.00": 0.081293
+          }
+        }
+      ],
+      "moyennes": {
+        "recall_at_5": 0.03817974203830275,
+        "recall_at_10": 0.07498418653644348,
+        "ndcg_at_5": 0.029227652668000075,
+        "ndcg_at_10": 0.043710704042308667,
+        "precision_at_10": 0.017093764707847188,
+        "catalog_coverage": 0.050833333333333335,
+        "user_coverage": 1.0,
+        "diversity_at_10": 0.31161753624616034
+      },
+      "moyennes_eligible": {
+        "recall_at_10": 0.08316471390913066,
+        "ndcg_at_10": 0.047423798714553336
+      },
+      "concentration_moyenne": 0.9250031268233685,
+      "n_doublons_total": 0,
+      "n_ineligibles_total": 0
+    },
+    "R2_decouverte": {
+      "label": "R2 — découverte (rachats exclus)",
+      "use_r2": true,
+      "exclude_purchased": true,
+      "par_fenetre": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.07666666666666666,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.02068235916424227,
+            "recall_at_5": 0.057043991889270916,
+            "ndcg_at_5": 0.04005571522321079,
+            "precision_at_10": 0.01957154192012695,
+            "recall_at_10": 0.10895517688694097,
+            "ndcg_at_10": 0.05952792021013377,
+            "map_at_10": 0.03441306364739319,
+            "diversity_at_10": 0.4
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.07666666666666666,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.02068235916424227,
+            "recall_at_5": 0.0638235294117647,
+            "ndcg_at_5": 0.04417412674831323,
+            "precision_at_10": 0.01957154192012695,
+            "recall_at_10": 0.12190742963852207,
+            "ndcg_at_10": 0.06562813675554194,
+            "map_at_10": 0.03861077393920532,
+            "diversity_at_10": 0.4
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.07666666666666666,
+              "n_evaluable": 1870,
+              "precision_at_5": 0.020534759358288773,
+              "recall_at_5": 0.05545454545454545,
+              "ndcg_at_5": 0.03891911762230596,
+              "precision_at_10": 0.019786096256684493,
+              "recall_at_10": 0.10589126559714794,
+              "ndcg_at_10": 0.058234535068871086,
+              "map_at_10": 0.03337826797385621,
+              "diversity_at_10": 0.4000000000000001
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.07666666666666666,
+              "n_evaluable": 1194,
+              "precision_at_5": 0.020435510887772193,
+              "recall_at_5": 0.0594500279173646,
+              "ndcg_at_5": 0.041315191968501405,
+              "precision_at_10": 0.01968174204355109,
+              "recall_at_10": 0.11804259392199092,
+              "ndcg_at_10": 0.0625969559487525,
+              "map_at_10": 0.036425724300514925,
+              "diversity_at_10": 0.39999999999999997
+            },
+            "cold_start": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.07666666666666666,
+              "n_evaluable": 717,
+              "precision_at_5": 0.021478382147838218,
+              "recall_at_5": 0.05718270571827057,
+              "ndcg_at_5": 0.04092269190356645,
+              "precision_at_10": 0.01882845188284519,
+              "recall_at_10": 0.10181311018131102,
+              "ndcg_at_10": 0.057790404927358964,
+              "map_at_10": 0.03376027576690059,
+              "diversity_at_10": 0.3999999999999999
+            }
+          },
+          "concentration_top10_produits": 0.5782068235916424,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.1,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.01565059144676979,
+            "recall_at_5": 0.032587976804309825,
+            "ndcg_at_5": 0.024691102336984443,
+            "precision_at_10": 0.014649681528662422,
+            "recall_at_10": 0.06147327296098906,
+            "ndcg_at_10": 0.036304810005013385,
+            "map_at_10": 0.019212809504551998,
+            "diversity_at_10": 0.3999999999999999
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.1,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.01565059144676979,
+            "recall_at_5": 0.03636801217901359,
+            "ndcg_at_5": 0.026801836950437207,
+            "precision_at_10": 0.014649681528662422,
+            "recall_at_10": 0.0685545257124947,
+            "ndcg_at_10": 0.03948345869188901,
+            "map_at_10": 0.02141066799963469,
+            "diversity_at_10": 0.3999999999999999
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.1,
+              "n_evaluable": 2425,
+              "precision_at_5": 0.015010309278350517,
+              "recall_at_5": 0.03167468499427262,
+              "ndcg_at_5": 0.023374514040384296,
+              "precision_at_10": 0.013979381443298971,
+              "recall_at_10": 0.05895450826378661,
+              "ndcg_at_10": 0.03446452606954396,
+              "map_at_10": 0.01810981017836688,
+              "diversity_at_10": 0.4
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.09333333333333334,
+              "n_evaluable": 1971,
+              "precision_at_5": 0.016438356164383564,
+              "recall_at_5": 0.033711636184999956,
+              "ndcg_at_5": 0.02631095348830629,
+              "precision_at_10": 0.015474378488077117,
+              "recall_at_10": 0.06457220973963744,
+              "ndcg_at_10": 0.0385689848114636,
+              "map_at_10": 0.020569873617184625,
+              "diversity_at_10": 0.4
+            }
+          },
+          "concentration_top10_produits": 0.5077570518653322,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.08666666666666667,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.017126462149635844,
+            "recall_at_5": 0.03255562211642547,
+            "ndcg_at_5": 0.025596225757011346,
+            "precision_at_10": 0.016177444272787465,
+            "recall_at_10": 0.06147605735445064,
+            "ndcg_at_10": 0.037453250247272134,
+            "map_at_10": 0.019270645713838637,
+            "diversity_at_10": 0.49057603178106385
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.08666666666666667,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.017126462149635844,
+            "recall_at_5": 0.03512186103340729,
+            "ndcg_at_5": 0.026954182579714523,
+            "precision_at_10": 0.016177444272787465,
+            "recall_at_10": 0.06620803546867017,
+            "ndcg_at_10": 0.03953885188248301,
+            "map_at_10": 0.020626523135325103,
+            "diversity_at_10": 0.49057603178106385
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 2570,
+              "precision_at_5": 0.0175875486381323,
+              "recall_at_5": 0.03349314433944784,
+              "ndcg_at_5": 0.025507843221028104,
+              "precision_at_10": 0.016264591439688718,
+              "recall_at_10": 0.0619114013958372,
+              "ndcg_at_10": 0.0371974024124458,
+              "map_at_10": 0.01883374692289367,
+              "diversity_at_10": 0.4896887159533074
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 1961,
+              "precision_at_5": 0.016522182559918414,
+              "recall_at_5": 0.031326946892984625,
+              "ndcg_at_5": 0.025712056005597225,
+              "precision_at_10": 0.01606323304436512,
+              "recall_at_10": 0.06090551467909958,
+              "ndcg_at_10": 0.037788553121062884,
+              "map_at_10": 0.019843225975301446,
+              "diversity_at_10": 0.4917389087200408
+            }
+          },
+          "concentration_top10_produits": 0.5304127124255131,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.25,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.09333333333333334,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.016571176729836934,
+            "recall_at_5": 0.030995753670940977,
+            "ndcg_at_5": 0.024195981920016568,
+            "precision_at_10": 0.01483032172763332,
+            "recall_at_10": 0.05589790271918963,
+            "ndcg_at_10": 0.03445206590199969,
+            "map_at_10": 0.017754858444038697,
+            "diversity_at_10": 0.39999999999999997
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.09333333333333334,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.016571176729836934,
+            "recall_at_5": 0.03414447134786117,
+            "ndcg_at_5": 0.02585063442160038,
+            "precision_at_10": 0.01483032172763332,
+            "recall_at_10": 0.06166774280333602,
+            "ndcg_at_10": 0.0369357303604281,
+            "map_at_10": 0.019375374405882884,
+            "diversity_at_10": 0.39999999999999997
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.09,
+              "n_evaluable": 2309,
+              "precision_at_5": 0.016803811173668252,
+              "recall_at_5": 0.030872465920105594,
+              "ndcg_at_5": 0.024296877345995838,
+              "precision_at_10": 0.014854915547856217,
+              "recall_at_10": 0.05493307760523005,
+              "ndcg_at_10": 0.034266189657855176,
+              "map_at_10": 0.017840985126065245,
+              "diversity_at_10": 0.39999999999999997
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 2229,
+              "precision_at_5": 0.01633019291161956,
+              "recall_at_5": 0.031123466284973686,
+              "ndcg_at_5": 0.024091465303333687,
+              "precision_at_10": 0.014804845222072678,
+              "recall_at_10": 0.05689735592158203,
+              "ndcg_at_10": 0.034644613343780606,
+              "map_at_10": 0.01766564062941362,
+              "diversity_at_10": 0.39999999999999997
+            }
+          },
+          "concentration_top10_produits": 0.5248126928162186,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        }
+      ],
+      "decisions_alpha": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "source": "defaut_aucune_fenetre_anterieure",
+          "fenetres_utilisees": []
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.11315,
+            "0.25": 0.110456,
+            "0.50": 0.109531,
+            "0.75": 0.10981,
+            "1.00": 0.10981
+          }
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.090081,
+            "0.25": 0.089247,
+            "0.50": 0.086441,
+            "0.75": 0.087152,
+            "1.00": 0.087809
+          }
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.25,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1,
+            2
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.080888,
+            "0.25": 0.081516,
+            "0.50": 0.079931,
+            "0.75": 0.081259,
+            "1.00": 0.081293
+          }
+        }
+      ],
+      "moyennes": {
+        "recall_at_5": 0.0382958361202368,
+        "recall_at_10": 0.07195060248039258,
+        "ndcg_at_5": 0.028634756309305787,
+        "ndcg_at_10": 0.04193451159110474,
+        "precision_at_10": 0.01630724736230254,
+        "catalog_coverage": 0.08916666666666666,
+        "user_coverage": 1.0,
+        "diversity_at_10": 0.4226440079452659
+      },
+      "moyennes_eligible": {
+        "recall_at_10": 0.07958443340575574,
+        "ndcg_at_10": 0.04539654442258552
+      },
+      "concentration_moyenne": 0.5352973201746766,
+      "n_doublons_total": 0,
+      "n_ineligibles_total": 0
+    },
+    "R1_reappro": {
+      "label": "R1 — réapprovisionnement (rachats autorisés)",
+      "use_r2": false,
+      "exclude_purchased": false,
+      "par_fenetre": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.01999471039407564,
+            "recall_at_5": 0.05414163549577461,
+            "ndcg_at_5": 0.0391301968632539,
+            "precision_at_10": 0.0201533985718064,
+            "recall_at_10": 0.11068311482223145,
+            "ndcg_at_10": 0.06027927847962643,
+            "map_at_10": 0.03445666441368637,
+            "diversity_at_10": 0.29999999999999993
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.01999471039407564,
+            "recall_at_5": 0.06048532253368273,
+            "ndcg_at_5": 0.043162383967371265,
+            "precision_at_10": 0.0201533985718064,
+            "recall_at_10": 0.12327020302284336,
+            "ndcg_at_10": 0.06625416587841647,
+            "map_at_10": 0.03879624850372487,
+            "diversity_at_10": 0.29999999999999993
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 1870,
+              "precision_at_5": 0.020427807486631016,
+              "recall_at_5": 0.055098039215686276,
+              "ndcg_at_5": 0.03846475537765326,
+              "precision_at_10": 0.020962566844919785,
+              "recall_at_10": 0.11361853832442066,
+              "ndcg_at_10": 0.06057479910002825,
+              "map_at_10": 0.03377517825311943,
+              "diversity_at_10": 0.3
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 1194,
+              "precision_at_5": 0.01909547738693467,
+              "recall_at_5": 0.053232432001276225,
+              "ndcg_at_5": 0.03997155431607294,
+              "precision_at_10": 0.018844221105527637,
+              "recall_at_10": 0.10587062295605008,
+              "ndcg_at_10": 0.059555734234122484,
+              "map_at_10": 0.03539737377363005,
+              "diversity_at_10": 0.29999999999999993
+            },
+            "cold_start": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 717,
+              "precision_at_5": 0.020362622036262205,
+              "recall_at_5": 0.05316132031613202,
+              "ndcg_at_5": 0.039464638675537365,
+              "precision_at_10": 0.020223152022315203,
+              "recall_at_10": 0.11104137610413763,
+              "ndcg_at_10": 0.060713432271788624,
+              "map_at_10": 0.03466750422468693,
+              "diversity_at_10": 0.29999999999999993
+            }
+          },
+          "concentration_top10_produits": 1.0,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.016651501364877162,
+            "recall_at_5": 0.035804826176755206,
+            "ndcg_at_5": 0.02737005667534486,
+            "precision_at_10": 0.0160828025477707,
+            "recall_at_10": 0.06842548059563527,
+            "ndcg_at_10": 0.04045366738931585,
+            "map_at_10": 0.021681074778005432,
+            "diversity_at_10": 0.29999999999999993
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.016651501364877162,
+            "recall_at_5": 0.037800851794380794,
+            "ndcg_at_5": 0.028455358353889668,
+            "precision_at_10": 0.0160828025477707,
+            "recall_at_10": 0.07223084288025354,
+            "ndcg_at_10": 0.0421206816468122,
+            "map_at_10": 0.02278662268646256,
+            "diversity_at_10": 0.29999999999999993
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 2425,
+              "precision_at_5": 0.01731958762886598,
+              "recall_at_5": 0.03645868106692849,
+              "ndcg_at_5": 0.02785232477599378,
+              "precision_at_10": 0.01579381443298969,
+              "recall_at_10": 0.06586728849615446,
+              "ndcg_at_10": 0.039706088066790185,
+              "map_at_10": 0.02114329818983722,
+              "diversity_at_10": 0.3
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 1971,
+              "precision_at_5": 0.015829528158295282,
+              "recall_at_5": 0.03500036239762267,
+              "ndcg_at_5": 0.02677670297464794,
+              "precision_at_10": 0.016438356164383564,
+              "recall_at_10": 0.07157292648160228,
+              "ndcg_at_10": 0.04137344407989156,
+              "map_at_10": 0.022342722787294066,
+              "diversity_at_10": 0.29999999999999993
+            }
+          },
+          "concentration_top10_produits": 1.0,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.016376075921430148,
+            "recall_at_5": 0.02989975582670352,
+            "ndcg_at_5": 0.02468076748167715,
+            "precision_at_10": 0.01655263738689031,
+            "recall_at_10": 0.06269053049013322,
+            "ndcg_at_10": 0.03802539359416861,
+            "map_at_10": 0.01916734530811761,
+            "diversity_at_10": 0.39999999999999997
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.016376075921430148,
+            "recall_at_5": 0.03069138347162765,
+            "ndcg_at_5": 0.025125414814026754,
+            "precision_at_10": 0.01655263738689031,
+            "recall_at_10": 0.06422000246639537,
+            "ndcg_at_10": 0.038731418242910425,
+            "map_at_10": 0.019647254079828997,
+            "diversity_at_10": 0.39999999999999997
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 2570,
+              "precision_at_5": 0.015642023346303505,
+              "recall_at_5": 0.02795179420665802,
+              "ndcg_at_5": 0.022927159581804,
+              "precision_at_10": 0.016575875486381324,
+              "recall_at_10": 0.06254230745475882,
+              "ndcg_at_10": 0.03696093806437224,
+              "map_at_10": 0.01810906393469623,
+              "diversity_at_10": 0.3999999999999999
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 1961,
+              "precision_at_5": 0.017338092809790925,
+              "recall_at_5": 0.032452668301724906,
+              "ndcg_at_5": 0.026978968553922934,
+              "precision_at_10": 0.016522182559918414,
+              "recall_at_10": 0.06288478505459637,
+              "ndcg_at_10": 0.039420422003947624,
+              "map_at_10": 0.020554282141209364,
+              "diversity_at_10": 0.4
+            }
+          },
+          "concentration_top10_produits": 1.0,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.75,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.016791538122520936,
+            "recall_at_5": 0.030663200346981744,
+            "ndcg_at_5": 0.02512099811995074,
+            "precision_at_10": 0.01617452622300573,
+            "recall_at_10": 0.061833057007142506,
+            "ndcg_at_10": 0.03765914525201406,
+            "map_at_10": 0.019237924137384253,
+            "diversity_at_10": 0.19999999999999998
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.03333333333333333,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.016791538122520936,
+            "recall_at_5": 0.03137186948853616,
+            "ndcg_at_5": 0.02552404996602015,
+            "precision_at_10": 0.01617452622300573,
+            "recall_at_10": 0.06374885361552027,
+            "ndcg_at_10": 0.0384287603594624,
+            "map_at_10": 0.019680909129083733,
+            "diversity_at_10": 0.19999999999999998
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 2309,
+              "precision_at_5": 0.01792983975747077,
+              "recall_at_5": 0.03228361071583245,
+              "ndcg_at_5": 0.026246665529649636,
+              "precision_at_10": 0.016977046340407104,
+              "recall_at_10": 0.06397172554600013,
+              "ndcg_at_10": 0.038999432267267174,
+              "map_at_10": 0.0198985676509187,
+              "diversity_at_10": 0.19999999999999998
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.03333333333333333,
+              "n_evaluable": 2229,
+              "precision_at_5": 0.015612382234185736,
+              "recall_at_5": 0.02898463258490177,
+              "ndcg_at_5": 0.02395492990595578,
+              "precision_at_10": 0.01534320323014805,
+              "recall_at_10": 0.0596176305126507,
+              "ndcg_at_10": 0.0362707546202422,
+              "map_at_10": 0.018553569775450182,
+              "diversity_at_10": 0.19999999999999998
+            }
+          },
+          "concentration_top10_produits": 1.0,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        }
+      ],
+      "decisions_alpha": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "source": "defaut_aucune_fenetre_anterieure",
+          "fenetres_utilisees": []
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.114368,
+            "0.25": 0.111395,
+            "0.50": 0.110683,
+            "0.75": 0.110683,
+            "1.00": 0.110683
+          }
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.091397,
+            "0.25": 0.090281,
+            "0.50": 0.088368,
+            "0.75": 0.089216,
+            "1.00": 0.089216
+          }
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.75,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1,
+            2
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.081828,
+            "0.25": 0.082497,
+            "0.50": 0.081222,
+            "0.75": 0.08268,
+            "1.00": 0.082306
+          }
+        }
+      ],
+      "moyennes": {
+        "recall_at_5": 0.03762735446155377,
+        "recall_at_10": 0.07590804572878562,
+        "ndcg_at_5": 0.02907550478505666,
+        "ndcg_at_10": 0.044104371178781236,
+        "precision_at_10": 0.017240841182368287,
+        "catalog_coverage": 0.03333333333333333,
+        "user_coverage": 1.0,
+        "diversity_at_10": 0.29999999999999993
+      },
+      "moyennes_eligible": {
+        "recall_at_10": 0.08086747549625314,
+        "ndcg_at_10": 0.04638375653190037
+      },
+      "concentration_moyenne": 1.0,
+      "n_doublons_total": 0,
+      "n_ineligibles_total": 0
+    },
+    "R2_reappro": {
+      "label": "R2 — réapprovisionnement (rachats autorisés)",
+      "use_r2": true,
+      "exclude_purchased": false,
+      "par_fenetre": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.07666666666666666,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.020841047341973028,
+            "recall_at_5": 0.05935630533620483,
+            "ndcg_at_5": 0.04140582282586879,
+            "precision_at_10": 0.01988891827558847,
+            "recall_at_10": 0.11197717912872633,
+            "ndcg_at_10": 0.061140608090082246,
+            "map_at_10": 0.035813317142661234,
+            "diversity_at_10": 0.4
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.07666666666666666,
+            "n_evaluable": 3781,
+            "precision_at_5": 0.020841047341973028,
+            "recall_at_5": 0.06498782392334365,
+            "ndcg_at_5": 0.04495470949528517,
+            "precision_at_10": 0.01988891827558847,
+            "recall_at_10": 0.12286984832843642,
+            "ndcg_at_10": 0.06639050277163586,
+            "map_at_10": 0.039488998150059844,
+            "diversity_at_10": 0.4
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.07666666666666666,
+              "n_evaluable": 1870,
+              "precision_at_5": 0.02085561497326203,
+              "recall_at_5": 0.05851158645276293,
+              "ndcg_at_5": 0.04113454887371524,
+              "precision_at_10": 0.020320855614973262,
+              "recall_at_10": 0.11163101604278074,
+              "ndcg_at_10": 0.06126910572213271,
+              "map_at_10": 0.03587193362193362,
+              "diversity_at_10": 0.4000000000000001
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.07666666666666666,
+              "n_evaluable": 1194,
+              "precision_at_5": 0.020268006700167502,
+              "recall_at_5": 0.060728244396586105,
+              "ndcg_at_5": 0.04182990989165627,
+              "precision_at_10": 0.01934673366834171,
+              "recall_at_10": 0.11618010688362447,
+              "ndcg_at_10": 0.06216045515608614,
+              "map_at_10": 0.036776009678019736,
+              "diversity_at_10": 0.39999999999999997
+            },
+            "cold_start": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.07666666666666666,
+              "n_evaluable": 717,
+              "precision_at_5": 0.02175732217573222,
+              "recall_at_5": 0.059274755927475595,
+              "ndcg_at_5": 0.04140710920519496,
+              "precision_at_10": 0.0196652719665272,
+              "recall_at_10": 0.10588098558809854,
+              "ndcg_at_10": 0.05910715206673075,
+              "map_at_10": 0.03405729524104698,
+              "diversity_at_10": 0.3999999999999999
+            }
+          },
+          "concentration_top10_produits": 0.5771489024067707,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.09,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.01637852593266606,
+            "recall_at_5": 0.03435997010269076,
+            "ndcg_at_5": 0.02613619407009972,
+            "precision_at_10": 0.014854413102820745,
+            "recall_at_10": 0.06247571746320608,
+            "ndcg_at_10": 0.03744743815308356,
+            "map_at_10": 0.020064164171212245,
+            "diversity_at_10": 0.3999999999999999
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.09,
+            "n_evaluable": 4396,
+            "precision_at_5": 0.01637852593266606,
+            "recall_at_5": 0.036607165784424855,
+            "ndcg_at_5": 0.02738750413815654,
+            "precision_at_10": 0.014854413102820745,
+            "recall_at_10": 0.06599966617877409,
+            "ndcg_at_10": 0.0391558586833853,
+            "map_at_10": 0.0213285133490351,
+            "diversity_at_10": 0.3999999999999999
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.09,
+              "n_evaluable": 2425,
+              "precision_at_5": 0.015835051546391754,
+              "recall_at_5": 0.03319227622320406,
+              "ndcg_at_5": 0.025272501423162553,
+              "precision_at_10": 0.013690721649484537,
+              "recall_at_10": 0.057213876615938464,
+              "ndcg_at_10": 0.03506071222363575,
+              "map_at_10": 0.019004712812960234,
+              "diversity_at_10": 0.4
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.09,
+              "n_evaluable": 1971,
+              "precision_at_5": 0.01704718417047184,
+              "recall_at_5": 0.0357966305074372,
+              "ndcg_at_5": 0.027198829619984367,
+              "precision_at_10": 0.01628614916286149,
+              "recall_at_10": 0.06894957035748511,
+              "ndcg_at_10": 0.040383922363591396,
+              "map_at_10": 0.021367649480071263,
+              "diversity_at_10": 0.4
+            }
+          },
+          "concentration_top10_produits": 0.5020700636942675,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.08666666666666667,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.016905760317810638,
+            "recall_at_5": 0.03278000231211443,
+            "ndcg_at_5": 0.02550544221524676,
+            "precision_at_10": 0.016309865371882587,
+            "recall_at_10": 0.06204953179682819,
+            "ndcg_at_10": 0.03763983499463322,
+            "map_at_10": 0.01942675357864767,
+            "diversity_at_10": 0.4893401015228426
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.08666666666666667,
+            "n_evaluable": 4531,
+            "precision_at_5": 0.016905760317810638,
+            "recall_at_5": 0.033527297711537445,
+            "ndcg_at_5": 0.02590261819718593,
+            "precision_at_10": 0.016309865371882587,
+            "recall_at_10": 0.06361899476771841,
+            "ndcg_at_10": 0.038316062723922406,
+            "map_at_10": 0.01986317881450274,
+            "diversity_at_10": 0.4893401015228426
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 2570,
+              "precision_at_5": 0.017198443579766538,
+              "recall_at_5": 0.03385955160274226,
+              "ndcg_at_5": 0.026072148084570153,
+              "precision_at_10": 0.01700389105058366,
+              "recall_at_10": 0.06447192884936075,
+              "ndcg_at_10": 0.038932708282128595,
+              "map_at_10": 0.02012415388766834,
+              "diversity_at_10": 0.48933852140077816
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 1961,
+              "precision_at_5": 0.016522182559918407,
+              "recall_at_5": 0.0313651926859474,
+              "ndcg_at_5": 0.024762742529290057,
+              "precision_at_10": 0.015400305966343704,
+              "recall_at_10": 0.058874845195599906,
+              "ndcg_at_10": 0.03594545235880296,
+              "map_at_10": 0.018512771531639455,
+              "diversity_at_10": 0.48934217236104033
+            }
+          },
+          "concentration_top10_produits": 0.5307658353564335,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.75,
+          "summary": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.08666666666666667,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.015381225209343326,
+            "recall_at_5": 0.028067570498156655,
+            "ndcg_at_5": 0.021879956775006107,
+            "precision_at_10": 0.01522697223446452,
+            "recall_at_10": 0.05705978439561516,
+            "ndcg_at_10": 0.03387919876126901,
+            "map_at_10": 0.016429273070571942,
+            "diversity_at_10": 0.39999999999999997
+          },
+          "summary_eligible": {
+            "user_coverage": 1.0,
+            "catalog_coverage": 0.08666666666666667,
+            "n_evaluable": 4538,
+            "precision_at_5": 0.015381225209343326,
+            "recall_at_5": 0.02882098765432099,
+            "ndcg_at_5": 0.022314923673381986,
+            "precision_at_10": 0.01522697223446452,
+            "recall_at_10": 0.05855776014109347,
+            "ndcg_at_10": 0.03456515713366515,
+            "map_at_10": 0.016873214915595867,
+            "diversity_at_10": 0.39999999999999997
+          },
+          "segments": {
+            "actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 2309,
+              "precision_at_5": 0.015071459506279777,
+              "recall_at_5": 0.027763513374167333,
+              "ndcg_at_5": 0.021579494980681797,
+              "precision_at_10": 0.015374621048072759,
+              "recall_at_10": 0.05733619996287818,
+              "ndcg_at_10": 0.03395722138211713,
+              "map_at_10": 0.016528890368524098,
+              "diversity_at_10": 0.39999999999999997
+            },
+            "peu_actif": {
+              "user_coverage": 1.0,
+              "catalog_coverage": 0.08666666666666667,
+              "n_evaluable": 2229,
+              "precision_at_5": 0.01570210856886496,
+              "recall_at_5": 0.02838254039465345,
+              "ndcg_at_5": 0.02219120230353677,
+              "precision_at_10": 0.015074024226110363,
+              "recall_at_10": 0.05677344812607262,
+              "ndcg_at_10": 0.03379837586690459,
+              "map_at_10": 0.01632608045461343,
+              "diversity_at_10": 0.39999999999999997
+            }
+          },
+          "concentration_top10_produits": 0.5542970471573381,
+          "n_doublons": 0,
+          "n_ineligibles": 0
+        }
+      ],
+      "decisions_alpha": [
+        {
+          "fenetre": 0,
+          "alpha": 0.5,
+          "source": "defaut_aucune_fenetre_anterieure",
+          "fenetres_utilisees": []
+        },
+        {
+          "fenetre": 1,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.114368,
+            "0.25": 0.111395,
+            "0.50": 0.110683,
+            "0.75": 0.110683,
+            "1.00": 0.110683
+          }
+        },
+        {
+          "fenetre": 2,
+          "alpha": 0.0,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.091397,
+            "0.25": 0.090281,
+            "0.50": 0.088368,
+            "0.75": 0.089216,
+            "1.00": 0.089216
+          }
+        },
+        {
+          "fenetre": 3,
+          "alpha": 0.75,
+          "source": "fenetres_anterieures",
+          "fenetres_utilisees": [
+            0,
+            1,
+            2
+          ],
+          "recall_par_alpha": {
+            "0.00": 0.081828,
+            "0.25": 0.082497,
+            "0.50": 0.081222,
+            "0.75": 0.08268,
+            "1.00": 0.082306
+          }
+        }
+      ],
+      "moyennes": {
+        "recall_at_5": 0.03864096206229167,
+        "recall_at_10": 0.07339055319609394,
+        "ndcg_at_5": 0.02873185397155534,
+        "ndcg_at_10": 0.04252676999976701,
+        "precision_at_10": 0.01657004224618908,
+        "catalog_coverage": 0.08499999999999999,
+        "user_coverage": 1.0,
+        "diversity_at_10": 0.4223350253807106
+      },
+      "moyennes_eligible": {
+        "recall_at_10": 0.0777615673540056,
+        "ndcg_at_10": 0.04460689532815218
+      },
+      "concentration_moyenne": 0.5410704621537025,
+      "n_doublons_total": 0,
+      "n_ineligibles_total": 0
+    }
+  },
+  "verdicts": {
+    "R1_decouverte": {
+      "accepte": false,
+      "criteres": {
+        "recall_at_10": {
+          "valeur": 0.07498418653644348,
+          "seuil": 0.08,
+          "ok": false,
+          "regle": "≥ seuil absolu"
+        },
+        "ndcg_at_10": {
+          "valeur": 0.043710704042308667,
+          "seuil": 0.047,
+          "ok": false,
+          "regle": "≥ seuil absolu, OU perte ≤2% si couverture doublée (≥0.1084)",
+          "couverture_doublee": false,
+          "perte_ndcg_relative": 0.009132500095650987
+        },
+        "couverture_catalogue": {
+          "valeur": 0.050833333333333335,
+          "seuil": 0.1,
+          "ok": false,
+          "regle": "≥ seuil absolu"
+        },
+        "n_fenetres_battues": {
+          "valeur": 2,
+          "seuil": 3,
+          "ok": false,
+          "regle": "≥ 3 sur 4"
+        },
+        "recul_clients_peu_actifs": {
+          "valeur": -0.007000871687196944,
+          "seuil": 0.05,
+          "ok": true,
+          "regle": "recul ≤ 5%"
+        },
+        "aucun_doublon_top10": {
+          "valeur": 0,
+          "seuil": 0,
+          "ok": true,
+          "regle": "= 0"
+        },
+        "aucun_produit_ineligible": {
+          "valeur": 0,
+          "seuil": 0,
+          "ok": true,
+          "regle": "= 0"
+        },
+        "aucune_fuite_temporelle": {
+          "valeur": false,
+          "seuil": false,
+          "ok": true,
+          "regle": "aucune fuite détectée"
+        }
+      },
+      "criteres_echoues": [
+        "recall_at_10",
+        "ndcg_at_10",
+        "couverture_catalogue",
+        "n_fenetres_battues"
+      ],
+      "verdict": "CANDIDAT REJETÉ — la V1 (popularité globale) reste la baseline officielle",
+      "n_fenetres_battues": 2,
+      "recul_peu_actifs": -0.007000871687196944
+    },
+    "R2_decouverte": {
+      "accepte": false,
+      "criteres": {
+        "recall_at_10": {
+          "valeur": 0.07195060248039258,
+          "seuil": 0.08,
+          "ok": false,
+          "regle": "≥ seuil absolu"
+        },
+        "ndcg_at_10": {
+          "valeur": 0.04193451159110474,
+          "seuil": 0.047,
+          "ok": false,
+          "regle": "≥ seuil absolu, OU perte ≤2% si couverture doublée (≥0.1084)",
+          "couverture_doublee": false,
+          "perte_ndcg_relative": 0.0493965821330826
+        },
+        "couverture_catalogue": {
+          "valeur": 0.08916666666666666,
+          "seuil": 0.1,
+          "ok": false,
+          "regle": "≥ seuil absolu"
+        },
+        "n_fenetres_battues": {
+          "valeur": 0,
+          "seuil": 3,
+          "ok": false,
+          "regle": "≥ 3 sur 4"
+        },
+        "recul_clients_peu_actifs": {
+          "valeur": 0.016180835275351007,
+          "seuil": 0.05,
+          "ok": true,
+          "regle": "recul ≤ 5%"
+        },
+        "aucun_doublon_top10": {
+          "valeur": 0,
+          "seuil": 0,
+          "ok": true,
+          "regle": "= 0"
+        },
+        "aucun_produit_ineligible": {
+          "valeur": 0,
+          "seuil": 0,
+          "ok": true,
+          "regle": "= 0"
+        },
+        "aucune_fuite_temporelle": {
+          "valeur": false,
+          "seuil": false,
+          "ok": true,
+          "regle": "aucune fuite détectée"
+        }
+      },
+      "criteres_echoues": [
+        "recall_at_10",
+        "ndcg_at_10",
+        "couverture_catalogue",
+        "n_fenetres_battues"
+      ],
+      "verdict": "CANDIDAT REJETÉ — la V1 (popularité globale) reste la baseline officielle",
+      "n_fenetres_battues": 0,
+      "recul_peu_actifs": 0.016180835275351007
+    }
+  },
+  "cout_calcul": {
+    "duree_totale_s": 78.44,
+    "memoire_rss_mb": 306.3
+  }
+}

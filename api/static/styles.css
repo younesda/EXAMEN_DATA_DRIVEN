@@ -1,0 +1,236 @@
+/* Interface V2 — mobile-first, sans dépendance externe.
+   Palette sobre, contrastes conformes WCAG AA, tout en unités relatives. */
+
+:root {
+  --fond: #f6f7f9;
+  --surface: #ffffff;
+  --bordure: #dfe3e8;
+  --texte: #1c2330;
+  --texte-doux: #55607a;
+  --accent: #1f5fbf;
+  --accent-fonce: #17478f;
+  --valide: #10704a;
+  --valide-fond: #e6f4ee;
+  --exploratoire: #8a5a00;
+  --exploratoire-fond: #fdf2dd;
+  --bloque: #99201a;
+  --bloque-fond: #fbe9e7;
+  --rayon: 10px;
+  --ombre: 0 1px 2px rgba(20, 28, 45, .08), 0 4px 12px rgba(20, 28, 45, .05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid #9dc0ff;
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------ entête */
+
+header.site {
+  background: var(--surface);
+  border-bottom: 1px solid var(--bordure);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.bandeau {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.logo { font-weight: 700; font-size: 1.05rem; margin-right: auto; }
+.logo span { color: var(--texte-doux); font-weight: 400; font-size: .85rem; display: block; }
+
+nav.principal {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 .5rem .5rem;
+  display: flex;
+  gap: .25rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+nav.principal a {
+  flex: 0 0 auto;
+  padding: .5rem .8rem;
+  border-radius: var(--rayon);
+  text-decoration: none;
+  color: var(--texte-doux);
+  font-size: .95rem;
+  white-space: nowrap;
+}
+nav.principal a[aria-current="page"] {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ layout */
+
+main { max-width: 1100px; margin: 0 auto; padding: 1rem 1rem 3rem; }
+h1 { font-size: 1.5rem; margin: .5rem 0 .25rem; }
+h2 { font-size: 1.15rem; margin: 1.75rem 0 .75rem; }
+h3 { font-size: 1rem; margin: 0 0 .5rem; }
+p.chapo { color: var(--texte-doux); margin: 0 0 1.25rem; max-width: 68ch; }
+
+.grille { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grille.deux { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .grille.trois { grid-template-columns: repeat(3, 1fr); } }
+
+.carte {
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  padding: 1rem;
+  box-shadow: var(--ombre);
+}
+.carte h3 { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+
+/* ------------------------------------------------------------------ badges */
+
+.badge {
+  display: inline-block;
+  padding: .15rem .55rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.badge.valide { background: var(--valide-fond); color: var(--valide); border-color: #b6e0cc; }
+.badge.exploratoire { background: var(--exploratoire-fond); color: var(--exploratoire); border-color: #f0d9a6; }
+.badge.bloque { background: var(--bloque-fond); color: var(--bloque); border-color: #f3c2bd; }
+.badge.neutre { background: #eef1f5; color: var(--texte-doux); border-color: var(--bordure); }
+
+/* ------------------------------------------------------------- métriques */
+
+.chiffre { font-size: 1.9rem; font-weight: 700; line-height: 1.1; }
+.chiffre small { font-size: .85rem; font-weight: 400; color: var(--texte-doux); display: block; }
+.metrique { padding: .6rem 0; border-top: 1px solid var(--bordure); }
+.metrique:first-of-type { border-top: 0; }
+.metrique .ligne { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.metrique .val { font-variant-numeric: tabular-nums; font-weight: 700; }
+.metrique .aide { font-size: .85rem; color: var(--texte-doux); margin: .25rem 0 0; }
+.metrique .sens { font-size: .78rem; color: var(--accent-fonce); font-weight: 600; }
+
+/* ------------------------------------------------------------- formulaires */
+
+form .champ { margin-bottom: .9rem; }
+label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+label .indice { font-weight: 400; color: var(--texte-doux); font-size: .82rem; }
+input, select {
+  width: 100%;
+  padding: .6rem .7rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+}
+.actions { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1rem; }
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: .6rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  min-height: 44px;
+}
+button.secondaire { background: #fff; color: var(--accent); }
+button[disabled] { opacity: .55; cursor: not-allowed; }
+
+.cases { display: flex; flex-wrap: wrap; gap: .4rem; }
+.cases label {
+  display: inline-flex; align-items: center; gap: .35rem;
+  border: 1px solid var(--bordure); border-radius: 999px;
+  padding: .35rem .7rem; background: #fff; font-weight: 500; margin: 0; cursor: pointer;
+}
+.cases input { width: auto; }
+
+/* ------------------------------------------------------------------- états */
+
+.etat { padding: 1rem; border-radius: var(--rayon); border: 1px solid var(--bordure); background: #fff; }
+.etat.vide { color: var(--texte-doux); text-align: center; }
+.etat.erreur { background: var(--bloque-fond); border-color: #f3c2bd; color: var(--bloque); }
+.etat.erreur h3 { color: var(--bloque); }
+.etat .code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; opacity: .8; }
+
+.chargement { display: flex; align-items: center; gap: .6rem; color: var(--texte-doux); }
+.rotor {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 3px solid #cfd8e6; border-top-color: var(--accent);
+  animation: tourne .8s linear infinite;
+}
+@keyframes tourne { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .rotor { animation-duration: 3s; } }
+
+.avertissement {
+  background: var(--exploratoire-fond);
+  border: 1px solid #f0d9a6;
+  border-left: 4px solid var(--exploratoire);
+  border-radius: 8px;
+  padding: .75rem .9rem;
+  font-size: .9rem;
+  margin: 1rem 0;
+}
+.avertissement strong { color: var(--exploratoire); }
+
+/* ----------------------------------------------------------------- tableaux */
+
+.table-enveloppe { overflow-x: auto; border: 1px solid var(--bordure); border-radius: var(--rayon); background: #fff; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { padding: .55rem .7rem; text-align: left; border-bottom: 1px solid var(--bordure); white-space: nowrap; }
+th { background: #f2f4f8; font-size: .82rem; text-transform: uppercase; letter-spacing: .02em; color: var(--texte-doux); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: 0; }
+tr.bloquee td { background: var(--bloque-fond); }
+
+/* ------------------------------------------------------------------ graphes */
+
+.graphe { background: #fff; border: 1px solid var(--bordure); border-radius: var(--rayon); padding: .75rem; }
+.graphe svg { width: 100%; height: auto; display: block; }
+.legende { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .85rem; color: var(--texte-doux); margin-top: .5rem; }
+.legende span { display: inline-flex; align-items: center; gap: .35rem; }
+.pastille { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* -------------------------------------------------------------------- pied */
+
+footer.site {
+  border-top: 1px solid var(--bordure);
+  background: var(--surface);
+  padding: 1.25rem 1rem;
+  color: var(--texte-doux);
+  font-size: .85rem;
+}
+footer.site .bandeau { display: block; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.saut-contenu {
+  position: absolute; left: -999px;
+  background: var(--accent); color: #fff; padding: .6rem 1rem; border-radius: 0 0 8px 0; z-index: 40;
+}
+.saut-contenu:focus { left: 0; top: 0; }
+
+.liste-nue { list-style: none; padding: 0; margin: .5rem 0 0; }
+.liste-nue li { padding: .3rem 0 .3rem 1.1rem; position: relative; font-size: .9rem; color: var(--texte-doux); }
+.liste-nue li::before { content: "—"; position: absolute; left: 0; color: var(--bordure); }

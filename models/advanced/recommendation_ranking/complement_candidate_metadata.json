@@ -1,0 +1,238 @@
+{
+  "leakage_correction": {
+    "applied_on": "2026-08-18",
+    "previous_status": "invalidated_due_to_target_category_leakage",
+    "previous_union_recall_at50": [
+      0.0,
+      0.8676068818,
+      0.8895438803,
+      0.9332393739
+    ],
+    "previous_artifacts": "models/advanced/recommendation_ranking/invalidated/",
+    "scoring_module": "src/recsys/complement.py"
+  },
+  "metrics": [
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.0,
+      "evaluable": false
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.0,
+      "evaluable": false
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "association_lift",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.0,
+      "evaluable": false
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "popularite_categorie_contexte",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.0,
+      "evaluable": false
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 1,
+      "model": "popularite_globale",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.0,
+      "evaluable": false
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.287560884226302,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.2572124391157737,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "association_lift",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.235481453727988,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "popularite_categorie_contexte",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.2855001873360809,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 2,
+      "model": "popularite_globale",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.3471337579617834,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.24503559385537654,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.22442862495316598,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "association_lift",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.1967028849756463,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "popularite_categorie_contexte",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.23061071562382915,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 3,
+      "model": "popularite_globale",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.28681153990258523,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "cooccurrence_item_item",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.22199325590108654,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "bm25_panier",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.2071937055076808,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "association_lift",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.18059198201573623,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "popularite_categorie_contexte",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.2008242787560884,
+      "evaluable": true
+    },
+    {
+      "scenario": "complement_panier",
+      "window": 4,
+      "model": "popularite_globale",
+      "n_orders": 5338,
+      "n_targets": 5338,
+      "candidate_recall_at50": 0.25477707006369427,
+      "evaluable": true
+    }
+  ],
+  "union_recall_at50": [
+    0.0,
+    0.29636568002997377,
+    0.2485949793930311,
+    0.2240539527913076
+  ],
+  "union_recall_at20": [
+    0.0,
+    0.12289246908954665,
+    0.1034095166729112,
+    0.09647808167853128
+  ],
+  "union_recall_at10": [
+    0.0,
+    0.06444361183964031,
+    0.05357811914574747,
+    0.05114275009366804
+  ],
+  "candidate_gate_ge_050": false,
+  "candidate_gate_rule": "all three evaluable windows F2-F4 meet Recall@50 >= 0.50 and none may be zero",
+  "evaluated_windows": [
+    2,
+    3,
+    4
+  ],
+  "f1_status": "non_evaluable_no_history",
+  "f1_model_evaluation_allowed": false,
+  "f1_fallback_required": true,
+  "f1_fallback_options": [
+    "popularite_catalogue_non_comportementale",
+    "selection_metier"
+  ],
+  "f1_diagnostic": {
+    "train_orders": 0,
+    "train_distinct_products": 0,
+    "test_orders": 5338,
+    "target_catalog_presence": 0.0,
+    "mean_candidates": 0.0,
+    "cold_start_rate": 1.0
+  },
+  "lambda_rank_started": false,
+  "interpretation": "sans la categorie de la cible, le vivier de candidats honnete ne couvre plus la cible dans la majorite des cas : le gate candidat n'est pas franchi, ce qui confirme l'absence de signal de complementarite"
+}

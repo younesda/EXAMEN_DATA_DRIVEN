@@ -1,0 +1,73 @@
+{
+  "status": "candidate_coverage_audit_bounded",
+  "official_baseline": "popularite_globale",
+  "official_reference": {
+    "recall_at10": 0.0634,
+    "ndcg_at10": 0.0363,
+    "coverage": 0.0622
+  },
+  "complement_panier_reference": {
+    "recall_at10": 0.1006,
+    "ndcg_at10": 0.0485,
+    "coverage": 0.8933,
+    "status": "invalidated_due_to_in_sample_evaluation_without_temporal_split",
+    "invalidated_on": "2026-08-18",
+    "source": "src/pipelines/final_recommendation.py",
+    "reason": "similarite item-item issue de la derniere fenetre d'entrainement et evaluation sur la TOTALITE des commandes, sans separation temporelle ; cible masquee ps[-1], perimetre distinct du leave-one-item-out",
+    "replaced_by": "reports/advanced/complement_honest_baseline.json",
+    "current_status": {
+      "basket_complement_model": "none_validated",
+      "basket_complement_baseline": "popularite_globale",
+      "reason": "no_complementarity_signal"
+    }
+  },
+  "candidate_gate": {
+    "next_purchase_recall_at50": 0.5,
+    "basket_recall_at50": 0.7
+  },
+  "next_purchase_candidate_recall_at50_lower_bound": [
+    0.6130978027,
+    0.5834018077,
+    0.5933226066,
+    0.5963855422
+  ],
+  "next_purchase_candidate_sources": [
+    "popularite_globale",
+    "popularite_recente",
+    "popularite_categorie",
+    "item_item_commandes",
+    "BM25_implicite",
+    "SVD_implicite",
+    "BPR_implicite",
+    "hybride_web_historique"
+  ],
+  "multi_product_orders": 22460,
+  "ranking_started": true,
+  "ranking_gate_status": "pilot_f1_f2_failed",
+  "ranking_models": [
+    "LightGBM_LambdaRank",
+    "logistique_pointwise"
+  ],
+  "ranking_pilot_summary": {
+    "population": "30_day_discovery_candidate_conditional",
+    "popularite_globale_ndcg_at10": 0.06387,
+    "heuristique_rrf_ndcg_at10": 0.06024,
+    "LightGBM_LambdaRank_ndcg_at10": 0.04325,
+    "logistique_pointwise_ndcg_at10": 0.03481,
+    "LightGBM_LambdaRank_recall_at10": 0.08823,
+    "coverage_clients_receiving_list": 1.0,
+    "catalog_coverage_top10_f1": 0.0466666667,
+    "catalog_coverage_top10_f2": 0.06,
+    "catalog_denominator": 300
+  },
+  "reason_no_new_ranker": "LambdaRank and logistic pilot both failed NDCG gain and recall-loss gates on F1-F2; no F3-F4 continuation",
+  "session_model_usable": false,
+  "causal_claim_allowed": false,
+  "complement_leave_one_item_out_reference": {
+    "recall_at10": 0.43743,
+    "ndcg_at10": 0.21264,
+    "status": "invalidated_due_to_target_category_leakage",
+    "invalidated_on": "2026-08-18",
+    "replaced_by": "reports/advanced/complement_honest_baseline.json"
+  }
+}

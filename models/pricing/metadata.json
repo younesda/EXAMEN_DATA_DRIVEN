@@ -1,0 +1,324 @@
+{
+  "selected": "panel_effets_fixes",
+  "summary": [
+    {
+      "model": "panel_effets_fixes",
+      "wape": 0.5613807406355851,
+      "std": 0.006692698251327387,
+      "bias": 0.03826042314348399
+    },
+    {
+      "model": "LightGBM_calibre",
+      "wape": 0.5625435749874705,
+      "std": 0.022377953915367253,
+      "bias": 0.033482437615546895
+    },
+    {
+      "model": "hierarchique_categorie",
+      "wape": 0.562723225919172,
+      "std": 0.005543438125860371,
+      "bias": 0.033283153924571075
+    },
+    {
+      "model": "GLM_Poisson",
+      "wape": 0.5630724243193433,
+      "std": 0.005787258810556293,
+      "bias": 0.03682724646218341
+    },
+    {
+      "model": "GLM_Tweedie",
+      "wape": 0.563287545913254,
+      "std": 0.005595011700170913,
+      "bias": 0.035946591567973765
+    },
+    {
+      "model": "baseline_moyenne_produit",
+      "wape": 0.5643003364227547,
+      "std": 0.008669660812812037,
+      "bias": 0.041609713149969134
+    },
+    {
+      "model": "descriptif_intra_produit",
+      "wape": 0.5660611200973441,
+      "std": 0.008059615753403165,
+      "bias": 0.03721652356318601
+    }
+  ],
+  "windows": [
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "model": "baseline_moyenne_produit",
+      "wape": 0.5705864390963244,
+      "bias": 0.07795845408081506,
+      "poisson_deviance_proxy": 0.8625852020441168
+    },
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "model": "descriptif_intra_produit",
+      "wape": 0.5721602983153781,
+      "bias": 0.07527687513119277,
+      "poisson_deviance_proxy": 0.8698780377020848
+    },
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "model": "GLM_Poisson",
+      "wape": 0.5633322181562326,
+      "bias": 0.06087348300726464,
+      "poisson_deviance_proxy": 0.8582652638740987
+    },
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "model": "GLM_Tweedie",
+      "wape": 0.5634810537696804,
+      "bias": 0.05988735666131008,
+      "poisson_deviance_proxy": 0.8597915746994877
+    },
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "model": "panel_effets_fixes",
+      "wape": 0.5624205142263685,
+      "bias": 0.06369787888827566,
+      "poisson_deviance_proxy": 0.8486804709901942
+    },
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "model": "hierarchique_categorie",
+      "wape": 0.5625579989550983,
+      "bias": 0.058395494584778856,
+      "poisson_deviance_proxy": 0.8650098231039179
+    },
+    {
+      "window": 1,
+      "train_end": "2026-02-01",
+      "test_start": "2026-02-02",
+      "test_end": "2026-04-02",
+      "calibration_start": "2025-12-04",
+      "calibration_end": "2026-02-01",
+      "calibration_strictly_before_test": true,
+      "model": "LightGBM_calibre",
+      "wape": 0.5881245050616823,
+      "bias": 0.14243796944029358,
+      "poisson_deviance_proxy": 0.8374180845746619
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "model": "baseline_moyenne_produit",
+      "wape": 0.567904632971785,
+      "bias": 0.03691409501356564,
+      "poisson_deviance_proxy": 0.9396495536536348
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "model": "descriptif_intra_produit",
+      "wape": 0.569099011985505,
+      "bias": 0.03519462044651176,
+      "poisson_deviance_proxy": 0.9539587420605521
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "model": "GLM_Poisson",
+      "wape": 0.5687254111894681,
+      "bias": 0.0425058038762747,
+      "poisson_deviance_proxy": 0.9320409228739768
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "model": "GLM_Tweedie",
+      "wape": 0.5687832933893477,
+      "bias": 0.041486550905685406,
+      "poisson_deviance_proxy": 0.9335391501813971
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "model": "panel_effets_fixes",
+      "wape": 0.5674926984586425,
+      "bias": 0.04356646005026222,
+      "poisson_deviance_proxy": 0.9237778185763222
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "model": "hierarchique_categorie",
+      "wape": 0.5683474304446727,
+      "bias": 0.03695677228935102,
+      "poisson_deviance_proxy": 0.9430692965743092
+    },
+    {
+      "window": 2,
+      "train_end": "2026-04-02",
+      "test_start": "2026-04-03",
+      "test_end": "2026-06-01",
+      "calibration_start": "2026-02-02",
+      "calibration_end": "2026-04-02",
+      "calibration_strictly_before_test": true,
+      "model": "LightGBM_calibre",
+      "wape": 0.55291298872051,
+      "bias": -0.016198410789019093,
+      "poisson_deviance_proxy": 0.9680901108082776
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "model": "baseline_moyenne_produit",
+      "wape": 0.5544099372001547,
+      "bias": 0.009956590355526712,
+      "poisson_deviance_proxy": 0.9445031826949952
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "model": "descriptif_intra_produit",
+      "wape": 0.5569240499911494,
+      "bias": 0.0011780751118535089,
+      "poisson_deviance_proxy": 0.9693402706445731
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "model": "GLM_Poisson",
+      "wape": 0.5571596436123295,
+      "bias": 0.007102452503010894,
+      "poisson_deviance_proxy": 0.9445545439545846
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "model": "GLM_Tweedie",
+      "wape": 0.5575982905807338,
+      "bias": 0.006465867136925817,
+      "poisson_deviance_proxy": 0.9468390802711741
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "model": "panel_effets_fixes",
+      "wape": 0.5542290092217442,
+      "bias": 0.00751693049191409,
+      "poisson_deviance_proxy": 0.9303941001891379
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "model": "hierarchique_categorie",
+      "wape": 0.5572642483577449,
+      "bias": 0.0044971948995833405,
+      "poisson_deviance_proxy": 0.9515657520309924
+    },
+    {
+      "window": 3,
+      "train_end": "2026-06-01",
+      "test_start": "2026-06-02",
+      "test_end": "2026-07-31",
+      "calibration_start": "2026-04-03",
+      "calibration_end": "2026-06-01",
+      "calibration_strictly_before_test": true,
+      "model": "LightGBM_calibre",
+      "wape": 0.5465932311802193,
+      "bias": -0.025792245804633802,
+      "poisson_deviance_proxy": 0.9571984196154402
+    }
+  ],
+  "target": {
+    "column": "quantite",
+    "grain": "produit_key × ds × remise_pct",
+    "scope": "lignes de commandes confirmées agrégées",
+    "wape_definition": "somme(|prediction-quantite|) / somme(quantite) sur toutes les lignes de test"
+  },
+  "lightgbm_calibration": {
+    "method": "facteur multiplicatif sur bloc de 60 jours antérieur, séparé du fit et du test",
+    "strictly_prior_all_windows": true
+  },
+  "promotion_scope_audit": {
+    "category": {
+      "confirmed_rows": 11584,
+      "target_mismatches": 0,
+      "date_mismatches": 0,
+      "discounts": [
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0
+      ]
+    },
+    "product": {
+      "confirmed_rows": 384,
+      "target_mismatches": 0,
+      "date_mismatches": 0,
+      "discounts": [
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        40.0
+      ]
+    }
+  },
+  "catalog_price_varies": false,
+  "leakage_correction": {
+    "removed_features": [
+      "n_lignes"
+    ],
+    "applied_on": "2026-08-18",
+    "reason": "n_lignes est le nombre de lignes confirmees du jour cible ; la cible en est la somme",
+    "registry": "src/pricing/feature_registry.py",
+    "previous_results_status": "invalidated_due_to_target_leakage",
+    "previous_results_file": "models/pricing/metadata.invalidated.json",
+    "previous_selected_wape": 0.41637444717942285
+  },
+  "scope": "commandes confirmees",
+  "causal": false,
+  "automatic_application_allowed": false,
+  "human_validation_required": true,
+  "margin_floor": 0.05
+}

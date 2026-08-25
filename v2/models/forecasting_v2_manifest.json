@@ -1,0 +1,94 @@
+{
+  "genere_le": "2026-08-15T12:28:27.577078+00:00",
+  "artefacts": {
+    "v2/config/v1_lock.json": {
+      "sha256": "b25ea825da8877015dad9f2352409f89dda676562e0f53feb754c29d00e6ead1",
+      "taille_octets": 3855
+    },
+    "v2/config/v1_reference.py": {
+      "sha256": "995d4b445b731b2b2e2f23b923b9d531592a3d7c1a51bbcd9b9593ff96857d8c",
+      "taille_octets": 8393
+    },
+    "v2/config/acceptance.py": {
+      "sha256": "c235d577cdf587b3548609c04a2bcd395a9c8cc73081fa6f7665f8f4536b9168",
+      "taille_octets": 6509
+    },
+    "v2/evaluation/harness.py": {
+      "sha256": "8cec8985cf20febda6de17102b657a33aab72a004ab3c368b39e75f0ad1b5d6f",
+      "taille_octets": 10838
+    },
+    "v2/evaluation/intervals.py": {
+      "sha256": "b6a96dd15ac981341e7384a8d9479220e16a831c5b8d89d55845ddd1df8ba452",
+      "taille_octets": 8096
+    },
+    "v2/evaluation/candidat_A_metrics.json": {
+      "sha256": "2775e1fdddd81f8f573a607181f4ecc2af161efbf8170c1c2fdbb55f234c71b9",
+      "taille_octets": 24406
+    },
+    "v2/evaluation/candidat_B_metrics.json": {
+      "sha256": "639d06d1fbc08475edb8b51dddee1b2146edb91a9c7a5a240d0edd93f39f57ab",
+      "taille_octets": 48740
+    },
+    "v2/evaluation/candidat_C_metrics.json": {
+      "sha256": "0c651ede807d9d2f6cba0193f51c7add12d936444a54ddd3e4eed997b5bd4026",
+      "taille_octets": 27885
+    },
+    "v2/evaluation/decision_apres_ABC.json": {
+      "sha256": "966405597c48369bec3863fa220c31d73649ffc945c811438bdebdec5dd5b82f",
+      "taille_octets": 1772
+    },
+    "v2/evaluation/E0_audit_disponibilite.json": {
+      "sha256": "2f0babaa6e67a4c4d5b2b65653688ccf74d1e979ca4947e9b98ca3a0a83bc551",
+      "taille_octets": 5827
+    },
+    "v2/evaluation/E_pilote_metrics.json": {
+      "sha256": "70635a3424381ff670deca8c1c7ccad3bfda2afb4f45e33eb28a8b8b703847e6",
+      "taille_octets": 16329
+    },
+    "v2/forecasting/candidate_a_blend.py": {
+      "sha256": "cf1c29e0ee54c54a86badc231486c9f34bf56167a33191f96d6e82135683a814",
+      "taille_octets": 7234
+    },
+    "v2/forecasting/candidate_b_segment.py": {
+      "sha256": "ff15297cb82449d5d176b8693947eabac3df34e2c5b695c852620d9aa18e0edc",
+      "taille_octets": 9178
+    },
+    "v2/forecasting/candidate_e_features.py": {
+      "sha256": "607779485271d3dd537038e696522eb1a4df3f1a0419354a6b98f1d6d5a49525",
+      "taille_octets": 5868
+    },
+    "v2/models/forecasting_v2_status.json": {
+      "sha256": "a287596e9430012d64b87d78821529dbe050edfa7778d490a77bf4c07290d6cc",
+      "taille_octets": 5236
+    },
+    "v2/reports/01_forecasting_protocole.md": {
+      "sha256": "d6092e7fce0c8d966a6f5d63f0501b4e3c76d60763a8cc4cc6478d1bc4fe0e5e",
+      "taille_octets": 8183
+    },
+    "v2/reports/02_forecasting_candidat_A.md": {
+      "sha256": "69f7a1aac1b4ffbcd66527eceba49c42bd931bf345bf83afdd624d3a7ea23ff6",
+      "taille_octets": 7984
+    },
+    "v2/reports/03_forecasting_candidat_B.md": {
+      "sha256": "9d8cef71ac9cc691a19fd7fae9f376ba1fa8a2f4485f0d7b0996ee7a0e96ef2d",
+      "taille_octets": 5180
+    },
+    "v2/reports/04_forecasting_candidat_C.md": {
+      "sha256": "f63e043a7e455684c54e2ec2152b60f2f823bbc44bae0325718afde50db060db",
+      "taille_octets": 6956
+    },
+    "v2/reports/05_decision_apres_ABC.md": {
+      "sha256": "5740d73b2682646e4f96fac58b4d47094e117260767ee10bd10c247b2ae1a92f",
+      "taille_octets": 5888
+    },
+    "v2/reports/06_E0_audit_disponibilite.md": {
+      "sha256": "ea5f504d55c27e4171c13b4f104cb73f282b35051c388f0c04d893941c04d355",
+      "taille_octets": 7359
+    },
+    "v2/reports/07_E_pilote.md": {
+      "sha256": "48f7b59329991d213d15403f8fd1756adaf3fac434049293312f1e54f0c3fcb9",
+      "taille_octets": 6316
+    }
+  },
+  "n_artefacts": 22
+}

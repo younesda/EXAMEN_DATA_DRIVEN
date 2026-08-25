@@ -1,0 +1,78 @@
+{
+  "general_recommendation_model": "popularite_globale",
+  "basket_complement_model": "ancienne_reference_popularite_categorie",
+  "session_model_status": "non_utilisable",
+  "general_recommendation_perimeter": "end_to_end historical general recommendation; metrics not comparable to leave-one-item-out F2-F4",
+  "basket_complement_perimeter": "F2-F4 evaluable multi-product orders, one masked target per order, temporal cutoff, eligible catalogue",
+  "metric_formulas": {"recall_at_k": "hits@k / masked targets", "ndcg_at_k": "discounted gain / ideal gain", "catalogue_coverage": "unique recommended eligible products / 300 eligible catalogue products"},
+  "next_improvement_axis": "catalogue coverage (~31% on comparable F2-F4 perimeter)",
+  "best_simple_model": "popularite_categorie",
+  "best_simple_equivalent_model_key": "category",
+  "best_simple_promotion": false,
+  "best_simple_promotion_reason": "coverage catalogue < 70% et performance identique à l'ancienne référence recalculée",
+  "best_simple_rule": "maximum mean NDCG@10 F2-F4 before coverage gate",
+  "comparisons": [
+    {
+      "a": "category",
+      "b": "reference",
+      "mean_ndcg10_diff": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "favorable_fraction": 0.0
+    },
+    {
+      "a": "rrf",
+      "b": "reference",
+      "mean_ndcg10_diff": -0.0015150489710717672,
+      "ci95": [
+        -0.002680799637340038,
+        -0.0003329395167814051
+      ],
+      "favorable_fraction": 0.0065
+    },
+    {
+      "a": "rrf",
+      "b": "category",
+      "mean_ndcg10_diff": -0.0015150489710717672,
+      "ci95": [
+        -0.002680799637340038,
+        -0.0003329395167814051
+      ],
+      "favorable_fraction": 0.0065
+    },
+    {
+      "a": "lambdarank_f4",
+      "b": "category",
+      "mean_ndcg10_diff": -0.0024716582197924692,
+      "ci95": [
+        -0.004486750069305268,
+        -0.0005003482255054727
+      ],
+      "favorable_fraction": 0.0065
+    }
+  ],
+  "coverage_gate_per_window": [
+    {
+      "window": 2,
+      "model": "category",
+      "recall10": 0.43742974896965153,
+      "ndcg10": 0.21263967097716488
+    },
+    {
+      "window": 3,
+      "model": "category",
+      "recall10": 0.3604346197077557,
+      "ndcg10": 0.18017669984106738
+    },
+    {
+      "window": 4,
+      "model": "category",
+      "recall10": 0.3345822405395279,
+      "ndcg10": 0.1629726979974805
+    }
+  ],
+  "lambda_rank_f4_reference_file": "complement_lambdarank_metrics.json",
+  "note": "old reference is recalculated on identical masked-target F2-F4 orders; legacy global 0.1006/0.0485 remains a different perimeter"
+}

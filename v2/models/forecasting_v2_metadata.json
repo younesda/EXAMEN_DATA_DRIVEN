@@ -1,0 +1,67 @@
+{
+  "central_forecast_model": "v1_autoets_naive",
+  "central_forecast_v2_validated": false,
+  "interval_calibration_v2_validated": true,
+  "interval_calibration_method": "C3_abc_x_intermitence",
+  "system_name": "forecasting_v1_with_v2_interval_calibration",
+  "challenger_interval_method": "C2_abc",
+  "genere_le": "2026-08-15T12:28:27.575740+00:00",
+  "apport_de_la_v2": "La V2 améliore la QUANTIFICATION DE L'INCERTITUDE, pas la précision centrale. C3 est une méthode de calibration d'intervalles — jamais un modèle de prévision.",
+  "ne_jamais_presenter_c3_comme": "un nouveau modèle de prévision",
+  "metriques_centrales_inchangees": {
+    "wape_cumule_30j": 0.2771792417889409,
+    "wape_cumule_14j": 0.3507939288519248,
+    "wape_cumule_7j": 0.46186430439989756,
+    "wape_quotidien": 1.0947268068047595,
+    "source": "identiques à la V1, par construction"
+  },
+  "amelioration_intervalles": {
+    "couverture_produits_a_v1": 0.7439,
+    "couverture_produits_a_v2_c3": 0.7903125,
+    "couverture_globale_v2_c3": 0.8110247349823322,
+    "cible": [
+      0.78,
+      0.84
+    ],
+    "largeur_moyenne_v1": 3.6042,
+    "largeur_moyenne_v2_c3": 3.5950772755058558
+  },
+  "experiences": {
+    "A": {
+      "status": "non_retenu",
+      "raison": "gain non généralisable"
+    },
+    "B": {
+      "status": "non_retenu",
+      "raison": "segmentation instable"
+    },
+    "C": {
+      "status": "retenu",
+      "raison": "calibration des intervalles améliorée"
+    },
+    "D": {
+      "status": "non_lance",
+      "raison": "absence de nouveau signal"
+    },
+    "E": {
+      "status": "non_retenu",
+      "raison": "non retenu à 30 jours malgré un signal court terme intéressant"
+    }
+  },
+  "registre_futur": {
+    "direct_multi_horizon_forecasting": {
+      "priority": "high",
+      "status": "future_experiment",
+      "evidence": "gains de 6,30 % à 8,61 % à 7 jours avec variables métier",
+      "condition": "ne pas utiliser de stratégie récursive",
+      "note": "Ne pas appeler V3 à ce stade ; aucun entraînement engagé."
+    }
+  },
+  "perimetre": {
+    "n_fenetres": 6,
+    "n_produits_fenetres": 1662,
+    "artefacts_v1_modifies": false
+  },
+  "aucune_publication_supabase": true,
+  "aucun_deploiement": true
+}

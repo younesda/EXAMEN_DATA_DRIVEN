@@ -1,0 +1,14 @@
+{
+  "evaluated_windows": [2, 3, 4],
+  "f1_status": "non_evaluable_no_history",
+  "f1_model_evaluation_allowed": false,
+  "f1_fallback_required": true,
+  "candidate_gate": {"rule": "Recall candidate@50 >= 0.50 on all eligible windows F2-F4", "passed": true, "values": {"F2": 0.8676068818, "F3": 0.8895438803, "F4": 0.9332393739}},
+  "ranker": "LightGBM_LambdaRank",
+  "status": "not_promoted",
+  "promotion": false,
+  "reason": "The candidate gate passes; the bounded ranking execution is retained as an unevaluated pilot artifact and no model is promoted without an end-to-end leakage-safe run.",
+  "deterministic_negative_seed": 42,
+  "bootstrap_unit": "commande_x_fenetre",
+  "bootstrap_ndcg10_diff_ci95": null
+}

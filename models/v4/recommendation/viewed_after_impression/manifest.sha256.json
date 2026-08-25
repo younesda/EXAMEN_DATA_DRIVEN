@@ -1,0 +1,8 @@
+{
+  "model.joblib": "0293cc280aa2eb50a87e95df76fd6ba8b3fcd67c6584c6061cc779d871abce91",
+  "oos_predictions.csv": "28dacabff2436c6b2806c0b3c3d29f5c591605ef4c4211927127bf277410577a",
+  "per_window_metrics.csv": "020e0bd37c795d0b2b34545728c28d8692efb2f5cfba624ed879ce91cb559ce6",
+  "as_served_metrics.csv": "8c2d6e79003957723b33b2d28bf37dc8170933a0fd673c9594d4928417631006",
+  "metadata.json": "76b8c5691c6540d9c3cc285554186f83fa77f18e2b212c3ba9aa215a8c4fed7e",
+  "MODEL_CARD.md": "9e9c242e0e591edd1aeeac63a4575282c78bb62094a0b93b312a5abfd9cb2048"
+}

@@ -1,0 +1,738 @@
+{
+  "statut": "corrige_apres_retrait_de_n_lignes",
+  "historique_invalide": {
+    "model": "LightGBM_calibre",
+    "wape": 0.41637444717942285,
+    "status": "invalidated_due_to_target_leakage",
+    "file": "models/pricing/metadata.invalidated.json",
+    "oracle_floor": [
+      0.4866,
+      0.4838,
+      0.4931
+    ],
+    "oracle_definition": "mediane produit x remise calculee DANS le test : borne inferieure honnete sur les memes trois fenetres",
+    "wape_after_removing_n_lignes": 0.5625435749874705,
+    "wape_after_removing_n_lignes_source": "models/pricing/metadata.json"
+  },
+  "registre_features": {
+    "module": "src/pricing/feature_registry.py",
+    "n_autorisees": 70,
+    "regle": "disponible avant le debut du produit-jour predit",
+    "registre": [
+      {
+        "feature": "quantite",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "cible",
+        "justification": "cible du modele : quantite confirmee du produit-jour-remise"
+      },
+      {
+        "feature": "n_lignes",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "nombre de lignes de commande confirmees du jour D ; la cible quantite est la somme des quantites de ces lignes (correlation 0,708, ratio quantite/n_lignes borne a [1, 5]). Composant direct de la cible."
+      },
+      {
+        "feature": "ca_xof",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "chiffre d'affaires realise le jour D ; ca_xof = prix_paye x quantite"
+      },
+      {
+        "feature": "marge_xof",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "marge realisee le jour D ; fonction affine de la cible"
+      },
+      {
+        "feature": "prix_unitaire_paye_xof",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "prix unitaire moyen effectivement paye ; connu apres les ventes du jour D"
+      },
+      {
+        "feature": "quantite_vendue",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "quantite du jour D issue de fact_stock, tous statuts confondus"
+      },
+      {
+        "feature": "order_count",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "nombre de commandes du jour D ; seules ses versions retardees orders_lag_* / orders_mean_* sont autorisees"
+      },
+      {
+        "feature": "distinct_clients",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "nombre de clients distincts du jour D ; seules clients_lag_* / clients_mean_* sont autorisees"
+      },
+      {
+        "feature": "avg_basket_quantity",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "panier moyen du jour D ; seules basket_lag_* / basket_mean_* sont autorisees"
+      },
+      {
+        "feature": "y",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "quantite journaliere du jour D dans la table forecasting"
+      },
+      {
+        "feature": "niveau_stock",
+        "disponible_a": "D 23:59",
+        "autorisee": false,
+        "famille": "contemporaine",
+        "justification": "stock de FIN de journee D ; seul stock_at_cutoff = shift(1) est autorise"
+      },
+      {
+        "feature": "prix_base_xof",
+        "disponible_a": "statique",
+        "autorisee": true,
+        "famille": "statique",
+        "justification": "prix catalogue fige par produit ; aucune variation intra-produit constatee"
+      },
+      {
+        "feature": "cout_xof",
+        "disponible_a": "statique",
+        "autorisee": true,
+        "famille": "statique",
+        "justification": "cout unitaire fige dans dim_produit, constant sur toute la periode"
+      },
+      {
+        "feature": "product_code",
+        "disponible_a": "statique",
+        "autorisee": true,
+        "famille": "statique",
+        "justification": "identifiant produit encode, attribut de catalogue immuable"
+      },
+      {
+        "feature": "category_code",
+        "disponible_a": "statique",
+        "autorisee": true,
+        "famille": "statique",
+        "justification": "identifiant categorie encode, attribut de catalogue immuable"
+      },
+      {
+        "feature": "brand_code",
+        "disponible_a": "statique",
+        "autorisee": true,
+        "famille": "statique",
+        "justification": "identifiant marque encode, attribut de catalogue immuable"
+      },
+      {
+        "feature": "remise_pct",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "variable de decision : la remise du jour D est fixee par le calendrier promotionnel (dim_promotion.date_debut/date_fin) avant D"
+      },
+      {
+        "feature": "planned_paid_price_xof",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "prix_base x (1 - remise/100) : fonction de deux variables connues avant D"
+      },
+      {
+        "feature": "unit_margin_before_xof",
+        "disponible_a": "statique",
+        "autorisee": true,
+        "famille": "statique",
+        "justification": "prix_base_xof - cout_xof : difference de deux constantes de catalogue"
+      },
+      {
+        "feature": "unit_margin_after_xof",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "prix planifie apres remise moins le cout unitaire de catalogue"
+      },
+      {
+        "feature": "margin_rate_after",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "taux de marge unitaire calcule sur le prix planifie avant la journee D"
+      },
+      {
+        "feature": "discount_x_category",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "interaction entre la remise planifiee et la categorie du produit"
+      },
+      {
+        "feature": "discount_x_product",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "interaction entre la remise planifiee et l'identifiant du produit"
+      },
+      {
+        "feature": "product_campaign_active",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "campagne produit active en D, connue par les dates de dim_promotion"
+      },
+      {
+        "feature": "category_campaign_active",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "campagne categorie active en D, connue par les dates de dim_promotion"
+      },
+      {
+        "feature": "category_concurrent_promotions",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "nombre de campagnes concurrentes sur la categorie en D, issu du calendrier"
+      },
+      {
+        "feature": "dow",
+        "disponible_a": "deterministe",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "jour de la semaine de D, entierement determine par le calendrier"
+      },
+      {
+        "feature": "week",
+        "disponible_a": "deterministe",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "semaine ISO de D, entierement determinee par le calendrier"
+      },
+      {
+        "feature": "month",
+        "disponible_a": "deterministe",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "mois de D, entierement determine par le calendrier"
+      },
+      {
+        "feature": "weekend",
+        "disponible_a": "deterministe",
+        "autorisee": true,
+        "famille": "planifie",
+        "justification": "indicateur week-end de D, entierement determine par le calendrier"
+      },
+      {
+        "feature": "stock_at_cutoff",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "niveau_stock.shift(1) : stock de fin de journee D-1, connu avant D"
+      },
+      {
+        "feature": "restock_frequency_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "frequence de reapprovisionnement sur shift(1) puis rolling 84"
+      },
+      {
+        "feature": "sales_zero_rate_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "taux de jours sans vente sur shift(1) puis rolling 28"
+      },
+      {
+        "feature": "historical_view_to_cart_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "ratio paniers/vues sur shift(1) puis rolling 28"
+      },
+      {
+        "feature": "past_campaign_exposure_90",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "exposition promotionnelle passee sur shift(1) puis rolling 90"
+      },
+      {
+        "feature": "product_mean_before",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "moyenne expansive de quantite, cumsum - valeur du jour D : strictement anterieure"
+      },
+      {
+        "feature": "product_n_before",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "compte expansif d'observations, strictement anterieur a D"
+      },
+      {
+        "feature": "product_discount_mean_before",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "moyenne expansive par produit x remise, strictement anterieure a D"
+      },
+      {
+        "feature": "product_discount_n_before",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "compte expansif par produit x remise, strictement anterieur a D"
+      },
+      {
+        "feature": "category_discount_mean_before",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "moyenne expansive par categorie x remise, strictement anterieure a D"
+      },
+      {
+        "feature": "category_discount_n_before",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "compte expansif par categorie x remise, strictement anterieur a D"
+      },
+      {
+        "feature": "segment_share_nouveau_90",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "part du segment nouveau sur shift(1) puis rolling 90"
+      },
+      {
+        "feature": "segment_share_occasionnel_90",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "part du segment occasionnel sur shift(1) puis rolling 90"
+      },
+      {
+        "feature": "segment_share_regulier_90",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "part du segment regulier sur shift(1) puis rolling 90"
+      },
+      {
+        "feature": "segment_share_vip_90",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "part du segment vip sur shift(1) puis rolling 90"
+      },
+      {
+        "feature": "sales_lag_1",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ventes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "sales_lag_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ventes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "sales_lag_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ventes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "sales_mean_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ventes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "sales_mean_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ventes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "sales_mean_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ventes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "views_lag_1",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de vues web construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "views_lag_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de vues web construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "views_lag_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de vues web construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "views_mean_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de vues web construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "views_mean_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de vues web construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "views_mean_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de vues web construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "carts_lag_1",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ajouts panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "carts_lag_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ajouts panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "carts_lag_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ajouts panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "carts_mean_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ajouts panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "carts_mean_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ajouts panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "carts_mean_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de ajouts panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "orders_lag_1",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de commandes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "orders_lag_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de commandes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "orders_lag_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de commandes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "orders_mean_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de commandes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "orders_mean_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de commandes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "orders_mean_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de commandes confirmees construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "clients_lag_1",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de clients distincts construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "clients_lag_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de clients distincts construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "clients_lag_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de clients distincts construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "clients_mean_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de clients distincts construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "clients_mean_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de clients distincts construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "clients_mean_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de clients distincts construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "basket_lag_1",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de quantite moyenne par panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "basket_lag_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de quantite moyenne par panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "basket_lag_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de quantite moyenne par panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "basket_mean_7",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de quantite moyenne par panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "basket_mean_28",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de quantite moyenne par panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      },
+      {
+        "feature": "basket_mean_84",
+        "disponible_a": "D-1 23:59",
+        "autorisee": true,
+        "famille": "historique",
+        "justification": "agregat de quantite moyenne par panier construit sur shift(1) puis rolling : aucune valeur du jour D n'entre dans le calcul"
+      }
+    ]
+  },
+  "perimetre": {
+    "grain": "produit_key x ds x remise_pct",
+    "population": "lignes de commandes confirmees",
+    "fenetres": [
+      180,
+      120,
+      60
+    ],
+    "jours_test": 60,
+    "identique_a_experience_avancee": true
+  },
+  "summary": [
+    {
+      "model": "lgbm_l1_mediane",
+      "wape": 0.521797890989636,
+      "forecast_bias": -0.18144418020067818,
+      "mae": 1.3442864113081663,
+      "margin_error_abs": 0.5214091415896146,
+      "margin_error_signed": -0.1798120829982662,
+      "wape_std": 0.0020124556169711203,
+      "wape_min": 0.5194741075413476,
+      "wape_max": 0.522960471462365,
+      "stabilite_amplitude": 0.0034863639210174213
+    },
+    {
+      "model": "baseline_produit_mediane",
+      "wape": 0.52473422082004,
+      "forecast_bias": -0.17192584329410485,
+      "mae": 1.3517408220749327,
+      "margin_error_abs": 0.523859322726531,
+      "margin_error_signed": -0.1731001020143762,
+      "wape_std": 0.003332338566323075,
+      "wape_min": 0.5212636978316624,
+      "wape_max": 0.5279086080769616,
+      "stabilite_amplitude": 0.006644910245299229
+    },
+    {
+      "model": "lgbm_l1_calibre_fenetres_anterieures",
+      "wape": 0.547046456784595,
+      "forecast_bias": -0.03775384110584677,
+      "mae": 1.4094609493795218,
+      "margin_error_abs": 0.5462029446936904,
+      "margin_error_signed": -0.03673094631674958,
+      "wape_std": 0.0068729457485199015,
+      "wape_min": 0.5391530646313583,
+      "wape_max": 0.5517060017221322,
+      "stabilite_amplitude": 0.012552937090773986
+    },
+    {
+      "model": "lgbm_l1_calibre_bloc_anterieur",
+      "wape": 0.5486338319847445,
+      "forecast_bias": -0.03035425475568915,
+      "mae": 1.4136229815554857,
+      "margin_error_abs": 0.547668937263838,
+      "margin_error_signed": -0.02939714868801736,
+      "wape_std": 0.008774166716773418,
+      "wape_min": 0.5391530646313583,
+      "wape_max": 0.5564681273225809,
+      "stabilite_amplitude": 0.017315062691222627
+    },
+    {
+      "model": "lgbm_tweedie_moyenne",
+      "wape": 0.5525781854135001,
+      "forecast_bias": 0.0012893061094709595,
+      "mae": 1.4234141181238034,
+      "margin_error_abs": 0.5531519460183524,
+      "margin_error_signed": 0.0052624319986627754,
+      "wape_std": 0.006056838893083584,
+      "wape_min": 0.5461099045667516,
+      "wape_max": 0.5581158675756887,
+      "stabilite_amplitude": 0.012005963008937082
+    },
+    {
+      "model": "baseline_produit_moyenne",
+      "wape": 0.5643003364227547,
+      "forecast_bias": 0.041609713149969134,
+      "mae": 1.4534862391176666,
+      "margin_error_abs": 0.5688763717639335,
+      "margin_error_signed": 0.06000582533167562,
+      "wape_std": 0.008669660812812037,
+      "wape_min": 0.5544099372001547,
+      "wape_max": 0.5705864390963244,
+      "stabilite_amplitude": 0.016176501896169704
+    }
+  ],
+  "windows_won_vs_baseline_moyenne": {
+    "baseline_produit_mediane": 3,
+    "baseline_produit_moyenne": 0,
+    "lgbm_l1_calibre_bloc_anterieur": 2,
+    "lgbm_l1_calibre_fenetres_anterieures": 3,
+    "lgbm_l1_mediane": 3,
+    "lgbm_tweedie_moyenne": 3
+  },
+  "bootstrap": {
+    "wape_best_vs_volume_best": {
+      "model_a": "lgbm_l1_mediane",
+      "model_b": "lgbm_tweedie_moyenne",
+      "n_units": 23087,
+      "draws": 4000,
+      "wape_difference": -0.030489050091502476,
+      "ci95_low": -0.03334286905956308,
+      "ci95_high": -0.027784971099971363
+    },
+    "volume_best_vs_baseline_moyenne": {
+      "model_a": "lgbm_tweedie_moyenne",
+      "model_b": "baseline_produit_moyenne",
+      "n_units": 23087,
+      "draws": 4000,
+      "wape_difference": -0.011471099827912333,
+      "ci95_low": -0.013233001957127098,
+      "ci95_high": -0.009703743356547398
+    }
+  },
+  "decisions": {
+    "meilleur_predicteur_wape": {
+      "modele": "lgbm_l1_mediane",
+      "wape": 0.521797890989636,
+      "forecast_bias": -0.18144418020067818,
+      "margin_error_signed": -0.1798120829982662,
+      "utilisable_comme_simulateur": false,
+      "raison": "biais de volume incompatible avec une simulation de marge"
+    },
+    "meilleur_volume_biais_acceptable": {
+      "modele": "lgbm_tweedie_moyenne",
+      "tolerance_biais": 0.03,
+      "wape": 0.5525781854135001,
+      "forecast_bias": 0.0012893061094709595,
+      "gain_relatif_vs_meilleur_publie_honnete": 0.007682084033394441
+    },
+    "simulateur_de_marge": {
+      "modele_de_volume": "lgbm_tweedie_moyenne",
+      "source": "decision 2 uniquement",
+      "garde_fous": {
+        "prix_minimum": "cout",
+        "marge_minimale": 0.05,
+        "remises": "support historique observe",
+        "validation_humaine": true,
+        "application_automatique": false,
+        "effet_causal_estime": false
+      }
+    }
+  },
+  "gate_promotion": {
+    "regle": "gain relatif >= 5 pourcent vs meilleur publie honnete, biais |.| <= 3 pourcent, IC95 apparie entierement favorable, gain sur au moins 2 fenetres sur 3",
+    "gain_relatif_du_modele_de_volume": 0.007682084033394441,
+    "promu": false
+  }
+}

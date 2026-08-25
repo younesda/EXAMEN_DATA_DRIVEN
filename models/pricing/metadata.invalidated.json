@@ -1,0 +1,339 @@
+{
+  "status": "invalidated_due_to_target_leakage",
+  "invalidated_on": "2026-08-18",
+  "invalidated_by": "audit independant 2026-08-18",
+  "reason": "Tous les modeles de cette livraison utilisaient n_lignes comme feature (src/pipelines/final_pricing.py, NUM). n_lignes est le nombre de lignes de commande confirmees du produit-jour ; la cible quantite est la somme des quantites de ces memes lignes. Correlation 0,708. La variable n'est connue qu'apres la journee de ventes.",
+  "independent_proof": "Sur les memes trois fenetres, un oracle qui connaitrait la mediane produit x remise calculee DANS le test plafonne a 0,4866 / 0,4838 / 0,4931. Une WAPE de 0,4164 est sous ce plancher : elle ne peut pas etre produite sans information contemporaine de la cible.",
+  "affected_models": [
+    "LightGBM_calibre",
+    "GLM_Tweedie",
+    "GLM_Poisson",
+    "panel_effets_fixes",
+    "hierarchique_categorie",
+    "baseline_moyenne_produit",
+    "descriptif_intra_produit"
+  ],
+  "affected_metrics": {
+    "LightGBM_calibre": 0.41637444717942285,
+    "GLM_Tweedie": 0.4206899708463419,
+    "GLM_Poisson": 0.4221121895564839,
+    "panel_effets_fixes": 0.4229867715583973,
+    "hierarchique_categorie": 0.562723225919172,
+    "baseline_moyenne_produit": 0.5643003364227547,
+    "descriptif_intra_produit": 0.5660611200973441
+  },
+  "replaced_by": "reports/advanced/pricing_corrected.json",
+  "preserved_payload": {
+    "selected": "LightGBM_calibre",
+    "summary": [
+      {
+        "model": "LightGBM_calibre",
+        "wape": 0.41637444717942285,
+        "std": 0.0051077941383411065,
+        "bias": -0.0035244363692260466
+      },
+      {
+        "model": "GLM_Tweedie",
+        "wape": 0.4206899708463419,
+        "std": 0.00261459942135064,
+        "bias": -0.00399472754009863
+      },
+      {
+        "model": "GLM_Poisson",
+        "wape": 0.4221121895564839,
+        "std": 0.0037769232446096686,
+        "bias": -0.0011718589205036462
+      },
+      {
+        "model": "panel_effets_fixes",
+        "wape": 0.4229867715583973,
+        "std": 0.0033084509514012266,
+        "bias": -0.0018562339229171044
+      },
+      {
+        "model": "hierarchique_categorie",
+        "wape": 0.562723225919172,
+        "std": 0.005543438125860371,
+        "bias": 0.033283153924571075
+      },
+      {
+        "model": "baseline_moyenne_produit",
+        "wape": 0.5643003364227547,
+        "std": 0.008669660812812037,
+        "bias": 0.041609713149969134
+      },
+      {
+        "model": "descriptif_intra_produit",
+        "wape": 0.5660611200973441,
+        "std": 0.008059615753403165,
+        "bias": 0.03721652356318601
+      }
+    ],
+    "windows": [
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "model": "baseline_moyenne_produit",
+        "wape": 0.5705864390963244,
+        "bias": 0.07795845408081506,
+        "poisson_deviance_proxy": 0.8625852020441168
+      },
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "model": "descriptif_intra_produit",
+        "wape": 0.5721602983153781,
+        "bias": 0.07527687513119277,
+        "poisson_deviance_proxy": 0.8698780377020848
+      },
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "model": "GLM_Poisson",
+        "wape": 0.4239469880871437,
+        "bias": -0.0026770682445438937,
+        "poisson_deviance_proxy": 0.5088752943135488
+      },
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "model": "GLM_Tweedie",
+        "wape": 0.42108610766663124,
+        "bias": -0.007422062499183099,
+        "poisson_deviance_proxy": 0.5087123204668744
+      },
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "model": "panel_effets_fixes",
+        "wape": 0.424398683633891,
+        "bias": -0.004233365740943373,
+        "poisson_deviance_proxy": 0.5098135459875948
+      },
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "model": "hierarchique_categorie",
+        "wape": 0.5625579989550983,
+        "bias": 0.058395494584778856,
+        "poisson_deviance_proxy": 0.8650098231039179
+      },
+      {
+        "window": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "calibration_start": "2025-12-04",
+        "calibration_end": "2026-02-01",
+        "calibration_strictly_before_test": true,
+        "model": "LightGBM_calibre",
+        "wape": 0.4197211073151326,
+        "bias": -0.006712295611342352,
+        "poisson_deviance_proxy": 0.49489929941318966
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "model": "baseline_moyenne_produit",
+        "wape": 0.567904632971785,
+        "bias": 0.03691409501356564,
+        "poisson_deviance_proxy": 0.9396495536536348
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "model": "descriptif_intra_produit",
+        "wape": 0.569099011985505,
+        "bias": 0.03519462044651176,
+        "poisson_deviance_proxy": 0.9539587420605521
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "model": "GLM_Poisson",
+        "wape": 0.4246212002140309,
+        "bias": 0.0032929112721891106,
+        "poisson_deviance_proxy": 0.5226045263659581
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "model": "GLM_Tweedie",
+        "wape": 0.4230838971986988,
+        "bias": 0.0008504399966061895,
+        "poisson_deviance_proxy": 0.5231277083767482
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "model": "panel_effets_fixes",
+        "wape": 0.42535501881843907,
+        "bias": 0.0028224840687256936,
+        "poisson_deviance_proxy": 0.5233326230886841
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "model": "hierarchique_categorie",
+        "wape": 0.5683474304446727,
+        "bias": 0.03695677228935102,
+        "poisson_deviance_proxy": 0.9430692965743092
+      },
+      {
+        "window": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "calibration_start": "2026-02-02",
+        "calibration_end": "2026-04-02",
+        "calibration_strictly_before_test": true,
+        "model": "LightGBM_calibre",
+        "wape": 0.4189070011341856,
+        "bias": 0.0030629826941748262,
+        "poisson_deviance_proxy": 0.49783150337632126
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "model": "baseline_moyenne_produit",
+        "wape": 0.5544099372001547,
+        "bias": 0.009956590355526712,
+        "poisson_deviance_proxy": 0.9445031826949952
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "model": "descriptif_intra_produit",
+        "wape": 0.5569240499911494,
+        "bias": 0.0011780751118535089,
+        "poisson_deviance_proxy": 0.9693402706445731
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "model": "GLM_Poisson",
+        "wape": 0.4177683803682771,
+        "bias": -0.004131419789156155,
+        "poisson_deviance_proxy": 0.5291340980290067
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "model": "GLM_Tweedie",
+        "wape": 0.4178999076736957,
+        "bias": -0.0054125601177189816,
+        "poisson_deviance_proxy": 0.5312442897747944
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "model": "panel_effets_fixes",
+        "wape": 0.41920661222286193,
+        "bias": -0.004157820096533634,
+        "poisson_deviance_proxy": 0.5311503965799809
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "model": "hierarchique_categorie",
+        "wape": 0.5572642483577449,
+        "bias": 0.0044971948995833405,
+        "poisson_deviance_proxy": 0.9515657520309924
+      },
+      {
+        "window": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "calibration_start": "2026-04-03",
+        "calibration_end": "2026-06-01",
+        "calibration_strictly_before_test": true,
+        "model": "LightGBM_calibre",
+        "wape": 0.41049523308895036,
+        "bias": -0.006923996190510615,
+        "poisson_deviance_proxy": 0.5014752296885833
+      }
+    ],
+    "target": {
+      "column": "quantite",
+      "grain": "produit_key × ds × remise_pct",
+      "scope": "lignes de commandes confirmées agrégées",
+      "wape_definition": "somme(|prediction-quantite|) / somme(quantite) sur toutes les lignes de test"
+    },
+    "lightgbm_calibration": {
+      "method": "facteur multiplicatif sur bloc de 60 jours antérieur, séparé du fit et du test",
+      "strictly_prior_all_windows": true
+    },
+    "promotion_scope_audit": {
+      "category": {
+        "confirmed_rows": 11584,
+        "target_mismatches": 0,
+        "date_mismatches": 0,
+        "discounts": [
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0
+        ]
+      },
+      "product": {
+        "confirmed_rows": 384,
+        "target_mismatches": 0,
+        "date_mismatches": 0,
+        "discounts": [
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0
+        ]
+      }
+    },
+    "catalog_price_varies": false,
+    "scope": "commandes confirmees",
+    "causal": false,
+    "automatic_application_allowed": false,
+    "human_validation_required": true,
+    "margin_floor": 0.05
+  }
+}

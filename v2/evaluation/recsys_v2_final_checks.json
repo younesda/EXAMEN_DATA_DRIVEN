@@ -1,0 +1,62 @@
+{
+  "genere_le": "2026-08-15T17:23:35.799195+00:00",
+  "v1_intacte": {
+    "ok": true,
+    "n_artefacts_verrouilles": 22,
+    "ecarts": []
+  },
+  "statuts_candidats": {
+    "ok": true,
+    "statuts": {
+      "R1": "experiment_not_retained",
+      "R2": "exploratory_diversity_challenger",
+      "R3": "experiment_not_retained",
+      "R4": "not_launched"
+    }
+  },
+  "aucun_doublon_ni_produit_ineligible": {
+    "ok": true,
+    "detail": {
+      "R1_decouverte": {
+        "doublons": 0,
+        "ineligibles": 0
+      },
+      "R2_decouverte": {
+        "doublons": 0,
+        "ineligibles": 0
+      },
+      "R1_reappro": {
+        "doublons": 0,
+        "ineligibles": 0
+      },
+      "R2_reappro": {
+        "doublons": 0,
+        "ineligibles": 0
+      }
+    }
+  },
+  "aucun_candidat_accepte": {
+    "ok": true,
+    "note": "La V1 reste le modèle principal — résultat par défaut du protocole."
+  },
+  "r2_non_eligible_usage_automatique": {
+    "ok": true,
+    "note": "R2 exige un test A/B avant toute utilisation réelle."
+  },
+  "manifeste_complet": {
+    "ok": true,
+    "n_artefacts": 13
+  },
+  "aucun_secret": {
+    "ok": true,
+    "detail": {}
+  },
+  "tests": {
+    "ok": true,
+    "resume": "201 passed in 30.21s",
+    "attendu_min": 201,
+    "returncode": 0,
+    "sortie_complete_si_echec": null
+  },
+  "verdict_global": "TOUS LES CONTROLES PASSENT"
+}

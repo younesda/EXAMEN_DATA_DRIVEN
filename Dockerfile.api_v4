@@ -1,0 +1,78 @@
+# Image du service API V4 (pricing et recommandation).
+#
+# IMPORTANT : ce fichier est distinct du `Dockerfile` a la racine, qui
+# construit l'API V2 et NE DOIT PAS etre modifie. Les deux services coexistent :
+#   - `Dockerfile`         -> api.main:app        (V2, service existant)
+#   - `Dockerfile.api_v4`  -> api_v4.main:app     (V4, service separe)
+#
+# Ce conteneur copie exclusivement `api_v4/` (code, console web et instantanes,
+# dont `data/forecast_snapshot.json`), `models/v4/` et les modules
+# `src/` necessaires au rechargement des modeles. Il ne copie ni `api/`, ni
+# `models/api_bundle/`, ni les CSV de reproductibilite (environ 104 Mo,
+# inutiles au service).
+#
+# Statut : experimentation academique sur donnees synthetiques. Le service
+# n'ecrit dans aucune base et n'ouvre aucune connexion externe.
+
+FROM python:3.12-slim-bookworm AS builder
+
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1
+WORKDIR /build
+COPY requirements-api-v4.lock .
+RUN python -m venv /opt/venv \
+    && /opt/venv/bin/pip install --no-cache-dir --requirement requirements-api-v4.lock
+
+FROM python:3.12-slim-bookworm AS runtime
+
+# Commit reellement deploye, injecte au build et expose par /health et /metadata.
+ARG GIT_COMMIT=unknown
+ENV DEPLOYED_GIT_COMMIT=${GIT_COMMIT}
+
+ENV PATH="/opt/venv/bin:$PATH" \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PORT=8000
+
+# libgomp1 : requis par lightgbm, xgboost et catboost.
+RUN apt-get update \
+    && apt-get install --yes --no-install-recommends libgomp1 \
+    && rm -rf /var/lib/apt/lists/* \
+    && addgroup --system apiv4 \
+    && adduser --system --ingroup apiv4 --home /nonexistent --no-create-home apiv4
+
+COPY --from=builder /opt/venv /opt/venv
+WORKDIR /app
+
+# Modules applicatifs V4. `src/` est necessaire : api_v4 importe
+# src.config.settings, src.recsys_v4.{dataset,models} et src.pricing_v4.{dataset,models}.
+COPY src/__init__.py ./src/
+COPY src/config ./src/config
+COPY src/recsys_v4 ./src/recsys_v4
+COPY src/pricing_v4 ./src/pricing_v4
+COPY api_v4 ./api_v4
+
+# Artefacts strictement necessaires au service : fiche de statut et modeles
+# serialises (environ 0,7 Mo au total). Les CSV de reproductibilite restent
+# hors de l'image.
+# Decision V2 : lue par le service de metriques pour servir les modeles et
+# scores de prevision (/metrics). Sans elle, ces champs valent null en
+# production alors qu'ils fonctionnent en local, ou le fichier existe.
+COPY models/FINAL_STATUS.json ./models/
+
+COPY models/v4/FINAL_STATUS.json models/v4/FINAL_STATUS.sha256.json ./models/v4/
+COPY models/v4/pricing/units_sold_window_7j/model.joblib ./models/v4/pricing/units_sold_window_7j/
+COPY models/v4/pricing/revenue_window_xof_7j/model.joblib ./models/v4/pricing/revenue_window_xof_7j/
+COPY models/v4/pricing/margin_window_xof_7j/model.joblib ./models/v4/pricing/margin_window_xof_7j/
+COPY models/v4/recommendation/purchased_after/model.joblib ./models/v4/recommendation/purchased_after/
+COPY models/v4/recommendation/added_to_cart_after/model.joblib ./models/v4/recommendation/added_to_cart_after/
+COPY models/v4/recommendation/viewed_after_impression/model.joblib ./models/v4/recommendation/viewed_after_impression/
+
+USER apiv4
+EXPOSE 8000
+
+# Sonde alignee sur le health check de la plateforme : /health, jamais /ready
+# (cette derniere appartient a l'API V2).
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+  CMD ["python", "-c", "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.environ.get('PORT','8000')+'/health', timeout=4)"]
+
+CMD ["sh", "-c", "exec uvicorn api_v4.main:app --host 0.0.0.0 --port ${PORT}"]

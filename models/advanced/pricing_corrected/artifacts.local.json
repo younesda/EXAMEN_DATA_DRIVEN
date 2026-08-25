@@ -1,0 +1,7 @@
+{
+  "convention": "artefacts regenerables, ignores par Git, non verifiables apres un clone",
+  "reproduce": "python -m src.experiments.pricing_corrected",
+  "sha256_local": {
+    "predictions.parquet": "74efa2ba4fb30a3add5f781462e800d79e5da1b84040c80bb536986f11f19466"
+  }
+}

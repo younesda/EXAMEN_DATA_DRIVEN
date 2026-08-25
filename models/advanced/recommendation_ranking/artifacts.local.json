@@ -1,0 +1,9 @@
+{
+  "convention": "artefacts regenerables, ignores par Git, non verifiables apres un clone",
+  "reproduce": "python -m src.experiments.complement_end_to_end",
+  "sha256_local": {
+    "complement_contexts.parquet": "ac2c93fcdd613842511d1be00c9703c50f5b4211e33c87822d752a84e2d8f56b",
+    "ranking_candidates_window_1.parquet": "42d92ea6469d7f5b33afa09768161932beb4c2abe01c146c2c2bb1fd63c7c5db",
+    "ranking_candidates_window_2.parquet": "ee5bfb18050be24b0f471ad81580ab9ec1eca3109ede839d7858ad70927f9ee9"
+  }
+}

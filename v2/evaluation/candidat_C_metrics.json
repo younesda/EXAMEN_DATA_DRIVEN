@@ -1,0 +1,887 @@
+{
+  "candidat": "candidat_C_recalibration_intervalles",
+  "genere_le": "2026-08-15T03:45:27.216323+00:00",
+  "status": "experiment_retained",
+  "reason": "interval_calibration_improved",
+  "portee": "intervalles uniquement — la prévision centrale est strictement celle de la V1",
+  "min_residus_calibration": 30,
+  "cible_couverture": [
+    0.78,
+    0.84
+  ],
+  "variantes": {
+    "niveau_80": {
+      "C0_reference_v1_loo_global": {
+        "niveau_vise": 0.8,
+        "n_points_total": 49860,
+        "n_points_calibrables": 49860,
+        "part_non_calibrable": 0.0,
+        "couverture_globale": 0.7987765744083434,
+        "largeur_moyenne": 3.604159551605998,
+        "largeur_mediane": 3.594340054024501,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.7996389891696751,
+            "largeur_moyenne": 3.488249269340413,
+            "n_points": 1662
+          },
+          "J+15 a J+30": {
+            "couverture": 0.7989996991576414,
+            "largeur_moyenne": 3.6216006114469965,
+            "n_points": 26592
+          },
+          "J+2 a J+7": {
+            "couverture": 0.7995387083834737,
+            "largeur_moyenne": 3.5492495023983954,
+            "n_points": 9972
+          },
+          "J+8 a J+14": {
+            "couverture": 0.7974901151796459,
+            "largeur_moyenne": 3.6279186401853165,
+            "n_points": 11634
+          }
+        },
+        "par_fenetre": {
+          "1": {
+            "couverture": 0.7527665317139002,
+            "n_points": 7410
+          },
+          "2": {
+            "couverture": 0.8061635220125786,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.7943030303030303,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.810718492343934,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.7961187214611872,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.8255555555555556,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.7438829787234043,
+            "largeur_moyenne": 3.7656791177993316,
+            "n_points": 11280
+          },
+          "B": {
+            "couverture": 0.8052767052767053,
+            "largeur_moyenne": 3.6172465333587374,
+            "n_points": 15540
+          },
+          "C": {
+            "couverture": 0.8212673611111111,
+            "largeur_moyenne": 3.5162553674437427,
+            "n_points": 23040
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.5421052631578948,
+            "largeur_moyenne": 4.0580757088438615,
+            "n_points": 570
+          },
+          "grumeleux": {
+            "couverture": 0.7813487475915222,
+            "largeur_moyenne": 3.6557860055884457,
+            "n_points": 25950
+          },
+          "indetermine": {
+            "couverture": 0.7476190476190476,
+            "largeur_moyenne": 2.8579624317966354,
+            "n_points": 210
+          },
+          "intermittent": {
+            "couverture": 0.8370816599732263,
+            "largeur_moyenne": 3.5279872133468513,
+            "n_points": 22410
+          },
+          "regulier": {
+            "couverture": 0.4527777777777778,
+            "largeur_moyenne": 3.972610669768971,
+            "n_points": 720
+          }
+        },
+        "label": "C0 (référence V1)",
+        "regime": "leave_one_window_out",
+        "segment_cols": [],
+        "duree_s": 0.74,
+        "couverture_produits_a": 0.7438829787234043,
+        "dans_cible_globale": true,
+        "dans_cible_produits_a": false
+      },
+      "C1_global_fenetres_anterieures": {
+        "niveau_vise": 0.8,
+        "n_points_total": 49860,
+        "n_points_calibrables": 42450,
+        "part_non_calibrable": 0.14861612515042122,
+        "couverture_globale": 0.8174793875147232,
+        "largeur_moyenne": 3.599261737528989,
+        "largeur_mediane": 3.591227863505975,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.8021201413427562,
+            "largeur_moyenne": 3.241712251647265,
+            "n_points": 1415
+          },
+          "J+15 a J+30": {
+            "couverture": 0.8193904593639576,
+            "largeur_moyenne": 3.6561277424988594,
+            "n_points": 22640
+          },
+          "J+2 a J+7": {
+            "couverture": 0.8175500588928151,
+            "largeur_moyenne": 3.537545908813049,
+            "n_points": 8490
+          },
+          "J+8 a J+14": {
+            "couverture": 0.8152448258455326,
+            "largeur_moyenne": 3.573260077337482,
+            "n_points": 9905
+          }
+        },
+        "par_fenetre": {
+          "2": {
+            "couverture": 0.8366037735849057,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.8083636363636364,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.8188457008244994,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.7990867579908676,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.8255555555555556,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.7659375,
+            "largeur_moyenne": 3.7653381288108956,
+            "n_points": 9600
+          },
+          "B": {
+            "couverture": 0.8201214882308276,
+            "largeur_moyenne": 3.6186487958970424,
+            "n_points": 13170
+          },
+          "C": {
+            "couverture": 0.8408536585365853,
+            "largeur_moyenne": 3.5052749024165117,
+            "n_points": 19680
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.5729166666666666,
+            "largeur_moyenne": 4.0963116311092955,
+            "n_points": 480
+          },
+          "grumeleux": {
+            "couverture": 0.7974324324324324,
+            "largeur_moyenne": 3.6581134268696394,
+            "n_points": 22200
+          },
+          "indetermine": {
+            "couverture": 0.8333333333333334,
+            "largeur_moyenne": 2.6744495297497313,
+            "n_points": 150
+          },
+          "intermittent": {
+            "couverture": 0.8539707419017764,
+            "largeur_moyenne": 3.5161297355135845,
+            "n_points": 19140
+          },
+          "regulier": {
+            "couverture": 0.5291666666666667,
+            "largeur_moyenne": 3.9842136072388894,
+            "n_points": 480
+          }
+        },
+        "label": "C1 global strict",
+        "regime": "prior_windows_only",
+        "segment_cols": [],
+        "duree_s": 0.51,
+        "couverture_produits_a": 0.7659375,
+        "dans_cible_globale": true,
+        "dans_cible_produits_a": false
+      },
+      "C2_par_abc": {
+        "niveau_vise": 0.8,
+        "n_points_total": 49860,
+        "n_points_calibrables": 42450,
+        "part_non_calibrable": 0.14861612515042122,
+        "couverture_globale": 0.8177856301531213,
+        "largeur_moyenne": 3.5972758712778234,
+        "largeur_mediane": 3.5889769090511043,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.7992932862190812,
+            "largeur_moyenne": 3.2418626702759448,
+            "n_points": 1415
+          },
+          "J+15 a J+30": {
+            "couverture": 0.820583038869258,
+            "largeur_moyenne": 3.6394086739925506,
+            "n_points": 22640
+          },
+          "J+2 a J+7": {
+            "couverture": 0.8179034157832744,
+            "largeur_moyenne": 3.5480564061444944,
+            "n_points": 8490
+          },
+          "J+8 a J+14": {
+            "couverture": 0.8139323573952549,
+            "largeur_moyenne": 3.5939337496158563,
+            "n_points": 9905
+          }
+        },
+        "par_fenetre": {
+          "2": {
+            "couverture": 0.8363522012578616,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.8136969696969697,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.81849234393404,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.7958904109589041,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.8257777777777778,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.8027083333333334,
+            "largeur_moyenne": 3.8729631004550127,
+            "n_points": 9600
+          },
+          "B": {
+            "couverture": 0.8091116173120729,
+            "largeur_moyenne": 3.6416948870892383,
+            "n_points": 13170
+          },
+          "C": {
+            "couverture": 0.8309451219512195,
+            "largeur_moyenne": 3.4330687656712504,
+            "n_points": 19680
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.58125,
+            "largeur_moyenne": 4.089192887474561,
+            "n_points": 480
+          },
+          "grumeleux": {
+            "couverture": 0.7978828828828829,
+            "largeur_moyenne": 3.6617899823703004,
+            "n_points": 22200
+          },
+          "indetermine": {
+            "couverture": 0.8333333333333334,
+            "largeur_moyenne": 2.643177239030787,
+            "n_points": 150
+          },
+          "intermittent": {
+            "couverture": 0.8541274817136886,
+            "largeur_moyenne": 3.5084537255021115,
+            "n_points": 19140
+          },
+          "regulier": {
+            "couverture": 0.5208333333333334,
+            "largeur_moyenne": 3.961520102437762,
+            "n_points": 480
+          }
+        },
+        "label": "C2 par ABC",
+        "regime": "prior_windows_only",
+        "segment_cols": [
+          "classe_abc"
+        ],
+        "duree_s": 0.88,
+        "couverture_produits_a": 0.8027083333333334,
+        "dans_cible_globale": true,
+        "dans_cible_produits_a": true
+      },
+      "C3_par_abc_profil": {
+        "niveau_vise": 0.8,
+        "n_points_total": 49860,
+        "n_points_calibrables": 42450,
+        "part_non_calibrable": 0.14861612515042122,
+        "couverture_globale": 0.8110247349823322,
+        "largeur_moyenne": 3.5950772755058558,
+        "largeur_mediane": 3.5943436138197424,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.7851590106007067,
+            "largeur_moyenne": 3.182121335998375,
+            "n_points": 1415
+          },
+          "J+15 a J+30": {
+            "couverture": 0.8154593639575972,
+            "largeur_moyenne": 3.632056317859713,
+            "n_points": 22640
+          },
+          "J+2 a J+7": {
+            "couverture": 0.8085983510011778,
+            "largeur_moyenne": 3.5493776402093764,
+            "n_points": 8490
+          },
+          "J+8 a J+14": {
+            "couverture": 0.8066633013629481,
+            "largeur_moyenne": 3.608718571737946,
+            "n_points": 9905
+          }
+        },
+        "par_fenetre": {
+          "2": {
+            "couverture": 0.8279245283018868,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.794060606060606,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.8101295641931684,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.7996575342465754,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.8235555555555556,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.7903125,
+            "largeur_moyenne": 3.8686453742394025,
+            "n_points": 9600
+          },
+          "B": {
+            "couverture": 0.8037965072133637,
+            "largeur_moyenne": 3.611553021605106,
+            "n_points": 13170
+          },
+          "C": {
+            "couverture": 0.8259654471544715,
+            "largeur_moyenne": 3.4506037326212438,
+            "n_points": 19680
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.7166666666666667,
+            "largeur_moyenne": 4.6851509508973095,
+            "n_points": 480
+          },
+          "grumeleux": {
+            "couverture": 0.8009009009009009,
+            "largeur_moyenne": 3.69610448794453,
+            "n_points": 22200
+          },
+          "indetermine": {
+            "couverture": 0.8333333333333334,
+            "largeur_moyenne": 2.5320883218646197,
+            "n_points": 150
+          },
+          "intermittent": {
+            "couverture": 0.8268547544409613,
+            "largeur_moyenne": 3.4248474533956856,
+            "n_points": 19140
+          },
+          "regulier": {
+            "couverture": 0.7354166666666667,
+            "largeur_moyenne": 4.952593229481619,
+            "n_points": 480
+          }
+        },
+        "label": "C3 par ABC × profil",
+        "regime": "prior_windows_only",
+        "segment_cols": [
+          "classe_abc",
+          "profil_demande"
+        ],
+        "duree_s": 2.39,
+        "couverture_produits_a": 0.7903125,
+        "dans_cible_globale": true,
+        "dans_cible_produits_a": true
+      }
+    },
+    "niveau_95": {
+      "C0_reference_v1_loo_global": {
+        "niveau_vise": 0.95,
+        "n_points_total": 49860,
+        "n_points_calibrables": 49860,
+        "part_non_calibrable": 0.0,
+        "couverture_globale": 0.9497392699558764,
+        "largeur_moyenne": 6.023772953110536,
+        "largeur_mediane": 5.934821555300312,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.9482551143200962,
+            "largeur_moyenne": 5.488012238155387,
+            "n_points": 1662
+          },
+          "J+15 a J+30": {
+            "couverture": 0.9496841155234657,
+            "largeur_moyenne": 6.072343545515995,
+            "n_points": 26592
+          },
+          "J+2 a J+7": {
+            "couverture": 0.9490573606097071,
+            "largeur_moyenne": 6.0250945865283745,
+            "n_points": 9972
+          },
+          "J+8 a J+14": {
+            "couverture": 0.950661853188929,
+            "largeur_moyenne": 5.988158872533506,
+            "n_points": 11634
+          }
+        },
+        "par_fenetre": {
+          "1": {
+            "couverture": 0.9275303643724696,
+            "n_points": 7410
+          },
+          "2": {
+            "couverture": 0.9540880503144654,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.9535757575757575,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.9461719670200236,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.9522831050228311,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.9615555555555556,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.9304964539007092,
+            "largeur_moyenne": 6.23543748110604,
+            "n_points": 11280
+          },
+          "B": {
+            "couverture": 0.9523809523809523,
+            "largeur_moyenne": 6.026024361427645,
+            "n_points": 15540
+          },
+          "C": {
+            "couverture": 0.9573784722222223,
+            "largeur_moyenne": 5.918626999940523,
+            "n_points": 23040
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.7736842105263158,
+            "largeur_moyenne": 6.906426093660093,
+            "n_points": 570
+          },
+          "grumeleux": {
+            "couverture": 0.9479383429672447,
+            "largeur_moyenne": 6.0849904182009125,
+            "n_points": 25950
+          },
+          "indetermine": {
+            "couverture": 0.8476190476190476,
+            "largeur_moyenne": 5.273323303132532,
+            "n_points": 210
+          },
+          "intermittent": {
+            "couverture": 0.9647032574743418,
+            "largeur_moyenne": 5.912260166075584,
+            "n_points": 22410
+          },
+          "regulier": {
+            "couverture": 0.7180555555555556,
+            "largeur_moyenne": 6.808343056916334,
+            "n_points": 720
+          }
+        },
+        "label": "C0 (référence V1)",
+        "regime": "leave_one_window_out",
+        "segment_cols": [],
+        "duree_s": 0.7,
+        "couverture_produits_a": 0.9304964539007092,
+        "dans_cible_globale": false,
+        "dans_cible_produits_a": false
+      },
+      "C1_global_fenetres_anterieures": {
+        "niveau_vise": 0.95,
+        "n_points_total": 49860,
+        "n_points_calibrables": 42450,
+        "part_non_calibrable": 0.14861612515042122,
+        "couverture_globale": 0.9569375736160188,
+        "largeur_moyenne": 5.991191744875796,
+        "largeur_mediane": 5.91693712150496,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.9547703180212014,
+            "largeur_moyenne": 5.424599988449814,
+            "n_points": 1415
+          },
+          "J+15 a J+30": {
+            "couverture": 0.9575530035335689,
+            "largeur_moyenne": 6.093250582855864,
+            "n_points": 22640
+          },
+          "J+2 a J+7": {
+            "couverture": 0.9534746760895171,
+            "largeur_moyenne": 5.8836400293809605,
+            "n_points": 8490
+          },
+          "J+8 a J+14": {
+            "couverture": 0.9588086824835942,
+            "largeur_moyenne": 5.931043265120637,
+            "n_points": 9905
+          }
+        },
+        "par_fenetre": {
+          "2": {
+            "couverture": 0.9591194968553459,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.9558787878787879,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.9517078916372202,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.9562785388127854,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.9615555555555556,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.9413541666666667,
+            "largeur_moyenne": 6.202205701175888,
+            "n_points": 9600
+          },
+          "B": {
+            "couverture": 0.9583143507972666,
+            "largeur_moyenne": 6.004652860162291,
+            "n_points": 13170
+          },
+          "C": {
+            "couverture": 0.9636178861788618,
+            "largeur_moyenne": 5.87924983081055,
+            "n_points": 19680
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.8229166666666666,
+            "largeur_moyenne": 6.917472777506921,
+            "n_points": 480
+          },
+          "grumeleux": {
+            "couverture": 0.9546396396396396,
+            "largeur_moyenne": 6.060704486446424,
+            "n_points": 22200
+          },
+          "indetermine": {
+            "couverture": 0.9266666666666666,
+            "largeur_moyenne": 4.977262909691013,
+            "n_points": 150
+          },
+          "intermittent": {
+            "couverture": 0.9680250783699059,
+            "largeur_moyenne": 5.873612895541612,
+            "n_points": 19140
+          },
+          "regulier": {
+            "couverture": 0.7645833333333333,
+            "largeur_moyenne": 6.855255792798971,
+            "n_points": 480
+          }
+        },
+        "label": "C1 global strict",
+        "regime": "prior_windows_only",
+        "segment_cols": [],
+        "duree_s": 0.53,
+        "couverture_produits_a": 0.9413541666666667,
+        "dans_cible_globale": false,
+        "dans_cible_produits_a": false
+      },
+      "C2_par_abc": {
+        "niveau_vise": 0.95,
+        "n_points_total": 49860,
+        "n_points_calibrables": 42450,
+        "part_non_calibrable": 0.14861612515042122,
+        "couverture_globale": 0.9564193168433451,
+        "largeur_moyenne": 5.961146444844601,
+        "largeur_mediane": 5.868222487213208,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.9547703180212014,
+            "largeur_moyenne": 5.355310460923086,
+            "n_points": 1415
+          },
+          "J+15 a J+30": {
+            "couverture": 0.9580388692579506,
+            "largeur_moyenne": 6.081818215725227,
+            "n_points": 22640
+          },
+          "J+2 a J+7": {
+            "couverture": 0.9513545347467609,
+            "largeur_moyenne": 5.821889850059161,
+            "n_points": 8490
+          },
+          "J+8 a J+14": {
+            "couverture": 0.9572942958101969,
+            "largeur_moyenne": 5.8912360474937655,
+            "n_points": 9905
+          }
+        },
+        "par_fenetre": {
+          "2": {
+            "couverture": 0.9568553459119497,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.9558787878787879,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.9488810365135454,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.9592465753424657,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.9608888888888889,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.9529166666666666,
+            "largeur_moyenne": 6.369689918864284,
+            "n_points": 9600
+          },
+          "B": {
+            "couverture": 0.9533029612756264,
+            "largeur_moyenne": 5.850117888205483,
+            "n_points": 13170
+          },
+          "C": {
+            "couverture": 0.9602134146341463,
+            "largeur_moyenne": 5.836158067829775,
+            "n_points": 19680
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.8041666666666667,
+            "largeur_moyenne": 6.954096874377188,
+            "n_points": 480
+          },
+          "grumeleux": {
+            "couverture": 0.9537837837837838,
+            "largeur_moyenne": 6.024746795371199,
+            "n_points": 22200
+          },
+          "indetermine": {
+            "couverture": 0.9266666666666666,
+            "largeur_moyenne": 4.976642843641719,
+            "n_points": 150
+          },
+          "intermittent": {
+            "couverture": 0.9677638453500522,
+            "largeur_moyenne": 5.84853492535616,
+            "n_points": 19140
+          },
+          "regulier": {
+            "couverture": 0.7875,
+            "largeur_moyenne": 6.82472151843443,
+            "n_points": 480
+          }
+        },
+        "label": "C2 par ABC",
+        "regime": "prior_windows_only",
+        "segment_cols": [
+          "classe_abc"
+        ],
+        "duree_s": 0.9,
+        "couverture_produits_a": 0.9529166666666666,
+        "dans_cible_globale": false,
+        "dans_cible_produits_a": false
+      },
+      "C3_par_abc_profil": {
+        "niveau_vise": 0.95,
+        "n_points_total": 49860,
+        "n_points_calibrables": 42450,
+        "part_non_calibrable": 0.14861612515042122,
+        "couverture_globale": 0.9507420494699647,
+        "largeur_moyenne": 5.923531205144078,
+        "largeur_mediane": 5.857174321725736,
+        "part_intervalles_excessivement_larges": 0.0,
+        "par_bucket": {
+          "J+1": {
+            "couverture": 0.9385159010600707,
+            "largeur_moyenne": 5.372141869088771,
+            "n_points": 1415
+          },
+          "J+15 a J+30": {
+            "couverture": 0.9535335689045936,
+            "largeur_moyenne": 6.028295575318764,
+            "n_points": 22640
+          },
+          "J+2 a J+7": {
+            "couverture": 0.9478209658421672,
+            "largeur_moyenne": 5.820363281462897,
+            "n_points": 8490
+          },
+          "J+8 a J+14": {
+            "couverture": 0.9486118122160525,
+            "largeur_moyenne": 5.851269341622277,
+            "n_points": 9905
+          }
+        },
+        "par_fenetre": {
+          "2": {
+            "couverture": 0.9543396226415094,
+            "n_points": 7950
+          },
+          "3": {
+            "couverture": 0.9481212121212121,
+            "n_points": 8250
+          },
+          "4": {
+            "couverture": 0.9435806831566549,
+            "n_points": 8490
+          },
+          "5": {
+            "couverture": 0.9478310502283105,
+            "n_points": 8760
+          },
+          "6": {
+            "couverture": 0.9595555555555556,
+            "n_points": 9000
+          }
+        },
+        "par_abc": {
+          "A": {
+            "couverture": 0.95,
+            "largeur_moyenne": 6.318522026628368,
+            "n_points": 9600
+          },
+          "B": {
+            "couverture": 0.9473804100227791,
+            "largeur_moyenne": 5.839732100723776,
+            "n_points": 13170
+          },
+          "C": {
+            "couverture": 0.9533536585365854,
+            "largeur_moyenne": 5.78693172948179,
+            "n_points": 19680
+          }
+        },
+        "par_profil": {
+          "erratique": {
+            "couverture": 0.89375,
+            "largeur_moyenne": 7.0329063806948175,
+            "n_points": 480
+          },
+          "grumeleux": {
+            "couverture": 0.9508108108108108,
+            "largeur_moyenne": 6.034252337161351,
+            "n_points": 22200
+          },
+          "indetermine": {
+            "couverture": 0.9133333333333333,
+            "largeur_moyenne": 4.582252922362275,
+            "n_points": 150
+          },
+          "intermittent": {
+            "couverture": 0.9540752351097179,
+            "largeur_moyenne": 5.728868034847332,
+            "n_points": 19140
+          },
+          "regulier": {
+            "couverture": 0.8833333333333333,
+            "largeur_moyenne": 7.874647052746487,
+            "n_points": 480
+          }
+        },
+        "label": "C3 par ABC × profil",
+        "regime": "prior_windows_only",
+        "segment_cols": [
+          "classe_abc",
+          "profil_demande"
+        ],
+        "duree_s": 2.44,
+        "couverture_produits_a": 0.95,
+        "dans_cible_globale": false,
+        "dans_cible_produits_a": false
+      }
+    }
+  },
+  "meilleure_variante_80": "C3_par_abc_profil",
+  "reference_v1_80": {
+    "couverture_globale": 0.7987765744083434,
+    "couverture_produits_a": 0.7438829787234043,
+    "largeur_moyenne": 3.604159551605998
+  },
+  "cout_calcul": {
+    "duree_totale_s": 11.51,
+    "memoire_rss_mb": 222.3,
+    "reentrainement": false
+  }
+}

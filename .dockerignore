@@ -1,0 +1,61 @@
+# Contexte de construction partage par les deux images du depot :
+#   - `Dockerfile`        -> API V2 (api/, models/api_bundle/)
+#   - `Dockerfile.api_v4` -> API V4 (api_v4/, src/, models/v4/)
+#
+# Ce fichier s'applique aux deux constructions. Toute exclusion doit donc
+# preserver ce que CHAQUE image copie. Les exclusions sont volontairement
+# explicites : aucune reinclusion `!` a l'interieur d'un repertoire exclu,
+# dont la semantique varie selon les versions du moteur de construction.
+#
+# Historique : une version anterieure excluait `src` et `models/*`, ce qui
+# retirait du contexte des chemins pourtant versionnes et faisait echouer la
+# construction de l'image V4 sur `COPY src/config` et
+# `COPY models/v4/.../model.joblib`.
+
+# --- Gestion de versions, secrets, environnements virtuels ---
+.git
+.gitignore
+.env
+.env.*
+.venv
+venv
+
+# --- Caches ---
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# --- Donnees sources, rapports, archives : jamais embarques dans une image ---
+data
+reports
+v2
+notebooks
+catboost_info
+
+# --- Tests et outillage : aucune image n'en a besoin a l'execution ---
+tests
+api/tests
+api/scripts
+api_v4/tests
+scripts
+
+# --- Artefacts volumineux de reproductibilite ---
+# Les CSV et parquet servent l'audit, jamais le service (environ 104 Mo pour
+# `models/v4/` seul). Aucune des deux images n'en copie : `models/api_bundle/`
+# ne contient que du JSON et un `.joblib`.
+**/*.csv
+**/*.parquet
+
+# --- Repertoires de modeles qu'aucune des deux images ne copie ---
+models/advanced
+models/campaign_level_pricing
+models/forecast_final
+models/forecasting
+models/pricing
+models/recommendation
+
+# --- Documentation ---
+*.md
+!api/README.md

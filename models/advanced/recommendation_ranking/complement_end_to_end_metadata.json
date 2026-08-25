@@ -1,0 +1,35 @@
+{
+  "leakage_correction": {
+    "applied_on": "2026-08-18",
+    "previous_status": "invalidated_due_to_target_category_leakage",
+    "previous_metrics": {
+      "recall@10": 0.43743,
+      "ndcg@10": 0.21264
+    },
+    "previous_artifacts": "models/advanced/recommendation_ranking/invalidated/",
+    "removed": "categorie derivee de la cible masquee",
+    "scoring_module": "src/recsys/complement.py"
+  },
+  "evaluated_windows": [
+    2,
+    3,
+    4
+  ],
+  "prediction_file": "complement_topk_predictions.parquet",
+  "metrics_file": "complement_end_to_end_metrics.csv",
+  "bootstrap_replicates": 2000,
+  "bootstrap_unit": "commande_x_fenetre",
+  "reference": "popularite_globale",
+  "best_challenger": "rrf_contexte",
+  "best_challenger_relative_ndcg_gain": 0.07140017812746377,
+  "bootstrap_ndcg10_ci95": [
+    -0.00015945082651184456,
+    0.0035077457134867346
+  ],
+  "promotion": false,
+  "decision": "aucun_modele_promu",
+  "basket_complement_model": "none_validated",
+  "basket_complement_baseline": "popularite_globale",
+  "reason": "no_complementarity_signal",
+  "f1_status": "non_evaluable_no_history"
+}

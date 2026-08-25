@@ -1,0 +1,118 @@
+{
+  "status": "ranking_pilot_completed",
+  "official_baseline": "popularite_globale",
+  "metrics": [
+    {
+      "window": 1,
+      "model": "popularite_globale",
+      "recall_at10": 0.1471174685739055,
+      "ndcg_at10": 0.07227886907916961,
+      "coverage": 1.0,
+      "n_clients": 1538
+    },
+    {
+      "window": 1,
+      "model": "heuristique_rrf",
+      "recall_at10": 0.1284243606415258,
+      "ndcg_at10": 0.06516354463551975,
+      "coverage": 1.0,
+      "n_clients": 1538
+    },
+    {
+      "window": 1,
+      "model": "LightGBM_LambdaRank",
+      "recall_at10": 0.1039336801040312,
+      "ndcg_at10": 0.05153977657302718,
+      "coverage": 1.0,
+      "n_clients": 1538
+    },
+    {
+      "window": 1,
+      "model": "logistique_pointwise",
+      "recall_at10": 0.07622453402687472,
+      "ndcg_at10": 0.03658580401414022,
+      "coverage": 1.0,
+      "n_clients": 1538
+    },
+    {
+      "window": 2,
+      "model": "popularite_globale",
+      "recall_at10": 0.11385397965290245,
+      "ndcg_at10": 0.055463861487147346,
+      "coverage": 1.0,
+      "n_clients": 2228
+    },
+    {
+      "window": 2,
+      "model": "heuristique_rrf",
+      "recall_at10": 0.11392878515858768,
+      "ndcg_at10": 0.05531239088129867,
+      "coverage": 1.0,
+      "n_clients": 2228
+    },
+    {
+      "window": 2,
+      "model": "LightGBM_LambdaRank",
+      "recall_at10": 0.07252393776181926,
+      "ndcg_at10": 0.03495550841366309,
+      "coverage": 1.0,
+      "n_clients": 2228
+    },
+    {
+      "window": 2,
+      "model": "logistique_pointwise",
+      "recall_at10": 0.07319718731298623,
+      "ndcg_at10": 0.03303326221100151,
+      "coverage": 1.0,
+      "n_clients": 2228
+    }
+  ],
+  "summary": [
+    {
+      "model": "LightGBM_LambdaRank",
+      "recall_at10": 0.08822880893292523,
+      "ndcg_at10": 0.04324764249334513,
+      "coverage": 1.0,
+      "windows": 2
+    },
+    {
+      "model": "heuristique_rrf",
+      "recall_at10": 0.12117657290005673,
+      "ndcg_at10": 0.060237967758409214,
+      "coverage": 1.0,
+      "windows": 2
+    },
+    {
+      "model": "logistique_pointwise",
+      "recall_at10": 0.07471086066993048,
+      "ndcg_at10": 0.034809533112570866,
+      "coverage": 1.0,
+      "windows": 2
+    },
+    {
+      "model": "popularite_globale",
+      "recall_at10": 0.13048572411340398,
+      "ndcg_at10": 0.06387136528315848,
+      "coverage": 1.0,
+      "windows": 2
+    }
+  ],
+  "gate": {
+    "pilot_windows": [
+      1,
+      2
+    ],
+    "ndcg_gain_ge_5pct": false,
+    "recall_loss_le_2pct": false,
+    "coverage_ge_15pct": true,
+    "four_window_continued": false
+  },
+  "features_strictly_prior": true,
+  "negative_sampling_seed": 42,
+  "no_future_purchase_feature": true,
+  "checkpoint_windows": [
+    1,
+    2
+  ],
+  "ranking_continued_to_four_windows": false
+}

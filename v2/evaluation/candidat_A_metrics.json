@@ -1,0 +1,826 @@
+{
+  "candidat": "candidat_A_blend_autoets_wa28",
+  "genere_le": "2026-08-15T03:39:20.982604+00:00",
+  "status": "experiment_not_retained",
+  "reason": "insufficient_gain",
+  "description": "Combinaison convexe y = w*AutoETS + (1-w)*WindowAverage28. Poids choisi par fenêtre uniquement sur les fenêtres strictement antérieures, sur une grille fixée a priori. Aucun réentraînement : recombinaison des prédictions V1 figées.",
+  "poids_par_fenetre": [
+    {
+      "window": 1,
+      "poids_autoets": 0.5,
+      "source": "defaut_aucune_fenetre_anterieure",
+      "fenetres_utilisees": "[]"
+    },
+    {
+      "window": 2,
+      "poids_autoets": 0.5,
+      "source": "fenetres_anterieures",
+      "fenetres_utilisees": "[1]"
+    },
+    {
+      "window": 3,
+      "poids_autoets": 0.5,
+      "source": "fenetres_anterieures",
+      "fenetres_utilisees": "[1, 2]"
+    },
+    {
+      "window": 4,
+      "poids_autoets": 0.5,
+      "source": "fenetres_anterieures",
+      "fenetres_utilisees": "[1, 2, 3]"
+    },
+    {
+      "window": 5,
+      "poids_autoets": 0.75,
+      "source": "fenetres_anterieures",
+      "fenetres_utilisees": "[1, 2, 3, 4]"
+    },
+    {
+      "window": 6,
+      "poids_autoets": 0.75,
+      "source": "fenetres_anterieures",
+      "fenetres_utilisees": "[1, 2, 3, 4, 5]"
+    }
+  ],
+  "grille_poids": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "metriques_candidat": {
+    "label": "candidat_A_blend_autoets_wa28",
+    "n_lignes": 49860,
+    "n_produits_fenetres": 1662,
+    "qualite": {
+      "n_non_finis": 0,
+      "n_negatifs": 0
+    },
+    "quotidien": {
+      "WAPE": 1.0855101191820533,
+      "MAE": 1.3478526168985343,
+      "biais_normalise": 0.03991654906749137
+    },
+    "cumule": {
+      "7": {
+        "WAPE": 0.4556008377376898,
+        "MAE": 3.93318942229866,
+        "biais_normalise": 0.047463461373252976,
+        "n_produits_fenetres": 1662
+      },
+      "14": {
+        "WAPE": 0.34907298466723596,
+        "MAE": 6.06046989926179,
+        "biais_normalise": 0.04159379970441144,
+        "n_produits_fenetres": 1662
+      },
+      "30": {
+        "WAPE": 0.27530829333277274,
+        "MAE": 10.255316751042095,
+        "biais_normalise": 0.03991654906749137,
+        "n_produits_fenetres": 1662
+      }
+    },
+    "par_fenetre": [
+      {
+        "fenetre": 1,
+        "WAPE_cumule_30j": 0.29766432924781844,
+        "biais_normalise": 0.0838221030047133,
+        "n_produits": 247
+      },
+      {
+        "fenetre": 2,
+        "WAPE_cumule_30j": 0.2876194874613411,
+        "biais_normalise": 0.06707572444720429,
+        "n_produits": 265
+      },
+      {
+        "fenetre": 3,
+        "WAPE_cumule_30j": 0.26378144968203826,
+        "biais_normalise": -0.042408233382696336,
+        "n_produits": 275
+      },
+      {
+        "fenetre": 4,
+        "WAPE_cumule_30j": 0.27034163637669617,
+        "biais_normalise": 0.03286263105151914,
+        "n_produits": 283
+      },
+      {
+        "fenetre": 5,
+        "WAPE_cumule_30j": 0.26654623117497217,
+        "biais_normalise": 0.05740516029446548,
+        "n_produits": 292
+      },
+      {
+        "fenetre": 6,
+        "WAPE_cumule_30j": 0.2707045883147206,
+        "biais_normalise": 0.05010667829120143,
+        "n_produits": 300
+      }
+    ],
+    "par_segment": {
+      "abc": {
+        "A": {
+          "WAPE_cumule_30j": 0.27537993366930724,
+          "biais_normalise": 0.04429101206381702,
+          "n_produits_fenetres": 376
+        },
+        "B": {
+          "WAPE_cumule_30j": 0.2689893869506128,
+          "biais_normalise": 0.060897430536203334,
+          "n_produits_fenetres": 518
+        },
+        "C": {
+          "WAPE_cumule_30j": 0.27975864245972926,
+          "biais_normalise": 0.022377149342519016,
+          "n_produits_fenetres": 768
+        }
+      },
+      "profil": {
+        "erratique": {
+          "WAPE_cumule_30j": 0.23653571113445845,
+          "biais_normalise": 0.1284408618115998,
+          "n_produits_fenetres": 19
+        },
+        "grumeleux": {
+          "WAPE_cumule_30j": 0.2701228671146652,
+          "biais_normalise": 0.04403737230113433,
+          "n_produits_fenetres": 865
+        },
+        "indetermine": {
+          "WAPE_cumule_30j": 0.8941787655843776,
+          "biais_normalise": -0.44796362614214646,
+          "n_produits_fenetres": 7
+        },
+        "intermittent": {
+          "WAPE_cumule_30j": 0.272460543635967,
+          "biais_normalise": 0.02449629217735518,
+          "n_produits_fenetres": 747
+        },
+        "regulier": {
+          "WAPE_cumule_30j": 0.3682407161987572,
+          "biais_normalise": 0.2260372891138305,
+          "n_produits_fenetres": 24
+        }
+      },
+      "produits_recents": {
+        "WAPE_cumule_30j": 0.3541338906972624,
+        "biais_normalise": 0.054625636696220004,
+        "n_produits_fenetres": 205,
+        "definition": "historique < 90 jours au cutoff"
+      }
+    },
+    "stabilite": {
+      "WAPE_30j_moyenne": 0.27610962037626446,
+      "WAPE_30j_ecart_type": 0.013438814914571466,
+      "WAPE_30j_min": 0.26378144968203826,
+      "WAPE_30j_max": 0.29766432924781844
+    }
+  },
+  "metriques_v1_reference": {
+    "label": "V1_AutoETS_repli_Naive",
+    "n_lignes": 49860,
+    "n_produits_fenetres": 1662,
+    "qualite": {
+      "n_non_finis": 0,
+      "n_negatifs": 0
+    },
+    "quotidien": {
+      "WAPE": 1.0947268068047595,
+      "MAE": 1.3592967631223958,
+      "biais_normalise": 0.06734712623640197
+    },
+    "cumule": {
+      "7": {
+        "WAPE": 0.46186430439989756,
+        "MAE": 3.98726175663642,
+        "biais_normalise": 0.07552300164675786,
+        "n_produits_fenetres": 1662
+      },
+      "14": {
+        "WAPE": 0.3507939288519248,
+        "MAE": 6.090348265356371,
+        "biais_normalise": 0.06937915510155594,
+        "n_produits_fenetres": 1662
+      },
+      "30": {
+        "WAPE": 0.2771792417889409,
+        "MAE": 10.325010143894904,
+        "biais_normalise": 0.06734712623640197,
+        "n_produits_fenetres": 1662
+      }
+    },
+    "par_fenetre": [
+      {
+        "fenetre": 1,
+        "WAPE_cumule_30j": 0.3336926305587027,
+        "biais_normalise": 0.1603311444401506,
+        "n_produits": 247
+      },
+      {
+        "fenetre": 2,
+        "WAPE_cumule_30j": 0.29644629535011463,
+        "biais_normalise": 0.10292586470420982,
+        "n_produits": 265
+      },
+      {
+        "fenetre": 3,
+        "WAPE_cumule_30j": 0.2583978074112043,
+        "biais_normalise": -0.011820909953421393,
+        "n_produits": 275
+      },
+      {
+        "fenetre": 4,
+        "WAPE_cumule_30j": 0.25323218933996594,
+        "biais_normalise": 0.04336378845785573,
+        "n_produits": 283
+      },
+      {
+        "fenetre": 5,
+        "WAPE_cumule_30j": 0.26202199195598713,
+        "biais_normalise": 0.0660929134797814,
+        "n_produits": 292
+      },
+      {
+        "fenetre": 6,
+        "WAPE_cumule_30j": 0.2700518167961554,
+        "biais_normalise": 0.061081830358981584,
+        "n_produits": 300
+      }
+    ],
+    "par_segment": {
+      "abc": {
+        "A": {
+          "WAPE_cumule_30j": 0.28009175013011134,
+          "biais_normalise": 0.08291532446264245,
+          "n_produits_fenetres": 376
+        },
+        "B": {
+          "WAPE_cumule_30j": 0.27175648731278734,
+          "biais_normalise": 0.08777528021027542,
+          "n_produits_fenetres": 518
+        },
+        "C": {
+          "WAPE_cumule_30j": 0.2792906946117486,
+          "biais_normalise": 0.04349579726603093,
+          "n_produits_fenetres": 768
+        }
+      },
+      "profil": {
+        "erratique": {
+          "WAPE_cumule_30j": 0.27129617792372623,
+          "biais_normalise": 0.1855088808617902,
+          "n_produits_fenetres": 19
+        },
+        "grumeleux": {
+          "WAPE_cumule_30j": 0.27190324453227976,
+          "biais_normalise": 0.07318552136028728,
+          "n_produits_fenetres": 865
+        },
+        "indetermine": {
+          "WAPE_cumule_30j": 1.0274013558699504,
+          "biais_normalise": -0.34214239172652405,
+          "n_produits_fenetres": 7
+        },
+        "intermittent": {
+          "WAPE_cumule_30j": 0.2695026462377334,
+          "biais_normalise": 0.04873779653244995,
+          "n_produits_fenetres": 747
+        },
+        "regulier": {
+          "WAPE_cumule_30j": 0.4071189178705186,
+          "biais_normalise": 0.2326335751462742,
+          "n_produits_fenetres": 24
+        }
+      },
+      "produits_recents": {
+        "WAPE_cumule_30j": 0.3914835535098032,
+        "biais_normalise": 0.06502819936745248,
+        "n_produits_fenetres": 205,
+        "definition": "historique < 90 jours au cutoff"
+      }
+    },
+    "stabilite": {
+      "WAPE_30j_moyenne": 0.2789737885686883,
+      "WAPE_30j_ecart_type": 0.030829875387710235,
+      "WAPE_30j_min": 0.25323218933996594,
+      "WAPE_30j_max": 0.3336926305587027
+    }
+  },
+  "comparaison_v1": {
+    "wape_quotidien": {
+      "v1": 1.0947268068047595,
+      "candidat": 1.0855101191820533,
+      "gain_absolu": 0.009216687622706221,
+      "gain_relatif": 0.008419166832689047
+    },
+    "wape_cumule_7j": {
+      "v1": 0.46186430439989756,
+      "candidat": 0.4556008377376898,
+      "gain_absolu": 0.006263466662207784,
+      "gain_relatif": 0.013561270274709658
+    },
+    "wape_cumule_14j": {
+      "v1": 0.3507939288519248,
+      "candidat": 0.34907298466723596,
+      "gain_absolu": 0.0017209441846888218,
+      "gain_relatif": 0.004905855099377326
+    },
+    "wape_cumule_30j": {
+      "v1": 0.2771792417889409,
+      "candidat": 0.27530829333277274,
+      "gain_absolu": 0.0018709484561681422,
+      "gain_relatif": 0.006749958777911597
+    },
+    "n_fenetres_ameliorees_30j": 2,
+    "detail_par_fenetre": [
+      {
+        "fenetre": 1,
+        "v1": 0.3336926305587027,
+        "candidat": 0.29766432924781844,
+        "gain_absolu": 0.03602830131088425,
+        "gain_relatif": 0.10796852555767247,
+        "amelioree": true
+      },
+      {
+        "fenetre": 2,
+        "v1": 0.29644629535011463,
+        "candidat": 0.2876194874613411,
+        "gain_absolu": 0.008826807888773547,
+        "gain_relatif": 0.02977540292196515,
+        "amelioree": true
+      },
+      {
+        "fenetre": 3,
+        "v1": 0.2583978074112043,
+        "candidat": 0.26378144968203826,
+        "gain_absolu": -0.005383642270833933,
+        "gain_relatif": -0.02083470569959834,
+        "amelioree": false
+      },
+      {
+        "fenetre": 4,
+        "v1": 0.25323218933996594,
+        "candidat": 0.27034163637669617,
+        "gain_absolu": -0.01710944703673023,
+        "gain_relatif": -0.0675642661437511,
+        "amelioree": false
+      },
+      {
+        "fenetre": 5,
+        "v1": 0.26202199195598713,
+        "candidat": 0.26654623117497217,
+        "gain_absolu": -0.004524239218985038,
+        "gain_relatif": -0.017266639281732474,
+        "amelioree": false
+      },
+      {
+        "fenetre": 6,
+        "v1": 0.2700518167961554,
+        "candidat": 0.2707045883147206,
+        "gain_absolu": -0.0006527715185651872,
+        "gain_relatif": -0.00241720839470568,
+        "amelioree": false
+      }
+    ]
+  },
+  "variantes_poids_fixe": {
+    "0.00": {
+      "WAPE_quotidien": 1.0833849770138146,
+      "WAPE_cumule_7j": 0.4720685575783285,
+      "WAPE_cumule_30j": 0.3161282282079145
+    },
+    "0.25": {
+      "WAPE_quotidien": 1.083390734715186,
+      "WAPE_cumule_7j": 0.46144202233020715,
+      "WAPE_cumule_30j": 0.2937976740159286
+    },
+    "0.50": {
+      "WAPE_quotidien": 1.0852770299550534,
+      "WAPE_cumule_7j": 0.45641696141632065,
+      "WAPE_cumule_30j": 0.2791182669187288
+    },
+    "0.75": {
+      "WAPE_quotidien": 1.0890455465345659,
+      "WAPE_cumule_7j": 0.4565555300926003,
+      "WAPE_cumule_30j": 0.2736173290647084
+    },
+    "1.00": {
+      "WAPE_quotidien": 1.0947268068047595,
+      "WAPE_cumule_7j": 0.46186430439989756,
+      "WAPE_cumule_30j": 0.2771792417889409
+    }
+  },
+  "intervalles": {
+    "methode": "conforme empirique, calibration leave-one-window-out par bucket d'horizon (méthode V1, pour comparaison à l'identique)",
+    "candidat_80": {
+      "niveau_vise": 0.8,
+      "n_points_total": 49860,
+      "n_points_calibrables": 49860,
+      "part_non_calibrable": 0.0,
+      "couverture_globale": 0.8002005615724027,
+      "largeur_moyenne": 3.6225452867193644,
+      "largeur_mediane": 3.6256405383113552,
+      "part_intervalles_excessivement_larges": 0.0,
+      "par_bucket": {
+        "J+1": {
+          "couverture": 0.7978339350180506,
+          "largeur_moyenne": 3.5452727966000133,
+          "n_points": 1662
+        },
+        "J+15 a J+30": {
+          "couverture": 0.7999774368231047,
+          "largeur_moyenne": 3.6333651377654914,
+          "n_points": 26592
+        },
+        "J+2 a J+7": {
+          "couverture": 0.7996389891696751,
+          "largeur_moyenne": 3.5584215543811646,
+          "n_points": 9972
+        },
+        "J+8 a J+14": {
+          "couverture": 0.8015299982809008,
+          "largeur_moyenne": 3.663816324920865,
+          "n_points": 11634
+        }
+      },
+      "par_fenetre": {
+        "1": {
+          "couverture": 0.7690958164642375,
+          "n_points": 7410
+        },
+        "2": {
+          "couverture": 0.8191194968553459,
+          "n_points": 7950
+        },
+        "3": {
+          "couverture": 0.7970909090909091,
+          "n_points": 8250
+        },
+        "4": {
+          "couverture": 0.803886925795053,
+          "n_points": 8490
+        },
+        "5": {
+          "couverture": 0.7931506849315069,
+          "n_points": 8760
+        },
+        "6": {
+          "couverture": 0.8153333333333334,
+          "n_points": 9000
+        }
+      },
+      "par_abc": {
+        "A": {
+          "couverture": 0.7488475177304964,
+          "largeur_moyenne": 3.7612650296483117,
+          "n_points": 11280
+        },
+        "B": {
+          "couverture": 0.8078507078507079,
+          "largeur_moyenne": 3.642209257598913,
+          "n_points": 15540
+        },
+        "C": {
+          "couverture": 0.8201822916666667,
+          "largeur_moyenne": 3.5413674738848706,
+          "n_points": 23040
+        }
+      },
+      "par_profil": {
+        "erratique": {
+          "couverture": 0.5350877192982456,
+          "largeur_moyenne": 4.063332596279514,
+          "n_points": 570
+        },
+        "grumeleux": {
+          "couverture": 0.7861271676300579,
+          "largeur_moyenne": 3.670653171310374,
+          "n_points": 25950
+        },
+        "indetermine": {
+          "couverture": 0.7714285714285715,
+          "largeur_moyenne": 2.9120901179824905,
+          "n_points": 210
+        },
+        "intermittent": {
+          "couverture": 0.8331994645247657,
+          "largeur_moyenne": 3.5487655418657145,
+          "n_points": 22410
+        },
+        "regulier": {
+          "couverture": 0.4986111111111111,
+          "largeur_moyenne": 4.0433109756346965,
+          "n_points": 720
+        }
+      }
+    },
+    "candidat_95": {
+      "niveau_vise": 0.95,
+      "n_points_total": 49860,
+      "n_points_calibrables": 49860,
+      "part_non_calibrable": 0.0,
+      "couverture_globale": 0.9490774167669475,
+      "largeur_moyenne": 6.0362694170203435,
+      "largeur_mediane": 5.953829540025746,
+      "part_intervalles_excessivement_larges": 0.0,
+      "par_bucket": {
+        "J+1": {
+          "couverture": 0.9476534296028881,
+          "largeur_moyenne": 5.5805021382184545,
+          "n_points": 1662
+        },
+        "J+15 a J+30": {
+          "couverture": 0.9492328519855595,
+          "largeur_moyenne": 6.068301747828156,
+          "n_points": 26592
+        },
+        "J+2 a J+7": {
+          "couverture": 0.9486562374649017,
+          "largeur_moyenne": 6.041572970312306,
+          "n_points": 9972
+        },
+        "J+8 a J+14": {
+          "couverture": 0.9492865738353103,
+          "largeur_moyenne": 6.023616369323935,
+          "n_points": 11634
+        }
+      },
+      "par_fenetre": {
+        "1": {
+          "couverture": 0.9352226720647774,
+          "n_points": 7410
+        },
+        "2": {
+          "couverture": 0.9532075471698114,
+          "n_points": 7950
+        },
+        "3": {
+          "couverture": 0.9538181818181818,
+          "n_points": 8250
+        },
+        "4": {
+          "couverture": 0.9441696113074205,
+          "n_points": 8490
+        },
+        "5": {
+          "couverture": 0.9430365296803653,
+          "n_points": 8760
+        },
+        "6": {
+          "couverture": 0.963,
+          "n_points": 9000
+        }
+      },
+      "par_abc": {
+        "A": {
+          "couverture": 0.9289893617021276,
+          "largeur_moyenne": 6.221101094810243,
+          "n_points": 11280
+        },
+        "B": {
+          "couverture": 0.9534749034749035,
+          "largeur_moyenne": 6.043696464807779,
+          "n_points": 15540
+        },
+        "C": {
+          "couverture": 0.9559461805555556,
+          "largeur_moyenne": 5.940769519099912,
+          "n_points": 23040
+        }
+      },
+      "par_profil": {
+        "erratique": {
+          "couverture": 0.7701754385964912,
+          "largeur_moyenne": 6.894625834857938,
+          "n_points": 570
+        },
+        "grumeleux": {
+          "couverture": 0.9485934489402698,
+          "largeur_moyenne": 6.0915860219481415,
+          "n_points": 25950
+        },
+        "indetermine": {
+          "couverture": 0.8809523809523809,
+          "largeur_moyenne": 5.322660095836713,
+          "n_points": 210
+        },
+        "intermittent": {
+          "couverture": 0.9625167336010709,
+          "largeur_moyenne": 5.930439281790632,
+          "n_points": 22410
+        },
+        "regulier": {
+          "couverture": 0.7097222222222223,
+          "largeur_moyenne": 6.865133627996288,
+          "n_points": 720
+        }
+      }
+    },
+    "v1_80_recalcule_meme_methode": {
+      "niveau_vise": 0.8,
+      "n_points_total": 49860,
+      "n_points_calibrables": 49860,
+      "part_non_calibrable": 0.0,
+      "couverture_globale": 0.7987765744083434,
+      "largeur_moyenne": 3.604159551605998,
+      "largeur_mediane": 3.594340054024501,
+      "part_intervalles_excessivement_larges": 0.0,
+      "par_bucket": {
+        "J+1": {
+          "couverture": 0.7996389891696751,
+          "largeur_moyenne": 3.488249269340413,
+          "n_points": 1662
+        },
+        "J+15 a J+30": {
+          "couverture": 0.7989996991576414,
+          "largeur_moyenne": 3.6216006114469965,
+          "n_points": 26592
+        },
+        "J+2 a J+7": {
+          "couverture": 0.7995387083834737,
+          "largeur_moyenne": 3.5492495023983954,
+          "n_points": 9972
+        },
+        "J+8 a J+14": {
+          "couverture": 0.7974901151796459,
+          "largeur_moyenne": 3.6279186401853165,
+          "n_points": 11634
+        }
+      },
+      "par_fenetre": {
+        "1": {
+          "couverture": 0.7527665317139002,
+          "n_points": 7410
+        },
+        "2": {
+          "couverture": 0.8061635220125786,
+          "n_points": 7950
+        },
+        "3": {
+          "couverture": 0.7943030303030303,
+          "n_points": 8250
+        },
+        "4": {
+          "couverture": 0.810718492343934,
+          "n_points": 8490
+        },
+        "5": {
+          "couverture": 0.7961187214611872,
+          "n_points": 8760
+        },
+        "6": {
+          "couverture": 0.8255555555555556,
+          "n_points": 9000
+        }
+      },
+      "par_abc": {
+        "A": {
+          "couverture": 0.7438829787234043,
+          "largeur_moyenne": 3.7656791177993316,
+          "n_points": 11280
+        },
+        "B": {
+          "couverture": 0.8052767052767053,
+          "largeur_moyenne": 3.6172465333587374,
+          "n_points": 15540
+        },
+        "C": {
+          "couverture": 0.8212673611111111,
+          "largeur_moyenne": 3.5162553674437427,
+          "n_points": 23040
+        }
+      },
+      "par_profil": {
+        "erratique": {
+          "couverture": 0.5421052631578948,
+          "largeur_moyenne": 4.0580757088438615,
+          "n_points": 570
+        },
+        "grumeleux": {
+          "couverture": 0.7813487475915222,
+          "largeur_moyenne": 3.6557860055884457,
+          "n_points": 25950
+        },
+        "indetermine": {
+          "couverture": 0.7476190476190476,
+          "largeur_moyenne": 2.8579624317966354,
+          "n_points": 210
+        },
+        "intermittent": {
+          "couverture": 0.8370816599732263,
+          "largeur_moyenne": 3.5279872133468513,
+          "n_points": 22410
+        },
+        "regulier": {
+          "couverture": 0.4527777777777778,
+          "largeur_moyenne": 3.972610669768971,
+          "n_points": 720
+        }
+      }
+    }
+  },
+  "seuils_acceptation": {
+    "wape_cumule_30j_max": 0.265,
+    "wape_cumule_7j_max": 0.44,
+    "wape_quotidien_max": 1.0618850026006168,
+    "wape_abc_a_max": 0.2856935851327136,
+    "n_fenetres_ameliorees_min": 4,
+    "couverture_80_min": 0.78,
+    "couverture_80_max": 0.84,
+    "v1_reference": {
+      "wape_cumule_30j": 0.2771792417889409,
+      "wape_cumule_14j": 0.3507939288519248,
+      "wape_cumule_7j": 0.46186430439989756,
+      "wape_quotidien": 1.0947268068047595,
+      "couverture_intervalle_80_produits_A": 0.7436,
+      "couverture_intervalle_80_globale_j15_j30": 0.7989996991576414,
+      "modele": "AutoETS",
+      "source_snapshot": "reports/forecast_final/v1_metrics_snapshot.json"
+    }
+  },
+  "verdict": {
+    "accepte": false,
+    "criteres": {
+      "wape_cumule_30j": {
+        "valeur": 0.27530829333277274,
+        "seuil": 0.265,
+        "ok": false,
+        "regle": "≤ seuil absolu"
+      },
+      "wape_cumule_7j": {
+        "valeur": 0.4556008377376898,
+        "seuil": 0.44,
+        "ok": false,
+        "regle": "≤ seuil absolu"
+      },
+      "wape_quotidien": {
+        "valeur": 1.0855101191820533,
+        "seuil": 1.0618850026006168,
+        "ok": false,
+        "regle": "≥3% d'amélioration vs V1"
+      },
+      "wape_abc_a": {
+        "valeur": 0.27537993366930724,
+        "seuil": 0.2856935851327136,
+        "ok": true,
+        "regle": "≤2% de dégradation vs V1 (non évaluable = non satisfait)"
+      },
+      "n_fenetres_ameliorees_30j": {
+        "valeur": 2,
+        "seuil": 4,
+        "ok": false,
+        "regle": "≥ 4 fenêtres sur 6"
+      },
+      "couverture_80_globale": {
+        "valeur": 0.8002005615724027,
+        "seuil": [
+          0.78,
+          0.84
+        ],
+        "ok": true,
+        "regle": "dans [78 %, 84 %]"
+      },
+      "couverture_80_produits_a": {
+        "valeur": 0.7488475177304964,
+        "seuil": [
+          0.78,
+          0.84
+        ],
+        "ok": false,
+        "regle": "dans [78 %, 84 %]"
+      },
+      "aucune_valeur_non_finie": {
+        "valeur": 0,
+        "seuil": 0,
+        "ok": true,
+        "regle": "= 0"
+      },
+      "aucune_valeur_negative": {
+        "valeur": 0,
+        "seuil": 0,
+        "ok": true,
+        "regle": "= 0"
+      }
+    },
+    "criteres_echoues": [
+      "wape_cumule_30j",
+      "wape_cumule_7j",
+      "wape_quotidien",
+      "n_fenetres_ameliorees_30j",
+      "couverture_80_produits_a"
+    ],
+    "verdict": "CANDIDAT REJETÉ — la V1 reste le modèle officiel"
+  },
+  "cout_calcul": {
+    "duree_totale_s": 8.47,
+    "duree_evaluation_v1_s": 1.05,
+    "duree_candidat_s": 1.02,
+    "duree_intervalles_s": 2.01,
+    "memoire_rss_mb": 281.8,
+    "reentrainement": false
+  },
+  "reutilisation_future": "Le mélange reste un composant réutilisable : un futur candidat combiné pourrait associer le meilleur point forecast (A ou B) aux intervalles recalibrés du candidat C."
+}

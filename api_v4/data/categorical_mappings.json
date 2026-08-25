@@ -1,0 +1,18 @@
+{
+  "device": {
+    "desktop": 0,
+    "mobile": 1,
+    "tablet": 2
+  },
+  "source": {
+    "affiliate": 0,
+    "direct": 1,
+    "email_campaign": 2,
+    "organic_search": 3,
+    "paid_ads": 4,
+    "social_media": 5
+  },
+  "channel": {
+    "web": 0
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "forecasting_point_model": "v1_autoets_naive",
+  "point_forecast_v2_validated": false,
+  "interval_calibration_v2_validated": true,
+  "interval_calibration_method": "C3_abc_x_intermitence",
+  "challenger_interval_method": "C2_abc",
+  "denomination_officielle": "Forecasting V1 avec recalibration V2 des intervalles",
+  "ne_pas_presenter_comme": "une Forecasting V2 complète — la prévision centrale reste strictement celle de la V1, seule la calibration des intervalles a été améliorée.",
+  "genere_le": "2026-08-15T12:15:30.900927+00:00",
+  "candidats": {
+    "A_blend_autoets_wa28": {
+      "status": "rejected",
+      "reason": "insufficient_gain",
+      "wape_30j": 0.27530829333277274,
+      "fenetres_ameliorees_sur_6": 2,
+      "note": "Gain agrégé de +0,67 % entièrement porté par la fenêtre 1, où le poids n'était pas appris (valeur par défaut) ; fenêtres 3 à 6 toutes dégradées. Le mécanisme ne généralise pas.",
+      "composant_conserve_pour_reutilisation": true,
+      "proprietes_utiles": {
+        "stabilite_ecart_type_wape30j_v1": 0.030829875387710235,
+        "stabilite_ecart_type_wape30j_A": 0.013438814914571466,
+        "biais_normalise_v1": 0.06734712623640197,
+        "biais_normalise_A": 0.03991654906749137
+      }
+    },
+    "B_selection_par_segment": {
+      "status": "rejected",
+      "reason": "worse_than_v1_and_candidate_a",
+      "meilleure_variante": "B2_meilleur_par_segment_fenetres_anterieures",
+      "wape_30j": 0.283052496960189,
+      "note": "Les trois variantes sont sous la V1 et sous A. Décisions de segment instables entre fenêtres (0 % à 46 % de produits basculés selon la fenêtre) : bruit, pas signal."
+    },
+    "C_recalibration_intervalles": {
+      "status": "retained",
+      "reason": "interval_calibration_improved",
+      "methode_retenue": "C3_abc_x_intermitence",
+      "challenger_documente": "C2_abc",
+      "couverture_produits_a": {
+        "v1_reference": 0.7438829787234043,
+        "C3_retenu": 0.7903125,
+        "C2_challenger": 0.8027083333333334,
+        "cible": [
+          0.78,
+          0.84
+        ]
+      },
+      "largeur_moyenne": {
+        "v1_reference": 3.604159551605998,
+        "C3_retenu": 3.5950772755058558,
+        "C2_challenger": 3.5972758712778234
+      },
+      "note_c2_vs_c3": "L'écart entre C2 et C3 est très faible (somme des écarts au niveau nominal : 2,05 pp pour C2 contre 2,07 pp pour C3 ; largeur moyenne 3,5973 contre 3,5951). C2 est légèrement MIEUX calibré sur les produits A (écart 0,27 pp contre 0,97 pp). C3 est néanmoins retenu parce que la règle de sélection — largeur minimale parmi les variantes conformes — avait été fixée AVANT l'évaluation et n'est pas rétro-ajustée après observation des résultats. C2 reste documenté comme challenger."
+    },
+    "D_hurdle_recalibre": {
+      "status": "not_launched",
+      "reason": "previously_rejected_and_no_new_signal",
+      "note": "Le hurdle avait déjà été testé et rejeté en V1 (biais normalisé >0,10, discrimination faible du classifieur avec ROC-AUC ≈0,62, dérive du biais avec l'horizon). Aucun élément nouveau ne justifie un réentraînement de 45-65 min."
+    },
+    "E_variables_metier": {
+      "status": "not_promising",
+      "reason": "gain_below_pilot_gate_2pct",
+      "etape_atteinte": "pilote_fenetres_1_et_2",
+      "six_fenetres_executees": false,
+      "porte_decision": {
+        "gain_minimal_exige": 0.02,
+        "meilleur_gain_observe_30j": 0.012753995550001368,
+        "meilleur_niveau_30j": "E1",
+        "fixee_avant_execution": true
+      },
+      "audit_disponibilite_e0": "v2/reports/06_E0_audit_disponibilite.md",
+      "resultat_secondaire_notable": {
+        "constat": "Les variables métier améliorent nettement la WAPE à 7 jours (jusqu'à +8.61% pour E4, gain monotone avec l'ajout de variables) mais pas à 30 jours ni au grain quotidien.",
+        "explication": "La stratégie récursive accumule l'erreur sur 30 jours et masque l'apport des variables ; à court horizon cet effet est faible.",
+        "gains_relatifs_7j": {
+          "E1": 0.063043,
+          "E2": 0.07593,
+          "E3": 0.08337,
+          "E4": 0.086112
+        },
+        "insuffisant_malgre_tout": "Le meilleur niveau reste au-dessus du seuil V2 de 0,44 à 7 jours — aucun niveau ne serait accepté même en reciblant le protocole sur le court horizon.",
+        "piste_v3": "Prévision directe par horizon (sans récursion) — piste #12 du registre V2 forecasting."
+      },
+      "note_promotions": "E2 (promotions) est le seul niveau franchement dégradé à 30 jours (−5,26 %) tout en améliorant le 7 jours : comportement instable, cohérent avec l'hypothèse non vérifiable sur la connaissance du calendrier promotionnel au cutoff (cf. E0)."
+    }
+  },
+  "reference_v1": {
+    "wape_cumule_30j": 0.2771792417889409,
+    "wape_cumule_7j": 0.46186430439989756,
+    "wape_quotidien": 1.0947268068047595
+  },
+  "perimetre": {
+    "n_fenetres": 6,
+    "n_produits_fenetres": 1662,
+    "artefacts_v1_modifies": false
+  },
+  "aucune_publication_supabase": true,
+  "aucun_deploiement": true
+}

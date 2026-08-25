@@ -1,0 +1,182 @@
+{
+  "product": "v4_pricing_recommendation",
+  "status": "synthetic_academic_experiment",
+  "generated_at": "2026-08-22T02:44:48.163102+00:00",
+  "code_version_git_commit": "3e754ab0d511fba54872435c630793cad00b882c",
+  "forecasting_note": "Le forecasting V2 (LightGBM_direct_per_horizon) n'a pas ete reentraine ni modifie ; il n'est pas expose par ce produit.",
+  "models": [
+    {
+      "domain": "pricing",
+      "target": "units_sold_window_7j",
+      "model_name": "baseline_mediane_produit",
+      "version": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+      "metrics": {
+        "wape_macro": 0.13423748999014726,
+        "wape_micro_pooled": 0.13341031562740568,
+        "bias": 0.005421888676234437,
+        "mae": 0.5657591710087512,
+        "rmse": 1.0643553315978218,
+        "n_price_below_cost": 0,
+        "n_margin_below_floor": 0
+      },
+      "evaluation_window": "6 fenetres de test hebdomadaires, entrainement sur tout l'historique anterieur",
+      "limits": "Estimation statistique de volume/marge, aucune revendication causale ; confusion structurelle remise/produit sur cette experience synthetique ; aucun prix optimal automatique, simulation uniquement.",
+      "status": "validated_academic",
+      "usage": "simulation_only",
+      "causal_effect_estimated": false,
+      "fallback": null,
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": "473fb1ee64adff6001a5eb0af264cc4740237a3f97e88b0460b7a7fd98d2be35"
+    },
+    {
+      "domain": "pricing",
+      "target": "revenue_window_xof_7j",
+      "model_name": "baseline_mediane_produit",
+      "version": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+      "metrics": {
+        "wape_macro": 0.12989246367544968,
+        "wape_micro_pooled": 0.12914771919984389,
+        "bias": 0.0020317145978036334,
+        "mae": 49305.37989878571,
+        "rmse": 145264.57445417758,
+        "n_price_below_cost": 0,
+        "n_margin_below_floor": 0
+      },
+      "evaluation_window": "6 fenetres de test hebdomadaires, entrainement sur tout l'historique anterieur",
+      "limits": "Estimation statistique de volume/marge, aucune revendication causale ; confusion structurelle remise/produit sur cette experience synthetique ; aucun prix optimal automatique, simulation uniquement.",
+      "status": "validated_academic",
+      "usage": "simulation_only",
+      "causal_effect_estimated": false,
+      "fallback": null,
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": "542aabb5b51bc13fdeef2071de910cd8ad6d58bb46e3c4ce531c763d71fca6d3"
+    },
+    {
+      "domain": "pricing",
+      "target": "margin_window_xof_7j",
+      "model_name": "baseline_mediane_produit",
+      "version": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+      "metrics": {
+        "wape_macro": 0.1305197340907884,
+        "wape_micro_pooled": 0.1298010024394478,
+        "bias": 0.00035376035266923567,
+        "mae": 9338.471190078038,
+        "rmse": 27149.987608973617,
+        "n_price_below_cost": 0,
+        "n_margin_below_floor": 0
+      },
+      "evaluation_window": "6 fenetres de test hebdomadaires, entrainement sur tout l'historique anterieur",
+      "limits": "Estimation statistique de volume/marge, aucune revendication causale ; confusion structurelle remise/produit sur cette experience synthetique ; aucun prix optimal automatique, simulation uniquement.",
+      "status": "validated_academic",
+      "usage": "simulation_only",
+      "causal_effect_estimated": false,
+      "fallback": null,
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": "66bce2a47819a9d52ad644d3d88b0c55cc0fb404f4c652876ae2c85557be6230"
+    },
+    {
+      "domain": "recommendation",
+      "target": "purchased_after",
+      "role": "achat",
+      "model_name": "CatBoostRanker",
+      "version": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+      "metrics": {
+        "ndcg@10": 0.012575442955194647,
+        "relative_ndcg_gain": 0.0857018406339501,
+        "recall@10": 0.01942240753445062,
+        "coverage_catalogue": 0.41586538461538464,
+        "diversite": 0.011235397636697404,
+        "bootstrap_ci95_independant": {
+          "observed_diff": 0.0009734512858056392,
+          "ci95_low": 0.0004382653329257546,
+          "ci95_high": 0.0015022420735062247,
+          "draws": 4000,
+          "n_groups": 6930
+        },
+        "p_value_holm_independante": 0.0007498125468632842
+      },
+      "evaluation_window": "4 fenetres de test cumulatives sur 6 fenetres totales",
+      "limits": "Reclassement de 5 candidats deja selectionnes, jamais un choix du candidat lui-meme ; aucune revendication causale ; jeu de donnees synthetique, usage academique et benchmark de pipeline uniquement.",
+      "status": "validated_academic",
+      "used_by_default": true,
+      "fallback": "popularite_globale_v1",
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": "c8f796fb3d52080b9939da6fed589fa1023eb2331ed681444d7c2f7c1c02913b"
+    },
+    {
+      "domain": "recommendation",
+      "target": "added_to_cart_after",
+      "role": "ajout_panier",
+      "model_name": "pointwise_conversion",
+      "version": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+      "metrics": {
+        "ndcg@10": 0.014375578516147822,
+        "relative_ndcg_gain": 0.07696260231685907,
+        "recall@10": 0.022515158502069695,
+        "coverage_catalogue": 0.4423076923076923,
+        "diversite": 0.011913556162442595,
+        "bootstrap_ci95_independant": {
+          "observed_diff": 0.0010411317396987914,
+          "ci95_low": 0.00045457173997302125,
+          "ci95_high": 0.0016348723635682889,
+          "draws": 4000,
+          "n_groups": 6930
+        },
+        "p_value_holm_independante": 0.0014996250937265683
+      },
+      "evaluation_window": "4 fenetres de test cumulatives sur 6 fenetres totales",
+      "limits": "Reclassement de 5 candidats deja selectionnes, jamais un choix du candidat lui-meme ; aucune revendication causale ; jeu de donnees synthetique, usage academique et benchmark de pipeline uniquement.",
+      "status": "validated_academic",
+      "used_by_default": true,
+      "fallback": "popularite_globale_v1",
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": "b9bb55c60daf69cbeffc23d4d684cfbf42d4c72b0b96562653a3a59543a2b3a9"
+    },
+    {
+      "domain": "recommendation",
+      "target": "viewed_after_impression",
+      "role": "consultation",
+      "model_name": "CatBoostRanker",
+      "version": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+      "metrics": {
+        "ndcg@10": 0.011944419020915014,
+        "relative_ndcg_gain": 0.05573627671115983,
+        "recall@10": 0.019310336523124715,
+        "coverage_catalogue": 0.41586538461538464,
+        "diversite": 0.011189123005138175,
+        "bootstrap_ci95_independant": {
+          "observed_diff": 0.0006348608018525633,
+          "ci95_low": 0.00010504386879051391,
+          "ci95_high": 0.0011942029968024766,
+          "draws": 4000,
+          "n_groups": 6930
+        },
+        "p_value_holm_independante": 0.08822794301424644
+      },
+      "evaluation_window": "4 fenetres de test cumulatives sur 6 fenetres totales",
+      "limits": "Reclassement de 5 candidats deja selectionnes, jamais un choix du candidat lui-meme ; aucune revendication causale ; jeu de donnees synthetique, usage academique et benchmark de pipeline uniquement. Statut exploratoire : gain non demontre de facon statistiquement robuste par la validation independante (p brute = 0.088, non significative).",
+      "status": "exploratory",
+      "used_by_default": false,
+      "fallback": "popularite_globale_v1",
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": "0293cc280aa2eb50a87e95df76fd6ba8b3fcd67c6584c6061cc779d871abce91"
+    },
+    {
+      "domain": "recommendation",
+      "target": "toutes cibles (secours)",
+      "role": "secours",
+      "model_name": "popularite_globale_v1",
+      "version": "3e754ab0d511fba54872435c630793cad00b882c",
+      "metrics": {
+        "description": "score = popularite cumulee du produit, figee a la fin de la fenetre d'entrainement"
+      },
+      "evaluation_window": "instantane fige, pas de fenetre de test dediee",
+      "limits": "Aucune personnalisation ; utilise automatiquement si le modele principal echoue ou si le produit demande est hors catalogue connu.",
+      "status": "validated_academic",
+      "used_by_default": false,
+      "fallback": null,
+      "generated_at": "2026-08-22T02:44:48.163102+00:00",
+      "sha256": null
+    }
+  ]
+}

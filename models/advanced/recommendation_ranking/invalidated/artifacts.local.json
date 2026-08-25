@@ -1,0 +1,11 @@
+{
+  "convention": "artefacts regenerables, ignores par Git, non verifiables apres un clone",
+  "reproduce": "voir reports/45_final_corrected_decision.md",
+  "sha256_local": {
+    "complement_candidate_metrics.csv": "41ae800688d7d12b314e4e8303a797a98e6e2e5feb1b3c8e167dfb74a9004524",
+    "complement_decision_bootstrap.csv": "32dd31d2835d87fb769f2f42eaeb36a4ea76101a7bd3d240f0485ba6ef194001",
+    "complement_end_to_end_metrics.csv": "f62ebbf2c13dd027b246243b27e90281989b744810a76a462f6f6b71b8b56759",
+    "complement_lambdarank_predictions_f4.parquet": "3896b82aadd0c2eb1ab5099ecc65ecb6de7b4c4f4b77a598eb5753ab93fe7371",
+    "complement_topk_predictions.parquet": "b8ab3f735000292054a518cc08deedacd8cca6edee8675dfef6a7ba59455c65b"
+  }
+}

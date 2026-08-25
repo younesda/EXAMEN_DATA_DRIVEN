@@ -1,0 +1,139 @@
+name: Verification
+
+# Deux niveaux, pour ne pas faire attendre inutilement :
+#   - controles-structure : rapides, sur chaque poussee et chaque branche ;
+#   - tests-service       : la suite executable sans donnees brutes.
+#
+# Les suites d'entrainement pricing et recommandation ne figurent pas ici :
+# elles reconstruisent leurs jeux de donnees depuis `data/raw/`, qui n'est
+# volontairement pas versionne. Un executeur distant ne peut donc pas les
+# rejouer. Elles restent a lancer en local, par `python -m scripts.run_v4_checks`.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+  workflow_dispatch:
+
+# Une seule execution par branche : une nouvelle poussee annule la precedente.
+concurrency:
+  group: verification-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Version alignee sur celle de l'image de service, afin que la CI valide
+  # l'environnement reellement deploye et non celui du poste de developpement.
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  controles-structure:
+    name: Controles de structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+        with:
+          # L'historique complet est necessaire : le garde-fou forecasting
+          # compare les artefacts au commit de reference 40bdfae.
+          fetch-depth: 0
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Installer les dependances du service
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-api-v4.lock
+          pip install pytest httpx
+
+      - name: Garde-fou d'immutabilite du forecasting
+        run: python -m pytest tests/test_forecasting_unchanged.py -v
+
+      - name: Configuration de deploiement
+        run: python -m pytest api_v4/tests/test_deployment_config.py -q
+
+      - name: Contexte de construction des images
+        run: python -m pytest api_v4/tests/test_docker_context.py -q
+
+      - name: Integrite des manifestes SHA-256
+        run: python -m scripts.validate_manifests
+
+  tests-service:
+    name: Tests du service
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Installer les dependances du service
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-api-v4.lock
+          pip install pytest httpx
+
+      - name: Suite executable sans donnees brutes
+        run: python -m scripts.run_v4_checks --sans-donnees
+
+  construction-image:
+    name: Construction de l'image V4
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    # La construction locale n'etant pas verifiable sur le poste de
+    # developpement, cette etape est le seul endroit ou l'image est
+    # reellement bâtie avant deploiement.
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+
+      - name: Construire l'image du service V4
+        run: docker build -f Dockerfile.api_v4 -t api-v4:verification .
+
+      - name: Demarrer le conteneur
+        run: |
+          docker run -d --name api-v4 -p 8000:8000 -e PORT=8000 api-v4:verification
+          for i in $(seq 1 40); do
+            if curl -sf http://127.0.0.1:8000/health > /dev/null; then
+              echo "service pret"; exit 0
+            fi
+            sleep 3
+          done
+          echo "le service n'a pas demarre"; docker logs api-v4; exit 1
+
+      - name: Verifier les routes servies par le conteneur
+        run: |
+          set -e
+          for route in /health /metadata /metrics /forecast /forecast/produits \
+                       /pricing/produits /recommendations/produits /catalogue /docs; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "http://127.0.0.1:8000$route")
+            echo "  GET $route -> $code"
+            [ "$code" = "200" ] || { echo "route en echec : $route"; exit 1; }
+          done
+
+      - name: Verifier que la decision V2 est bien embarquee
+        # Regression deja constatee en production : le fichier de decision V2
+        # manquait dans l'image, et ces champs valaient silencieusement null.
+        run: |
+          set -e
+          modele=$(curl -s http://127.0.0.1:8000/metrics \
+                   | python -c "import json,sys; print(json.load(sys.stdin)['forecasting']['planning_model'])")
+          echo "  modele de planification servi : $modele"
+          [ "$modele" = "LightGBM_direct_per_horizon" ] \
+            || { echo "la decision V2 n'est pas embarquee dans l'image"; exit 1; }
+
+      - name: Journaux du conteneur en cas d'echec
+        if: failure()
+        run: docker logs api-v4

@@ -1,0 +1,47 @@
+# Configuration de deploiement du service API V4 (pricing et recommandation).
+#
+# Ce fichier decrit UN SERVICE SEPARE, destine a coexister avec le service V2
+# deja en ligne. Il ne remplace pas ce dernier et ne le modifie pas.
+#
+# Point d'attention important : le depot contient un `Dockerfile` a la racine
+# qui construit l'API V2 (il copie `api/` et `models/api_bundle/`, et sonde
+# `/ready`). Une plateforme qui detecte automatiquement ce fichier deploierait
+# la V2 en croyant deployer la V4. Le champ `dockerfilePath` ci-dessous leve
+# cette ambiguite en designant explicitement `Dockerfile.api_v4`.
+#
+# Statut : experimentation academique sur donnees synthetiques
+# (`synthetic_academic_experiment`). Le service n'ecrit dans aucune base et
+# n'ouvre aucune connexion Supabase : tout est charge depuis les artefacts et
+# catalogues versionnes (`models/v4/`, `api_v4/data/`).
+#
+# Aucun secret n'est declare ici. Le service n'a besoin d'aucune variable
+# contenant un identifiant, une cle ou une chaine de connexion. Si une telle
+# variable devenait necessaire, elle devrait etre saisie via l'interface de la
+# plateforme, jamais dans ce fichier versionne.
+
+services:
+  - type: web
+    name: examen-data-driven-api-v4
+    runtime: docker
+    plan: free
+    branch: v4/pricing-recommendation-training
+
+    # Designation explicite : sans cette ligne, le `Dockerfile` racine (V2)
+    # serait selectionne.
+    dockerfilePath: ./Dockerfile.api_v4
+    dockerContext: .
+
+    # Sonde V4. `/ready` appartient a l'API V2 et n'existe pas ici.
+    healthCheckPath: /health
+
+    envVars:
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+
+# Commit reellement deploye : la plateforme injecte automatiquement la variable
+# `RENDER_GIT_COMMIT` dans le service. L'application la lit et l'expose via
+# /health et /metadata (champ `deployed_commit`), avec repli sur la variable
+# `DEPLOYED_GIT_COMMIT` injectee au build par `Dockerfile.api_v4`. Aucune
+# declaration supplementaire n'est donc necessaire ici.

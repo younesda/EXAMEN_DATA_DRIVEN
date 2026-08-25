@@ -1,0 +1,225 @@
+{
+  "extracted_at_utc": "2026-08-21T16:14:30+00:00",
+  "git_commit": "c5cb7d9e26c193502d3549c7e75dcc6b316ee6a9",
+  "note": "Les tables 'V4' (fact_experimentation_prix, fact_exposition_reco) ne portent pas de suffixe _v4 dans le schema Postgres ; leur volumetrie et leur schema different des livraisons precedentes deja auditees (16797 puis 12996 lignes pour le pricing, 12996 puis 221080 pour la reco), ce qui identifie la livraison couramment presente en base comme la V4 visee par la consigne.",
+  "tables": [
+    {
+      "table": "fact_experimentation_prix",
+      "source": "fresh_extraction",
+      "rows": 11799,
+      "columns": [
+        "decision_id",
+        "experiment_id",
+        "produit_key",
+        "decision_timestamp",
+        "treatment_group",
+        "eligible_for_discount",
+        "discount_proposed",
+        "discount_applied",
+        "prix_applique_xof",
+        "propensity_score",
+        "product_impressions",
+        "stock_at_decision",
+        "categorie",
+        "classe_abc",
+        "cold_start_warmup",
+        "units_sold_window_7j",
+        "revenue_window_xof_7j",
+        "margin_window_xof_7j",
+        "fenetre_observation_debut",
+        "fenetre_observation_fin",
+        "statut_experience"
+      ],
+      "sha256": "a315736e38448b9f7356fa81bb8e9713fa2dcf11ef9752a0960c04f64efddfb3",
+      "path": "data/raw/v4/fact_experimentation_prix.parquet",
+      "live_row_count_at_extraction": 11799
+    },
+    {
+      "table": "fact_exposition_reco",
+      "source": "fresh_extraction",
+      "rows": 221080,
+      "columns": [
+        "recommendation_id",
+        "slate_id",
+        "experiment_id",
+        "assignment_id",
+        "client_key",
+        "anonymous_id",
+        "session_id",
+        "model_version",
+        "model_score",
+        "produit_key",
+        "rank",
+        "impression_timestamp",
+        "viewed_after_impression",
+        "view_timestamp",
+        "added_to_cart_after",
+        "add_to_cart_timestamp",
+        "purchased_after",
+        "purchase_timestamp",
+        "experiment_group",
+        "group_assignment_propensity",
+        "session_selection_probability",
+        "product_exposure_probability"
+      ],
+      "sha256": "d2c4fef5daeddf9d546389b2a9df9544d2e3fdd7f85ec8327c75c259f16239f3",
+      "path": "data/raw/v4/fact_exposition_reco.parquet",
+      "live_row_count_at_extraction": 221080
+    },
+    {
+      "table": "dim_client",
+      "source": "reused_v2_validated_cache",
+      "rows": 5000,
+      "columns": [
+        "client_key",
+        "customer_id",
+        "region",
+        "age_bracket",
+        "segment_fidelite",
+        "valid_from",
+        "valid_to",
+        "is_current"
+      ],
+      "sha256": "1a1f22df7ab187c8b92bbb8d8c29b12640427a185c594b43cc491502af09a456",
+      "path": "data/raw/dim_client.parquet",
+      "live_row_count_at_extraction": 5000,
+      "volume_matches_live": true
+    },
+    {
+      "table": "dim_date",
+      "source": "reused_v2_validated_cache",
+      "rows": 546,
+      "columns": [
+        "date_key",
+        "date_complete",
+        "annee",
+        "mois",
+        "jour",
+        "jour_semaine",
+        "est_weekend"
+      ],
+      "sha256": "70b57202cf4f74dec4ce1d46e5e7b5d9bf0b01ccd91c77d603d37b5bfd1cbfb8",
+      "path": "data/raw/dim_date.parquet",
+      "live_row_count_at_extraction": 546,
+      "volume_matches_live": true
+    },
+    {
+      "table": "dim_produit",
+      "source": "reused_v2_validated_cache",
+      "rows": 300,
+      "columns": [
+        "produit_key",
+        "product_id",
+        "product_name",
+        "categorie",
+        "marque",
+        "prix_base_xof",
+        "cout_xof",
+        "valid_from",
+        "valid_to",
+        "is_current"
+      ],
+      "sha256": "fe1fc1f2ee436b13357b39987dac8d0a54b174423e7eb483dafdfe5aee1f1439",
+      "path": "data/raw/dim_produit.parquet",
+      "live_row_count_at_extraction": 300,
+      "volume_matches_live": true
+    },
+    {
+      "table": "dim_promotion",
+      "source": "reused_v2_validated_cache",
+      "rows": 120,
+      "columns": [
+        "promo_key",
+        "promotion_id",
+        "portee",
+        "cible",
+        "remise_pct",
+        "date_debut",
+        "date_fin"
+      ],
+      "sha256": "79b14de44b1d3b2c6ec967925e92a179ea6723d68028f3d34a4d5194f30b3630",
+      "path": "data/raw/dim_promotion.parquet",
+      "live_row_count_at_extraction": 120,
+      "volume_matches_live": true
+    },
+    {
+      "table": "fact_evenements_web",
+      "source": "reused_v2_validated_cache",
+      "rows": 657392,
+      "columns": [
+        "event_id",
+        "session_id",
+        "produit_key",
+        "client_key",
+        "anonymous_id",
+        "date_key",
+        "event_timestamp",
+        "type_event",
+        "appareil",
+        "source_trafic",
+        "canal",
+        "order_id",
+        "quantity",
+        "est_bot"
+      ],
+      "sha256": "16cabe37b57785f4d05a3c3e7bb1f1099c592ce8964e3915ae996f812f96ef50",
+      "path": "data/raw/fact_evenements_web.parquet",
+      "live_row_count_at_extraction": 657392,
+      "volume_matches_live": true
+    },
+    {
+      "table": "fact_stock",
+      "source": "reused_v2_validated_cache",
+      "rows": 117763,
+      "columns": [
+        "produit_key",
+        "date_key",
+        "niveau_stock",
+        "quantite_vendue",
+        "quantite_reapprovisionnee"
+      ],
+      "sha256": "74261e9af8229c0926c04502b7fa3c377c729e362c81118a19b7c702a68a067f",
+      "path": "data/raw/fact_stock.parquet",
+      "live_row_count_at_extraction": 117763,
+      "volume_matches_live": true
+    },
+    {
+      "table": "fact_ventes",
+      "source": "reused_v2_validated_cache",
+      "rows": 84319,
+      "columns": [
+        "vente_id",
+        "produit_key",
+        "client_key",
+        "date_key",
+        "promo_key",
+        "quantite",
+        "montant_net_xof",
+        "order_id",
+        "statut_commande"
+      ],
+      "sha256": "d624100c7a52d859eb5adf5cefc6924ff5c43d89ce4956e9bb7a92f94d4eb812",
+      "path": "data/raw/fact_ventes.parquet",
+      "live_row_count_at_extraction": 84319,
+      "volume_matches_live": true
+    },
+    {
+      "table": "fact_ventes",
+      "source": "csv_export_for_pricing_documentation",
+      "rows": 84319,
+      "columns": [
+        "vente_id",
+        "produit_key",
+        "client_key",
+        "date_key",
+        "promo_key",
+        "quantite",
+        "montant_net_xof",
+        "order_id",
+        "statut_commande"
+      ],
+      "sha256": "8fc7ad62fa6f938d8b9907ae56de60c71c32051cdb6fb2089a8d606b9383b980",
+      "path": "data/raw/v4/fact_ventes.csv"
+    }
+  ]
+}

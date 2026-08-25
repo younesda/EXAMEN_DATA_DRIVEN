@@ -19,6 +19,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.test-tmp*/
 .venv/
 venv/
 
@@ -50,6 +51,7 @@ data/raw/
 data/extracted/
 data/interim/
 data/processed/
+data/checkpoints/
 
 # =============================================================================
 # Checkpoints et prédictions brutes de backtest (volumineux, intermédiaires,
@@ -83,7 +85,15 @@ reports/backtest/operational_predictions/
 # ~135 Mo) — jamais publié, ni pour la taille ni pour la granularité client.
 reports/recsys_final/recommandations_sortie.csv
 
+# --- Pricing/Recommandation V4 : artefacts de reproductibilité au grain
+# produit/décision/slate uniquement, aucune donnée client individuelle ---
+!models/v4/**/*.csv
+!reports/v4_training/*.csv
+
 # =============================================================================
 # Notebooks Jupyter (checkpoints d'édition)
 # =============================================================================
 .ipynb_checkpoints/
+
+# --- CatBoost : répertoire de logs d'entraînement local, régénéré à chaque run ---
+catboost_info/

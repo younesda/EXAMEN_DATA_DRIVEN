@@ -1,0 +1,890 @@
+{
+  "status": "experimental",
+  "selected": null,
+  "official_baseline": "popularite_globale",
+  "ranker_status": "challenger_exploratoire",
+  "validated_reference": {
+    "path": "models/recommendation/metadata.json",
+    "sha256": "d88a89e1de3921b740876cf83924d8f1ef6258c8623561fdb27d68ce4ce97db9",
+    "official_baseline": "popularite_globale",
+    "hybrid_status": "challenger_exploratoire"
+  },
+  "window_metrics": [
+    {
+      "window": 1,
+      "model": "popularite_globale",
+      "recall_end_to_end": 0.07038786647791387,
+      "ndcg_end_to_end": 0.04022483875859461,
+      "recall_eligible": 0.07209630983902827,
+      "ndcg_eligible": 0.04120116979642458,
+      "catalog_coverage": 0.056666666666666664,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "popularite_recente",
+      "recall_end_to_end": 0.06244451967200782,
+      "ndcg_end_to_end": 0.03525452870156536,
+      "recall_eligible": 0.06396016335336724,
+      "ndcg_eligible": 0.0361102211457781,
+      "catalog_coverage": 0.05333333333333334,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "item_item_commandes",
+      "recall_end_to_end": 0.0623297976378545,
+      "ndcg_end_to_end": 0.03608654073168391,
+      "recall_eligible": 0.06384265680382185,
+      "ndcg_eligible": 0.03696242764264711,
+      "catalog_coverage": 0.41,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "BM25_implicite",
+      "recall_end_to_end": 0.06176969423414921,
+      "ndcg_end_to_end": 0.03600326499133377,
+      "recall_eligible": 0.06326895865730817,
+      "ndcg_eligible": 0.03687713064646323,
+      "catalog_coverage": 0.4766666666666667,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "SVD_implicite",
+      "recall_end_to_end": 0.042627014901896416,
+      "ndcg_end_to_end": 0.025019865635572732,
+      "recall_eligible": 0.04366165118592302,
+      "ndcg_eligible": 0.025627143927698284,
+      "catalog_coverage": 0.5766666666666667,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "BPR_implicite",
+      "recall_end_to_end": 0.044011885955013916,
+      "ndcg_end_to_end": 0.02517462894255096,
+      "recall_eligible": 0.045080135614116196,
+      "ndcg_eligible": 0.025785663625622585,
+      "catalog_coverage": 0.8133333333333334,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "hybride_web_historique",
+      "recall_end_to_end": 0.06237442126067719,
+      "ndcg_end_to_end": 0.036020899514174504,
+      "recall_eligible": 0.06388836352428585,
+      "ndcg_eligible": 0.03689519319170301,
+      "catalog_coverage": 0.35333333333333333,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "LightGBM_ranker",
+      "recall_end_to_end": 0.05324487255766876,
+      "ndcg_end_to_end": 0.0309433520046814,
+      "recall_eligible": 0.05453722383334034,
+      "ndcg_eligible": 0.03169440423780473,
+      "catalog_coverage": 0.6433333333333333,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "CatBoost_ranker",
+      "recall_end_to_end": 0.05846754614527126,
+      "ndcg_end_to_end": 0.03430071954219667,
+      "recall_eligible": 0.05988666134297202,
+      "ndcg_eligible": 0.035133261278657756,
+      "catalog_coverage": 0.49333333333333335,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "ranker_full",
+      "recall_end_to_end": 0.05324487255766876,
+      "ndcg_end_to_end": 0.0309433520046814,
+      "recall_eligible": 0.05453722383334034,
+      "ndcg_eligible": 0.03169440423780473,
+      "catalog_coverage": 0.6433333333333333,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "ranker_no_web",
+      "recall_end_to_end": 0.05310091435683852,
+      "ndcg_end_to_end": 0.03294330865997535,
+      "recall_eligible": 0.05438977150142198,
+      "ndcg_eligible": 0.033742903530363105,
+      "catalog_coverage": 0.62,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "ranker_no_stock",
+      "recall_end_to_end": 0.057448725576687655,
+      "ndcg_end_to_end": 0.03377985237564731,
+      "recall_eligible": 0.05884311211981114,
+      "ndcg_eligible": 0.034599751705153316,
+      "catalog_coverage": 0.6766666666666666,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 1,
+      "model": "ranker_no_orders",
+      "recall_end_to_end": 0.04965087571722643,
+      "ndcg_end_to_end": 0.02841119309100392,
+      "recall_eligible": 0.05085599405987755,
+      "ndcg_eligible": 0.029100785156319548,
+      "catalog_coverage": 0.6266666666666667,
+      "n_clients": 2321,
+      "n_eligible_truth": 2266,
+      "eligible_truth_rate": 0.976303317535545
+    },
+    {
+      "window": 2,
+      "model": "popularite_globale",
+      "recall_end_to_end": 0.06965999056179828,
+      "ndcg_end_to_end": 0.03798738473798111,
+      "recall_eligible": 0.07088311748637835,
+      "ndcg_eligible": 0.03865438731281188,
+      "catalog_coverage": 0.06333333333333334,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "popularite_recente",
+      "recall_end_to_end": 0.06927880163295118,
+      "ndcg_end_to_end": 0.03722739740699893,
+      "recall_eligible": 0.07049523544088762,
+      "ndcg_eligible": 0.03788105572267366,
+      "catalog_coverage": 0.05333333333333334,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "item_item_commandes",
+      "recall_end_to_end": 0.06875107454400799,
+      "ndcg_end_to_end": 0.03914638681168206,
+      "recall_eligible": 0.06995824224085093,
+      "ndcg_eligible": 0.03983373975737213,
+      "catalog_coverage": 0.3466666666666667,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "BM25_implicite",
+      "recall_end_to_end": 0.06930865172442822,
+      "ndcg_end_to_end": 0.03947873157967643,
+      "recall_eligible": 0.07052560965604443,
+      "ndcg_eligible": 0.04017192001042326,
+      "catalog_coverage": 0.41333333333333333,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "SVD_implicite",
+      "recall_end_to_end": 0.043541575515692196,
+      "ndcg_end_to_end": 0.025934354017534144,
+      "recall_eligible": 0.04430610150718846,
+      "ndcg_eligible": 0.02638972310981526,
+      "catalog_coverage": 0.58,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "BPR_implicite",
+      "recall_end_to_end": 0.04884084120937038,
+      "ndcg_end_to_end": 0.02926160534544805,
+      "recall_eligible": 0.04969841450819711,
+      "ndcg_eligible": 0.029775396074757758,
+      "catalog_coverage": 0.89,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "hybride_web_historique",
+      "recall_end_to_end": 0.06756369600453412,
+      "ndcg_end_to_end": 0.039536443668004725,
+      "recall_eligible": 0.06875001508153682,
+      "ndcg_eligible": 0.04023064543809512,
+      "catalog_coverage": 0.30666666666666664,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "LightGBM_ranker",
+      "recall_end_to_end": 0.05904889071487263,
+      "ndcg_end_to_end": 0.03430236141146324,
+      "recall_eligible": 0.06008570234113712,
+      "ndcg_eligible": 0.034904660399457166,
+      "catalog_coverage": 0.7133333333333334,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "CatBoost_ranker",
+      "recall_end_to_end": 0.06507431101720337,
+      "ndcg_end_to_end": 0.03544450606172143,
+      "recall_eligible": 0.06621692015713755,
+      "ndcg_eligible": 0.03606685942902591,
+      "catalog_coverage": 0.4033333333333333,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "ranker_full",
+      "recall_end_to_end": 0.05904889071487263,
+      "ndcg_end_to_end": 0.03430236141146324,
+      "recall_eligible": 0.06008570234113712,
+      "ndcg_eligible": 0.034904660399457166,
+      "catalog_coverage": 0.7133333333333334,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "ranker_no_web",
+      "recall_end_to_end": 0.06030017868555255,
+      "ndcg_end_to_end": 0.032453103900896826,
+      "recall_eligible": 0.06135896108722195,
+      "ndcg_eligible": 0.033022932648320596,
+      "catalog_coverage": 0.6733333333333333,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "ranker_no_stock",
+      "recall_end_to_end": 0.059634183720050596,
+      "ndcg_end_to_end": 0.031877616959278605,
+      "recall_eligible": 0.060681272230185275,
+      "ndcg_eligible": 0.03243734100287798,
+      "catalog_coverage": 0.7266666666666667,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 2,
+      "model": "ranker_no_orders",
+      "recall_end_to_end": 0.052088794981153236,
+      "ndcg_end_to_end": 0.029983787544205612,
+      "recall_eligible": 0.053003397568614954,
+      "ndcg_eligible": 0.03051025873018247,
+      "catalog_coverage": 0.58,
+      "n_clients": 2434,
+      "n_eligible_truth": 2392,
+      "eligible_truth_rate": 0.9827444535743632
+    },
+    {
+      "window": 3,
+      "model": "popularite_globale",
+      "recall_end_to_end": 0.06428108518816482,
+      "ndcg_end_to_end": 0.035794903169791684,
+      "recall_eligible": 0.065492941712204,
+      "ndcg_eligible": 0.03646972511479595,
+      "catalog_coverage": 0.06333333333333334,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "popularite_recente",
+      "recall_end_to_end": 0.06706620567240036,
+      "ndcg_end_to_end": 0.03699544037573569,
+      "recall_eligible": 0.0683305685662243,
+      "ndcg_eligible": 0.037692895399212674,
+      "catalog_coverage": 0.05333333333333334,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "item_item_commandes",
+      "recall_end_to_end": 0.06384690776283697,
+      "ndcg_end_to_end": 0.03510181085522872,
+      "recall_eligible": 0.0650505789747593,
+      "ndcg_eligible": 0.03576356630577811,
+      "catalog_coverage": 0.2966666666666667,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "BM25_implicite",
+      "recall_end_to_end": 0.06138023726519302,
+      "ndcg_end_to_end": 0.03444403947841816,
+      "recall_eligible": 0.06253740567265156,
+      "ndcg_eligible": 0.03509339432104408,
+      "catalog_coverage": 0.34,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "SVD_implicite",
+      "recall_end_to_end": 0.03736447917863847,
+      "ndcg_end_to_end": 0.023236793685181577,
+      "recall_eligible": 0.03806889149102264,
+      "ndcg_eligible": 0.023674864385803854,
+      "catalog_coverage": 0.5833333333333334,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "BPR_implicite",
+      "recall_end_to_end": 0.034998531458708446,
+      "ndcg_end_to_end": 0.021121470718072688,
+      "recall_eligible": 0.0356583398386677,
+      "ndcg_eligible": 0.021519662379151105,
+      "catalog_coverage": 0.9566666666666667,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "hybride_web_historique",
+      "recall_end_to_end": 0.06232505203744142,
+      "ndcg_end_to_end": 0.03593325294985153,
+      "recall_eligible": 0.06350003252667186,
+      "ndcg_eligible": 0.036610683128414305,
+      "catalog_coverage": 0.22,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "LightGBM_ranker",
+      "recall_end_to_end": 0.05179465323270633,
+      "ndcg_end_to_end": 0.02896675222221143,
+      "recall_eligible": 0.05277110981004424,
+      "ndcg_eligible": 0.029512846731318695,
+      "catalog_coverage": 0.6566666666666666,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "CatBoost_ranker",
+      "recall_end_to_end": 0.06202671468158193,
+      "ndcg_end_to_end": 0.03662485591132547,
+      "recall_eligible": 0.06319607077803799,
+      "ndcg_eligible": 0.03731532450637505,
+      "catalog_coverage": 0.35,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "ranker_full",
+      "recall_end_to_end": 0.05179465323270633,
+      "ndcg_end_to_end": 0.02896675222221143,
+      "recall_eligible": 0.05277110981004424,
+      "ndcg_eligible": 0.029512846731318695,
+      "catalog_coverage": 0.6566666666666666,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "ranker_no_web",
+      "recall_end_to_end": 0.054511933494234374,
+      "ndcg_end_to_end": 0.030284245869046055,
+      "recall_eligible": 0.05553961748633879,
+      "ndcg_eligible": 0.030855178373134624,
+      "catalog_coverage": 0.66,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "ranker_no_stock",
+      "recall_end_to_end": 0.052763251988915696,
+      "ndcg_end_to_end": 0.02949148811718542,
+      "recall_eligible": 0.05375796903460837,
+      "ndcg_eligible": 0.03004747518824712,
+      "catalog_coverage": 0.6833333333333333,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 3,
+      "model": "ranker_no_orders",
+      "recall_end_to_end": 0.05542673894443805,
+      "ndcg_end_to_end": 0.03323714818435953,
+      "recall_eligible": 0.05647166926880041,
+      "ndcg_eligible": 0.03386375015832696,
+      "catalog_coverage": 0.6533333333333333,
+      "n_clients": 2486,
+      "n_eligible_truth": 2440,
+      "eligible_truth_rate": 0.9814963797264682
+    },
+    {
+      "window": 4,
+      "model": "popularite_globale",
+      "recall_end_to_end": 0.06310164177634058,
+      "ndcg_end_to_end": 0.0368402230850822,
+      "recall_eligible": 0.06476631822880792,
+      "ndcg_eligible": 0.03781210036350151,
+      "catalog_coverage": 0.06,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "popularite_recente",
+      "recall_end_to_end": 0.06382948822707858,
+      "ndcg_end_to_end": 0.036726619490082886,
+      "recall_eligible": 0.065513365904957,
+      "ndcg_eligible": 0.03769549980639175,
+      "catalog_coverage": 0.06,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "item_item_commandes",
+      "recall_end_to_end": 0.062334286641515566,
+      "ndcg_end_to_end": 0.03710425804393701,
+      "recall_eligible": 0.06397871959496032,
+      "ndcg_eligible": 0.03808310079530221,
+      "catalog_coverage": 0.25,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "BM25_implicite",
+      "recall_end_to_end": 0.060925317431341525,
+      "ndcg_end_to_end": 0.03736117505229185,
+      "recall_eligible": 0.06253258054577097,
+      "ndcg_eligible": 0.0383467954988486,
+      "catalog_coverage": 0.26,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "SVD_implicite",
+      "recall_end_to_end": 0.043088066551921975,
+      "ndcg_end_to_end": 0.024778415854782673,
+      "recall_eligible": 0.04422476740077729,
+      "ndcg_eligible": 0.02543209211805806,
+      "catalog_coverage": 0.5866666666666667,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "BPR_implicite",
+      "recall_end_to_end": 0.04063731114935934,
+      "ndcg_end_to_end": 0.023495244136553566,
+      "recall_eligible": 0.04170935892906214,
+      "ndcg_eligible": 0.02411506920858136,
+      "catalog_coverage": 0.9633333333333334,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "hybride_web_historique",
+      "recall_end_to_end": 0.0649246480872987,
+      "ndcg_end_to_end": 0.03773328505819615,
+      "recall_eligible": 0.06663741703931317,
+      "ndcg_eligible": 0.038728722091883105,
+      "catalog_coverage": 0.21,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "LightGBM_ranker",
+      "recall_end_to_end": 0.05018427244330858,
+      "ndcg_end_to_end": 0.029920764077704772,
+      "recall_eligible": 0.05150817740471491,
+      "ndcg_eligible": 0.030710099980826414,
+      "catalog_coverage": 0.6033333333333334,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "CatBoost_ranker",
+      "recall_end_to_end": 0.060222984289249354,
+      "ndcg_end_to_end": 0.03342564126852663,
+      "recall_eligible": 0.061811719241645045,
+      "ndcg_eligible": 0.03430743889473673,
+      "catalog_coverage": 0.37333333333333335,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "ranker_full",
+      "recall_end_to_end": 0.05018427244330858,
+      "ndcg_end_to_end": 0.029920764077704772,
+      "recall_eligible": 0.05150817740471491,
+      "ndcg_eligible": 0.030710099980826414,
+      "catalog_coverage": 0.6033333333333334,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "ranker_no_web",
+      "recall_end_to_end": 0.05560355418789153,
+      "ndcg_end_to_end": 0.031153152170083236,
+      "recall_eligible": 0.05707042453744844,
+      "ndcg_eligible": 0.03197499954802443,
+      "catalog_coverage": 0.5233333333333333,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "ranker_no_stock",
+      "recall_end_to_end": 0.061070501341585676,
+      "ndcg_end_to_end": 0.03376465107569151,
+      "recall_eligible": 0.06268159453443872,
+      "ndcg_eligible": 0.03465539207686391,
+      "catalog_coverage": 0.6633333333333333,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    },
+    {
+      "window": 4,
+      "model": "ranker_no_orders",
+      "recall_end_to_end": 0.05274178966950051,
+      "ndcg_end_to_end": 0.0304875125027613,
+      "recall_eligible": 0.054133164170262274,
+      "ndcg_eligible": 0.03129179972459836,
+      "catalog_coverage": 0.5333333333333333,
+      "n_clients": 2490,
+      "n_eligible_truth": 2426,
+      "eligible_truth_rate": 0.97429718875502
+    }
+  ],
+  "summary": [
+    {
+      "model": "popularite_globale",
+      "recall": 0.06685764600105439,
+      "ndcg": 0.0377118374378624,
+      "recall_eligible": 0.06830967181660463,
+      "ndcg_eligible": 0.03853434564688348,
+      "coverage": 0.060833333333333336,
+      "n_windows": 4
+    },
+    {
+      "model": "hybride_web_historique",
+      "recall": 0.06429695434748786,
+      "ndcg": 0.03730597029755672,
+      "recall_eligible": 0.06569395704295192,
+      "ndcg_eligible": 0.03811631096252388,
+      "coverage": 0.27249999999999996,
+      "n_windows": 4
+    },
+    {
+      "model": "item_item_commandes",
+      "recall": 0.06431551664655376,
+      "ndcg": 0.036859749110632924,
+      "recall_eligible": 0.0657075494035981,
+      "ndcg_eligible": 0.03766070862527489,
+      "coverage": 0.3258333333333333,
+      "n_windows": 4
+    },
+    {
+      "model": "BM25_implicite",
+      "recall": 0.06334597516377799,
+      "ndcg": 0.036821802775430054,
+      "recall_eligible": 0.06471613863294379,
+      "ndcg_eligible": 0.03762231011919479,
+      "coverage": 0.3725,
+      "n_windows": 4
+    },
+    {
+      "model": "popularite_recente",
+      "recall": 0.06565475380110948,
+      "ndcg": 0.036550996493595715,
+      "recall_eligible": 0.06707483331635904,
+      "ndcg_eligible": 0.03734491801851405,
+      "coverage": 0.055,
+      "n_windows": 4
+    },
+    {
+      "model": "CatBoost_ranker",
+      "recall": 0.06144788903332648,
+      "ndcg": 0.03494893069594255,
+      "recall_eligible": 0.06277784287994816,
+      "ndcg_eligible": 0.035705721027198864,
+      "coverage": 0.405,
+      "n_windows": 4
+    },
+    {
+      "model": "ranker_no_stock",
+      "recall": 0.057729165656809904,
+      "ndcg": 0.03222840213195071,
+      "recall_eligible": 0.05899098697976088,
+      "ndcg_eligible": 0.03293498999328558,
+      "coverage": 0.6875,
+      "n_windows": 4
+    },
+    {
+      "model": "ranker_no_web",
+      "recall": 0.05587914518112924,
+      "ndcg": 0.031708452650000364,
+      "recall_eligible": 0.05708969365310779,
+      "ndcg_eligible": 0.03239900352496069,
+      "coverage": 0.6191666666666666,
+      "n_windows": 4
+    },
+    {
+      "model": "LightGBM_ranker",
+      "recall": 0.053568172237139076,
+      "ndcg": 0.031033307429015212,
+      "recall_eligible": 0.05472555334730915,
+      "ndcg_eligible": 0.031705502837351754,
+      "coverage": 0.6541666666666667,
+      "n_windows": 4
+    },
+    {
+      "model": "ranker_full",
+      "recall": 0.053568172237139076,
+      "ndcg": 0.031033307429015212,
+      "recall_eligible": 0.05472555334730915,
+      "ndcg_eligible": 0.031705502837351754,
+      "coverage": 0.6541666666666667,
+      "n_windows": 4
+    },
+    {
+      "model": "ranker_no_orders",
+      "recall": 0.052477049828079554,
+      "ndcg": 0.03052991033058259,
+      "recall_eligible": 0.0536160562668888,
+      "ndcg_eligible": 0.031191648442356834,
+      "coverage": 0.5983333333333334,
+      "n_windows": 4
+    },
+    {
+      "model": "BPR_implicite",
+      "recall": 0.04212214244311302,
+      "ndcg": 0.024763237285656315,
+      "recall_eligible": 0.04303656222251079,
+      "ndcg_eligible": 0.0252989478220282,
+      "coverage": 0.9058333333333334,
+      "n_windows": 4
+    },
+    {
+      "model": "SVD_implicite",
+      "recall": 0.04165528403703726,
+      "ndcg": 0.02474235729826778,
+      "recall_eligible": 0.04256535289622786,
+      "ndcg_eligible": 0.025280955885343865,
+      "coverage": 0.5816666666666667,
+      "n_windows": 4
+    }
+  ],
+  "candidate_audit": [
+    {
+      "window": 1,
+      "train_candidate_client_recall": 0.6042323277802791,
+      "test_candidate_client_recall": 0.6130978026712623,
+      "n_test_clients": 2321,
+      "population_filtered": false,
+      "test_targets_injected": false
+    },
+    {
+      "window": 2,
+      "train_candidate_client_recall": 0.6130978026712623,
+      "test_candidate_client_recall": 0.5834018077239113,
+      "n_test_clients": 2434,
+      "population_filtered": false,
+      "test_targets_injected": false
+    },
+    {
+      "window": 3,
+      "train_candidate_client_recall": 0.5834018077239113,
+      "test_candidate_client_recall": 0.5933226065969429,
+      "n_test_clients": 2486,
+      "population_filtered": false,
+      "test_targets_injected": false
+    },
+    {
+      "window": 4,
+      "train_candidate_client_recall": 0.5933226065969429,
+      "test_candidate_client_recall": 0.5963855421686747,
+      "n_test_clients": 2490,
+      "population_filtered": false,
+      "test_targets_injected": false
+    }
+  ],
+  "paired_bootstrap_vs_global": {
+    "unit": "client_fenetre",
+    "draws": 5000,
+    "seed": 42,
+    "recall_diff": {
+      "mean": -0.013238292610916186,
+      "ci95_low": -0.017687339578974556,
+      "ci95_high": -0.00876951327284027
+    },
+    "ndcg_diff": {
+      "mean": -0.006650489540297126,
+      "ci95_low": -0.009430457801421759,
+      "ci95_high": -0.004012831387789115
+    }
+  },
+  "per_window_ranker_vs_global": [
+    {
+      "window": 1,
+      "recall_end_to_end_LightGBM_ranker": 0.05324487255766876,
+      "recall_end_to_end_popularite_globale": 0.07038786647791387,
+      "ndcg_end_to_end_LightGBM_ranker": 0.0309433520046814,
+      "ndcg_end_to_end_popularite_globale": 0.04022483875859461
+    },
+    {
+      "window": 2,
+      "recall_end_to_end_LightGBM_ranker": 0.05904889071487263,
+      "recall_end_to_end_popularite_globale": 0.06965999056179828,
+      "ndcg_end_to_end_LightGBM_ranker": 0.03430236141146324,
+      "ndcg_end_to_end_popularite_globale": 0.03798738473798111
+    },
+    {
+      "window": 3,
+      "recall_end_to_end_LightGBM_ranker": 0.05179465323270633,
+      "recall_end_to_end_popularite_globale": 0.06428108518816482,
+      "ndcg_end_to_end_LightGBM_ranker": 0.02896675222221143,
+      "ndcg_end_to_end_popularite_globale": 0.035794903169791684
+    },
+    {
+      "window": 4,
+      "recall_end_to_end_LightGBM_ranker": 0.05018427244330858,
+      "recall_end_to_end_popularite_globale": 0.06310164177634058,
+      "ndcg_end_to_end_LightGBM_ranker": 0.029920764077704772,
+      "ndcg_end_to_end_popularite_globale": 0.0368402230850822
+    }
+  ],
+  "decision_thresholds": {
+    "recall_ge_008": false,
+    "ndcg_ge_0045": false,
+    "coverage_ge_020": true,
+    "wins_ge_3_of_4": false,
+    "bootstrap_ndcg_ci_above_zero": false
+  },
+  "ndcg_windows_won": 0,
+  "methodology": {
+    "outer_windows": 4,
+    "days_per_window": 30,
+    "ranker_training_window_days": 30,
+    "ranker_training_strictly_prior": true,
+    "test_used_for_tuning": false,
+    "confirmed_orders_only": true,
+    "purchase_web_used_as_signal": false,
+    "test_population_filtered": false,
+    "seen_items_excluded": true,
+    "empty_discovery_truth_scored_zero_end_to_end": true,
+    "max_seconds_per_model": 300,
+    "sequential": true
+  },
+  "ablations": {
+    "promotion": "not_used_in_general_ranker",
+    "ranker_full": [],
+    "ranker_no_web": [
+      "hybrid_web",
+      "item_views",
+      "item_carts",
+      "source_code",
+      "device_code"
+    ],
+    "ranker_no_stock": [
+      "stock_at_cutoff"
+    ],
+    "ranker_no_orders": [
+      "item_item",
+      "bm25",
+      "svd",
+      "bpr",
+      "user_item_quantity",
+      "category_affinity",
+      "last_basket_complementarity",
+      "user_order_frequency",
+      "user_recency_days"
+    ]
+  },
+  "availability": {
+    "implicit_package": false,
+    "lightfm_package": false,
+    "manual_bm25": true,
+    "torch_bpr": true,
+    "deep_sequence_model": false
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "genere_le": "2026-08-15T12:27:46.844165+00:00",
+  "previsions_centrales_identiques_bit_a_bit": {
+    "ok": true,
+    "n_lignes": 49860,
+    "methode": "comparaison exacte np.array_equal sur y_pred (aucune tolérance)",
+    "note": "Le système V2 ne modifie pas la prévision centrale : C3 n'agit que sur les bornes."
+  },
+  "intervalles_c3_recalculables": {
+    "ok": true,
+    "methode": "deux exécutions indépendantes comparées à l'identique",
+    "n_points_calibrables": 42450
+  },
+  "couverture_dans_les_seuils": {
+    "ok": true,
+    "couverture_globale": 0.8110247349823322,
+    "couverture_produits_a": 0.7903125,
+    "cible": [
+      0.78,
+      0.84
+    ],
+    "reference_v1_produits_a": 0.7439
+  },
+  "bornes_ordonnees_et_non_negatives": {
+    "ok": true,
+    "n_bornes_desordonnees": 0,
+    "n_bornes_negatives": 0
+  },
+  "aucune_fuite_calibration": {
+    "ok": true,
+    "regime": "prior_windows_only",
+    "detail": "fenêtre 1 non calibrable comme attendu ; calibration issue des seules fenêtres antérieures",
+    "part_non_calibrable": 0.14861612515042122
+  },
+  "v1_intacte": {
+    "ok": true,
+    "n_artefacts_verrouilles": 22,
+    "ecarts": []
+  },
+  "statut_experiences_A_a_E": {
+    "ok": true,
+    "statuts": {
+      "A_blend_autoets_wa28": "rejected",
+      "B_selection_par_segment": "rejected",
+      "C_recalibration_intervalles": "retained",
+      "D_hurdle_recalibre": "not_launched",
+      "E_variables_metier": "not_promising"
+    },
+    "attendus": {
+      "A_blend_autoets_wa28": "rejected",
+      "B_selection_par_segment": "rejected",
+      "C_recalibration_intervalles": "retained",
+      "D_hurdle_recalibre": "not_launched",
+      "E_variables_metier": "not_promising"
+    }
+  },
+  "aucun_secret_ni_donnee_brute": {
+    "ok": true,
+    "secrets": {},
+    "donnees_brutes": []
+  },
+  "tests": {
+    "ok": true,
+    "resume": "180 passed in 26.61s"
+  },
+  "verdict_global": "TOUS LES CONTROLES PASSENT"
+}

@@ -1,0 +1,254 @@
+/* Console V4 — feuille de style unique, sans framework ni ressource distante. */
+
+:root {
+  --fond: #f5f6f8;
+  --carte: #ffffff;
+  --bordure: #d9dde3;
+  --texte: #1c2430;
+  --texte-doux: #5a6472;
+  --accent: #1f5f8b;
+  --accent-clair: #e8f0f6;
+  --valide: #1e7a4d;
+  --valide-clair: #e6f4ec;
+  --alerte: #a4451c;
+  --alerte-clair: #fceee7;
+  --exploratoire: #8a6d1f;
+  --exploratoire-clair: #fbf3dd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------- bandeau */
+
+.bandeau {
+  background: var(--accent);
+  color: #fff;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.bandeau h1 { margin: 0; font-size: 1.35rem; letter-spacing: .01em; }
+.bandeau-titre p { margin: .15rem 0 0; opacity: .85; font-size: .9rem; }
+.bandeau-statut {
+  display: flex; align-items: center; gap: .5rem;
+  background: rgba(255,255,255,.12);
+  padding: .4rem .8rem; border-radius: 999px; font-size: .85rem;
+}
+.pastille {
+  width: .6rem; height: .6rem; border-radius: 50%;
+  background: #c9d3dc; flex: none;
+}
+.pastille.ok { background: #6ee7a8; }
+.pastille.ko { background: #f3a08a; }
+
+/* -------------------------------------------------------------- onglets */
+
+.onglets {
+  display: flex; flex-wrap: wrap; gap: .25rem;
+  padding: .75rem 1.5rem 0;
+  border-bottom: 1px solid var(--bordure);
+  background: var(--carte);
+}
+.onglet {
+  border: 1px solid transparent;
+  border-bottom: none;
+  background: none;
+  padding: .6rem 1rem;
+  font-size: .92rem;
+  font-family: inherit;
+  color: var(--texte-doux);
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+}
+.onglet:hover { background: var(--accent-clair); color: var(--accent); }
+.onglet.actif {
+  background: var(--fond);
+  border-color: var(--bordure);
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: -1px;
+}
+
+/* ---------------------------------------------------------------- pages */
+
+main { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+.page { display: none; }
+.page.active { display: block; }
+
+h2 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.intro { margin: 0 0 1.25rem; color: var(--texte-doux); font-size: .92rem; max-width: 70ch; }
+
+/* ----------------------------------------------------------- formulaire */
+
+.formulaire {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+.champ { display: flex; flex-direction: column; gap: .35rem; }
+.champ-large { grid-column: 1 / -1; }
+label { font-size: .85rem; font-weight: 600; color: var(--texte-doux); }
+input[type="text"], input[type="number"], select {
+  font: inherit; font-size: .92rem;
+  padding: .5rem .6rem;
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  background: #fff; color: var(--texte);
+}
+input[type="range"] { width: 100%; }
+.aide { margin: 0; font-size: .8rem; color: var(--texte-doux); }
+
+button { font-family: inherit; cursor: pointer; }
+.principal {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 6px;
+  padding: .6rem 1.4rem; font-size: .95rem; font-weight: 600;
+}
+.principal:hover { background: #17496b; }
+.principal:disabled { background: #9bb3c4; cursor: progress; }
+.secondaire {
+  background: var(--accent-clair); color: var(--accent);
+  border: 1px solid var(--bordure); border-radius: 6px;
+  padding: .45rem .9rem; font-size: .88rem; align-self: start;
+}
+
+.selection { display: flex; flex-wrap: wrap; gap: .4rem; }
+.jeton {
+  background: var(--accent-clair); color: var(--accent);
+  border: 1px solid #cddbe6; border-radius: 999px;
+  padding: .2rem .5rem .2rem .7rem; font-size: .82rem;
+  display: inline-flex; align-items: center; gap: .4rem;
+}
+.jeton button {
+  border: none; background: none; color: var(--accent);
+  font-size: 1rem; line-height: 1; padding: 0 .1rem;
+}
+
+/* --------------------------------------------------------------- resultat */
+
+.resultat { margin-top: 1.25rem; }
+
+.carte {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+.cartes { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; margin-bottom: 1.25rem; }
+.mesure { background: var(--carte); border: 1px solid var(--bordure); border-radius: 8px; padding: .85rem 1rem; }
+.mesure .valeur { font-size: 1.35rem; font-weight: 600; display: block; }
+.mesure .etiquette { font-size: .8rem; color: var(--texte-doux); }
+
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--bordure); }
+th { font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; color: var(--texte-doux); }
+td.nombre, th.nombre { text-align: right; font-variant-numeric: tabular-nums; }
+.tableau-defilant { overflow-x: auto; }
+
+.etiquette-statut {
+  display: inline-block; padding: .1rem .55rem;
+  border-radius: 999px; font-size: .78rem; font-weight: 600;
+}
+.etiquette-statut.valide { background: var(--valide-clair); color: var(--valide); }
+.etiquette-statut.exploratoire { background: var(--exploratoire-clair); color: var(--exploratoire); }
+
+.message { padding: .8rem 1rem; border-radius: 6px; font-size: .9rem; }
+.message.erreur { background: var(--alerte-clair); color: var(--alerte); border: 1px solid #e8c4b4; }
+.message.info { background: var(--accent-clair); color: var(--accent); border: 1px solid #cddbe6; }
+.message.succes { background: var(--valide-clair); color: var(--valide); border: 1px solid #bfe0cd; }
+
+.note {
+  margin-top: .75rem; font-size: .82rem; color: var(--texte-doux);
+  border-left: 3px solid var(--bordure); padding-left: .75rem;
+}
+
+/* ----------------------------------------------------------- graphique */
+
+.graphique { width: 100%; height: auto; display: block; }
+.graphique .axe { stroke: var(--bordure); stroke-width: 1; }
+.graphique .grille { stroke: #eceff3; stroke-width: 1; }
+.graphique .ligne-reel { fill: none; stroke: var(--accent); stroke-width: 2; }
+.graphique .ligne-prevu { fill: none; stroke: var(--alerte); stroke-width: 2; stroke-dasharray: 5 3; }
+.graphique text { font-size: 10px; fill: var(--texte-doux); }
+.legende { display: flex; gap: 1.25rem; font-size: .85rem; margin-top: .5rem; }
+.legende span { display: inline-flex; align-items: center; gap: .4rem; }
+.trait { width: 1.5rem; height: 0; border-top-width: 2px; border-top-style: solid; }
+.trait.reel { border-color: var(--accent); }
+.trait.prevu { border-color: var(--alerte); border-top-style: dashed; }
+
+footer {
+  padding: 1.25rem 1.5rem 2rem;
+  color: var(--texte-doux); font-size: .85rem;
+  border-top: 1px solid var(--bordure);
+  margin-top: 2rem; background: var(--carte);
+}
+footer a { color: var(--accent); }
+
+@media (max-width: 600px) {
+  .bandeau { flex-direction: column; align-items: flex-start; }
+  main { padding: 1rem; }
+  .formulaire { padding: 1rem; }
+}
+
+/* Valeur non exploitable : distinguee visuellement d'un chiffre reel. */
+.mesure.indisponible .valeur { color: var(--texte-doux); font-style: italic; font-size: 1.05rem; }
+.mesure .precision { display: block; font-size: .74rem; color: var(--texte-doux); margin-top: .15rem; }
+.message.alerte {
+  background: var(--exploratoire-clair); color: #6b551a;
+  border: 1px solid #e6d7a8; margin-bottom: 1rem;
+}
+
+/* Liens d'acces direct aux routes JSON. */
+.liens { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; }
+.lien-bouton {
+  display: inline-block; text-decoration: none;
+  background: var(--accent-clair); color: var(--accent);
+  border: 1px solid #cddbe6; border-radius: 6px;
+  padding: .4rem .85rem; font-size: .86rem; font-weight: 600;
+}
+.lien-bouton:hover { background: #dbe8f2; }
+
+/* Bloc par domaine dans la page Scores et validation. */
+.domaine { margin-bottom: 1.5rem; }
+.domaine h3 {
+  margin: 0 0 .5rem; font-size: 1rem; color: var(--accent);
+  border-bottom: 2px solid var(--accent-clair); padding-bottom: .3rem;
+}
+.limite {
+  margin: .5rem 0 0; font-size: .82rem; color: var(--texte-doux);
+  background: var(--fond); border-radius: 6px; padding: .5rem .7rem;
+}
+.etiquette-statut.reference { background: #e4edf7; color: #1f5f8b; }
+.etiquette-statut.simulation { background: #f0ecf7; color: #5b4a86; }
+.etiquette-statut.indisponible { background: #eceff3; color: var(--texte-doux); }
+
+/* Valeur reellement nulle : affichee, mais signalee comme peu informative. */
+.mesure.valeur-nulle { border-left: 3px solid var(--exploratoire); }
+.mesure.valeur-nulle .valeur { color: var(--exploratoire); }
+
+/* Section principale mise en avant sur la page Scores et validation. */
+.carte-principale { border-left: 4px solid var(--accent); }
+.sous-titre {
+  margin: 1rem 0 .5rem; font-size: .88rem; font-weight: 600;
+  color: var(--texte-doux); text-transform: uppercase; letter-spacing: .03em;
+}
+.mesure.indisponible .precision { font-style: italic; }

@@ -1,291 +1,118 @@
-# Projet Data-Driven — Forecasting, Pricing, Recommandation
+# E-commerce — Forecasting, Pricing et Recommandation
 
-Trois phases indépendantes, chacune figée en V1 et documentée séparément. **Aucune des trois n'a été
-déployée. Aucune n'a écrit dans Supabase.** Ce document est le point d'entrée unique : commandes de
-reproduction, résultats, limites, usages autorisés — pour les trois.
+> ## ⚠️ AVERTISSEMENT — résultats partiellement invalidés le 2026-08-18
+>
+> Un audit indépendant a identifié **trois fuites de données**. Deux des trois
+> références historiquement publiées sont **invalides** et ne doivent plus servir
+> de cible ni de comparaison :
+>
+> | Domaine | Score publié | Statut |
+> |---|---:|---|
+> | Forecasting 30 j | WAPE 0,25831 | Autorisé — **valide**, reproduit à l'identique |
+> | Pricing | WAPE **0,4164** | Interdit — `invalidated_due_to_target_leakage` — niveau honnête : **0,5526** |
+> | Complément panier | Recall@10 **0,437** / NDCG@10 **0,213** | Interdit — `invalidated_due_to_target_category_leakage` — niveau honnête : **0,0556 / 0,0240** |
+> | Complément panier (hérité) | Recall@10 **0,1006** / NDCG@10 **0,0485** | Interdit — `invalidated_due_to_in_sample_evaluation_without_temporal_split` |
+>
+> **Aucun modèle n'est promu sur aucun domaine.**
+>
+> 👉 Lire d'abord [`SUPERSEDED_RESULTS.md`](SUPERSEDED_RESULTS.md), puis la série
+> « correction » : [17 — fuites](reports/42_leakage_correction_report.md) ·
+> [18 — pricing](reports/43_corrected_pricing_results.md) ·
+> [19 — recommandation](reports/44_corrected_recommendation_results.md) ·
+> [20 — décision finale](reports/45_final_corrected_decision.md).
+>
+> **Statuts officiels lisibles par machine :** [`models/FINAL_STATUS.json`](models/FINAL_STATUS.json)
+> — `forecasting_status = validated`, `pricing_status = exploratory_non_causal`,
+> `basket_complement_model = none_validated`, `automatic_pricing_allowed = false`.
+> `lgbm_l1_mediane` (biais −18,14 %) **ne doit pas** alimenter le simulateur de marge.
+>
+> Les tableaux ci-dessous datent d'avant l'audit. Ils sont conservés pour
+> traçabilité et **annotés ligne par ligne** ; en cas de contradiction, la série
+> 42–45 fait foi.
 
-Source de données : schéma en étoile Supabase (`dim_produit`, `dim_client`, `dim_date`, `dim_promotion`,
-`fact_ventes`, `fact_evenements_web`, `fact_stock`), accès strictement en lecture seule tout au long du
-projet (voir `src/data/connection.py`, garde-fous `assert_read_only`).
+Livraison finale reconstruite à partir d'une extraction Supabase fraîche, contrôlée et strictement en lecture seule. Les données brutes et analytiques restent locales et sont exclues de Git. Aucun modèle n'est déployé et aucune décision n'est appliquée automatiquement.
 
----
+## Résultats publiés avant l'audit (statut annoté)
 
-## Vue d'ensemble
-
-| Phase | Statut | Modèle retenu | Métrique clé | Métadonnées |
+| Domaine | Sélection finale | Validation temporelle | Résultat principal | Usage autorisé |
 |---|---|---|---|---|
-| Forecasting | V1 (figée) | AutoETS + repli Naive | WAPE cumulée 30j = 0,2772 | [`models/forecast_final/metadata.json`](models/forecast_final/metadata.json) |
-| Pricing | V1 exploratoire (figée) | LightGBM (simulateur uniquement) | WAPE quantité = 1,07 (107 %) | [`reports/pricing_final/metadata.json`](reports/pricing_final/metadata.json) |
-| Recommandation | V1 baseline (figée) | Popularité globale (+ récente en secours) | NDCG@10 moyen = 0,044 | [`reports/recsys_final/metadata.json`](reports/recsys_final/metadata.json) |
+| Forecasting quotidien | `CrostonOptimized` | 6 fenêtres non chevauchantes de 30 jours | WAPE 1,0945; 4 victoires sur 6 | Prévision quotidienne supervisée |
+| Forecasting cumulé 30 j | `LightGBM_Tweedie` | mêmes 6 fenêtres | WAPE cumulée 0,3106 | Autorisé — valide — **supersédé** par `LightGBM_direct_per_horizon`, WAPE30 0,25831 |
+| Pricing | `LightGBM_calibre` | 3 fenêtres temporelles, calibration antérieure séparée | ~~WAPE 0,4164~~ | Interdit — **INVALIDÉ** — fuite `n_lignes`; sans la fuite : 0,5625. Modèle de volume officiel : `lgbm_tweedie_moyenne`, WAPE 0,5526, biais +0,0013 |
+| Recommandation — prochain achat | baseline `popularite_globale`; hybride `challenger_exploratoire` | 3 fenêtres, bootstrap client-fenêtre | ΔNDCG hybride +0,00095, IC95 % contenant zéro | Autorisé — valide — baseline contrôlée |
+| Recommandation — complément panier | ~~`popularite_categorie`~~ | leave-one-item-out F2–F4 | ~~Recall@10 0,437 / NDCG@10 0,213~~ | Interdit — **INVALIDÉ** — fuite catégorie cible. Statut : `none_validated`, baseline `popularite_globale` (0,0556 / 0,0240) |
 
-**Aucune des trois V1 n'est un système causal, personnalisé ou optimisé au sens fort du terme.** Chacune
-documente honnêtement pourquoi, et ce qu'il faudrait pour aller plus loin (registres V2 dédiés).
+Ces métriques mesurent des tâches différentes et ne doivent pas être comparées entre domaines. Aucun modèle forecasting n'est déclaré vainqueur global. Le gain de l'hybride de recommandation n'est pas statistiquement établi.
 
----
+**Les lignes barrées ci-dessus proviennent de pipelines fuités.** Le détail des mécanismes, des preuves et des mesures d'inflation est dans [`reports/42_leakage_correction_report.md`](reports/42_leakage_correction_report.md).
 
-## Données — aucune donnée réelle n'est incluse dans ce dépôt
+## Données finales
 
-Ce dépôt contient **uniquement du code, des rapports et des artefacts agrégés/produit-niveau**. Aucune
-extraction brute de `fact_ventes`, `fact_evenements_web`, `fact_stock` ni `dim_client` n'est publiée
-(voir `.gitignore` : `data/raw/`, `data/interim/`, `data/processed/` sont exclus). Le seul fichier
-proche du grain client (`reports/recsys_final/recommandations_sortie.csv`, ~135 Mo, une ligne par
-client×produit recommandé) est également exclu, pour sa taille et sa granularité. Pour reproduire les
-résultats, une connexion à votre propre projet Supabase (lecture seule) est nécessaire — voir
-« Configuration » ci-dessous.
+L'audit a réconcilié 84 319 lignes de vente, 49 872 commandes, 657 392 événements web uniques et 117 763 observations de stock. Les cinq datasets reconstruits sont :
 
----
+- `product_daily_forecasting` : 163 800 lignes;
+- `product_day_discount_pricing` : 55 586 lignes;
+- `order_baskets` : 80 130 lignes, commandes confirmées uniquement;
+- `session_sequences` : 622 440 événements humains;
+- `client_product_interactions` : 622 440 interactions.
 
-## Architecture du projet
+Les bots sont exclus, les visiteurs anonymes restent anonymes, les achats web sont rattachés aux commandes réelles et ne sont jamais additionnés aux ventes. Les prix catalogue sont fixes pour les 300 produits : le pricing ne peut donc pas être présenté comme causal ni comme un optimum continu.
 
-```
-src/
-  config/         Configuration centrale, lecture des identifiants (.env), aucun secret en dur
-  data/           Connexion Supabase/PostgreSQL en LECTURE SEULE, garde-fous (assert_read_only)
-  features/       Calendrier, segmentation ABC/XYZ, features stock
-  pricing/        Éligibilité, baselines, méthodes d'uplift, prédicteurs (phase Pricing)
-  recsys/         Chargement des données, modèles de recommandation, métriques (phase Recommandation)
-  evaluation/     Métriques de prévision (WAPE, MASE, RMSSE, biais...)
-  pipelines/      Un module par étape de pipeline (backtest, entraînement final, simulateur,
-                  finalisation/archivage) — point d'entrée de toutes les commandes ci-dessous
-  utils/          Logging structuré (JSONL)
-scripts/          Scripts d'audit et de validation ponctuels (schéma, cohérence, stock...)
-tests/            156 tests (intégrité des données, anti-fuite temporelle, non-régression, garde-fous)
-reports/          Tous les rapports générés (numérotés dans l'ordre de production), + sous-dossiers
-                  *_final/ contenant les artefacts figés de chaque V1 (métadonnées, manifestes,
-                  résultats agrégés)
-models/           Métadonnées du modèle forecasting (les modèles eux-mêmes sont sans état — refit à
-                  chaque appel, rien à sérialiser)
-config/config.yaml Configuration du pipeline (mapping de schéma, hyperparamètres, chemins)
-```
+## Reproduction
 
-## Installation
+Prérequis : Python 3.11+ et un `.env` local configuré avec un accès Supabase en lecture seule.
 
-```bash
+```powershell
 python -m venv .venv
-# Windows : .venv\Scripts\activate    macOS/Linux : source .venv/bin/activate
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-```
 
-Python ≥3.11 recommandé (testé sous 3.13). Voir `requirements.txt` pour la liste complète des
-dépendances (accès données, calcul, modélisation, qualité/tests).
+# Extraction locale fraîche puis construction/audit
+python -m src.pipelines.extract
+python -m src.pipelines.final_build_datasets
 
-## Configuration
+# Entraînements séquentiels — ne pas les lancer en parallèle
+python -m src.pipelines.final_forecasting
+python -m src.pipelines.final_pricing
+python -m src.pipelines.final_recommendation
 
-1. Copier `.env.example` vers `.env`.
-2. Renseigner **uniquement** vos propres identifiants Supabase (connexion PostgreSQL directe *ou* clé
-   API REST — voir les deux options commentées dans `.env.example`). Utiliser de préférence un rôle en
-   lecture seule.
-3. `.env` est exclu de Git (`.gitignore`) — ne jamais le committer.
-4. Vérifier la connexion :
+# Série de correction des fuites (2026-08-18)
+python -m src.experiments.pricing_corrected
+python -m src.experiments.complement_leak_audit
+python -m src.experiments.complement_honest_baseline
+python -m src.experiments.complement_end_to_end
+python -m src.experiments.complement_candidate_pilot
+python -m src.pipelines.refresh_manifests
 
-```bash
-python scripts/check_connection.py
-```
-
----
-
-## 1. Forecasting — prévision de la quantité vendue
-
-### Modèle et usage validé
-
-`AutoETS` (statsforecast) avec repli `Naive` sur exception (0,78 % des séries). **Usage validé : cumul
-7/14/30 jours par produit.** La précision quotidienne (WAPE ≈109 %) n'est **pas fiable** — c'est un
-objectif de V2, pas un défaut caché.
-
-### Résultats clés
-
-- WAPE cumulée 30 jours : **0,2772** (périmètre comparable, hors cold-start).
-- WAPE quotidienne (grain produit×jour) : **≈1,09** — à ne jamais confondre avec la WAPE cumulée
-  (rapport 23 §1, vérifié indépendamment, rapport 22).
-- Couverture native AutoETS : 99,22 % (13/1662 séries en repli `Naive`, historique trop court).
-- Intervalles conformes 80 %/95 % par bucket d'horizon (J+1 / J+2-7 / J+8-14 / J+15-30) — bien calibrés
-  globalement, **sous-couverts sur la classe A** (74,4 % au lieu de 80 %, limite documentée).
-- Horizon 90 jours : **expérimental**, hors plage validée par le backtest (H=30).
-
-### Limites
-
-- Fiabilité quotidienne insuffisante pour un réapprovisionnement jour par jour.
-- Aucune validation sur une période de décembre (absente des fenêtres de backtest).
-- Aucune rupture de stock intrajournalière mesurable (stock jamais <21 unités en fin de journée observée).
-
-### Usages autorisés
-
- Planification et budget à 7/14/30 jours, cumulés par produit.
- Décision de réapprovisionnement quotidien automatisée sans revue humaine.
- Prévisions à 90 jours présentées comme fiables.
-
-### Reproduction
-
-```bash
-python -m src.pipelines.backtest_baselines
-python -m src.pipelines.backtest_postprocess
-python -m src.pipelines.backtest_lightgbm
-python -m src.pipelines.backtest_report_final
-python -m src.pipelines.backtest_report_lightgbm
-python -m src.pipelines.backtest_report_forecasting_final
-python -m src.pipelines.train_final_forecast
-python -m src.pipelines.finalize_forecast_v1
-python -m src.pipelines.freeze_v1_manifest
-```
-
-### Artefacts
-
-- Prévisions : `reports/forecast_final/previsions_finales.parquet` / `.csv`
-- Métadonnées : `models/forecast_final/metadata.json`
-- Manifeste SHA-256 : `reports/forecast_final/v1_manifest.json`
-- Registre V2 : `reports/forecast_final/forecasting_v2_objectives.md`
-- Rapports détaillés : `reports/15_*.md` à `reports/25_*.md`
-
----
-
-## 2. Pricing — analyse promotions, marges, simulation de remises
-
-### Positionnement (à respecter strictement)
-
-**Aide à la décision exploratoire, jamais un moteur de prix optimal.** `causal: false`,
-`optimal_price_claim_allowed: false`, `automatic_application_allowed: false`,
-`human_validation_required: true`.
-
-### Pourquoi pas de prix optimal
-
-Le prix catalogue est **fixe pour 300/300 produits** (vérifié sur la table analytique ET sur les
-versions SCD brutes de `dim_produit` en relecture directe) — structurel, pas une lacune de collecte.
-Seule la grille de remise (5-30 %) offre une variation exploitable, et uniquement en intra-produit.
-
-### Résultats clés
-
-- Méthode retenue pour le simulateur exploratoire : `challenger_ml_lightgbm` — biais quasi nul
-  (+0,0100) **mais WAPE quantité élevée (1,0713, soit 107,1 %)** : les estimations individuelles
-  restent incertaines malgré un biais global faible (ce sont deux choses différentes).
-- 218/300 produits éligibles à une estimation individuelle, 70/300 en pooling catégorie, 12/300 non
-  éligibles (aucune promotion observée).
-- 679 lignes historiques à marge négative (73 produits), dont 91,6 % dues à la remise elle-même (pas au
-  bruit de prix) — un garde-fou de marge minimale reste nécessaire.
-- Simulateur : 288 simulations de remise (scénario marge, plancher 5 %), remise moyenne recommandée
-  **1,2 %** — les promotions historiques ne génèrent généralement pas assez de volume additionnel pour
-  compenser la perte de marge. Résultat observationnel, cohérent sur toutes les méthodes testées.
-- `off_policy_evaluation_validated: false` — la comparaison aux politiques simples ne prouve aucun gain
-  de marge réel (seule la politique historique est réellement observée).
-
-### Limites
-
-- Tout uplift mesuré reste une **association**, jamais un effet causal (sélection de campagne non
-  randomisée).
-- Bande d'incertitude simplifiée (±WAPE poolée), pas un intervalle conforme calibré par segment.
-- Aucun A/B test prix disponible.
-
-### Usages autorisés
-
- Analyse descriptive des promotions/marges (objectif A) — sans réserve.
- Simulation de scénarios de remise sous contrainte de marge, **avec validation humaine systématique**.
- Application automatique d'une remise simulée.
- Toute affirmation d'un « prix optimal » ou d'un effet causal des promotions.
-
-### Reproduction
-
-```bash
-python -m src.pipelines.pricing_audit
-python -m src.pipelines.pricing_prototype
-python -m src.pipelines.pricing_finalize
-```
-
-### Artefacts
-
-- Sorties du simulateur : `reports/pricing_final/simulateur_sorties.csv`
-- Métadonnées : `reports/pricing_final/metadata.json`
-- Manifeste SHA-256 : `reports/pricing_final/manifest.json`
-- Registre V2 : `reports/pricing_final/pricing_v2_objectives.md`
-- Rapports détaillés : `reports/26_*.md` à `reports/34_*.md`
-
----
-
-## 3. Recommandation — liste de popularité (personnalisation non validée)
-
-### Positionnement (à respecter strictement)
-
-**Une liste de popularité générique, jamais un moteur de recommandation personnalisé.**
-`personalization_validated: false`, `hybrid_model_authorized: false`, `web_signal_enabled: false`.
-Les mêmes produits sont recommandés à tous les clients d'un même segment de repli — ce n'est pas un
-système qui apprend des préférences individuelles.
-
-### Modèle retenu et règle de sélection
-
-`popularite_globale` en principal, `popularite_recente` en secours, `popularite_globale` imposée en
-cold-start. Sélection par règle fixée à l'avance (NDCG@10 moyen → Recall@10 moyen → stabilité →
-couverture → biais) : l'écart entre les deux n'était que de **1,5 % relatif** — aucune des deux ne
-domine clairement.
-
-### Résultats clés — performances modestes, assumées comme telles
-
-- **NDCG@10 moyen = 0,044, Recall@10 moyen = 0,076** (échelle 0-1) — des scores faibles en absolu.
-- **Couverture catalogue moyenne ≈5,4 %** — la quasi-totalité des 300 produits n'est jamais
-  recommandée ; une popularité globale concentre mécaniquement l'exposition sur une poignée d'articles.
-- Aucun modèle personnalisé (filtrage collaboratif, contenu, popularité par catégorie) ne bat clairement
-  la popularité récente sur plusieurs fenêtres — d'où la personnalisation désactivée.
-- Plafond structurel de Recall : 89,6-92,0 % seulement des cibles réelles étaient présentes dans
-  l'ensemble de candidats (politique par défaut) — décomposé et réconcilié exactement (rachats exclus +
-  produits pas encore suivis en stock), **jamais de vraie rupture de stock** dans ces exclusions (le
-  stock ne descend jamais sous 21 unités, reconfirmé).
-- Signal web (`view`/`add_to_cart`) testé en repli cold-start : **dégrade** le Recall plutôt que de
-  l'améliorer (trop peu d'événements par client) — désactivé (`web_signal_enabled: false`).
-
-### Limites
-
-- `vente_id` = une ligne de vente, jamais une commande — aucune règle « achetés ensemble ».
-- `order_id`, `session_id` métier, `event_timestamp` absents — aucune recommandation séquentielle.
-- Cold-start réel non observable aux fenêtres tardives (tous les clients ont déjà acheté) — mesuré sur
-  une fenêtre dédiée en début de période.
-
-### Usages autorisés
-
- Liste générique de popularité (accueil, page catégorie) — `automatic_recommendation_allowed: true`
-**uniquement pour cet usage générique**.
- Toute liste présentée comme personnalisée par client.
- Utilisation dans une campagne commerciale sans validation humaine (`human_validation_required: true`
-dans ce cas précis).
-
-### Reproduction
-
-```bash
-python -m src.pipelines.recsys_prototype
-python -m src.pipelines.recsys_verification
-python -m src.pipelines.recsys_reconciliation
-python -m src.pipelines.recsys_consolidation
-python -m src.pipelines.recsys_finalize
-```
-
-### Artefacts
-
-- Sorties : `reports/recsys_final/recommandations_sortie.csv`
-- Métadonnées : `reports/recsys_final/metadata.json`
-- Manifeste SHA-256 : `reports/recsys_final/manifest.json`
-- Registre V2 : `reports/recsys_final/recommendation_v2_objectives.md`
-- Rapports détaillés : `reports/36_*.md` à `reports/41_*.md`
-
----
-
-## Garde-fous transverses aux trois phases
-
-- **Accès données** : lecture seule stricte (`assert_read_only`, timeouts de transaction, aucune
-  écriture jamais tentée).
-- **Aucun secret en dur** : identifiants exclusivement via `.env` (non versionné), masqués dans tous
-  les logs/rapports.
-- **Aucune donnée future** : chaque phase applique une validation temporelle stricte (train
-  strictement antérieur au test), avec assertions actives dans le code, pas seulement des contrôles a
-  posteriori.
-- **Aucune fabrication de résultat** : chaque rapport documente explicitement ses hypothèses, ses
-  limites, et distingue systématiquement association et causalité.
-- **Aucun déploiement, aucune écriture Supabase** — à aucune étape des trois phases.
-
-## Tests
-
-```bash
+# Validation — 222 passés, 30 ignorés (historiques), 0 échec
 python -m pytest -q
 ```
 
-156 tests couvrant les trois phases (intégrité des données, anti-fuite temporelle, non-régression des
-bugs corrigés en cours de projet, équivalence de calcul, garde-fous de simulation).
+Le fichier `.env` est exclu par `.gitignore`. Ne jamais l'afficher, le journaliser ou le committer. Les répertoires `data/raw`, `data/cache`, `data/processed`, `checkpoints` et `logs` ne sont pas versionnés.
 
-## Dépendances
+## Garde-fous métier
 
-Voir `requirements.txt`. Environnement Python géré localement (pas de `venv` imposé par ce dépôt).
+- Forecasting : aucun pilotage automatique; intervalles conformes 80/95 % calibrés uniquement sur des résidus antérieurs. Croston sert le quotidien, LightGBM Tweedie le cumul 30 jours.
+- Pricing : prix jamais inférieur au coût, marge minimale configurable (5 % par défaut), remise limitée au support historique, validation humaine obligatoire. Le résultat est associatif, pas causal. **Le simulateur de marge est alimenté exclusivement par le modèle de volume à biais contrôlé** (`lgbm_tweedie_moyenne`, biais +0,0013), jamais par le meilleur prédicteur WAPE (`lgbm_l1_mediane`, biais −0,1814) : une sous-estimation de 18 % du volume fausserait toute projection de marge. Registre de disponibilité des features : [`src/pricing/feature_registry.py`](src/pricing/feature_registry.py).
+- Recommandation : popularité globale comme baseline officielle; hybride exploratoire uniquement. **Complément panier : `basket_complement_model = none_validated`, `reason = no_complementarity_signal`** — les paniers sont statistiquement des tirages indépendants (0,2182 observé contre 0,222 attendu). Le scoring passe obligatoirement par [`src/recsys/complement.py`](src/recsys/complement.py), dont la signature rend la fuite structurellement impossible. Le scénario sessionnel est déclaré non utilisable.
+
+## Artefacts et rapports
+
+- Audit des données : [`reports/final/01_data_audit.md`](reports/final/01_data_audit.md)
+- Forecasting : [`reports/final/02_forecasting.md`](reports/final/02_forecasting.md), `models/forecasting/`
+- Pricing : ⚠️ [`reports/final/03_pricing.md`](reports/final/03_pricing.md) **invalidé** → [`reports/43_corrected_pricing_results.md`](reports/43_corrected_pricing_results.md), `models/advanced/pricing_corrected/`
+- Recommandation : ⚠️ [`reports/final/04_recommendation.md`](reports/final/04_recommendation.md) **partiellement invalidé** → [`reports/44_corrected_recommendation_results.md`](reports/44_corrected_recommendation_results.md), `models/advanced/complement_honest/`
+- Synthèse exécutive : [`reports/final/05_executive_summary.md`](reports/final/05_executive_summary.md)
+- Addendum méthodologique : ⚠️ [`reports/final/06_methodology_addendum.md`](reports/final/06_methodology_addendum.md) **partiellement invalidé** (NDCG@10 0,0485)
+- Matrice des contrôles actifs : [`reports/final/07_active_test_matrix.md`](reports/final/07_active_test_matrix.md)
+
+Chaque répertoire de modèles contient des métadonnées et un manifeste SHA-256. Les anciens rapports V1 restent versionnés pour traçabilité.
+
+**Référence courante après audit :** [`SUPERSEDED_RESULTS.md`](SUPERSEDED_RESULTS.md) et la série `reports/42` à `reports/45`. Les artefacts issus des pipelines fuités sont conservés, non supprimés, dans `models/pricing/metadata.invalidated.json` et `models/advanced/recommendation_ranking/invalidated/`, chacun avec son motif d'invalidation et son manifeste SHA-256.
+
+## Statut de livraison
+
+Branche de correction : branche d'audit independant (audit et correction des fuites du 2026-08-18).
+Branche de la livraison initiale : `rebuild/final-enriched-dataset`.
+
+Aucun merge vers `main`, aucun push, aucun déploiement et aucune écriture dans Supabase. L'historique Git et les branches distantes historiques ne sont pas modifiés : la série 42–45 les supersède.

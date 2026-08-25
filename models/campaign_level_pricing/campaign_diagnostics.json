@@ -1,0 +1,70 @@
+{
+  "formula": "sum(abs(y - y_pred)) / sum(y)",
+  "sum_actual": 19441.0,
+  "sum_predicted_rate_duration": 30081.14285714286,
+  "sum_absolute_error_rate_duration": 24775.64285714286,
+  "forecast_bias_rate_duration": 0.5473042979858472,
+  "wape_rate_duration": 1.2744016695202334,
+  "zero_targets": 602,
+  "zero_target_rate": 0.30054917623564653,
+  "y_quantiles": {
+    "0": 0.0,
+    "0.25": 0.0,
+    "0.5": 7.0,
+    "0.75": 15.0,
+    "0.95": 29.0,
+    "1": 71.0
+  },
+  "pred_quantiles": {
+    "0": 0.0,
+    "0.25": 0.0,
+    "0.5": 14.357142857142858,
+    "0.75": 26.0,
+    "0.95": 36.535714285714285,
+    "1": 61.75
+  },
+  "negative_predictions": 0,
+  "nan_predictions": 0,
+  "extreme_predictions_gt_10x_p99_actual": 0,
+  "duration_min": 4,
+  "duration_max": 15,
+  "unique_product_campaign": 2003,
+  "duplicate_product_campaign": 0,
+  "targeted_products": 300,
+  "overlap_excluded": 403,
+  "independent_campaigns": 96,
+  "campaigns_by_window": {
+    "1": 801,
+    "2": 569,
+    "3": 633
+  },
+  "train_test_campaign_disjoint": true,
+  "zero_by_discount": {
+    "5.0": 110,
+    "10.0": 128,
+    "15.0": 188,
+    "20.0": 37,
+    "25.0": 71,
+    "30.0": 68
+  },
+  "zero_by_category": {
+    "Alimentation & Epicerie": 59,
+    "Beaute & Soins": 53,
+    "Bebe & Enfant": 95,
+    "Electronique & High-Tech": 66,
+    "Maison & Cuisine": 70,
+    "Mode & Vetements": 61,
+    "Sport & Loisirs": 83,
+    "Telephonie & Accessoires": 115
+  },
+  "zero_by_window": {
+    "1": 371,
+    "2": 183,
+    "3": 48
+  },
+  "products_targeted_per_campaign_quantiles": {
+    "0": 1.0,
+    "0.5": 30.0,
+    "1": 42.0
+  }
+}

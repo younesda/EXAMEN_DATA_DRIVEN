@@ -1,0 +1,52 @@
+{
+  "genere_le": "2026-08-15T03:46:50.471028+00:00",
+  "tableau_decision": [
+    {
+      "candidat": "V1 (référence)",
+      "wape_30j": 0.2771792417889409,
+      "wape_7j": 0.46186430439989756,
+      "wape_quotidien": 1.0947268068047595,
+      "fenetres_gagnees": "—",
+      "couverture_a_80": 0.7438829787234043,
+      "statut": "Référence — modèle officiel"
+    },
+    {
+      "candidat": "A — mélange AutoETS/WA28",
+      "wape_30j": 0.27530829333277274,
+      "wape_7j": 0.4556008377376898,
+      "wape_quotidien": 1.0855101191820533,
+      "fenetres_gagnees": "2/6",
+      "couverture_a_80": 0.7488475177304964,
+      "statut": "`experiment_not_retained` (insufficient_gain)"
+    },
+    {
+      "candidat": "B — sélection par segment (B2)",
+      "wape_30j": 0.283052496960189,
+      "wape_7j": 0.464283213167973,
+      "wape_quotidien": 1.0935685924928593,
+      "fenetres_gagnees": "0/6",
+      "couverture_a_80": 0.74822695035461,
+      "statut": "`experiment_not_retained` (worse_than_v1_and_candidate_a)"
+    },
+    {
+      "candidat": "C — recalibration intervalles (C3)",
+      "wape_30j": 0.2771792417889409,
+      "wape_7j": 0.46186430439989756,
+      "wape_quotidien": 1.0947268068047595,
+      "fenetres_gagnees": "sans objet",
+      "couverture_a_80": 0.7903125,
+      "statut": "`experiment_retained` (interval_calibration_improved)"
+    }
+  ],
+  "point_forecast": {
+    "statut": "aucun_candidat_retenu",
+    "modele_officiel": "V1 AutoETS + repli Naive"
+  },
+  "incertitude": {
+    "statut": "candidat_C_retenu",
+    "variante": "C3_par_abc_profil",
+    "couverture_a_v1": 0.7438829787234043,
+    "couverture_a_c": 0.7903125
+  },
+  "candidats_d_e": "non_lances_decision_en_attente"
+}

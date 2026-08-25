@@ -1,0 +1,572 @@
+{
+  "genere_le": "2026-08-15T17:44:30.815202+00:00",
+  "phase": "pricing_v2_P0_audit",
+  "artefacts_v1_modifies": false,
+  "ecriture_supabase": false,
+  "1_fenetres": {
+    "n_fenetres": 3,
+    "duree_test_jours": 60,
+    "identique_a_v1": true,
+    "note": "Le pricing V1 utilise 3 fenêtres de 60 jours, et non les 6 fenêtres de 30 jours du forecasting — écart documenté en V1 (coût de calcul). La V2 conserve strictement ces 3 fenêtres : changer le découpage rendrait toute comparaison V1/V2 invalide.",
+    "fenetres": [
+      {
+        "fenetre": 1,
+        "train_end": "2026-02-01",
+        "test_start": "2026-02-02",
+        "test_end": "2026-04-02",
+        "n_jours_test": 60,
+        "lignes_train": 67028,
+        "lignes_test": 15850,
+        "produits_test": 275,
+        "lignes_test_en_promotion": 1567
+      },
+      {
+        "fenetre": 2,
+        "train_end": "2026-04-02",
+        "test_start": "2026-04-03",
+        "test_end": "2026-06-01",
+        "n_jours_test": 60,
+        "lignes_train": 82878,
+        "lignes_test": 16986,
+        "produits_test": 292,
+        "lignes_test_en_promotion": 3483
+      },
+      {
+        "fenetre": 3,
+        "train_end": "2026-06-01",
+        "test_start": "2026-06-02",
+        "test_end": "2026-07-31",
+        "n_jours_test": 60,
+        "lignes_train": 99864,
+        "lignes_test": 17899,
+        "produits_test": 300,
+        "lignes_test_en_promotion": 1712
+      }
+    ]
+  },
+  "2_eligibilite": {
+    "seuils_v1_repris_a_l_identique": {
+      "min_jours_promo": 30,
+      "min_jours_hors_promo": 30,
+      "min_niveaux_reels": 2,
+      "min_volume_total": 50,
+      "min_etalement_jours": 60,
+      "min_mois_couverts": 2
+    },
+    "produits_par_groupe": {
+      "eligible_individuel": 218,
+      "eligible_pooling_categorie": 70,
+      "non_eligible": 12
+    },
+    "lignes_par_groupe": {
+      "eligible_individuel": 103900,
+      "eligible_pooling_categorie": 13111,
+      "non_eligible": 752
+    },
+    "n_produits_total": 300
+  },
+  "3_niveaux_de_remise": {
+    "grille_v1_utilisee": [
+      5.0,
+      10.0,
+      15.0,
+      20.0,
+      25.0,
+      30.0
+    ],
+    "grille_complete_observee": [
+      5.0,
+      10.0,
+      15.0,
+      20.0,
+      25.0,
+      30.0,
+      40.0
+    ],
+    "niveaux_ecartes_support_insuffisant": [
+      40.0
+    ],
+    "seuil_support_niveau": 50,
+    "support_par_niveau": {
+      "5.0": 3801,
+      "10.0": 3501,
+      "15.0": 3573,
+      "20.0": 2024,
+      "25.0": 1405,
+      "30.0": 1209,
+      "40.0": 11
+    },
+    "extrapolation_hors_grille": "interdite — même règle qu'en V1"
+  },
+  "4_regles_de_marge": {
+    "planchers_de_marge_testes": [
+      0.0,
+      0.05,
+      0.1,
+      0.15
+    ],
+    "plancher_principal": 0.05,
+    "regle": "Aucun prix simulé ne peut descendre sous le coût unitaire ni sous le plancher de marge. Règle identique à la V1, non renégociable en V2.",
+    "lignes_marge_negative_observees": 679,
+    "produits_marge_negative_observes": 73,
+    "note_marges_negatives": "Ces marges négatives sont **observées dans l'historique**, elles ne sont pas produites par le simulateur. Le garde-fou les empêche d'être recommandées."
+  },
+  "5_definitions_metriques": {
+    "definition_wape": "SUM|yhat - y| / SUM|y|, poolé sur toutes les lignes (jamais moyenné par produit)",
+    "definition_biais": "SUM(yhat - y) / SUM(y), normalisé donc invariant au grain",
+    "wape_quantite_v1_publie": 1.0713207916807077,
+    "grain": "ligne du panel = couple produit x jour",
+    "methode_retenue_v1": "challenger_ml_lightgbm",
+    "wape_par_fenetre": {
+      "1": {
+        "wape_quantite": 1.0949460881400543,
+        "biais_quantite": 0.0360889842066286,
+        "n_test": 15850
+      },
+      "2": {
+        "wape_quantite": 1.0461940533904104,
+        "biais_quantite": -0.0195744859342071,
+        "n_test": 16986
+      },
+      "3": {
+        "wape_quantite": 1.0728222335116573,
+        "biais_quantite": 0.013500772617012,
+        "n_test": 17899
+      }
+    },
+    "agregation_inter_fenetres": {
+      "definition_reelle": "moyenne simple des WAPE de fenêtre (chaque fenêtre pèse 1/3)",
+      "moyenne_simple_recalculee": 1.0713207916807075,
+      "ecart_au_chiffre_publie": 2.220446049250313e-16,
+      "reconstitution_exacte": true,
+      "avertissement": "À l'intérieur d'une fenêtre le WAPE est bien poolé. En revanche l'agrégation des 3 fenêtres est une **moyenne simple**, pas un pooling : les fenêtres n'ont pas le même volume (SUM|y| = 19147, 21869, 21847) et sont pourtant pondérées à égalité. Un WAPE poolé sur les 3 fenêtres vaudrait 1,07030 au lieu de 1,07132, soit 0,00102 d'écart (0,10 % relatif). L'écart est négligeable ici, mais la définition est fixée avant évaluation : **P1 sera comparé à la V1 avec la moyenne simple**, la même que celle du chiffre figé, afin qu'aucune part du gain ne provienne d'un changement de formule.",
+      "wape_poole_3_fenetres_pour_information": 1.0702972788244542
+    },
+    "note_selection_v1": "La méthode retenue en V1 n'est pas la meilleure en WAPE : `panel_effets_fixes` atteint 0,9696-1,0020 (donc déjà < 1,00) mais avec un biais de -0,39 à -0,45, très au-delà de la tolérance. La règle de sélection V1 était `|biais| < 0,15, sinon min(|biais|)`. Toute comparaison V2 doit conserver cette double exigence : un WAPE plus bas obtenu au prix d'un biais massif n'est pas une amélioration.",
+    "predictions_par_ligne_archivees": false,
+    "consequence_p1": "Les prédictions par ligne ne sont pas archivées en V1. P1 doit donc **régénérer** les prédictions V1 avec le code figé et vérifier qu'il retrouve exactement les WAPE et biais par fenêtre ci-dessus avant d'appliquer la moindre calibration. Sans cette reproduction, aucun écart V1/P1 ne serait interprétable."
+  },
+  "6_grain": {
+    "grain_du_panel": "produit x jour",
+    "lignes_panel": 117763,
+    "couples_produit_jour_distincts": 117763,
+    "panel_sans_doublon": true,
+    "produits": 300,
+    "jours": 546,
+    "grille_complete_attendue": 163800,
+    "panel_est_grille_complete": false,
+    "lignes_table_analytique": 117763,
+    "avertissement": "Une ligne du panel n'est PAS une ligne transactionnelle : elle agrège toutes les ventes d'un produit sur une journée. Le WAPE V1 est donc un WAPE produit-jour. Un WAPE calculé sur des lignes transactionnelles, ou sur des quantités cumulées, donnerait une valeur différente et ne serait pas comparable — le même piège que celui identifié en forecasting (WAPE quotidien 1,09 contre 0,277 en cumul 30 jours)."
+  },
+  "7_connaissance_promotions_au_cutoff": {
+    "hypothese": "Le calendrier promotionnel (dates de début/fin et taux de remise) est supposé connu à la date de cutoff de chaque fenêtre, donc utilisable comme variable exogène future.",
+    "verifiable": false,
+    "raison": "`dim_promotion` expose uniquement promo_key, promotion_id, portee, cible, remise_pct, date_debut et date_fin. Aucune colonne de date de création, d'annonce ou de validation n'existe. Il est donc **impossible de prouver** qu'une promotion démarrant après le cutoff était déjà décidée à ce cutoff.",
+    "consequence": "Cette hypothèse est retenue par continuité avec la V1, mais elle est explicitement marquée comme non vérifiable. Si elle est fausse, les performances mesurées sont optimistes. Aucune conclusion V2 ne doit reposer uniquement sur elle.",
+    "donnee_manquante_a_demander": "date de création / d'annonce des promotions"
+  },
+  "8_9_support": {
+    "lignes_en_promotion": 15524,
+    "lignes_hors_promotion": 102239,
+    "part_lignes_en_promotion": 0.13182408736190485,
+    "support_promo_par_produit": {
+      "min": 6,
+      "median": 45.0,
+      "max": 118,
+      "produits_sans_aucune_promo": 12
+    },
+    "niveaux_de_remise_par_produit": {
+      "median": 3.5,
+      "produits_avec_1_seul_niveau": 25,
+      "produits_avec_au_moins_2_niveaux": 263
+    },
+    "support_hors_promo_par_produit": {
+      "min": 24,
+      "median": 404.5,
+      "max": 502,
+      "produits_sans_observation_hors_promo": 0
+    },
+    "cellules_produit_x_niveau": {
+      "observees": 1012,
+      "theoriques": 1800,
+      "taux_de_remplissage": 0.5622222222222222,
+      "cellules_a_moins_de_10_observations": 299
+    },
+    "support_categorie_x_niveau": [
+      {
+        "categorie": "Alimentation & Epicerie",
+        "remise_planifiee_pct": 5.0,
+        "n": 11
+      },
+      {
+        "categorie": "Alimentation & Epicerie",
+        "remise_planifiee_pct": 10.0,
+        "n": 992
+      },
+      {
+        "categorie": "Alimentation & Epicerie",
+        "remise_planifiee_pct": 15.0,
+        "n": 174
+      },
+      {
+        "categorie": "Alimentation & Epicerie",
+        "remise_planifiee_pct": 25.0,
+        "n": 167
+      },
+      {
+        "categorie": "Beaute & Soins",
+        "remise_planifiee_pct": 5.0,
+        "n": 481
+      },
+      {
+        "categorie": "Beaute & Soins",
+        "remise_planifiee_pct": 10.0,
+        "n": 204
+      },
+      {
+        "categorie": "Beaute & Soins",
+        "remise_planifiee_pct": 15.0,
+        "n": 556
+      },
+      {
+        "categorie": "Beaute & Soins",
+        "remise_planifiee_pct": 25.0,
+        "n": 6
+      },
+      {
+        "categorie": "Beaute & Soins",
+        "remise_planifiee_pct": 30.0,
+        "n": 125
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 5.0,
+        "n": 513
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 10.0,
+        "n": 210
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 15.0,
+        "n": 829
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 20.0,
+        "n": 364
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 25.0,
+        "n": 116
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 30.0,
+        "n": 455
+      },
+      {
+        "categorie": "Bebe & Enfant",
+        "remise_planifiee_pct": 40.0,
+        "n": 11
+      },
+      {
+        "categorie": "Electronique & High-Tech",
+        "remise_planifiee_pct": 5.0,
+        "n": 568
+      },
+      {
+        "categorie": "Electronique & High-Tech",
+        "remise_planifiee_pct": 10.0,
+        "n": 939
+      },
+      {
+        "categorie": "Electronique & High-Tech",
+        "remise_planifiee_pct": 15.0,
+        "n": 369
+      },
+      {
+        "categorie": "Electronique & High-Tech",
+        "remise_planifiee_pct": 20.0,
+        "n": 13
+      },
+      {
+        "categorie": "Electronique & High-Tech",
+        "remise_planifiee_pct": 25.0,
+        "n": 11
+      },
+      {
+        "categorie": "Maison & Cuisine",
+        "remise_planifiee_pct": 5.0,
+        "n": 1280
+      },
+      {
+        "categorie": "Maison & Cuisine",
+        "remise_planifiee_pct": 10.0,
+        "n": 463
+      },
+      {
+        "categorie": "Maison & Cuisine",
+        "remise_planifiee_pct": 15.0,
+        "n": 438
+      },
+      {
+        "categorie": "Maison & Cuisine",
+        "remise_planifiee_pct": 20.0,
+        "n": 288
+      },
+      {
+        "categorie": "Mode & Vetements",
+        "remise_planifiee_pct": 5.0,
+        "n": 200
+      },
+      {
+        "categorie": "Mode & Vetements",
+        "remise_planifiee_pct": 10.0,
+        "n": 32
+      },
+      {
+        "categorie": "Mode & Vetements",
+        "remise_planifiee_pct": 15.0,
+        "n": 172
+      },
+      {
+        "categorie": "Mode & Vetements",
+        "remise_planifiee_pct": 20.0,
+        "n": 878
+      },
+      {
+        "categorie": "Mode & Vetements",
+        "remise_planifiee_pct": 25.0,
+        "n": 248
+      },
+      {
+        "categorie": "Mode & Vetements",
+        "remise_planifiee_pct": 30.0,
+        "n": 374
+      },
+      {
+        "categorie": "Sport & Loisirs",
+        "remise_planifiee_pct": 5.0,
+        "n": 286
+      },
+      {
+        "categorie": "Sport & Loisirs",
+        "remise_planifiee_pct": 10.0,
+        "n": 240
+      },
+      {
+        "categorie": "Sport & Loisirs",
+        "remise_planifiee_pct": 15.0,
+        "n": 694
+      },
+      {
+        "categorie": "Sport & Loisirs",
+        "remise_planifiee_pct": 30.0,
+        "n": 255
+      },
+      {
+        "categorie": "Telephonie & Accessoires",
+        "remise_planifiee_pct": 5.0,
+        "n": 462
+      },
+      {
+        "categorie": "Telephonie & Accessoires",
+        "remise_planifiee_pct": 10.0,
+        "n": 421
+      },
+      {
+        "categorie": "Telephonie & Accessoires",
+        "remise_planifiee_pct": 15.0,
+        "n": 341
+      },
+      {
+        "categorie": "Telephonie & Accessoires",
+        "remise_planifiee_pct": 20.0,
+        "n": 481
+      },
+      {
+        "categorie": "Telephonie & Accessoires",
+        "remise_planifiee_pct": 25.0,
+        "n": 857
+      }
+    ]
+  },
+  "10_campagnes": {
+    "note_comptage_campagnes": "Le dénombrement de référence est celui de `dim_promotion` : **120 campagnes réelles**. Le chiffre de 1518 apparu en V1 comptait des séquences consécutives au niveau produit, pas des campagnes. Cette réconciliation est reprise ici pour éviter toute rechute.",
+    "n_campagnes_dim_promotion": 120,
+    "part_promo_par_mois": {
+      "2025-02": 0.14164546225614927,
+      "2025-03": 0.25724976613657624,
+      "2025-04": 0.0753814620815304,
+      "2025-05": 0.12185297079556898,
+      "2025-06": 0.28784313725490196,
+      "2025-07": 0.25291970802919705,
+      "2025-08": 0.0934952298352125,
+      "2025-09": 0.19387755102040816,
+      "2025-10": 0.0415748031496063,
+      "2025-11": 0.04948198546466677,
+      "2025-12": 0.050586406669492726,
+      "2026-01": 0.10009342052582411,
+      "2026-02": 0.0466024836054137,
+      "2026-03": 0.12159904534606206,
+      "2026-04": 0.2256170620656602,
+      "2026-05": 0.1959991009215554,
+      "2026-06": 0.13238105949836915,
+      "2026-07": 0.06505376344086021
+    },
+    "part_promo_mois_min": 0.0415748031496063,
+    "part_promo_mois_max": 0.28784313725490196,
+    "repartition_des_niveaux": {
+      "5.0": 0.244846688997681,
+      "10.0": 0.2255217727389848,
+      "15.0": 0.23015975264107189,
+      "20.0": 0.13037876835867043,
+      "25.0": 0.09050502447822727,
+      "30.0": 0.07787941252254574,
+      "40.0": 0.0007085802628188611
+    },
+    "niveau_dominant_part": 0.244846688997681,
+    "desequilibre": "Le plan d'expérience est déséquilibré : les niveaux de remise ne sont ni également représentés, ni répartis uniformément dans le temps. Toute comparaison entre niveaux confond donc effet prix et effet calendrier."
+  },
+  "11_stabilite_uplift": {
+    "methode": "différence de moyennes par période — descriptif, non causal",
+    "detail": [
+      {
+        "periode": "P1_2025-02_2025-10",
+        "niveau_remise": 5.0,
+        "n": 1729,
+        "qte_moyenne_promo": 1.308849045691151,
+        "qte_moyenne_hors_promo": 1.2289507940640458,
+        "uplift_descriptif": 1.065013385412192
+      },
+      {
+        "periode": "P1_2025-02_2025-10",
+        "niveau_remise": 10.0,
+        "n": 1461,
+        "qte_moyenne_promo": 1.408624229979466,
+        "qte_moyenne_hors_promo": 1.2289507940640458,
+        "uplift_descriptif": 1.1462006752290332
+      },
+      {
+        "periode": "P1_2025-02_2025-10",
+        "niveau_remise": 15.0,
+        "n": 1780,
+        "qte_moyenne_promo": 1.5129213483146067,
+        "qte_moyenne_hors_promo": 1.2289507940640458,
+        "uplift_descriptif": 1.2310674728574706
+      },
+      {
+        "periode": "P1_2025-02_2025-10",
+        "niveau_remise": 20.0,
+        "n": 828,
+        "qte_moyenne_promo": 1.4939613526570048,
+        "qte_moyenne_hors_promo": 1.2289507940640458,
+        "uplift_descriptif": 1.2156396821361655
+      },
+      {
+        "periode": "P1_2025-02_2025-10",
+        "niveau_remise": 25.0,
+        "n": 1016,
+        "qte_moyenne_promo": 2.197834645669291,
+        "qte_moyenne_hors_promo": 1.2289507940640458,
+        "uplift_descriptif": 1.7883829493296644
+      },
+      {
+        "periode": "P1_2025-02_2025-10",
+        "niveau_remise": 30.0,
+        "n": 520,
+        "qte_moyenne_promo": 1.5788461538461538,
+        "qte_moyenne_hors_promo": 1.2289507940640458,
+        "uplift_descriptif": 1.28471063404014
+      },
+      {
+        "periode": "P2_2025-11_2026-07",
+        "niveau_remise": 5.0,
+        "n": 2072,
+        "qte_moyenne_promo": 1.0916988416988418,
+        "qte_moyenne_hors_promo": 1.320026946999013,
+        "uplift_descriptif": 0.827027693776056
+      },
+      {
+        "periode": "P2_2025-11_2026-07",
+        "niveau_remise": 10.0,
+        "n": 2040,
+        "qte_moyenne_promo": 2.05,
+        "qte_moyenne_hors_promo": 1.320026946999013,
+        "uplift_descriptif": 1.5529985995062665
+      },
+      {
+        "periode": "P2_2025-11_2026-07",
+        "niveau_remise": 15.0,
+        "n": 1793,
+        "qte_moyenne_promo": 1.3753485778025656,
+        "qte_moyenne_hors_promo": 1.320026946999013,
+        "uplift_descriptif": 1.0419094708099121
+      },
+      {
+        "periode": "P2_2025-11_2026-07",
+        "niveau_remise": 20.0,
+        "n": 1196,
+        "qte_moyenne_promo": 1.6229096989966556,
+        "qte_moyenne_hors_promo": 1.320026946999013,
+        "uplift_descriptif": 1.2294519461789966
+      },
+      {
+        "periode": "P2_2025-11_2026-07",
+        "niveau_remise": 25.0,
+        "n": 389,
+        "qte_moyenne_promo": 2.3059125964010283,
+        "qte_moyenne_hors_promo": 1.320026946999013,
+        "uplift_descriptif": 1.746867820875442
+      },
+      {
+        "periode": "P2_2025-11_2026-07",
+        "niveau_remise": 30.0,
+        "n": 689,
+        "qte_moyenne_promo": 1.7663280116110305,
+        "qte_moyenne_hors_promo": 1.320026946999013,
+        "uplift_descriptif": 1.3380999650246923
+      }
+    ],
+    "comparaison_p1_p2": {
+      "5.0": {
+        "p1": 1.065013385412192,
+        "p2": 0.827027693776056,
+        "ecart_relatif": 0.22345793479771933
+      },
+      "10.0": {
+        "p1": 1.1462006752290332,
+        "p2": 1.5529985995062665,
+        "ecart_relatif": 0.35490986270440567
+      },
+      "15.0": {
+        "p1": 1.2310674728574706,
+        "p2": 1.0419094708099121,
+        "ecart_relatif": 0.15365364305215354
+      },
+      "20.0": {
+        "p1": 1.2156396821361655,
+        "p2": 1.2294519461789966,
+        "ecart_relatif": 0.011362136532561759
+      },
+      "25.0": {
+        "p1": 1.7883829493296644,
+        "p2": 1.746867820875442,
+        "ecart_relatif": 0.02321378006303592
+      },
+      "30.0": {
+        "p1": 1.28471063404014,
+        "p2": 1.3380999650246923,
+        "ecart_relatif": 0.04155747572249349
+      }
+    },
+    "ecart_relatif_median": 0.09760555938732351,
+    "ecart_relatif_max": 0.35490986270440567,
+    "monotonie_respectee_p1": null,
+    "avertissement": "Un uplift descriptif instable d'une période à l'autre signifie qu'il ne peut pas servir de base à une recommandation de prix. C'est une mesure de fiabilité, pas une estimation d'élasticité."
+  }
+}

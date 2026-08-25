@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prévision, remise et recommandation — Console V2</title>
+<meta name="description" content="Console de démonstration des modèles V2 corrigés : prévision de la demande, simulation de remise et recommandation de produits.">
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>📊</text></svg>">
+</head>
+<body>
+<a class="saut-contenu" href="#contenu">Aller au contenu principal</a>
+
+<header class="site">
+  <div class="bandeau">
+    <div class="logo">Console modèles V2
+      <span>Prévision · Remise · Recommandation</span>
+    </div>
+    <span id="pastille-api" class="badge neutre" role="status">Vérification…</span>
+  </div>
+  <nav class="principal" aria-label="Navigation principale">
+    <a href="#/accueil" data-route="accueil">Accueil</a>
+    <a href="#/performances" data-route="performances">Performances</a>
+    <a href="#/prevision" data-route="prevision">Prévision</a>
+    <a href="#/pricing" data-route="pricing">Simulateur de remise</a>
+    <a href="#/recommandation" data-route="recommandation">Recommandation</a>
+    <a href="#/technique" data-route="technique">État technique</a>
+  </nav>
+</header>
+
+<main id="contenu" tabindex="-1">
+  <div id="vue" aria-live="polite"></div>
+</main>
+
+<footer class="site">
+  <div class="bandeau">
+    <p><strong>Données synthétiques — projet académique.</strong>
+       Résultats corrigés après audit de fuite. Usage supervisé uniquement :
+       aucune décision n'est appliquée automatiquement.</p>
+    <p>
+      <a href="/docs">Documentation Swagger</a> ·
+      <a href="/openapi.json">Schéma OpenAPI</a> ·
+      <a href="#/technique">État technique</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/app.js" defer></script>
+</body>
+</html>

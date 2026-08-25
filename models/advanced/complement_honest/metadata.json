@@ -1,0 +1,286 @@
+{
+  "statut_metier": {
+    "basket_complement_model": "none_validated",
+    "basket_complement_baseline": "popularite_globale",
+    "reason": "no_complementarity_signal"
+  },
+  "resultats_invalides": {
+    "leave_one_item_out_F2_F4": {
+      "recall@10": 0.43743,
+      "ndcg@10": 0.21264,
+      "status": "invalidated_due_to_target_category_leakage",
+      "source": "src/experiments/complement_end_to_end.py",
+      "measured_inflation_ndcg10": 0.1597733394166365,
+      "measured_inflation_ci95": [
+        0.1555513114736953,
+        0.16393044732949436
+      ]
+    },
+    "legacy_end_to_end": {
+      "recall@10": 0.1005526414387411,
+      "ndcg@10": 0.04846047949272213,
+      "coverage": 0.8933333333333333,
+      "status": "invalidated_due_to_in_sample_evaluation_without_temporal_split",
+      "source": "src/pipelines/final_recommendation.py",
+      "reason": "la matrice de similarite item-item provenait de la derniere fenetre d'entrainement et l'evaluation portait sur la TOTALITE des commandes, y compris celles ayant servi a la construire ; aucune separation temporelle train/test n'etait appliquee, et la cible masquee etait `ps[-1]` et non `sorted(items)[0]`"
+    }
+  },
+  "preuve_absence_de_signal": {
+    "p_categorie_cible_dans_contexte": 0.2182,
+    "p_attendue_si_independance": 0.222,
+    "lecture": "les paniers sont statistiquement des tirages independants ; aucune complementarite n'est exploitable"
+  },
+  "perimetre": {
+    "commandes_multi_produits": 21352,
+    "fenetres_evaluables": [
+      2,
+      3,
+      4
+    ],
+    "cible": "un article masque par commande, sorted(items)[0]",
+    "unite_metrique": "commande",
+    "catalogue": 300,
+    "identique_au_protocole_audite": true
+  },
+  "controles_temporels": [
+    {
+      "window": 2,
+      "n_train_orders": 5301,
+      "n_test_orders": 5338,
+      "train_end_exclusive": "2025-08-24",
+      "train_strictly_before_test": true
+    },
+    {
+      "window": 3,
+      "n_train_orders": 10639,
+      "n_test_orders": 5338,
+      "train_end_exclusive": "2025-12-22",
+      "train_strictly_before_test": true
+    },
+    {
+      "window": 4,
+      "n_train_orders": 15986,
+      "n_test_orders": 5338,
+      "train_end_exclusive": "2026-04-18",
+      "train_strictly_before_test": true
+    }
+  ],
+  "reference_honnete": "popularite_globale",
+  "summary": [
+    {
+      "model": "association_lift",
+      "recall@5": 0.017672036967653303,
+      "ndcg@5": 0.010187220816165668,
+      "recall@10": 0.03659298114150119,
+      "ndcg@10": 0.01624936183731289,
+      "recall@20": 0.07655801173972775,
+      "ndcg@20": 0.02619827806042552,
+      "mrr": 0.012869871712888717,
+      "coverage_catalogue": 0.7711111111111112
+    },
+    {
+      "model": "bm25_panier",
+      "recall@5": 0.026351942050705634,
+      "ndcg@5": 0.014922069898932841,
+      "recall@10": 0.051829649057075065,
+      "ndcg@10": 0.02305033643054513,
+      "recall@20": 0.09560384663419508,
+      "ndcg@20": 0.033994269416803634,
+      "mrr": 0.01745067057156353,
+      "coverage_catalogue": 0.7644444444444445
+    },
+    {
+      "model": "cooccurrence_item_item",
+      "recall@5": 0.028412638940926688,
+      "ndcg@5": 0.01622209083260687,
+      "recall@10": 0.05507680779318097,
+      "ndcg@10": 0.02474878635191738,
+      "recall@20": 0.10765580117397278,
+      "ndcg@20": 0.03795460189657612,
+      "mrr": 0.01929849869643069,
+      "coverage_catalogue": 0.6611111111111111
+    },
+    {
+      "model": "popularite_categorie_contexte",
+      "recall@5": 0.0282253028599975,
+      "ndcg@5": 0.016925235328777922,
+      "recall@10": 0.05438990882977394,
+      "ndcg@10": 0.025322006330259345,
+      "recall@20": 0.0991007868115399,
+      "ndcg@20": 0.03648946665094682,
+      "mrr": 0.019688278838073173,
+      "coverage_catalogue": 0.3188888888888889
+    },
+    {
+      "model": "popularite_globale",
+      "recall@5": 0.03165979767703259,
+      "ndcg@5": 0.016567238903740466,
+      "recall@10": 0.05557637067565879,
+      "ndcg@10": 0.023996946997584218,
+      "recall@20": 0.11258898463844136,
+      "ndcg@20": 0.03829920672416407,
+      "mrr": 0.018399203206218046,
+      "coverage_catalogue": 0.042222222222222223
+    },
+    {
+      "model": "rrf_contexte",
+      "recall@5": 0.02884975646309479,
+      "ndcg@5": 0.016910559745541977,
+      "recall@10": 0.056388160359685274,
+      "ndcg@10": 0.025710333287727042,
+      "recall@20": 0.10759335581366304,
+      "ndcg@20": 0.03852965306813481,
+      "mrr": 0.020046269059753197,
+      "coverage_catalogue": 0.63
+    }
+  ],
+  "decisions": {
+    "association_lift": {
+      "ndcg@10": 0.01624936183731289,
+      "recall@10": 0.03659298114150119,
+      "coverage_catalogue": 0.7711111111111112,
+      "relative_ndcg_gain": -0.322857118493085,
+      "relative_recall_change": -0.34157303370786507,
+      "windows_won_ndcg": 0,
+      "bootstrap_ndcg10": {
+        "metric": "ndcg@10",
+        "challenger": "association_lift",
+        "reference": "popularite_globale",
+        "observed": -0.00774758516027133,
+        "ci95_low": -0.009930263365047614,
+        "ci95_high": -0.005569278695319966,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "bootstrap_recall10": {
+        "metric": "recall@10",
+        "challenger": "association_lift",
+        "reference": "popularite_globale",
+        "observed": -0.018983389534157614,
+        "ci95_low": -0.023791682278006744,
+        "ci95_high": -0.014299987510927937,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "promoted": false
+    },
+    "bm25_panier": {
+      "ndcg@10": 0.02305033643054513,
+      "recall@10": 0.051829649057075065,
+      "coverage_catalogue": 0.7644444444444445,
+      "relative_ndcg_gain": -0.039447124966954565,
+      "relative_recall_change": -0.06741573033707844,
+      "windows_won_ndcg": 2,
+      "bootstrap_ndcg10": {
+        "metric": "ndcg@10",
+        "challenger": "bm25_panier",
+        "reference": "popularite_globale",
+        "observed": -0.0009466105670390905,
+        "ci95_low": -0.003055558760124896,
+        "ci95_high": 0.0012050787688366062,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "bootstrap_recall10": {
+        "metric": "recall@10",
+        "challenger": "bm25_panier",
+        "reference": "popularite_globale",
+        "observed": -0.003746721618583739,
+        "ci95_low": -0.008117896840264769,
+        "ci95_high": 0.0007493443237167478,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "promoted": false
+    },
+    "cooccurrence_item_item": {
+      "ndcg@10": 0.02474878635191738,
+      "recall@10": 0.05507680779318097,
+      "coverage_catalogue": 0.6611111111111111,
+      "relative_ndcg_gain": 0.031330625283659985,
+      "relative_recall_change": -0.008988764044943642,
+      "windows_won_ndcg": 2,
+      "bootstrap_ndcg10": {
+        "metric": "ndcg@10",
+        "challenger": "cooccurrence_item_item",
+        "reference": "popularite_globale",
+        "observed": 0.0007518393543331604,
+        "ci95_low": -0.0011721422572418872,
+        "ci95_high": 0.002696175545686297,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "bootstrap_recall10": {
+        "metric": "recall@10",
+        "challenger": "cooccurrence_item_item",
+        "reference": "popularite_globale",
+        "observed": -0.0004995628824778319,
+        "ci95_low": -0.004496065942300487,
+        "ci95_high": 0.0036218308979642814,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "promoted": false
+    },
+    "popularite_categorie_contexte": {
+      "ndcg@10": 0.025322006330259345,
+      "recall@10": 0.05438990882977394,
+      "coverage_catalogue": 0.3188888888888889,
+      "relative_ndcg_gain": 0.05521782970177503,
+      "relative_recall_change": -0.02134831460674165,
+      "windows_won_ndcg": 2,
+      "bootstrap_ndcg10": {
+        "metric": "ndcg@10",
+        "challenger": "popularite_categorie_contexte",
+        "reference": "popularite_globale",
+        "observed": 0.0013250593326751272,
+        "ci95_low": -0.0007510857770407848,
+        "ci95_high": 0.0033909201981730417,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "bootstrap_recall10": {
+        "metric": "recall@10",
+        "challenger": "popularite_categorie_contexte",
+        "reference": "popularite_globale",
+        "observed": -0.0011864618458848509,
+        "ci95_low": -0.005682527788185338,
+        "ci95_high": 0.003248719870113656,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "promoted": false
+    },
+    "rrf_contexte": {
+      "ndcg@10": 0.025710333287727042,
+      "recall@10": 0.056388160359685274,
+      "coverage_catalogue": 0.63,
+      "relative_ndcg_gain": 0.07140017812746392,
+      "relative_recall_change": 0.014606741573033794,
+      "windows_won_ndcg": 2,
+      "bootstrap_ndcg10": {
+        "metric": "ndcg@10",
+        "challenger": "rrf_contexte",
+        "reference": "popularite_globale",
+        "observed": 0.0017133862901428229,
+        "ci95_low": -0.00014879858250541856,
+        "ci95_high": 0.0035963946484798503,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "bootstrap_recall10": {
+        "metric": "recall@10",
+        "challenger": "rrf_contexte",
+        "reference": "popularite_globale",
+        "observed": 0.0008117896840264768,
+        "ci95_low": -0.0030598226551767204,
+        "ci95_high": 0.004808292743849132,
+        "n_units": 16014,
+        "draws": 4000
+      },
+      "promoted": false
+    }
+  },
+  "modele_promu": null,
+  "gate": "NDCG@10 +5 pourcent, Recall@10 pas en baisse de plus de 2 pourcent, gain sur au moins 2 fenetres sur 3, IC95 bootstrap entierement positif"
+}

@@ -1,0 +1,9 @@
+{
+  "convention": "artefacts regenerables, ignores par Git, non verifiables apres un clone",
+  "reproduce": "python -m src.experiments.pricing_campaign_level",
+  "sha256_local": {
+    "data/processed/final/pricing_product_campaign.parquet": "8e1f86a32a49a5ae8d0e8896531bf3cf71d78d174fa05da0e27b9a5842d5568c",
+    "data/processed/final/pricing_product_week.parquet": "b2c7cd7496cba45c480e7ac703b51acf90cbf947f3baa59cbc20f5416dc117e6",
+    "data/processed/final/pricing_product_day_reference.parquet": "b336733bfd4c8db7c192c268ac6d303d0ffe37a1369655a5f4f09c8e51eaa1db"
+  }
+}

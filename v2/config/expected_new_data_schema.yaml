@@ -1,0 +1,536 @@
+# =============================================================================
+# Contrat de données — livraison enrichie attendue
+# =============================================================================
+# Ce fichier est la référence unique du validateur `v2/data/validate_new_delivery.py`.
+# Il décrit (a) le schéma ACTUEL réellement observé, et (b) le schéma ATTENDU.
+# La comparaison des deux permet de détecter ajout, suppression, renommage,
+# changement de type, de nullabilité, de clé et de grain.
+#
+# Règles absolues :
+#   * aucune valeur fictive n'est créée pour remplacer une donnée absente ;
+#   * un champ obligatoire manquant fait ÉCHOUER la validation, il n'est jamais
+#     contourné par un défaut ;
+#   * tout est en lecture seule : aucune écriture Supabase, aucun DDL.
+#
+# Source du schéma actuel : reports/01_schema.md, généré le 2026-08-13 depuis
+# la base réelle. Les volumétries sont celles de cette livraison-là.
+# =============================================================================
+
+meta:
+  version: "expected_new_data_schema_v1"
+  redige_le: "2026-08-15"
+  statut: "en_attente_de_livraison"
+  schema_actuel_source: "reports/01_schema.md"
+  schema_actuel_genere_le: "2026-08-13"
+  lecture_seule: true
+  ecriture_supabase_autorisee: false
+  creation_de_valeurs_fictives_autorisee: false
+
+# -----------------------------------------------------------------------------
+# 1. Inventaire du schéma ACTUEL — base de comparaison
+# -----------------------------------------------------------------------------
+# Sert de « avant ». Toute divergence constatée à la livraison est classée en
+# ajout / suppression / renommage / changement de type / de nullabilité /
+# de clé / de grain.
+schema_actuel:
+
+  fact_ventes:
+    lignes: 85419
+    cle_primaire: [vente_id]
+    grain: "une ligne de vente — PAS une commande"
+    note_grain: >-
+      Point établi et vérifié en V1 : `vente_id` identifie une ligne de vente.
+      Il n'existe aucun identifiant de commande, donc aucun panier réel n'est
+      reconstituable aujourd'hui. C'est la limite principale que la nouvelle
+      livraison doit lever.
+    colonnes:
+      vente_id:        {type: text,    nullable: false}
+      produit_key:     {type: text,    nullable: true,  fk: "dim_produit.produit_key"}
+      client_key:      {type: text,    nullable: true,  fk: "dim_client.client_key"}
+      date_key:        {type: text,    nullable: true,  fk: "dim_date.date_key"}
+      promo_key:       {type: text,    nullable: true,  fk: "dim_promotion.promo_key"}
+      quantite:        {type: integer, nullable: false}
+      montant_net_xof: {type: numeric, nullable: false}
+
+  fact_evenements_web:
+    lignes: 374792
+    cle_primaire: [event_id]
+    grain: "un événement web, daté au JOUR uniquement"
+    note_grain: >-
+      Aucun horodatage : seul `date_key` existe. Les séquences de parcours et
+      les durées sont donc impossibles à reconstituer. `event_id` existe déjà,
+      mais sans timestamp il ne permet pas d'ordonner les événements.
+    colonnes:
+      event_id:    {type: text, nullable: false}
+      produit_key: {type: text, nullable: true, fk: "dim_produit.produit_key"}
+      client_key:  {type: text, nullable: true, fk: "dim_client.client_key"}
+      date_key:    {type: text, nullable: true, fk: "dim_date.date_key"}
+      type_event:  {type: text, nullable: false}
+      appareil:    {type: text, nullable: true}
+
+  fact_stock:
+    lignes: 117763
+    cle_primaire: [produit_key, date_key]
+    grain: "produit x jour"
+    colonnes:
+      produit_key:  {type: text,    nullable: false, fk: "dim_produit.produit_key"}
+      date_key:     {type: text,    nullable: false, fk: "dim_date.date_key"}
+      niveau_stock: {type: integer, nullable: false}
+
+  dim_produit:
+    lignes: 300
+    cle_primaire: [produit_key]
+    grain: "produit x version SCD"
+    colonnes:
+      produit_key:   {type: text,    nullable: false}
+      product_id:    {type: text,    nullable: false}
+      product_name:  {type: text,    nullable: true}
+      categorie:     {type: text,    nullable: true}
+      marque:        {type: text,    nullable: true}
+      prix_base_xof: {type: numeric, nullable: true}
+      cout_xof:      {type: numeric, nullable: true}
+      valid_from:    {type: date,    nullable: true}
+      valid_to:      {type: date,    nullable: true}
+      is_current:    {type: boolean, nullable: true}
+
+  dim_client:
+    lignes: 5000
+    cle_primaire: [client_key]
+    colonnes:
+      client_key:        {type: text, nullable: false}
+      customer_id:       {type: text, nullable: false}
+      region:            {type: text, nullable: true}
+      age_bracket:       {type: text, nullable: true}
+      segment_fidelite:  {type: text, nullable: true}
+      valid_from:        {type: date, nullable: true}
+
+  dim_promotion:
+    lignes: 120
+    cle_primaire: [promo_key]
+    colonnes:
+      promo_key:    {type: text,    nullable: false}
+      promotion_id: {type: text,    nullable: false}
+      portee:       {type: text,    nullable: true}
+      cible:        {type: text,    nullable: true}
+      remise_pct:   {type: integer, nullable: true}
+      date_debut:   {type: date,    nullable: true}
+      date_fin:     {type: date,    nullable: true}
+    manque_connu:
+      - champ: "date_de_creation_ou_annonce"
+        consequence: >-
+          L'hypothèse « promotions connues au cutoff » est INVÉRIFIABLE. Elle
+          conditionne toute la validité du pricing. À demander explicitement.
+
+  dim_date:
+    lignes: 546
+    cle_primaire: [date_key]
+    periode_couverte: {debut: "2025-02-01", fin: "2026-07-31"}
+    colonnes:
+      date_key:      {type: text,    nullable: false}
+      date_complete: {type: date,    nullable: false}
+      annee:         {type: integer, nullable: true}
+      mois:          {type: integer, nullable: true}
+      jour:          {type: integer, nullable: true}
+      jour_semaine:  {type: text,    nullable: true}
+      est_weekend:   {type: boolean, nullable: true}
+
+# -----------------------------------------------------------------------------
+# 2. Renommages à surveiller en priorité
+# -----------------------------------------------------------------------------
+# Ces couples ne doivent JAMAIS être traités comme un ajout + une suppression
+# silencieuse : le validateur les signale comme renommage probable et demande
+# une confirmation humaine. Une colonne renommée sans être détectée casserait
+# le code en aval de manière silencieuse.
+renommages_probables:
+  - table: fact_evenements_web
+    ancien: type_event
+    nouveau: event_type
+    risque: >-
+      Le contrat attend `event_type` alors que la colonne actuelle s'appelle
+      `type_event`. Si la livraison renomme, tout le code recsys V1/V2 qui lit
+      `type_event` casse. Si elle ajoute `event_type` en gardant `type_event`,
+      il faut savoir laquelle fait foi.
+  - table: fact_evenements_web
+    ancien: appareil
+    nouveau: device
+    risque: "Même colonne, nom possiblement anglicisé dans la nouvelle livraison."
+  - table: fact_ventes
+    ancien: quantite
+    nouveau: quantity
+    risque: >-
+      Le contrat attend `quantity` côté web. Si `fact_ventes.quantite` est
+      renommée au passage, le forecasting et le pricing cassent tous les deux.
+
+# -----------------------------------------------------------------------------
+# 3. Champs ATTENDUS dans la nouvelle livraison
+# -----------------------------------------------------------------------------
+champs_attendus:
+
+  # ---------------------------------------------------------------------------
+  fact_ventes:
+
+    - nom: order_id
+      type: text
+      nullable: false
+      format: "identifiant stable de commande, non réutilisé entre clients"
+      cle: "clé étrangère logique vers une éventuelle table de commandes ; groupe les lignes d'une même commande"
+      obligatoire: true
+      usage:
+        recommandation: "reconstitution du panier réel — produits achetés ensemble, associations, item-item"
+        pricing: "montant et marge au niveau commande, effet d'une remise sur le panier entier"
+        forecasting: "aucun usage direct ; le grain de prévision reste produit x jour"
+      regle_qualite: >-
+        Non nul sur 100 % des lignes. Chaque order_id doit porter au moins une
+        ligne. Un order_id ne doit être rattaché qu'à un seul client_key et
+        qu'à une seule date de commande.
+      si_absent: >-
+        BLOQUANT. Sans order_id, aucun panier réel n'est reconstituable et tout
+        le plan de recommandation par associations tombe. Ne jamais simuler des
+        paniers en groupant par (client, jour) : c'est une hypothèse, pas une
+        donnée, et elle fusionnerait des commandes distinctes du même jour.
+
+    - nom: statut_commande
+      type: text
+      nullable: false
+      format: "énuméré, ex. : confirmee | annulee | retournee | en_attente"
+      cle: null
+      obligatoire: true
+      usage:
+        recommandation: "exclure des cibles les commandes annulées ou retournées"
+        pricing: "ne compter que le chiffre d'affaires réellement encaissé"
+        forecasting: "définir si la cible est la quantité commandée ou la quantité nette"
+      regle_qualite: >-
+        Domaine de valeurs fermé et documenté. Toute valeur hors énuméré fait
+        échouer la validation — elle n'est jamais rangée dans un « autre ».
+      si_absent: >-
+        DÉGRADÉ, non bloquant. On conserve la cible actuelle (quantité brute
+        observée, identique à la V1) et l'on documente que ventes annulées et
+        retours ne sont pas distinguables. Aucune correction n'est inventée.
+
+    - nom: is_annulee
+      type: boolean
+      nullable: false
+      format: "true/false"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "exclusion des cibles"
+        pricing: "exclusion du CA et de la marge"
+        forecasting: "choix de la cible nette"
+      regle_qualite: "Cohérent avec statut_commande : jamais is_annulee=true et statut=confirmee."
+      si_absent: "Se rabattre sur statut_commande. Si les deux manquent, aucun retrait n'est appliqué et le fait est documenté."
+
+    - nom: is_retour
+      type: boolean
+      nullable: false
+      format: "true/false"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "un retour n'est pas un signal d'appétence positif"
+        pricing: "impact réel sur la marge"
+        forecasting: "cible nette"
+      regle_qualite: "Cohérent avec statut_commande et avec date_retour si elle existe."
+      si_absent: "Même traitement que is_annulee."
+
+    - nom: date_retour
+      type: timestamp
+      nullable: true
+      format: "ISO 8601 avec fuseau"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "un retour postérieur au cutoff ne doit pas être connu à la prévision — anti-fuite"
+        pricing: "rattachement du retour à la bonne période"
+      regle_qualite: "Toujours ≥ à la date de commande. Nulle si is_retour est faux."
+      si_absent: >-
+        Les retours, s'ils existent, ne sont pas datables. Ils ne peuvent alors
+        PAS être utilisés dans une validation temporelle sans risque de fuite :
+        on ne saurait pas si le retour était connu au cutoff.
+
+  # ---------------------------------------------------------------------------
+  fact_evenements_web:
+
+    - nom: event_id
+      type: text
+      nullable: false
+      format: "identifiant unique d'événement"
+      cle: "clé primaire"
+      obligatoire: true
+      usage:
+        recommandation: "déduplication des événements"
+      regle_qualite: "Unicité stricte. Tout doublon fait échouer la validation."
+      si_absent: "BLOQUANT — mais la colonne existe déjà aujourd'hui ; sa disparition serait une régression à signaler immédiatement."
+
+    - nom: session_id
+      type: text
+      nullable: false
+      format: "identifiant de session de navigation"
+      cle: "clé de regroupement pour session_sequences"
+      obligatoire: true
+      usage:
+        recommandation: "parcours vue → clic → panier → achat, intention récente, durée de session"
+      regle_qualite: >-
+        Non nul. Une session doit appartenir à un seul jour civil OU la règle de
+        coupure (inactivité, minuit) doit être documentée par le Data Engineer —
+        elle ne sera pas devinée. Une session peut légitimement porter à la fois
+        des événements anonymes et authentifiés (transition de connexion).
+      si_absent: >-
+        BLOQUANT pour `session_sequences`. Ne jamais reconstruire des sessions
+        en groupant par (client, jour) : cela fabrique des sessions qui n'ont
+        jamais existé.
+
+    - nom: event_timestamp
+      type: timestamptz
+      nullable: false
+      format: "ISO 8601 AVEC fuseau horaire explicite"
+      cle: null
+      obligatoire: true
+      usage:
+        recommandation: "ordre des événements, durées, récence, fenêtres temporelles fines"
+        forecasting: "aucun usage direct au grain jour actuel"
+      regle_qualite: >-
+        Fuseau obligatoire et unique sur toute la table. Aucun timestamp dans le
+        futur par rapport à la date de livraison. Ordre cohérent à l'intérieur
+        d'une session. Le fuseau de référence métier doit être déclaré : sans
+        lui, une conversion UTC/local décale les journées et fausse toutes les
+        fenêtres.
+      si_absent: >-
+        BLOQUANT pour toute séquence. Le grain resterait le jour, exactement
+        comme aujourd'hui, et aucune modélisation séquentielle ne serait
+        justifiable.
+
+    - nom: event_type
+      type: text
+      nullable: false
+      format: "énuméré, ex. : view | click | add_to_cart | purchase"
+      cle: null
+      obligatoire: true
+      usage:
+        recommandation: "pondération différenciée des interactions"
+      regle_qualite: >-
+        Domaine fermé et documenté. ATTENTION : la colonne actuelle s'appelle
+        `type_event`. Un renommage doit être confirmé explicitement, jamais
+        supposé.
+      si_absent: "BLOQUANT — équivalent de la perte de `type_event`, qui existe déjà."
+
+    - nom: client_key
+      type: text
+      nullable: true
+      format: "clé client du référentiel"
+      cle: "FK dim_client.client_key"
+      obligatoire: true
+      usage:
+        recommandation: "rattachement des interactions au client connu"
+      regle_qualite: >-
+        Nulle est ACCEPTABLE et attendue pour les événements anonymes — c'est
+        une information, pas un défaut. Toute valeur non nulle doit exister dans
+        dim_client. Le taux de nullité doit être mesuré et rapporté.
+      si_absent: "BLOQUANT — la colonne existe déjà aujourd'hui."
+
+    - nom: anonymous_id
+      type: text
+      nullable: true
+      format: "identifiant de navigateur/appareil, stable avant authentification"
+      cle: null
+      obligatoire: true
+      usage:
+        recommandation: "recoller le parcours avant connexion au client une fois authentifié"
+      regle_qualite: >-
+        Au moins un de (client_key, anonymous_id) doit être non nul sur chaque
+        ligne — sinon l'événement n'est rattachable à personne. La règle de
+        réconciliation anonyme → authentifié doit être fournie par le Data
+        Engineer : elle ne sera pas inférée.
+      si_absent: >-
+        DÉGRADÉ. Les événements anonymes restent inexploitables pour la
+        personnalisation ; on ne les rattache à aucun client par heuristique.
+
+    - nom: produit_key
+      type: text
+      nullable: true
+      format: "clé produit du référentiel"
+      cle: "FK dim_produit.produit_key"
+      obligatoire: true
+      usage:
+        recommandation: "cible de l'interaction"
+      regle_qualite: >-
+        Nulle acceptable pour les événements sans produit (page d'accueil,
+        recherche). Toute valeur non nulle doit exister dans dim_produit.
+      si_absent: "BLOQUANT — la colonne existe déjà aujourd'hui."
+
+    - nom: order_id
+      type: text
+      nullable: true
+      format: "identifiant de commande, renseigné sur les événements d'achat"
+      cle: "FK logique vers fact_ventes.order_id"
+      obligatoire: true
+      usage:
+        recommandation: "relier un achat web à la commande réelle, et lever enfin l'ambiguïté web_purchase / vente"
+      regle_qualite: >-
+        Non nul sur tous les événements event_type='purchase'. Chaque order_id
+        présent doit exister dans fact_ventes. Un achat web sans commande
+        correspondante est une anomalie à compter et à rapporter, jamais à
+        ignorer.
+      si_absent: >-
+        DÉGRADÉ mais lourd de conséquences : le problème identifié en V1 —
+        un `web_purchase` contemporain peut refléter directement la vente et
+        constituer une fuite — resterait entier.
+
+    - nom: quantity
+      type: integer
+      nullable: true
+      format: "entier positif"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "pondération de l'intensité de l'interaction (panier, achat)"
+      regle_qualite: "Strictement positive quand renseignée. Nulle sur les vues et les clics."
+      si_absent: "Les interactions sont traitées en binaire (présence/absence), sans pondération par quantité."
+
+    - nom: canal
+      type: text
+      nullable: true
+      format: "énuméré, ex. : web | app_mobile | marketplace"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "segmentation des comportements par canal"
+      regle_qualite: "Domaine fermé et documenté."
+      si_absent: "Aucune segmentation par canal. Documenté comme non disponible."
+
+    - nom: appareil
+      type: text
+      nullable: true
+      format: "énuméré, ex. : desktop | mobile | tablet"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "segmentation par appareil"
+      regle_qualite: "Domaine fermé. Colonne déjà présente aujourd'hui sous ce nom."
+      si_absent: "Régression par rapport à l'existant — à signaler."
+
+    - nom: source
+      type: text
+      nullable: true
+      format: "origine du trafic, ex. : direct | organique | payant | email"
+      cle: null
+      obligatoire: false
+      usage:
+        recommandation: "distinguer intention spontanée et trafic acquis"
+      regle_qualite: "Domaine fermé et documenté."
+      si_absent: "Aucune analyse par source. Documenté."
+
+    - nom: is_bot
+      type: boolean
+      nullable: false
+      format: "true/false"
+      cle: null
+      obligatoire: true
+      usage:
+        recommandation: "exclusion stricte du trafic non humain de toutes les métriques"
+      regle_qualite: >-
+        Non nul. La méthode de détection doit être documentée par le Data
+        Engineer. Un taux de bots nul sur 100 % des lignes est suspect et doit
+        être signalé comme tel, pas accepté silencieusement.
+      si_absent: >-
+        BLOQUANT pour toute métrique de recommandation. Sans indicateur, on ne
+        peut pas savoir quelle part du trafic est robotique, et les taux de
+        conversion comme les popularités sont potentiellement faussés. Ne jamais
+        inventer une règle de détection maison sur des heuristiques de volume.
+
+    - nom: is_test_interne
+      type: boolean
+      nullable: false
+      format: "true/false"
+      cle: null
+      obligatoire: true
+      usage:
+        recommandation: "exclusion du trafic interne et des comptes de test"
+      regle_qualite: "Non nul. Le périmètre (QA, employés, monitoring) doit être documenté."
+      si_absent: "BLOQUANT, même raisonnement que is_bot."
+
+# -----------------------------------------------------------------------------
+# 4. Seuils de couverture — figés avant réception
+# -----------------------------------------------------------------------------
+# Un champ peut être présent mais vide sur 95 % des lignes : présence et
+# couverture sont deux contrôles distincts. Ces seuils sont fixés MAINTENANT,
+# avant de voir la livraison, et ne seront pas relâchés après observation.
+seuils_couverture:
+  fact_ventes.order_id:                  {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_ventes.statut_commande:           {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.event_id:          {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.session_id:        {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.event_timestamp:   {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.event_type:        {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.order_id:          {min_non_null: 1.00, portee: "événements event_type='purchase' uniquement"}
+  fact_evenements_web.is_bot:            {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.is_test_interne:   {min_non_null: 1.00, portee: "toutes les lignes"}
+  fact_evenements_web.anonymous_id:      {min_non_null: 0.95, portee: "lignes à client_key nul"}
+  fact_evenements_web.produit_key:       {min_non_null: 0.50, portee: "toutes les lignes"}
+
+  couverture_historique_minimale:
+    part_periode_actuelle_couverte: 0.90
+    justification: >-
+      Les nouveaux champs doivent couvrir au moins 90 % de la période
+      actuellement couverte (2025-02-01 → 2026-07-31). En dessous, les fenêtres
+      de backtest V1 ne sont pas reproductibles sur le nouveau périmètre et la
+      comparaison V1/nouveau dataset perd son sens.
+
+# -----------------------------------------------------------------------------
+# 5. Contrôles d'intégrité exigés
+# -----------------------------------------------------------------------------
+controles_integrite:
+  unicite:
+    - {table: fact_evenements_web, colonnes: [event_id]}
+    - {table: fact_ventes,         colonnes: [vente_id]}
+    - {table: fact_stock,          colonnes: [produit_key, date_key]}
+  cles_etrangeres:
+    - {source: "fact_ventes.produit_key",         cible: "dim_produit.produit_key"}
+    - {source: "fact_ventes.client_key",          cible: "dim_client.client_key"}
+    - {source: "fact_ventes.date_key",            cible: "dim_date.date_key"}
+    - {source: "fact_ventes.promo_key",           cible: "dim_promotion.promo_key"}
+    - {source: "fact_evenements_web.produit_key", cible: "dim_produit.produit_key"}
+    - {source: "fact_evenements_web.client_key",  cible: "dim_client.client_key"}
+    - {source: "fact_evenements_web.date_key",    cible: "dim_date.date_key"}
+    - {source: "fact_evenements_web.order_id",    cible: "fact_ventes.order_id"}
+  coherence_metier:
+    - nom: commande_sans_ligne
+      description: "Un order_id référencé côté web sans aucune ligne dans fact_ventes."
+      severite: erreur
+    - nom: achat_web_sans_commande
+      description: "Un événement event_type='purchase' sans order_id renseigné."
+      severite: erreur
+    - nom: order_id_multi_client
+      description: "Un order_id rattaché à plusieurs client_key."
+      severite: erreur
+    - nom: evenements_desordonnes
+      description: "À l'intérieur d'une session, un event_timestamp antérieur au précédent après tri par event_id."
+      severite: avertissement
+      note: "Attendu si event_id n'est pas séquentiel ; c'est une observation, pas nécessairement un défaut."
+    - nom: evenements_futurs
+      description: "event_timestamp postérieur à la date de livraison."
+      severite: erreur
+    - nom: timestamp_sans_fuseau
+      description: "event_timestamp naïf, sans information de fuseau."
+      severite: erreur
+    - nom: retour_avant_commande
+      description: "date_retour antérieure à la date de commande."
+      severite: erreur
+    - nom: taux_bot_nul
+      description: "is_bot faux sur 100 % des lignes — suspect, à confirmer avec le Data Engineer."
+      severite: avertissement
+
+# -----------------------------------------------------------------------------
+# 6. Comportement global du validateur
+# -----------------------------------------------------------------------------
+comportement_validateur:
+  echec_si_champ_obligatoire_absent: true
+  echec_si_couverture_insuffisante: true
+  echec_si_erreur_integrite: true
+  avertissement_ne_fait_pas_echouer: true
+  rapport_expurge_de_tout_secret: true
+  masquage: >-
+    Hôte, utilisateur, mot de passe et chaîne de connexion sont masqués dans
+    toute sortie, y compris les messages d'erreur.
+  ecriture_supabase: false
+  ecriture_fichiers: "uniquement le rapport de validation, sous v2/evaluation/"

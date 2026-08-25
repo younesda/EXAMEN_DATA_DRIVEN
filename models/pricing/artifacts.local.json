@@ -1,0 +1,7 @@
+{
+  "convention": "artefacts regenerables, ignores par Git, non verifiables apres un clone",
+  "reproduce": "python -m src.pipelines.final_pricing",
+  "sha256_local": {
+    "promotion_simulator.csv": "466d73422bcefb2f1b2481431f60d96940f4a9cac5de69c89cf2951fc9b890fa"
+  }
+}
