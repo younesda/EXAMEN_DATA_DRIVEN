@@ -1,6 +1,6 @@
 # E-commerce — Forecasting, Pricing et Recommandation
 
-> ## ⚠️ AVERTISSEMENT — résultats partiellement invalidés le 2026-08-18
+> ## AVERTISSEMENT — résultats partiellement invalidés le 2026-08-18
 >
 > Un audit indépendant a identifié **trois fuites de données**. Deux des trois
 > références historiquement publiées sont **invalides** et ne doivent plus servir
@@ -15,7 +15,7 @@
 >
 > **Aucun modèle n'est promu sur aucun domaine.**
 >
-> 👉 Lire d'abord [`SUPERSEDED_RESULTS.md`](SUPERSEDED_RESULTS.md), puis la série
+> Lire d'abord [`SUPERSEDED_RESULTS.md`](SUPERSEDED_RESULTS.md), puis la série
 > « correction » : [17 — fuites](reports/42_leakage_correction_report.md) ·
 > [18 — pricing](reports/43_corrected_pricing_results.md) ·
 > [19 — recommandation](reports/44_corrected_recommendation_results.md) ·
@@ -100,10 +100,10 @@ Le fichier `.env` est exclu par `.gitignore`. Ne jamais l'afficher, le journalis
 
 - Audit des données : [`reports/final/01_data_audit.md`](reports/final/01_data_audit.md)
 - Forecasting : [`reports/final/02_forecasting.md`](reports/final/02_forecasting.md), `models/forecasting/`
-- Pricing : ⚠️ [`reports/final/03_pricing.md`](reports/final/03_pricing.md) **invalidé** → [`reports/43_corrected_pricing_results.md`](reports/43_corrected_pricing_results.md), `models/advanced/pricing_corrected/`
-- Recommandation : ⚠️ [`reports/final/04_recommendation.md`](reports/final/04_recommendation.md) **partiellement invalidé** → [`reports/44_corrected_recommendation_results.md`](reports/44_corrected_recommendation_results.md), `models/advanced/complement_honest/`
+- Pricing : [`reports/final/03_pricing.md`](reports/final/03_pricing.md) **invalidé** → [`reports/43_corrected_pricing_results.md`](reports/43_corrected_pricing_results.md), `models/advanced/pricing_corrected/`
+- Recommandation : [`reports/final/04_recommendation.md`](reports/final/04_recommendation.md) **partiellement invalidé** → [`reports/44_corrected_recommendation_results.md`](reports/44_corrected_recommendation_results.md), `models/advanced/complement_honest/`
 - Synthèse exécutive : [`reports/final/05_executive_summary.md`](reports/final/05_executive_summary.md)
-- Addendum méthodologique : ⚠️ [`reports/final/06_methodology_addendum.md`](reports/final/06_methodology_addendum.md) **partiellement invalidé** (NDCG@10 0,0485)
+- Addendum méthodologique : [`reports/final/06_methodology_addendum.md`](reports/final/06_methodology_addendum.md) **partiellement invalidé** (NDCG@10 0,0485)
 - Matrice des contrôles actifs : [`reports/final/07_active_test_matrix.md`](reports/final/07_active_test_matrix.md)
 
 Chaque répertoire de modèles contient des métadonnées et un manifeste SHA-256. Les anciens rapports V1 restent versionnés pour traçabilité.
