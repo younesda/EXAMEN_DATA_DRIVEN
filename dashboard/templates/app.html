@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teranga BI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="blob accent"></div>
+    <div class="blob blue"></div>
+  </div>
+  <div id="bar"></div>
+
+  <div class="desk">
+    <aside class="side">
+      <div class="brand">
+        <span class="mark">Teranga</span>
+        <div>
+          <strong>Teranga BI</strong>
+          <small>ISM · Master 2 Big Data</small>
+        </div>
+      </div>
+      <p class="menu-label">Analyse</p>
+      <nav>
+        <button class="nav on" data-view="dashboard">Dashboard</button>
+        <button class="nav" data-view="ventes">Ventes</button>
+        <button class="nav" data-view="produits">Produits</button>
+        <button class="nav" data-view="clients">Clients</button>
+        <button class="nav" data-view="stock">Stock</button>
+      </nav>
+      <p class="menu-label mt">Outils métier</p>
+      <nav>
+        <button class="nav" data-view="ml-forecast">Prévisions ventes</button>
+        <button class="nav" data-view="ml-pricing">Simulation prix</button>
+        <button class="nav" data-view="ml-reco">Recommandation</button>
+      </nav>
+      <div class="side-foot">
+        <a class="nav ghost nav-logout" href="{{ url_for('logout') }}">Déconnexion</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="top">
+        <div>
+          <h1 id="view-title">Sales Report</h1>
+          <p class="date-line"><span id="today"></span> · <span id="source-tag">Chargement…</span> · <span id="filter-meta"></span></p>
+        </div>
+        <div class="header-tools">
+          <button type="button" class="tool-btn" id="export-excel" title="Exporter Excel (KPI + détail, en-tête figé)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/></svg>
+            Excel
+          </button>
+          <button type="button" class="tool-btn primary" id="export-html" title="Rapport HTML structuré (graphiques + tableau)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+            Rapport HTML
+          </button>
+        </div>
+      </header>
+
+      <!-- ═══════════════ DASHBOARD ═══════════════ -->
+      <section id="view-dashboard" class="view on">
+        <div class="filter-shell">
+          <div class="filter-head">
+            <p class="filter-title">Filtres · vue globale</p>
+            <div class="filter-actions">
+              <button type="button" class="icon-btn accent" data-refresh-view title="Rafraîchir les données" aria-label="Rafraîchir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="filter-grid">
+            <label class="filter-field"><span>Année</span><select data-filter="annee"><option value="all">Toutes années</option></select></label>
+            <label class="filter-field"><span>Mois</span><select data-filter="mois"><option value="all">Tous mois</option></select></label>
+            <label class="filter-field"><span>Région</span><select data-filter="region"><option value="all">Toutes régions</option></select></label>
+          </div>
+        </div>
+        <div class="kpi-row" id="kpi-row"></div>
+        <div class="row2">
+          <article class="panel panel-main chart-panel">
+            <div class="panel-head">
+              <h3>Evolution du CA</h3>
+              <div class="rev-tools">
+                <div class="filters">
+                  <button class="f-btn" data-period="day">30 jours</button>
+                  <button class="f-btn on" data-period="month">Mensuel</button>
+                  <button class="f-btn" data-period="year">Annuel</button>
+                </div>
+                <label class="switch">Comparer N-1 <input id="compare" type="checkbox" /></label>
+              </div>
+            </div>
+            <p class="chart-hint">Cliquez sur une barre pour voir le détail</p>
+            <div class="chart chart-lg" id="chart-ca"></div>
+          </article>
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Répartition par catégorie</h3></div>
+            <p class="chart-hint">Cliquez pour filtrer par catégorie</p>
+            <div class="chart chart-donut" id="chart-cat-donut"></div>
+            <ul class="stat-list drill-list" id="cat-legend"></ul>
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Funnel e-commerce</h3></div>
+            <p class="chart-hint">Cliquez sur une étape pour le détail</p>
+            <div class="chart" id="chart-funnel"></div>
+            <ul class="stat-list" id="funnel-list"></ul>
+          </article>
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Segments clients</h3></div>
+            <p class="chart-hint">Cliquez pour filtrer par segment</p>
+            <div class="chart chart-donut" id="chart-seg"></div>
+            <ul class="stat-list drill-list" id="seg-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ═══════════════ VENTES ═══════════════ -->
+      <section id="view-ventes" class="view">
+        <div class="filter-shell">
+          <div class="filter-head">
+            <p class="filter-title">Filtres · ventes</p>
+            <div class="filter-actions">
+              <button type="button" class="icon-btn accent" data-refresh-view title="Rafraîchir les données" aria-label="Rafraîchir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="filter-grid">
+            <label class="filter-field"><span>Année</span><select data-filter="annee"><option value="all">Toutes années</option></select></label>
+            <label class="filter-field"><span>Mois</span><select data-filter="mois"><option value="all">Tous mois</option></select></label>
+            <label class="filter-field"><span>Week-end</span><select data-filter="weekend"><option value="all">Semaine + week-end</option></select></label>
+            <label class="filter-field"><span>Promotion</span><select data-filter="promo"><option value="all">Promo + plein tarif</option></select></label>
+            <label class="filter-field"><span>Statut</span><select data-filter="statut"><option value="all">Tous statuts</option></select></label>
+            <label class="filter-field"><span>Catégorie</span><select data-filter="categorie"><option value="all">Toutes catégories</option></select></label>
+            <label class="filter-field"><span>Produit</span><select data-filter="produit"><option value="all">Tous produits</option></select></label>
+            <label class="filter-field"><span>Région</span><select data-filter="region"><option value="all">Toutes régions</option></select></label>
+            <label class="filter-field search-field"><span>Recherche</span><input id="q-ventes" type="search" placeholder="ID, commande, produit…" /></label>
+          </div>
+        </div>
+        <div class="kpi-row" id="kpi-ventes"></div>
+        <div class="grid-2">
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>CA par région</h3></div>
+            <p class="chart-hint">Cliquez sur une région</p>
+            <div class="chart" id="chart-region"></div>
+          </article>
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Promo vs plein tarif</h3></div>
+            <p class="chart-hint">Cliquez sur un segment pour le détail</p>
+            <div class="chart chart-donut" id="chart-promo"></div>
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>CA & unités par mois</h3></div>
+            <p class="chart-hint">Cliquez sur une barre pour le détail</p>
+            <div class="chart" id="chart-ca-qty"></div>
+          </article>
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Rentabilité</h3></div>
+            <p class="chart-hint">Cliquez sur une barre pour le détail</p>
+            <div class="chart" id="chart-rentab"></div>
+            <ul class="stat-list" id="rentab-list"></ul>
+          </article>
+        </div>
+        <article class="panel">
+          <div class="panel-head"><h3>Données de l'analyse — ventes</h3><p class="chart-hint" id="recent-meta">—</p></div>
+          <div class="table-wrap" id="recent"></div>
+        </article>
+      </section>
+
+      <!-- ═══════════════ PRODUITS ═══════════════ -->
+      <section id="view-produits" class="view">
+        <div class="filter-shell">
+          <div class="filter-head">
+            <p class="filter-title">Filtres · produits</p>
+            <div class="filter-actions">
+              <button type="button" class="icon-btn accent" data-refresh-view title="Rafraîchir les données" aria-label="Rafraîchir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="filter-grid">
+            <label class="filter-field"><span>Année</span><select data-filter="annee"><option value="all">Toutes années</option></select></label>
+            <label class="filter-field"><span>Mois</span><select data-filter="mois"><option value="all">Tous mois</option></select></label>
+            <label class="filter-field"><span>Catégorie</span><select data-filter="categorie"><option value="all">Toutes catégories</option></select></label>
+            <label class="filter-field"><span>Marque</span><select data-filter="marque"><option value="all">Toutes marques</option></select></label>
+            <label class="filter-field"><span>Produit</span><select data-filter="produit"><option value="all">Tous produits</option></select></label>
+            <label class="filter-field"><span>Promotion</span><select data-filter="promo"><option value="all">Promo + plein tarif</option></select></label>
+            <label class="filter-field search-field"><span>Recherche</span><input id="q-produits" type="search" placeholder="Produit, catégorie, marque…" /></label>
+          </div>
+        </div>
+        <div class="kpi-row" id="kpi-produits"></div>
+        <div class="grid-2">
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>CA par catégorie</h3></div>
+            <p class="chart-hint">Cliquez sur une barre pour le détail</p>
+            <div class="chart" id="chart-cat-bar"></div>
+            <ul class="stat-list drill-list" id="cat-list"></ul>
+          </article>
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Part des promotions</h3></div>
+            <p class="chart-hint">Cliquez sur le donut pour le détail</p>
+            <div class="chart" id="chart-cat-promo"></div>
+          </article>
+        </div>
+        <article class="panel">
+          <div class="panel-head"><h3>Données de l'analyse — produits</h3><p class="chart-hint" id="table-produits-meta">—</p></div>
+          <div class="table-wrap" id="table-produits"></div>
+        </article>
+      </section>
+
+      <!-- ═══════════════ CLIENTS ═══════════════ -->
+      <section id="view-clients" class="view">
+        <div class="filter-shell">
+          <div class="filter-head">
+            <p class="filter-title">Filtres · clients</p>
+            <div class="filter-actions">
+              <button type="button" class="icon-btn accent" data-refresh-view title="Rafraîchir les données" aria-label="Rafraîchir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="filter-grid">
+            <label class="filter-field"><span>Année</span><select data-filter="annee"><option value="all">Toutes années</option></select></label>
+            <label class="filter-field"><span>Mois</span><select data-filter="mois"><option value="all">Tous mois</option></select></label>
+            <label class="filter-field"><span>Région</span><select data-filter="region"><option value="all">Toutes régions</option></select></label>
+            <label class="filter-field"><span>Segment</span><select data-filter="segment"><option value="all">Tous segments</option></select></label>
+            <label class="filter-field"><span>Âge</span><select data-filter="age"><option value="all">Tous âges</option></select></label>
+            <label class="filter-field"><span>Client</span><select data-filter="client"><option value="all">Tous clients</option></select></label>
+            <label class="filter-field"><span>Appareil</span><select data-filter="appareil"><option value="all">Tous appareils</option></select></label>
+            <label class="filter-field"><span>Source trafic</span><select data-filter="source_trafic"><option value="all">Toutes sources</option></select></label>
+            <label class="filter-field search-field"><span>Recherche</span><input id="q-clients" type="search" placeholder="Client, région, segment…" /></label>
+          </div>
+        </div>
+        <div class="kpi-row" id="kpi-clients"></div>
+        <p class="chart-hint" id="clients-statut-note" style="margin:-6px 0 14px">—</p>
+        <article class="panel" id="vip-panel" style="margin-bottom:14px">
+          <div class="panel-head">
+            <h3>Clients VIP</h3>
+            <div class="panel-head-right">
+              <p class="chart-hint" id="vip-meta">—</p>
+              <button type="button" class="f-btn icon-txt" id="export-vip-xlsx" title="Exporter les VIP en Excel">Excel</button>
+            </div>
+          </div>
+          <p class="ml-intro" style="margin:0 12px 10px">Les <strong>VIP</strong> achètent très souvent (environ chaque semaine, ou au moins 1,5 commande par mois). Ce ne sont pas les « loyaux » : ce sont les plus fréquents, à choyer en priorité.</p>
+          <div class="table-wrap" id="table-vip" style="max-height:200px"></div>
+        </article>
+        <article class="panel" id="loyal-panel" style="margin-bottom:14px">
+          <div class="panel-head">
+            <h3>Clients loyaux</h3>
+            <div class="panel-head-right">
+              <p class="chart-hint" id="loyal-meta">—</p>
+              <button type="button" class="f-btn icon-txt" id="export-loyal-xlsx" title="Exporter les loyaux en Excel">Excel</button>
+            </div>
+          </div>
+          <p class="ml-intro" style="margin:0 12px 10px">Les <strong>loyaux</strong> achètent régulièrement, mais moins souvent que les VIP. Ils restent actifs : l’enjeu est de les fidéliser et éventuellement les faire monter en VIP.</p>
+          <div class="table-wrap" id="table-loyal" style="max-height:200px"></div>
+        </article>
+        <article class="panel" id="inactif-panel" style="margin-bottom:14px">
+          <div class="panel-head">
+            <h3>Clients inactifs</h3>
+            <div class="panel-head-right">
+              <p class="chart-hint" id="inactif-meta">—</p>
+              <button type="button" class="f-btn icon-txt" id="export-inactif-xlsx" title="Exporter les inactifs en Excel">Excel</button>
+            </div>
+          </div>
+          <p class="ml-intro" style="margin:0 12px 10px">Les <strong>inactifs</strong> n’ont pas commandé depuis 6 mois à moins de 2 ans. Ils ne sont pas encore churn : une relance peut encore les ramener.</p>
+          <div class="table-wrap" id="table-inactif" style="max-height:200px"></div>
+        </article>
+        <article class="panel" id="churn-panel" style="margin-bottom:14px">
+          <div class="panel-head">
+            <h3>Clients churn</h3>
+            <div class="panel-head-right">
+              <p class="chart-hint" id="churn-meta">—</p>
+              <button type="button" class="f-btn icon-txt" id="export-churn-xlsx" title="Exporter les churn en Excel">Excel</button>
+            </div>
+          </div>
+          <p class="ml-intro" style="margin:0 12px 10px">Les <strong>churn</strong> nous ont quittés : aucune commande depuis <strong>au moins deux ans</strong>. Priorité faible de relance classique — plutôt analyse des causes de départ.</p>
+          <div class="table-wrap" id="table-churn" style="max-height:200px"></div>
+        </article>
+        <div class="grid-2">
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Appareils</h3></div>
+            <p class="chart-hint">Cliquez sur un appareil pour le détail</p>
+            <div class="chart chart-donut" id="chart-device"></div>
+          </article>
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Sources de trafic</h3></div>
+            <p class="chart-hint">Cliquez sur une source pour le détail</p>
+            <div class="chart" id="chart-traffic"></div>
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <div class="panel-head"><h3>Valeur par région</h3></div>
+            <p class="chart-hint">Cliquez sur une région pour le détail</p>
+            <ul class="bars drill-list" id="region-bars"></ul>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Taux d'abandon</h3></div>
+            <p class="chart-hint">Cliquez sur une jauge pour le détail</p>
+            <div class="rings">
+              <div>
+                <div class="chart chart-sm" id="chart-abandon-cart"></div>
+                <p>Paniers abandonnés</p>
+                <b id="abandon-cart-n">—</b>
+              </div>
+              <div>
+                <div class="chart chart-sm" id="chart-abandon-rev"></div>
+                <p>Vues sans achat</p>
+                <b id="abandon-rev-n">—</b>
+              </div>
+            </div>
+          </article>
+        </div>
+        <article class="panel">
+          <div class="panel-head"><h3>Données de l'analyse — clients</h3><p class="chart-hint" id="table-clients-meta">—</p></div>
+          <div class="table-wrap" id="table-clients"></div>
+        </article>
+      </section>
+
+      <!-- ═══════════════ STOCK ═══════════════ -->
+      <section id="view-stock" class="view">
+        <div class="filter-shell">
+          <div class="filter-head">
+            <p class="filter-title">Filtres · stock</p>
+            <div class="filter-actions">
+              <button type="button" class="icon-btn accent" data-refresh-view title="Rafraîchir les données" aria-label="Rafraîchir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="filter-grid">
+            <label class="filter-field"><span>Catégorie</span><select data-filter="categorie"><option value="all">Toutes catégories</option></select></label>
+            <label class="filter-field"><span>Marque</span><select data-filter="marque"><option value="all">Toutes marques</option></select></label>
+            <label class="filter-field"><span>Produit</span><select data-filter="produit"><option value="all">Tous produits</option></select></label>
+            <label class="filter-field"><span>Niveau stock</span><select data-filter="stock_level"><option value="all">Tous niveaux</option></select></label>
+            <label class="filter-field search-field"><span>Recherche</span><input id="q-stock" type="search" placeholder="Produit, catégorie…" /></label>
+          </div>
+        </div>
+        <div class="kpi-row" id="kpi-stock"></div>
+        <div class="stock-stack">
+          <article class="panel">
+            <div class="panel-head"><h3>Alertes stock</h3><p class="chart-hint">Cliquez une ligne pour le diagnostic et l’action recommandée</p></div>
+            <ul class="feed drill-list" id="stock-alerts"></ul>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Données de l'analyse — stock</h3><p class="chart-hint" id="table-stock-meta">—</p></div>
+            <div class="table-wrap" id="table-stock"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ═══════════════ PRÉVISIONS VENTES ═══════════════ -->
+      <section id="view-ml-forecast" class="view">
+        <p class="chart-hint" id="ml-service-meta-fc">—</p>
+        <div class="kpi-row" id="kpi-ml-forecast"></div>
+        <article class="panel ml-hero-card" id="card-ml-forecast"></article>
+        <div class="grid-2">
+          <article class="panel">
+            <div class="panel-head"><h3>Erreur selon l’horizon</h3><p class="chart-hint">Cliquez sur une barre — plus bas = mieux</p></div>
+            <div class="chart" id="chart-ml-wape"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Contrôle sur 6 périodes</h3><p class="chart-hint">Cliquez sur un point pour le détail</p></div>
+            <div class="chart" id="chart-ml-windows"></div>
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <div class="panel-head"><h3>Ventes réelles vs prévues (30 j)</h3><p class="chart-hint">Cliquez sur une catégorie</p></div>
+            <div class="chart" id="chart-ml-cat"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Écarts produits à surveiller</h3><p class="chart-hint">Cliquez sur un produit</p></div>
+            <div class="chart" id="chart-ml-ecarts"></div>
+          </article>
+        </div>
+        <article class="panel" style="margin-top:16px">
+          <div class="panel-head"><h3>Périodes de contrôle</h3><p class="chart-hint" id="ml-windows-meta">—</p></div>
+          <div class="table-wrap" id="ml-windows-table"></div>
+        </article>
+        <article class="panel" style="margin-top:16px">
+          <div class="panel-head"><h3>Détail produits — plus gros écarts</h3><p class="chart-hint" id="ml-forecast-meta">—</p></div>
+          <div class="table-wrap" id="ml-forecast-table"></div>
+        </article>
+      </section>
+
+      <!-- ═══════════════ SIMULATION PRIX ═══════════════ -->
+      <section id="view-ml-pricing" class="view">
+        <p class="chart-hint" id="ml-service-meta-pr">—</p>
+        <div class="kpi-row" id="kpi-ml-pricing"></div>
+        <article class="panel ml-hero-card" id="card-ml-pricing"></article>
+        <div class="grid-2">
+          <article class="panel">
+            <div class="panel-head"><h3>Qualité des scénarios</h3><p class="chart-hint">Cliquez sur une barre pour le détail</p></div>
+            <div class="chart" id="chart-ml-pricing-scores"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Classes ABC catalogue</h3><p class="chart-hint">Cliquez sur une classe</p></div>
+            <div class="chart" id="chart-ml-abc"></div>
+          </article>
+        </div>
+        <article class="panel" style="margin-top:16px">
+          <div class="panel-head"><h3>Scénarios prix</h3><p class="chart-hint" id="ml-pricing-scores-meta">—</p></div>
+          <div class="table-wrap" id="ml-pricing-scores-table"></div>
+        </article>
+        <article class="panel" style="margin-top:16px">
+          <div class="panel-head"><h3>Catalogue prix</h3><p class="chart-hint" id="ml-pricing-meta">—</p></div>
+          <div class="table-wrap" id="ml-pricing-table"></div>
+        </article>
+      </section>
+
+      <!-- ═══════════════ RECOMMANDATION ═══════════════ -->
+      <section id="view-ml-reco" class="view">
+        <p class="chart-hint" id="ml-service-meta-rc">—</p>
+        <div class="kpi-row" id="kpi-ml-reco"></div>
+        <article class="panel ml-hero-card" id="card-ml-reco"></article>
+        <div class="grid-2">
+          <article class="panel">
+            <div class="panel-head"><h3>Amélioration de l’ordre</h3><p class="chart-hint">Cliquez sur une barre pour le détail</p></div>
+            <div class="chart" id="chart-ml-reco-gains"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Best-sellers (filet de sécurité)</h3><p class="chart-hint">Cliquez sur un produit</p></div>
+            <div class="chart" id="chart-ml-pop"></div>
+          </article>
+        </div>
+        <article class="panel" style="margin-top:16px">
+          <div class="panel-head"><h3>Usages validés</h3><p class="chart-hint" id="ml-reco-roles-meta">—</p></div>
+          <div class="table-wrap" id="ml-reco-roles-table"></div>
+        </article>
+        <article class="panel" style="margin-top:16px">
+          <div class="panel-head"><h3>Liste popularité</h3><p class="chart-hint" id="ml-reco-meta">—</p></div>
+          <div class="table-wrap" id="ml-reco-table"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div id="detail-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-card" role="dialog" aria-modal="true">
+      <header class="modal-head">
+        <h2 id="detail-title">Détail</h2>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Fermer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+      <div class="modal-body">
+        <p class="detail-comment" id="detail-comment" hidden></p>
+        <div class="detail-status" id="detail-status" hidden></div>
+        <div id="detail-body"></div>
+      </div>
+      <footer class="modal-foot">
+        <div class="modal-foot-left">
+          <button type="button" class="f-btn icon-txt" id="detail-export-xlsx" title="Exporter ce détail (Excel)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            Excel
+          </button>
+          <button type="button" class="f-btn icon-txt" id="detail-export-html" title="Rapport HTML de ce détail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            HTML
+          </button>
+        </div>
+        <div class="modal-foot-right">
+          <button type="button" class="f-btn" data-close-modal>Fermer</button>
+          <button type="button" class="f-btn on" id="detail-apply" hidden>Explorer avec ce filtre</button>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <button id="refresh" type="button" hidden aria-hidden="true"></button>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/filters-patch.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app-tail.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/models-live.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/export.js') }}"></script>
+</body>
+</html>

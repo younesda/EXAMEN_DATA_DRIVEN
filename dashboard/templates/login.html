@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teranga BI — Connexion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="blob accent"></div>
+    <div class="blob blue"></div>
+    <div class="sphere s1"></div>
+    <div class="sphere s2"></div>
+  </div>
+  <header class="nav">
+    <div class="logo"><span class="mark">T</span>Teranga BI</div>
+    <p>ISM · Master 2 Big Data</p>
+  </header>
+  <main class="stage">
+    <section class="hero">
+      <p class="kicker">Data-driven pricing &amp; recommandation</p>
+      <h1>Tableau de bord décisionnel</h1>
+      <p class="lead">Forecasting, pricing, recommandation et warehouse Supabase — suivi des KPI e-commerce.</p>
+    </section>
+    <form class="card" method="post" autocomplete="off">
+      <p class="form-kicker">Espace décisionnel</p>
+      <h2>Connexion</h2>
+      {% if error %}<p class="err">{{ error }}</p>{% endif %}
+      <label>Identifiant<input type="text" name="username" placeholder="admin" required /></label>
+      <label>Mot de passe<input type="password" name="password" placeholder="••••••••" required /></label>
+      <button type="submit">Se connecter</button>
+      <p class="hint">Démo : admin / teranga2026</p>
+    </form>
+  </main>
+</body>
+</html>
